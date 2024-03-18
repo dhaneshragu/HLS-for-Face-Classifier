@@ -1,0 +1,14 @@
+<annotationInfo>
+<annotationInfo>
+<item  id="12" filename="ALU/alu.cpp" linenumber="25" name="result" contextFuncName="ALU" moduleName="ALU" rtlName="result_fu_42_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="D:\"><\/item>
+<item  id="13" filename="ALU/alu.cpp" linenumber="28" name="result_1" contextFuncName="ALU" moduleName="ALU" rtlName="result_1_fu_48_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="D:\"><\/item>
+<item  id="14" filename="ALU/alu.cpp" linenumber="31" name="result_2" contextFuncName="ALU" moduleName="ALU" rtlName="result_2_fu_54_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="D:\"><\/item>
+<item  id="15" filename="ALU/alu.cpp" linenumber="34" name="result_3" contextFuncName="ALU" moduleName="ALU" rtlName="result_3_fu_60_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="D:\"><\/item>
+<item  id="16" filename="ALU/alu.cpp" linenumber="37" name="result_4" contextFuncName="ALU" moduleName="ALU" rtlName="result_4_fu_66_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="D:\"><\/item>
+<item  id="22" filename="ALU/alu.cpp" linenumber="25" name="newSel" contextFuncName="ALU" moduleName="ALU" rtlName="newSel_fu_102_p3" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="D:\"><\/item>
+<item  id="24" filename="ALU/alu.cpp" linenumber="31" name="newSel1" contextFuncName="ALU" moduleName="ALU" rtlName="newSel1_fu_116_p3" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="D:\"><\/item>
+<item  id="26" filename="ALU/alu.cpp" linenumber="37" name="newSel2" contextFuncName="ALU" moduleName="ALU" rtlName="newSel2_fu_130_p3" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="D:\"><\/item>
+<item  id="27" filename="ALU/alu.cpp" linenumber="25" name="newSel3" contextFuncName="ALU" moduleName="ALU" rtlName="newSel3_fu_138_p3" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="D:\"><\/item>
+<item  id="29" filename="ALU/alu.cpp" linenumber="25" name="result_5" contextFuncName="ALU" moduleName="ALU" rtlName="ap_return" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="D:\"><\/item>
+<\/annotationInfo>
+</annotationInfo>
