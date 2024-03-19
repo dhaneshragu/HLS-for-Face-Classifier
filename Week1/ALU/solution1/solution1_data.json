@@ -18,14 +18,12 @@
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
-    "IsCombLogic": "1",
+    "IsCombLogic": "0",
     "II": "x",
-    "Latency": "0",
+    "Latency": "1002",
     "Uncertainty": "1.25"
   },
-  "Xdc": {
-    
-  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
@@ -48,6 +46,11 @@
     "IP": []
   },
   "Interfaces": {
+    "ap_clk": {
+      "type": "clock",
+      "ctype": {"CLK": {"Type": "bool"}},
+      "reset": "ap_rst"
+    },
     "ap_ctrl": {
       "type": "ap_ctrl",
       "ctrl_ports": "ap_start ap_done ap_idle ap_ready",
@@ -63,25 +66,48 @@
       "dir": "out",
       "width": "32",
       "ctype": {"DATA": {
-          "Type": "integer unsigned",
+          "Type": "integer signed",
           "Width": "32"
         }}
     },
-    "inA": {
+    "ap_rst": {
+      "type": "reset",
+      "polarity": "ACTIVE_HIGH",
+      "ctype": {"RST": {"Type": "bool"}}
+    },
+    "inA_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "10",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "10"
+        }}
+    },
+    "inA_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
       "ctype": {"DATA": {
-          "Type": "integer unsigned",
+          "Type": "integer signed",
           "Width": "32"
         }}
     },
-    "inB": {
+    "inB_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "10",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "10"
+        }}
+    },
+    "inB_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
       "ctype": {"DATA": {
-          "Type": "integer unsigned",
+          "Type": "integer signed",
           "Width": "32"
         }}
     },
@@ -90,12 +116,20 @@
       "dir": "in",
       "width": "32",
       "ctype": {"DATA": {
-          "Type": "integer unsigned",
+          "Type": "integer signed",
           "Width": "32"
         }}
     }
   },
   "RtlPorts": {
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst": {
+      "dir": "in",
+      "width": "1"
+    },
     "ap_start": {
       "dir": "in",
       "width": "1"
@@ -116,11 +150,27 @@
       "dir": "out",
       "width": "32"
     },
-    "inA": {
+    "inA_address0": {
+      "dir": "out",
+      "width": "10"
+    },
+    "inA_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "inA_q0": {
       "dir": "in",
       "width": "32"
     },
-    "inB": {
+    "inB_address0": {
+      "dir": "out",
+      "width": "10"
+    },
+    "inB_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "inB_q0": {
       "dir": "in",
       "width": "32"
     },
@@ -139,16 +189,20 @@
       "dir": "out",
       "dataWidth": "32"
     },
-    "inA": {
-      "interfaceRef": "inA",
+    "inA_q0": {
+      "interfaceRef": "inA_q0",
       "dir": "in",
       "dataWidth": "32",
+      "busTypeRef": "ap_memory",
+      "arraySize": "1000",
       "handshakeRef": "ap_none"
     },
-    "inB": {
-      "interfaceRef": "inB",
+    "inB_q0": {
+      "interfaceRef": "inB_q0",
       "dir": "in",
       "dataWidth": "32",
+      "busTypeRef": "ap_memory",
+      "arraySize": "1000",
       "handshakeRef": "ap_none"
     },
     "op": {
@@ -162,21 +216,28 @@
     "Hierarchy": {"ModuleName": "ALU"},
     "Metrics": {"ALU": {
         "Latency": {
-          "LatencyBest": "0",
-          "LatencyAvg": "0",
-          "LatencyWorst": "0",
-          "PipelineII": "1",
+          "LatencyBest": "1002",
+          "LatencyAvg": "1002",
+          "LatencyWorst": "1002",
+          "PipelineII": "1003",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "6.548"
+          "Estimate": "7.802"
         },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "1000",
+            "Latency": "1000",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          }],
         "Area": {
-          "FF": "0",
-          "LUT": "469",
+          "FF": "80",
+          "LUT": "426",
           "BRAM_18K": "0",
           "DSP48E": "0"
         }
@@ -189,7 +250,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2024-03-19 02:55:41 +0530",
+    "Time": "2024-03-19 19:49:25 +0530",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

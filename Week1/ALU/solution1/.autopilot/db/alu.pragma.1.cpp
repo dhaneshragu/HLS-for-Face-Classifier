@@ -24152,30 +24152,34 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 }
 # 69 "D:/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 2
 # 2 "ALU/alu.cpp" 2
-# 20 "ALU/alu.cpp"
-unsigned int ALU(unsigned int inA, unsigned int inB, unsigned int op) {
-    unsigned int result;
+# 36 "ALU/alu.cpp"
+int ALU(int inA [1000], int inB[1000], int op) {_ssdm_SpecArrayDimSize(inA, 1000);_ssdm_SpecArrayDimSize(inB, 1000);
+    int result;
 
-    switch(op) {
-        case 0:
-            result = inA + inB;
-            break;
-        case 1:
-            result = inA - inB;
-            break;
-        case 2:
-            result = inA & inB;
-            break;
-        case 3:
-            result = inA | inB;
-            break;
-        case 4:
-            result = inA ^ inB;
-            break;
-        default:
-            printf("Unsupported operation\n");
-            result = 0;
-            break;
+    for(int i= 0 ;i < 1000 ; i++)
+    {
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ switch(op) {
+   case 0:
+    result = inA[i] + inB[i];
+    break;
+   case 1:
+    result = inA[i] - inB[i];
+    break;
+   case 2:
+    result = inA[i] & inB[i];
+    break;
+   case 3:
+    result = inA[i] | inB[i];
+    break;
+   case 4:
+    result = inA[i] ^ inB[i];
+    break;
+   default:
+    printf("Unsupported operation\n");
+    result = 0;
+    break;
+  }
     }
 
     return result;

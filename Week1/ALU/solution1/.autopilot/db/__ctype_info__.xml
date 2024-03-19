@@ -2,7 +2,7 @@
 <RtlPorts>
 <name>inA</name>
 <CType>
-<TypeName>unsigned int</TypeName>
+<TypeName>int</TypeName>
 <TypeWidth>32</TypeWidth>
 <PhysicalWidth>32</PhysicalWidth>
 </CType>
@@ -12,7 +12,7 @@
 <RtlPorts>
 <name>inB</name>
 <CType>
-<TypeName>unsigned int</TypeName>
+<TypeName>int</TypeName>
 <TypeWidth>32</TypeWidth>
 <PhysicalWidth>32</PhysicalWidth>
 </CType>
@@ -22,7 +22,7 @@
 <RtlPorts>
 <name>op</name>
 <CType>
-<TypeName>unsigned int</TypeName>
+<TypeName>int</TypeName>
 <TypeWidth>32</TypeWidth>
 <PhysicalWidth>32</PhysicalWidth>
 </CType>
@@ -32,7 +32,7 @@
 <RtlPorts>
 <name>ap_return</name>
 <CType>
-<TypeName>unsigned int</TypeName>
+<TypeName>int</TypeName>
 <TypeWidth>32</TypeWidth>
 <PhysicalWidth>32</PhysicalWidth>
 </CType>
