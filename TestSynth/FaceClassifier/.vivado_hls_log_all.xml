@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog>
+        <logs message="ERROR: [HLS 200-70] Synthesizability check failed.&#xD;&#xA;command 'ap_source' returned error code&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csynth.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csynth.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:33:59.589+0530"/>
+        <logs message="ERROR: [SYNCHK 200-22] ../C-Code-Original/face_classifier_c.c:52848: memory copy is not supported unless used on bus interface possible cause(s): non-static/non-constant local array with initialization)." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:33:58.706+0530"/>
+        <logs message="ERROR: [SYNCHK 200-76] ../C-Code-Original/include/k2c_core_layers.c:41: calling a function pointer is not supported." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:33:58.692+0530"/>
+        <logs message="ERROR: [SYNCHK 200-11] ../C-Code-Original/include/k2c_helper_functions.c:152: Argument 'A.array' of function 'face_classifier_c' (../C-Code-Original/face_classifier_c.c:9) has an unsynthesizable type (possible cause(s): pointer to pointer or global pointer)." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:33:58.680+0530"/>
+        <logs message="ERROR: [SYNCHK 200-61] ../C-Code-Original/include/k2c_helper_functions.c:39: unsupported memory access on variable 'C' which is (or contains) an array with unknown size at compile time." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:33:58.668+0530"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_activations.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.860+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_convolution_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.851+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_core_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.843+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_embedding_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.834+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_helper_functions.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.826+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_merge_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.817+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_normalization_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.808+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_pooling_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.796+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'k2c_recurrent_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.786+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Skipped source file 'libkeras2c.a'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx." projectName="FaceClassifier" solutionName="solution1" date="2024-03-28T01:32:49.774+0530" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

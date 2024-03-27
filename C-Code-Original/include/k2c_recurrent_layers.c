@@ -78,7 +78,8 @@ void k2c_lstmcell(float * state, const float * input, const k2c_tensor* kernel,
     // yc = yf.*c_tm1 + yi.*output_activation(xc + h_tm1*Uc);
     k2c_affine_matmul(yc, h_tm1, Uc, xc, outrows, units, units);
     output_activation(yc, units);
-    for (size_t i=0; i < units; ++i) {
+    size_t i;
+    for ( i=0; i < units; ++i) {
         yc[i] = yf[i]*c_tm1[i] + yi[i]*yc[i];
     }
 
@@ -88,13 +89,13 @@ void k2c_lstmcell(float * state, const float * input, const k2c_tensor* kernel,
 
     // h = yo.*output_activation(yc);
     // state = [h;yc];
-    for (size_t i=0; i < units; ++i) {
+    for ( i=0; i < units; ++i) {
         state[units+i] = yc[i];
     }
 
     output_activation(yc, units);
 
-    for (size_t i=0; i < units; ++i) {
+    for ( i=0; i < units; ++i) {
         state[i] = yo[i]*yc[i];
     }
 
@@ -303,7 +304,8 @@ void k2c_grucell(float * state, const float * input, const k2c_tensor* kernel,
 
     //    z = np.tanh(x_z + recurrent_z)
     //    r = np.tanh(x_r + recurrent_r)
-    for (size_t i=0; i<units; ++i) {
+    size_t i;
+    for ( i=0; i<units; ++i) {
         yz[i] = xz[i] + yz[i];
         yr[i] = xr[i] + yr[i];
     }
@@ -321,22 +323,23 @@ void k2c_grucell(float * state, const float * input, const k2c_tensor* kernel,
     }
     else {
         //        recurrent_h = (r .* h_tm1)*recurrent_kernel_h
-        for (size_t i=0; i<units; ++i) {
+    	size_t i;
+        for ( i=0; i<units; ++i) {
             yh[i] = yr[i]*h_tm1[i];
         }
         k2c_matmul(xz, yh, Uh, outrows, units, units); //reuse xz as new yh
-        for (size_t i=0; i<units; ++i) {
+        for ( i=0; i<units; ++i) {
             yh[i] = xz[i];
         }
     }
     //    hh = np.tanh(x_h + recurrent_h)
-    for (size_t i=0; i<units; ++i) {
+    for ( i=0; i<units; ++i) {
         xr[i] = xh[i] + yh[i];  // reuse xr = hh
     }
     output_activation(xr, units);
 
     //    h = z .* h_tm1 + (1 - z) .* hh
-    for (size_t i=0; i<units; ++i) {
+    for ( i=0; i<units; ++i) {
         state[i] = yz[i] * h_tm1[i] + (1.0f-yz[i])*xr[i];
     }
 }

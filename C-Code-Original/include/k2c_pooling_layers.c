@@ -22,11 +22,12 @@ https://github.com/f0uriest/keras2c
 void k2c_global_max_pooling(k2c_tensor* output, const k2c_tensor* input) {
 
     const size_t in_chan = input->shape[input->ndim-1];
-    for (size_t i=0; i<in_chan; ++i) {
+    size_t i;
+    for (i=0; i<in_chan; ++i) {
         output->array[i] = input->array[i];
     }
 
-    for (size_t i=0; i<input->numel; i+=in_chan) {
+    for (i=0; i<input->numel; i+=in_chan) {
         for (size_t j=0; j<in_chan; ++j) {
             if (output->array[j]<input->array[i+j]) {
                 output->array[j] = input->array[i+j];

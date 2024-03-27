@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="face_classifier_c.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c.c"/>
+    <originFiles name="face_classifier_c.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c.h"/>
+    <originFiles name="k2c_activations.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_activations.c"/>
+    <originFiles name="k2c_activations.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_activations.o"/>
+    <originFiles name="k2c_convolution_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_convolution_layers.c"/>
+    <originFiles name="k2c_convolution_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_convolution_layers.o"/>
+    <originFiles name="k2c_core_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_core_layers.c"/>
+    <originFiles name="k2c_core_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_core_layers.o"/>
+    <originFiles name="k2c_embedding_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_embedding_layers.c"/>
+    <originFiles name="k2c_embedding_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_embedding_layers.o"/>
+    <originFiles name="k2c_helper_functions.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_helper_functions.c"/>
+    <originFiles name="k2c_helper_functions.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_helper_functions.o"/>
+    <originFiles name="k2c_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_include.h"/>
+    <originFiles name="k2c_merge_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_merge_layers.c"/>
+    <originFiles name="k2c_merge_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_merge_layers.o"/>
+    <originFiles name="k2c_normalization_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_normalization_layers.c"/>
+    <originFiles name="k2c_normalization_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_normalization_layers.o"/>
+    <originFiles name="k2c_pooling_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_pooling_layers.c"/>
+    <originFiles name="k2c_pooling_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_pooling_layers.o"/>
+    <originFiles name="k2c_recurrent_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_recurrent_layers.c"/>
+    <originFiles name="k2c_recurrent_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_recurrent_layers.o"/>
+    <originFiles name="k2c_tensor_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_tensor_include.h"/>
+    <originFiles name="libkeras2c.a" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\libkeras2c.a"/>
+    <originFiles name="face_classifier_c.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c.c"/>
+    <originFiles name="face_classifier_c.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c.h"/>
+    <originFiles name="k2c_activations.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_activations.c"/>
+    <originFiles name="k2c_activations.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_activations.o"/>
+    <originFiles name="k2c_convolution_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_convolution_layers.c"/>
+    <originFiles name="k2c_convolution_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_convolution_layers.o"/>
+    <originFiles name="k2c_core_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_core_layers.c"/>
+    <originFiles name="k2c_core_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_core_layers.o"/>
+    <originFiles name="k2c_embedding_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_embedding_layers.c"/>
+    <originFiles name="k2c_embedding_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_embedding_layers.o"/>
+    <originFiles name="k2c_helper_functions.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_helper_functions.c"/>
+    <originFiles name="k2c_helper_functions.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_helper_functions.o"/>
+    <originFiles name="k2c_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_include.h"/>
+    <originFiles name="k2c_merge_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_merge_layers.c"/>
+    <originFiles name="k2c_merge_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_merge_layers.o"/>
+    <originFiles name="k2c_normalization_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_normalization_layers.c"/>
+    <originFiles name="k2c_normalization_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_normalization_layers.o"/>
+    <originFiles name="k2c_pooling_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_pooling_layers.c"/>
+    <originFiles name="k2c_pooling_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_pooling_layers.o"/>
+    <originFiles name="k2c_recurrent_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_recurrent_layers.c"/>
+    <originFiles name="k2c_recurrent_layers.o" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_recurrent_layers.o"/>
+    <originFiles name="k2c_tensor_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_tensor_include.h"/>
+    <originFiles name="libkeras2c.a" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\libkeras2c.a"/>
+  </source>
+  <testbench>
+    <originFiles name="face_classifier_c_test_suite.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c_test_suite.c"/>
+    <originFiles name="face_classifier_c_test_suite.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c_test_suite.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

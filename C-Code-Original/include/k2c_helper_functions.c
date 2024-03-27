@@ -29,9 +29,19 @@ void k2c_matmul(float * C, const float * A, const float * B, const size_t outrow
                 const size_t outcols, const size_t innerdim) {
 
     // make sure output is empty
-    memset(C, 0, outrows*outcols*sizeof(C[0]));
+//    memset(C, 0, outrows*outcols*sizeof(C[0]));
+	size_t i;
+	for ( i = 0 ; i < outrows; ++i) {
+	        const size_t outrowidx = i*outcols;
+	        const size_t inneridx = i*innerdim;
+	        for (size_t k = 0; k < innerdim; ++k) {
+	            for (size_t j = 0;  j < outcols; ++j) {
+	                C[outrowidx+j] = 0;
+	            }
+	        }
+	    }
 
-    for (size_t i = 0 ; i < outrows; ++i) {
+    for ( i = 0 ; i < outrows; ++i) {
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t k = 0; k < innerdim; ++k) {
@@ -61,9 +71,19 @@ void k2c_affine_matmul(float * C, const float * A, const float * B, const float 
                        const size_t outrows,const size_t outcols, const size_t innerdim) {
 
     // make sure output is empty
-    memset(C, 0, outrows*outcols*sizeof(C[0]));
+//    memset(C, 0, outrows*outcols*sizeof(C[0]));
+	size_t i;
+	for ( i = 0 ; i < outrows; ++i) {
+	        const size_t outrowidx = i*outcols;
+	        const size_t inneridx = i*innerdim;
+	        for (size_t k = 0; k < innerdim; ++k) {
+	            for (size_t j = 0;  j < outcols; ++j) {
+	                C[outrowidx+j] = 0;
+	            }
+	        }
+	    }
 
-    for (size_t i = 0 ; i < outrows; ++i) {
+    for ( i = 0 ; i < outrows; ++i) {
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t j = 0;  j < outcols; ++j) {
@@ -151,7 +171,8 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
     size_t Bsub[K2C_MAX_NDIM];
     // find which axes are free (ie, not being summed over)
     count=0;
-    for (size_t i=0; i<ndimA; ++i) {
+    size_t i,j;
+    for ( i=0; i<ndimA; ++i) {
         isin = 0;
         for (size_t j=0; j<naxes; ++j) {
             if (i==axesA[j]) {
@@ -164,7 +185,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
         }
     }
     count=0;
-    for (size_t i=0; i<ndimB; ++i) {
+    for ( i=0; i<ndimB; ++i) {
         isin = 0;
         for (size_t j=0; j<naxes; ++j) {
             if (i==axesB[j]) {
@@ -178,40 +199,40 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
     }
 
     // number of elements in inner dimension
-    for (size_t i=0; i < naxes; ++i) {
+    for ( i=0; i < naxes; ++i) {
         prod_axesA *= A->shape[axesA[i]];
     }
-    for (size_t i=0; i < naxes; ++i) {
+    for (i=0; i < naxes; ++i) {
         prod_axesB *= B->shape[axesB[i]];
     }
     // number of elements in free dimension
     free_axesA = A->numel/prod_axesA;
     free_axesB = B->numel/prod_axesB;
     // find permutation of axes to get into matmul shape
-    for (size_t i=0; i<ndimA-naxes; ++i) {
+    for ( i=0; i<ndimA-naxes; ++i) {
         permA[i] = freeA[i];
     }
-    for (size_t i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
+    for ( i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
         permA[i] = axesA[j];
     }
-    for (size_t i=0; i<naxes; ++i) {
+    for ( i=0; i<naxes; ++i) {
         permB[i] = axesB[i];
     }
-    for (size_t i=naxes, j=0; i<ndimB; ++i, ++j) {
+    for (i=naxes, j=0; i<ndimB; ++i, ++j) {
         permB[i] = freeB[j];
     }
 
 
 
-    for (size_t i=0; i<ndimA; ++i) {
+    for ( i=0; i<ndimA; ++i) {
         newshpA[i] = A->shape[permA[i]];
     }
-    for (size_t i=0; i<ndimB; ++i) {
+    for ( i=0; i<ndimB; ++i) {
         newshpB[i] = B->shape[permB[i]];
     }
 
     // reshape arrays
-    for (size_t i=0; i<A->numel; ++i) {
+    for ( i=0; i<A->numel; ++i) {
         k2c_idx2sub(i,Asub,A->shape,ndimA);
         for (size_t j=0; j<ndimA; ++j) {
             Bsub[j] = Asub[permA[j]];
@@ -220,7 +241,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
         reshapeA[bidx] = A->array[i];
     }
 
-    for (size_t i=0; i<B->numel; ++i) {
+    for ( i=0; i<B->numel; ++i) {
         k2c_idx2sub(i,Bsub,B->shape,ndimB);
         for (size_t j=0; j<ndimB; ++j) {
             Asub[j] = Bsub[permB[j]];
@@ -234,23 +255,26 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
 
         float sum;
         float inorm;
-        for (size_t i=0; i<free_axesA; ++i) {
+        size_t i;
+        for ( i=0; i<free_axesA; ++i) {
             sum = 0;
-            for (size_t j=0; j<prod_axesA; ++j) {
+            size_t j;
+            for ( j=0; j<prod_axesA; ++j) {
                 sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
             }
             inorm = 1.0f/sqrtf(sum);
-            for (size_t j=0; j<prod_axesA; ++j) {
+            for ( j=0; j<prod_axesA; ++j) {
                 reshapeA[i*prod_axesA + j] *= inorm;
             }
         }
-        for (size_t i=0; i<free_axesB; ++i) {
+        for ( i=0; i<free_axesB; ++i) {
             sum = 0;
-            for (size_t j=0; j<prod_axesB; ++j) {
+            size_t j;
+            for ( j=0; j<prod_axesB; ++j) {
                 sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
             }
             inorm = 1.0f/sqrtf(sum);
-            for (size_t j=0; j<prod_axesB; ++j) {
+            for ( j=0; j<prod_axesB; ++j) {
                 reshapeB[i + free_axesB*j] *= inorm;
             }
         }

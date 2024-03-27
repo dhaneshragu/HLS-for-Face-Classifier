@@ -129,22 +129,23 @@ void k2c_softmax_func(float * x, const size_t size) {
 
     float xmax = x[0];
     float sum = 0;
-    for (size_t i=0; i < size; ++i) {
+    size_t i;
+    for ( i=0; i < size; ++i) {
         if (x[i]>xmax) {
             xmax = x[i];
         }
     }
 
-    for (size_t i=0; i < size; ++i) {
+    for ( i=0; i < size; ++i) {
         x[i] = expf(x[i]-xmax);
     }
 
-    for (size_t i=0; i < size; ++i) {
+    for ( i=0; i < size; ++i) {
         sum += x[i];
     }
 
     sum = 1.0f/sum;
-    for (size_t i=0; i < size; ++i) {
+    for ( i=0; i < size; ++i) {
         x[i] = x[i]*sum;
     }
 }

@@ -110,14 +110,15 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
     size_t oldshp[K2C_MAX_NDIM];
     const size_t ndim = input->ndim;
     size_t bidx=0;
-    for (size_t i=0; i<ndim; ++i) {
+    size_t i;
+    for ( i=0; i<ndim; ++i) {
         oldshp[i] = input->shape[i];
     }
-    for (size_t i=0; i<ndim; ++i) {
+    for (i=0; i<ndim; ++i) {
         newshp[i] = oldshp[permute[i]];
     }
 
-    for (size_t i=0; i<input->numel; ++i) {
+    for ( i=0; i<input->numel; ++i) {
         k2c_idx2sub(i,Asub,oldshp,ndim);
         for (size_t j=0; j<ndim; ++j) {
             Bsub[j] = Asub[permute[j]];
