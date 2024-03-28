@@ -1,91 +1,67 @@
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Mar 28 01:32:49 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Mar 28 21:30:07 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth'
 INFO: [HLS 200-10] Opening project 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier'.
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/face_classifier_c.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/face_classifier_c.h' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_activations.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_activations.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_convolution_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_convolution_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_core_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_core_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_embedding_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_embedding_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_helper_functions.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_helper_functions.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_include.h' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_merge_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_merge_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_normalization_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_normalization_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_pooling_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_pooling_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_recurrent_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_recurrent_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_tensor_include.h' to the project
 INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/libkeras2c.a' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/face_classifier_c.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/face_classifier_c.h' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_activations.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_activations.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_convolution_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_convolution_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_core_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_core_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_embedding_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_embedding_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_helper_functions.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_helper_functions.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_include.h' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_merge_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_merge_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_normalization_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_normalization_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_pooling_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_pooling_layers.o' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_recurrent_layers.c' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_recurrent_layers.o' to the project
 INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_tensor_include.h' to the project
-INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/libkeras2c.a' to the project
-INFO: [HLS 200-10] Adding test bench file '../C-Code-Original/face_classifier_c_test_suite.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_recurrent_layers.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_recurrent_layers.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_pooling_layers.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_pooling_layers.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_normalization_layers.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_normalization_layers.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_merge_layers.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_merge_layers.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_include.h' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_helper_functions.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_helper_functions.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_embedding_layers.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_embedding_layers.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_core_layers.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_core_layers.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_convolution_layers.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_convolution_layers.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_activations.o' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/include/k2c_activations.c' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/face_classifier_c.h' to the project
+INFO: [HLS 200-10] Adding design file '../C-Code-Original/face_classifier_c.c' to the project
 INFO: [HLS 200-10] Adding test bench file '../C-Code-Original/face_classifier_c_test_suite.c' to the project
 INFO: [HLS 200-10] Opening solution 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xa7a12tcsg325-1q'
-WARNING: [HLS 200-40] Skipped source file 'libkeras2c.a'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_recurrent_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_pooling_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_normalization_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_merge_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_helper_functions.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_embedding_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_core_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-WARNING: [HLS 200-40] Skipped source file 'k2c_convolution_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
 WARNING: [HLS 200-40] Skipped source file 'k2c_activations.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_recurrent_layers.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_pooling_layers.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_normalization_layers.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_merge_layers.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_helper_functions.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_embedding_layers.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_core_layers.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_convolution_layers.c' ... 
-INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_activations.c' ... 
+WARNING: [HLS 200-40] Skipped source file 'k2c_convolution_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'k2c_core_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'k2c_embedding_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'k2c_helper_functions.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'k2c_merge_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'k2c_normalization_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'k2c_pooling_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'k2c_recurrent_layers.o'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'libkeras2c.a'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
 INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/face_classifier_c.c' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:50 . Memory (MB): peak = 103.156 ; gain = 47.184
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:50 . Memory (MB): peak = 103.156 ; gain = 47.184
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_activations.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_convolution_layers.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_core_layers.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_embedding_layers.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_helper_functions.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_merge_layers.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_normalization_layers.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_pooling_layers.c' ... 
+INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_recurrent_layers.c' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:48 . Memory (MB): peak = 102.266 ; gain = 46.648
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:48 . Memory (MB): peak = 102.266 ; gain = 46.648
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:09 ; elapsed = 00:01:02 . Memory (MB): peak = 459.441 ; gain = 403.469
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:09 ; elapsed = 00:01:00 . Memory (MB): peak = 458.844 ; gain = 403.227
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'k2c_idx2sub' into 'k2c_dot.2' (../C-Code-Original/include/k2c_helper_functions.c:236) automatically.
+INFO: [XFORM 203-602] Inlining function 'k2c_idx2sub' into 'k2c_dot.2' (../C-Code-Original/include/k2c_helper_functions.c:228) automatically.
 INFO: [XFORM 203-602] Inlining function 'k2c_bias_add' into 'k2c_dense' (../C-Code-Original/include/k2c_core_layers.c:50) automatically.
-INFO: [XFORM 203-602] Inlining function 'k2c_idx2sub' into 'k2c_dot.1' (../C-Code-Original/include/k2c_helper_functions.c:236) automatically.
+INFO: [XFORM 203-602] Inlining function 'k2c_idx2sub' into 'k2c_dot.1' (../C-Code-Original/include/k2c_helper_functions.c:228) automatically.
 INFO: [XFORM 203-602] Inlining function 'k2c_bias_add' into 'k2c_dense.1' (../C-Code-Original/include/k2c_core_layers.c:50) automatically.
-INFO: [XFORM 203-602] Inlining function 'k2c_idx2sub' into 'k2c_dot' (../C-Code-Original/include/k2c_helper_functions.c:236) automatically.
+INFO: [XFORM 203-602] Inlining function 'k2c_idx2sub' into 'k2c_dot' (../C-Code-Original/include/k2c_helper_functions.c:228) automatically.
 INFO: [XFORM 203-602] Inlining function 'k2c_bias_add' into 'k2c_dense.2' (../C-Code-Original/include/k2c_core_layers.c:50) automatically.
-ERROR: [SYNCHK 200-61] ../C-Code-Original/include/k2c_helper_functions.c:39: unsupported memory access on variable 'C' which is (or contains) an array with unknown size at compile time.
-ERROR: [SYNCHK 200-11] ../C-Code-Original/include/k2c_helper_functions.c:152: Argument 'A.array' of function 'face_classifier_c' (../C-Code-Original/face_classifier_c.c:9) has an unsynthesizable type (possible cause(s): pointer to pointer or global pointer).
+ERROR: [SYNCHK 200-61] ../C-Code-Original/include/k2c_helper_functions.c:40: unsupported memory access on variable 'C' which is (or contains) an array with unknown size at compile time.
+ERROR: [SYNCHK 200-11] ../C-Code-Original/include/k2c_helper_functions.c:144: Argument 'A.array' of function 'face_classifier_c' (../C-Code-Original/face_classifier_c.c:9) has an unsynthesizable type (possible cause(s): pointer to pointer or global pointer).
 ERROR: [SYNCHK 200-76] ../C-Code-Original/include/k2c_core_layers.c:41: calling a function pointer is not supported.
 ERROR: [SYNCHK 200-22] ../C-Code-Original/face_classifier_c.c:52848: memory copy is not supported unless used on bus interface possible cause(s): non-static/non-constant local array with initialization).
 INFO: [SYNCHK 200-10] 4 error(s), 0 warning(s).

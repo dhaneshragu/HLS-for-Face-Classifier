@@ -28,7 +28,6 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
@@ -46,7 +45,6 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
@@ -80,6 +78,21 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1770484723" name="face_classifier_c_test_suite.c" rcbsApplicability="disable" resourcePath="testbench/face_classifier_c_test_suite.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.338217153">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.338217153" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.947996093" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.334985819" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
+								<listOptionValue builtIn="false" value="C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
+							</option>
+							<option id="gnu.c.compiler.option.misc.other.877473698" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1286725063" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<sourceEntries>
 						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
@@ -114,7 +127,6 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
@@ -127,7 +139,6 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
@@ -156,6 +167,21 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.343621296" name="face_classifier_c_test_suite.c" rcbsApplicability="disable" resourcePath="testbench/face_classifier_c_test_suite.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.154659503">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.154659503" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.610708729" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.596306664" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
+								<listOptionValue builtIn="false" value="C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
+								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
+							</option>
+							<option id="gnu.c.compiler.option.misc.other.312880745" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1654789968" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<sourceEntries>
 						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>

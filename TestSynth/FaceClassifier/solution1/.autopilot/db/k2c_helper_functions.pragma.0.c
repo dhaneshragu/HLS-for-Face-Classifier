@@ -1934,33 +1934,25 @@ void k2c_gru(k2c_tensor* output, const k2c_tensor* input, float * state,
              k2c_activationType *output_activation);
 # 13 "../C-Code-Original/include/k2c_helper_functions.c" 2
 # 28 "../C-Code-Original/include/k2c_helper_functions.c"
-void k2c_matmul(float * C, const float * A, const float * B, const size_t outrows,
-                const size_t outcols, const size_t innerdim) {
+void k2c_matmul(float C[100000], const float * A, const float * B, const size_t outrows,
+                const size_t outcols, const size_t innerdim) {_ssdm_SpecArrayDimSize(C, 100000);
 
 
 
  size_t i;
- for ( i = 0 ; i < outrows; ++i) {
-         const size_t outrowidx = i*outcols;
-         const size_t inneridx = i*innerdim;
-         for (size_t k = 0; k < innerdim; ++k) {
-             for (size_t j = 0; j < outcols; ++j) {
-                 C[outrowidx+j] = 0;
-             }
-         }
-     }
 
     for ( i = 0 ; i < outrows; ++i) {
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t k = 0; k < innerdim; ++k) {
             for (size_t j = 0; j < outcols; ++j) {
+             C[outrowidx+j] = 0;
                 C[outrowidx+j] += A[inneridx+k] * B[k*outcols+j];
             }
         }
     }
 }
-# 70 "../C-Code-Original/include/k2c_helper_functions.c"
+# 62 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_affine_matmul(float * C, const float * A, const float * B, const float * d,
                        const size_t outrows,const size_t outcols, const size_t innerdim) {
 
@@ -1988,7 +1980,7 @@ void k2c_affine_matmul(float * C, const float * A, const float * B, const float 
         }
     }
 }
-# 107 "../C-Code-Original/include/k2c_helper_functions.c"
+# 99 "../C-Code-Original/include/k2c_helper_functions.c"
 size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) {
 
     size_t idx = 0;
@@ -2002,7 +1994,7 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
     }
     return idx;
 }
-# 130 "../C-Code-Original/include/k2c_helper_functions.c"
+# 122 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim) {
 
     size_t idx2 = idx;
@@ -2011,7 +2003,7 @@ void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const siz
         idx2 /= shape[i];
     }
 }
-# 152 "../C-Code-Original/include/k2c_helper_functions.c"
+# 144 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size_t * axesA,
              const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
 
@@ -2146,7 +2138,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
     k2c_matmul(C->array, reshapeA, reshapeB, free_axesA,
                free_axesB, prod_axesA);
 }
-# 295 "../C-Code-Original/include/k2c_helper_functions.c"
+# 287 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b) {
 
     for (size_t i=0; i<A->numel; i+=b->numel) {
@@ -2155,7 +2147,7 @@ void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b) {
         }
     }
 }
-# 313 "../C-Code-Original/include/k2c_helper_functions.c"
+# 305 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_flip(k2c_tensor *A, const size_t axis) {
     const size_t ndim = A->ndim;
     const size_t * shape = A->shape;
@@ -2188,7 +2180,7 @@ void k2c_flip(k2c_tensor *A, const size_t axis) {
         }
     }
 }
-# 355 "../C-Code-Original/include/k2c_helper_functions.c"
+# 347 "../C-Code-Original/include/k2c_helper_functions.c"
 float* k2c_read_array(const char* filename, const size_t array_size) {
     float* ptr = (float*) malloc(array_size * sizeof(float));
     if (!ptr) {

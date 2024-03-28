@@ -25,27 +25,19 @@ https://github.com/f0uriest/keras2c
  * :param outcols: number of cols of C and B.
  * :param innderdim: number of cols of A and rows of B
  */
-void k2c_matmul(float * C, const float * A, const float * B, const size_t outrows,
+void k2c_matmul(float  *C, const float * A, const float * B, const size_t outrows,
                 const size_t outcols, const size_t innerdim) {
 
     // make sure output is empty
 //    memset(C, 0, outrows*outcols*sizeof(C[0]));
 	size_t i;
-	for ( i = 0 ; i < outrows; ++i) {
-	        const size_t outrowidx = i*outcols;
-	        const size_t inneridx = i*innerdim;
-	        for (size_t k = 0; k < innerdim; ++k) {
-	            for (size_t j = 0;  j < outcols; ++j) {
-	                C[outrowidx+j] = 0;
-	            }
-	        }
-	    }
 
     for ( i = 0 ; i < outrows; ++i) {
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t k = 0; k < innerdim; ++k) {
             for (size_t j = 0;  j < outcols; ++j) {
+            	C[outrowidx+j] = 0;
                 C[outrowidx+j] += A[inneridx+k] * B[k*outcols+j];
             }
         }
