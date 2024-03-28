@@ -93,7 +93,6 @@ k2c_activationType * k2c_hard_sigmoid = k2c_hard_sigmoid_func;
  * :param size: length of input array.
  */
 void k2c_tanh_func(float * x, const size_t size) {
-
     for (size_t i=0; i<size; ++i) {
         x[i] = tanhf(x[i]);
     }
@@ -125,27 +124,28 @@ k2c_activationType * k2c_sigmoid = k2c_sigmoid_func;
  * :param x: array of input values. Gets overwritten by output.
  * :param size: length of input array.
  */
-void k2c_softmax_func(float * x, const size_t size) {
+void k2c_softmax_func(float x[6], const size_t size) {
 
     float xmax = x[0];
     float sum = 0;
     size_t i;
-    for ( i=0; i < size; ++i) {
+    for ( i=1; i < 6; ++i) {
         if (x[i]>xmax) {
             xmax = x[i];
         }
     }
 
-    for ( i=0; i < size; ++i) {
+    for ( i=0; i < 6; ++i) {
         x[i] = expf(x[i]-xmax);
-    }
-
-    for ( i=0; i < size; ++i) {
         sum += x[i];
     }
 
+//    for ( i=0; i < 6; ++i) {
+//        sum += x[i];
+//    }
+
     sum = 1.0f/sum;
-    for ( i=0; i < size; ++i) {
+    for ( i=0; i < 6; ++i) {
         x[i] = x[i]*sum;
     }
 }

@@ -22,7 +22,7 @@ https://github.com/f0uriest/keras2c
  * :param fwork: array of working space, size(fwork) = size(input) + size(kernel)
  */
 void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-               const k2c_tensor* bias, k2c_activationType *activation, float * fwork) {
+               const k2c_tensor* bias, float * fwork) {
 
     if (input->ndim <=2) {
         size_t outrows;
@@ -36,9 +36,21 @@ void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* ke
         const size_t outcols = kernel->shape[1];
         const size_t innerdim = kernel->shape[0];
         const size_t outsize = outrows*outcols;
-        k2c_affine_matmul(output->array,input->array,kernel->array,bias->array,
-                          outrows,outcols,innerdim);
-        activation(output->array,outsize);
+        // k2c_affine_matmul(output->array,input->array,kernel->array,bias->array,
+        //                   outrows,outcols,innerdim);
+
+        size_t i;
+        for ( i = 0 ; i < outrows; ++i) {
+        const size_t outrowidx = i*outcols;
+        const size_t inneridx = i*innerdim;
+        for (size_t j = 0;  j < outcols; ++j) {
+            output->array[outrowidx+j] = bias->array[j];
+            for (size_t k = 0; k < innerdim; ++k) {
+                output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
+            }
+        }
+        }
+        k2c_linear_func(output->array,outsize);
     }
     else {
         const size_t axesA[1] = {input->ndim-1};
@@ -48,7 +60,7 @@ void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* ke
 
         k2c_dot(output, input, kernel, axesA, axesB, naxes, normalize, fwork);
         k2c_bias_add(output, bias);
-        activation(output->array, output->numel);
+        k2c_linear_func(output->array, output->numel);
     }
 }
 

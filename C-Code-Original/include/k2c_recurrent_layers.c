@@ -327,7 +327,18 @@ void k2c_grucell(float * state, const float * input, const k2c_tensor* kernel,
         for ( i=0; i<units; ++i) {
             yh[i] = yr[i]*h_tm1[i];
         }
-        k2c_matmul(xz, yh, Uh, outrows, units, units); //reuse xz as new yh
+        //k2c_matmul(xz, yh, Uh, outrows, units, units); //reuse xz as new yh
+
+        size_t j;
+        for (i = 0 ; i < outrows; ++i) {
+            for (j = 0;  j < units; ++j) {
+                xz[i*units + j] = 0;
+                for (size_t k = 0; k < units; ++k) {
+                    xz[i*units + j] += yh[i*units + k] * Uh[k*units + j];
+                }
+            }
+        }
+
         for ( i=0; i<units; ++i) {
             yh[i] = xz[i];
         }
