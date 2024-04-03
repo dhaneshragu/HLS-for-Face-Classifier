@@ -1,9 +1,2219 @@
-#include <math.h> 
- #include <string.h> 
+#include <stdio.h>
+#include <math.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h> 
 #include "./include/k2c_include.h" 
 #include "./include/k2c_tensor_include.h" 
 
- 
+ void copy_array(float *x, float *y, int size) {
+    for (int i = 0; i < size; i++) {
+        y[i] = x[i];
+    }
+}
+
+/**
+ * Cell for the LSTM layer.
+ * "units" is the dimension of the output space
+ *
+ * :param state: array[2*units] recurrent state.
+ * :param input: array of input data.
+ * :param kernel: kernel tensor.
+ * :param recurrent_kernel: recurrent kernel tensor
+ * :param bias: bias tensor.
+ * :param fwork: array[8*units] working storage.
+ * :param recurrent_activation: activation function to apply to internal state.
+ * :param output_activation: activation function to apply to output.
+ */
+
+/**
+ * Affine matrix multiplication.
+ * computes C = A*B + d, where d is a vector that is added to each
+ row of A*B
+ * assumes A,B,C are all 1d arrays of matrices stored in row major order
+ *
+ * :param C: output array.
+ * :param A: input array 1.
+ * :param B: input array 2.
+ * :param d: input array 3.
+ * :param outrows: number of rows of C and A.
+ * :param outcols: number of cols of C, B and d.
+ * :param innderdim: number of cols of A and rows of B
+ */
+void k2c_affine_matmul(float C[100000], const float A[100000], const float B[100000], const float d[100000], const size_t outrows,const size_t outcols, const size_t innerdim) {
+
+    // make sure output is empty
+//    memset(C, 0, outrows*outcols*sizeof(C[0]));
+	size_t i;
+    for ( i = 0 ; i < outrows; ++i) {
+        const size_t outrowidx = i*outcols;
+        const size_t inneridx = i*innerdim;
+        for (size_t j = 0;  j < outcols; ++j) {
+            C[outrowidx+j] = 0;
+            for (size_t k = 0; k < innerdim; ++k) {
+                C[outrowidx+j] += A[inneridx+k] * B[k*outcols+j];
+            }
+            C[outrowidx+j] += d[j];
+        }
+    }
+}
+
+
+/**
+ * Converts subscripts to linear indices in row major order.
+ *
+ * :param sub: array[ndim] subscript to convert.
+ * :param shape: array[ndim] shape of array being indexed.
+ * :param ndim: number of dimensions of array being indexed.
+ * :return: linear index in row major order.
+ */
+size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) {
+
+    size_t idx = 0;
+    size_t temp = 0;
+    for (size_t i=0; i<ndim; ++i) {
+        temp = sub[i];
+        for (size_t j=ndim-1; j>i; --j) {
+            temp *= shape[j];
+        }
+        idx += temp;
+    }
+    return idx;
+}
+
+
+/**
+ * Converts linear indices to subscripts in row major order.
+ *
+ * :param idx: linear index in row major order.
+ * :param sub: array[ndim] output subscript.
+ * :param shape: array[ndim] shape of array being indexed.
+ * :param ndim: number of dimensions of array being indexed.
+ */
+void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim) {
+
+    size_t idx2 = idx;
+    for (int i=ndim-1; i>=0; --i) {
+        sub[i] = idx2%shape[i];
+        idx2 /= shape[i];
+    }
+}
+
+
+/**
+ * Dot product (tensor contraction) between 2 tensors. C=A*B
+ *
+ * :param C: output tensor.
+ * :param A: input tensor 1.
+ * :param B: input tensor 2.
+ * :param axesA: array[naxes] of axes of A being contracted.
+ * :param axesB: array[naxes] of axes of B being contracted.
+ * :param naxes: number of axes being contracted from each input.
+ * :param normalize: (0,1) whether to L2-normalize samples along the dot product axis before taking the dot product. If set to 1, then the output of the dot product is the cosine proximity between the two samples.
+ * :param fwork: array of working space, size(fwork) = size(A) + size(B)
+ */
+void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
+
+    size_t permA[K2C_MAX_NDIM];
+    size_t permB[K2C_MAX_NDIM];
+    size_t prod_axesA = 1;
+    size_t prod_axesB = 1;
+    size_t free_axesA, free_axesB;
+    size_t freeA[K2C_MAX_NDIM];
+    size_t freeB[K2C_MAX_NDIM];
+    size_t count;
+    int isin;
+    size_t newshpA[K2C_MAX_NDIM];
+    size_t newshpB[K2C_MAX_NDIM];
+    const size_t ndimA = Ar->ndim;
+    const size_t ndimB = B->ndim;
+    float *reshapeA = &fwork[0];   // temp working storage
+    float *reshapeB = &fwork[Ar->numel];
+    size_t Asub[K2C_MAX_NDIM];
+    size_t Bsub[K2C_MAX_NDIM];
+    // find which axes are free (ie, not being summed over)
+    count=0;
+    size_t i,j;
+    for ( i=0; i<ndimA; ++i) {
+        isin = 0;
+        for (size_t j=0; j<naxes; ++j) {
+            if (i==axesA[j]) {
+                isin=1;
+            }
+        }
+        if (!isin) {
+            freeA[count] = i;
+            ++count;
+        }
+    }
+    count=0;
+    for ( i=0; i<ndimB; ++i) {
+        isin = 0;
+        for (size_t j=0; j<naxes; ++j) {
+            if (i==axesB[j]) {
+                isin=1;
+            }
+        }
+        if (!isin) {
+            freeB[count] = i;
+            ++count;
+        }
+    }
+
+    // number of elements in inner dimension
+    for ( i=0; i < naxes; ++i) {
+        prod_axesA *= Ar->shape[axesA[i]];
+    }
+    for (i=0; i < naxes; ++i) {
+        prod_axesB *= B->shape[axesB[i]];
+    }
+    // number of elements in free dimension
+    free_axesA = Ar->numel/prod_axesA;
+    free_axesB = B->numel/prod_axesB;
+    // find permutation of axes to get into matmul shape
+    for ( i=0; i<ndimA-naxes; ++i) {
+        permA[i] = freeA[i];
+    }
+    for ( i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
+        permA[i] = axesA[j];
+    }
+    for ( i=0; i<naxes; ++i) {
+        permB[i] = axesB[i];
+    }
+    for (i=naxes, j=0; i<ndimB; ++i, ++j) {
+        permB[i] = freeB[j];
+    }
+
+
+
+    for ( i=0; i<ndimA; ++i) {
+        newshpA[i] = Ar->shape[permA[i]];
+    }
+    for ( i=0; i<ndimB; ++i) {
+        newshpB[i] = B->shape[permB[i]];
+    }
+
+    // reshape arrays
+    for ( i=0; i<Ar->numel; ++i) {
+        k2c_idx2sub(i,Asub,Ar->shape,ndimA);
+        for (size_t j=0; j<ndimA; ++j) {
+            Bsub[j] = Asub[permA[j]];
+        }
+        size_t bidx = k2c_sub2idx(Bsub,newshpA,ndimA);
+        reshapeA[bidx] = Ar->array[i];
+    }
+
+    for ( i=0; i<B->numel; ++i) {
+        k2c_idx2sub(i,Bsub,B->shape,ndimB);
+        for (size_t j=0; j<ndimB; ++j) {
+            Asub[j] = Bsub[permB[j]];
+        }
+        size_t bidx = k2c_sub2idx(Asub,newshpB,ndimB);
+        reshapeB[bidx] = B->array[i];
+    }
+
+
+    if (normalize) {
+
+        float sum;
+        float inorm;
+        size_t i;
+        for ( i=0; i<free_axesA; ++i) {
+            sum = 0;
+            size_t j;
+            for ( j=0; j<prod_axesA; ++j) {
+                sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
+            }
+            inorm = 1.0f/sqrtf(sum);
+            for ( j=0; j<prod_axesA; ++j) {
+                reshapeA[i*prod_axesA + j] *= inorm;
+            }
+        }
+        for ( i=0; i<free_axesB; ++i) {
+            sum = 0;
+            size_t j;
+            for ( j=0; j<prod_axesB; ++j) {
+                sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
+            }
+            inorm = 1.0f/sqrtf(sum);
+            for ( j=0; j<prod_axesB; ++j) {
+                reshapeB[i + free_axesB*j] *= inorm;
+            }
+        }
+    }
+
+    //k2c_matmul(C->array, reshapeA, reshapeB, free_axesA,free_axesB, prod_axesA);
+
+        for (i = 0 ; i < free_axesA; ++i) {
+            for (size_t j = 0;  j < free_axesB; ++j) {
+                C->array[i*free_axesB + j] = 0;
+                for (size_t k = 0; k < prod_axesA; ++k) {
+                    C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
+                }
+            }
+        }
+}
+
+
+/**
+ * Adds bias vector b to tensor A.
+ * assumes b is a rank 1 tensor that is added to the last dimension of A.
+ *
+ * :param A: input tensor. Overwritten with outputs.
+ * :param b: bias tensor.
+ */
+void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b) {
+
+    for (size_t i=0; i<A->numel; i+=b->numel) {
+        for (size_t j=0; j<b->numel; ++j) {
+            A->array[i+j] += b->array[j];
+        }
+    }
+}
+
+
+/**
+ * Flips a tensor along specified axis.
+ * overwrites input with flipped output.
+ *
+ * :param A: input tensor. Overwritten with outputs.
+ * :param axis: axis along which to flip
+ */
+
+void k2c_flip(k2c_tensor *A, const size_t axis) {
+    const size_t ndim = A->ndim;
+    const size_t * shape = A->shape;
+    const size_t numel = A->numel;
+    size_t sub[K2C_MAX_NDIM] = {0};
+    const size_t step = 1;
+    size_t k = 0;
+    size_t idx = 0;
+    float temp;
+
+    size_t reduced_size = 1;
+    for (size_t i=axis; i<ndim; ++i) {
+        reduced_size *= shape[i];
+    }
+    const size_t threshold = reduced_size/2;
+    const size_t jump = reduced_size;
+
+    while (k<numel) {
+        k2c_idx2sub(k, sub, shape, ndim);
+        sub[axis] = shape[axis]-sub[axis]-1;
+        idx = k2c_sub2idx(sub, shape, ndim);
+        temp = A->array[k];
+        A->array[k] = A->array[idx];
+        A->array[idx] = temp;
+        if ((k+step) % jump >= threshold) {
+            k = (k + step -threshold + jump);
+        }
+        else {
+            k += step;
+        }
+    }
+}
+
+
+
+/**
+ * Reads array from csv file.
+ *
+ * :param filename: file to read from. Assumed comma separated ascii text.
+ * :param array_size: how many values to read from the file.
+ * :return: pointer to allocated array.
+ */
+float* k2c_read_array(const char* filename, const size_t array_size) {
+    float* ptr = (float*) malloc(array_size * sizeof(float));
+    if (!ptr) {
+        printf("cannot allocate memory %s \n", filename);
+        exit(-1);
+    }
+    size_t ctr = 0;
+    FILE *finp;
+    int foo;
+    finp = fopen(filename, "r");
+    if(NULL == finp) {
+        printf("Unable to open file %s \n",filename);
+        exit(-1);
+    }
+    while((!feof(finp)) && (ctr < array_size)) {
+        foo = fscanf(finp, "%f,", &ptr[ctr++]);
+    }
+    fclose(finp);
+    return ptr;
+}
+
+void k2c_lstmcell(float * state, const float * input, const k2c_tensor* kernel,
+                  const k2c_tensor* recurrent_kernel, const k2c_tensor* bias, float * fwork,
+                  k2c_activationType *recurrent_activation,
+                  k2c_activationType *output_activation) {
+
+
+    const size_t units = recurrent_kernel->shape[1];
+    const size_t in_width = kernel->shape[0]/4;
+
+    float *h_tm1 = &state[0];  // previous memory state
+    float *c_tm1 = &state[units];  // previous carry state
+    const size_t outrows = 1;
+    const float * const Wi = &kernel->array[0];
+    const float * const Wf = &kernel->array[in_width*units];
+    const float * const Wc = &kernel->array[2*in_width*units];
+    const float * const Wo = &kernel->array[3*in_width*units];
+    const float * const Ui = &recurrent_kernel->array[0];
+    const float * const Uf = &recurrent_kernel->array[units*units];
+    const float * const Uc = &recurrent_kernel->array[2*units*units];
+    const float * const Uo = &recurrent_kernel->array[3*units*units];
+    const float * const bi = &bias->array[0];
+    const float * const bf = &bias->array[units];
+    const float * const bc = &bias->array[2*units];
+    const float * const bo = &bias->array[3*units];
+    float *xi = &fwork[0];
+    float *xf = &fwork[units];
+    float *xc = &fwork[2*units];
+    float *xo = &fwork[3*units];
+    float *yi = &fwork[4*units];
+    float *yf = &fwork[5*units];
+    float *yc = &fwork[6*units];
+    float *yo = &fwork[7*units];
+
+
+    //xi = input*Wi + bi;
+    k2c_affine_matmul(xi, input, Wi, bi, outrows, units, in_width);
+    //xf = input*Wf + bf;
+    k2c_affine_matmul(xf, input, Wf, bf, outrows, units, in_width);
+    //xc = input*Wc + bc;
+    k2c_affine_matmul(xc, input, Wc, bc, outrows, units, in_width);
+    //xo = input*Wo + bo;
+    k2c_affine_matmul(xo, input, Wo, bo, outrows, units, in_width);
+
+    // yi = recurrent_activation(xi + h_tm1*Ui);
+    k2c_affine_matmul(yi, h_tm1, Ui, xi, outrows, units, units);
+    recurrent_activation(yi, units);
+
+    // yf = recurrent_activation(xf + h_tm1*Uf);
+    k2c_affine_matmul(yf, h_tm1, Uf, xf, outrows, units, units);
+    recurrent_activation(yf, units);
+
+    // yc = yf.*c_tm1 + yi.*output_activation(xc + h_tm1*Uc);
+    k2c_affine_matmul(yc, h_tm1, Uc, xc, outrows, units, units);
+    output_activation(yc, units);
+    size_t i;
+    for ( i=0; i < units; ++i) {
+        yc[i] = yf[i]*c_tm1[i] + yi[i]*yc[i];
+    }
+
+    // yo = recurrent_activation(xo + h_tm1*Uo);
+    k2c_affine_matmul(yo, h_tm1, Uo, xo, outrows, units, units);
+    recurrent_activation(yo, units);
+
+    // h = yo.*output_activation(yc);
+    // state = [h;yc];
+    for ( i=0; i < units; ++i) {
+        state[units+i] = yc[i];
+    }
+
+    output_activation(yc, units);
+
+    for ( i=0; i < units; ++i) {
+        state[i] = yo[i]*yc[i];
+    }
+
+}
+
+
+/**
+ * Long Short-Term Memory (LSTM) layer.
+ * "units" is the dimension of the output space
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param state: array[2*units] recurrent state.
+ * :param kernel: kernel tensor.
+ * :param recurrent_kernel: recurrent kernel tensor
+ * :param bias: bias tensor.
+ * :param fwork: array[8*units] working storage.
+ * :param go_backwards: whether to process input sequences forwards (1) or backwards (0).
+ * :param return_sequences: whether to return the last output in the output sequence (0), or the full sequence (1).
+ * :param recurrent_activation: activation function to apply to internal state.
+ * :param output_activation: activation function to apply to output.
+ */
+void k2c_lstm(k2c_tensor* output, const k2c_tensor* input, float * state,
+              const k2c_tensor* kernel, const k2c_tensor* recurrent_kernel,
+              const k2c_tensor* bias, float * fwork, const int go_backwards,
+              const int return_sequences, k2c_activationType *recurrent_activation,
+              k2c_activationType *output_activation) {
+
+
+    const size_t in_height = input->shape[0];
+    const size_t in_width = input->shape[1];
+    const size_t units = recurrent_kernel->shape[1];
+    if (go_backwards) {
+        for (int i=in_height-1; i>-1; --i) {
+            k2c_lstmcell(state, &input->array[i*in_width], kernel, recurrent_kernel,
+                         bias, fwork, recurrent_activation, output_activation);
+            if (return_sequences) {
+                for (size_t j=0; j<units; ++j) {
+                    output->array[(in_height-1-i)*units+j] = state[j];
+                }
+            }
+        }
+    }
+    else {
+        for (size_t i=0; i < in_height; ++i) {
+            k2c_lstmcell(state, &input->array[i*in_width], kernel, recurrent_kernel,
+                         bias, fwork, recurrent_activation, output_activation);
+            if (return_sequences) {
+                for (size_t j=0; j<units; ++j) {
+                    output->array[i*units+j] = state[j];
+                }
+            }
+        }
+    }
+    if (!return_sequences) {
+        for (size_t i=0; i < units; ++i) {
+            output->array[i] = state[i];
+        }
+    }
+}
+
+
+/**
+ * Cell for the RNN layer.
+ * "units" is the dimension of the output space
+ *
+ * :param state: array[units] recurrent state.
+ * :param input: array of input data.
+ * :param kernel: kernel tensor.
+ * :param recurrent_kernel: recurrent kernel tensor
+ * :param bias: bias tensor.
+ * :param fwork: array[2*units] working storage.
+ * :param output_activation: activation function to apply to output.
+ */
+void k2c_simpleRNNcell(float * state, const float * input, const k2c_tensor* kernel,
+                       const k2c_tensor* recurrent_kernel, const k2c_tensor* bias,
+                       float * fwork, k2c_activationType *output_activation) {
+
+    const size_t units = recurrent_kernel->shape[1];
+    const size_t in_width = kernel->shape[0];
+
+    const size_t outrows = 1;
+    float *h1 = &fwork[0];
+    float *h2 = &fwork[units];
+    // h1 = input*kernel+bias
+    k2c_affine_matmul(h1,input,kernel->array,bias->array,outrows,units,in_width);
+
+    // h2 = state*recurrent_kernel + h1
+    k2c_affine_matmul(h2,state,recurrent_kernel->array,h1,outrows,units,units);
+    output_activation(h2,units);
+
+    for (size_t i=0; i<units; ++i) {
+        state[i] = h2[i];
+    }
+}
+
+
+/**
+ * Fully-connected RNN where the output is to be fed back to input.
+ * "units" is the dimension of the output space
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param state: array[units] recurrent state.
+ * :param kernel: kernel tensor.
+ * :param recurrent_kernel: recurrent kernel tensor
+ * :param bias: bias tensor.
+ * :param fwork: array[2*units] working storage.
+ * :param go_backwards: whether to process input sequences forwards (1) or backwards (0).
+ * :param return_sequences: whether to return the last output in the output sequence (0), or the full sequence (1).
+ * :param output_activation: activation function to apply to output.
+ */
+void k2c_simpleRNN(k2c_tensor* output, const k2c_tensor* input, float * state,
+                   const k2c_tensor* kernel, const k2c_tensor* recurrent_kernel,
+                   const k2c_tensor* bias, float * fwork, const int go_backwards,
+                   const int return_sequences, k2c_activationType *output_activation) {
+
+    const size_t in_width = input->shape[1];
+    const size_t in_height = input->shape[0];
+    const size_t units = recurrent_kernel->shape[1];
+
+    if (go_backwards) {
+        for (int i=in_height-1; i>-1; --i) {
+            k2c_simpleRNNcell(state,&input->array[i*in_width],kernel,recurrent_kernel,bias,
+                              fwork, output_activation);
+            if (return_sequences) {
+                for (size_t j=0; j<units; ++j) {
+                    output->array[(in_height-1-i)*units+j] = state[j];
+                }
+            }
+        }
+    }
+    else {
+        for (size_t i=0; i<in_height; ++i) {
+            k2c_simpleRNNcell(state,&input->array[i*in_width],kernel,recurrent_kernel,bias,
+                              fwork, output_activation);
+            if (return_sequences) {
+                for (size_t j=0; j<units; ++j) {
+                    output->array[i*units+j] = state[j];
+                }
+            }
+        }
+    }
+    if (!return_sequences) {
+        for (size_t i=0; i < units; ++i) {
+            output->array[i] = state[i];
+        }
+    }
+}
+
+
+/**
+ * Cell for the GRU layer.
+ * "units" is the dimension of the output space
+ *
+ * :param state: array[units] recurrent state.
+ * :param input: array of input data.
+ * :param kernel: kernel tensor.
+ * :param recurrent_kernel: recurrent kernel tensor
+ * :param bias: bias tensor.
+ * :param fwork: array[6*units] working storage.
+ * :param reset_after: whether to apply the reset gate before (0) or after (1) the matrix multiplication.
+ * :param recurrent_activation: activation function to apply to internal state.
+ * :param output_activation: activation function to apply to output.
+ */
+void k2c_grucell(float * state, const float * input, const k2c_tensor* kernel,
+                 const k2c_tensor* recurrent_kernel, const k2c_tensor* bias, float * fwork,
+                 const int reset_after, k2c_activationType *recurrent_activation,
+                 k2c_activationType *output_activation) {
+
+    const size_t units = recurrent_kernel->shape[1];
+    const size_t in_width = kernel->shape[0]/3;
+
+    float *h_tm1 = &state[0];
+    const size_t outrows = 1;
+    const float * const Wz = &kernel->array[0];
+    const float * const Wr = &kernel->array[in_width*units];
+    const float * const Wh = &kernel->array[2*in_width*units];
+    const float * const Uz = &recurrent_kernel->array[0];
+    const float * const Ur = &recurrent_kernel->array[units*units];
+    const float * const Uh = &recurrent_kernel->array[2*units*units];
+    const float * const bz = &bias->array[0];
+    const float * const br = &bias->array[units];
+    const float * const bh = &bias->array[2*units];
+    const float * const rbz = &bias->array[3*units];
+    const float * const rbr = &bias->array[4*units];
+    const float * const rbh = &bias->array[5*units];
+    float *xz = &fwork[0];
+    float *xr = &fwork[units];
+    float *xh = &fwork[2*units];
+    float *yz = &fwork[3*units];
+    float *yr = &fwork[4*units];
+    float *yh = &fwork[5*units];
+
+    //     x_z = input*kernel_z + input_bias_z
+    k2c_affine_matmul(xz, input, Wz, bz, outrows, units, in_width);
+    //    x_r = input@kernel_r + input_bias_r
+    k2c_affine_matmul(xr, input, Wr, br, outrows, units, in_width);
+    //    x_h = input@kernel_h + input_bias_h
+    k2c_affine_matmul(xh, input, Wh, bh, outrows, units, in_width);
+
+    //   recurrent_z = h_tm1@recurrent_kernel_z
+    k2c_affine_matmul(yz, h_tm1, Uz, rbz, outrows, units, units);
+    //    recurrent_r = h_tm1@recurrent_kernel_r
+    k2c_affine_matmul(yr, h_tm1, Ur, rbr, outrows, units, units);
+
+    //    z = np.tanh(x_z + recurrent_z)
+    //    r = np.tanh(x_r + recurrent_r)
+    size_t i;
+    for ( i=0; i<units; ++i) {
+        yz[i] = xz[i] + yz[i];
+        yr[i] = xr[i] + yr[i];
+    }
+    recurrent_activation(yz, units);
+    recurrent_activation(yr, units);
+
+    //    reset gate applied after/before matrix multiplication
+    if (reset_after) {
+        //        recurrent_h = h_tm1*recurrent_kernel_h + recurrent_bias_h
+        k2c_affine_matmul(yh, h_tm1, Uh, rbh, outrows, units, units);
+        //        recurrent_h = r .* recurrent_h
+        for (size_t i=0; i<units; ++i) {
+            yh[i] = yr[i] * yh[i];
+        }
+    }
+    else {
+        //        recurrent_h = (r .* h_tm1)*recurrent_kernel_h
+    	size_t i;
+        for ( i=0; i<units; ++i) {
+            yh[i] = yr[i]*h_tm1[i];
+        }
+        //k2c_matmul(xz, yh, Uh, outrows, units, units); //reuse xz as new yh
+
+        size_t j;
+        for (i = 0 ; i < outrows; ++i) {
+            for (j = 0;  j < units; ++j) {
+                xz[i*units + j] = 0;
+                for (size_t k = 0; k < units; ++k) {
+                    xz[i*units + j] += yh[i*units + k] * Uh[k*units + j];
+                }
+            }
+        }
+
+        for ( i=0; i<units; ++i) {
+            yh[i] = xz[i];
+        }
+    }
+    //    hh = np.tanh(x_h + recurrent_h)
+    for ( i=0; i<units; ++i) {
+        xr[i] = xh[i] + yh[i];  // reuse xr = hh
+    }
+    output_activation(xr, units);
+
+    //    h = z .* h_tm1 + (1 - z) .* hh
+    for ( i=0; i<units; ++i) {
+        state[i] = yz[i] * h_tm1[i] + (1.0f-yz[i])*xr[i];
+    }
+}
+
+
+/**
+ * Gated Recurrent Unit.
+ * "units" is the dimension of the output space
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param state: array[units] recurrent state.
+ * :param kernel: kernel tensor.
+ * :param recurrent_kernel: recurrent kernel tensor
+ * :param bias: bias tensor.
+ * :param fwork: array[6*units] working storage.
+ * :param reset_after: whether to apply the reset gate before (0) or after (1) the matrix multiplication.
+ * :param go_backwards: whether to process input sequences forwards (1) or backwards (0).
+ * :param return_sequences: whether to return the last output in the output sequence (0), or the full sequence (1).
+ * :param recurrent_activation: activation function to apply to internal state.
+ * :param output_activation: activation function to apply to output.
+ */
+void k2c_gru(k2c_tensor* output, const k2c_tensor* input, float * state,
+             const k2c_tensor* kernel, const k2c_tensor* recurrent_kernel,
+             const k2c_tensor* bias, float * fwork, const int reset_after,
+             const int go_backwards, const int return_sequences,
+             k2c_activationType *recurrent_activation,
+             k2c_activationType *output_activation) {
+
+
+    const size_t in_width = input->shape[1];
+    const size_t in_height = input->shape[0];
+    const size_t units = recurrent_kernel->shape[1];
+
+    if (go_backwards) {
+        for (int i=in_height-1; i>-1; --i) {
+            k2c_grucell(state, &input->array[i*in_width], kernel, recurrent_kernel, bias,
+                        fwork, reset_after, recurrent_activation, output_activation);
+            if (return_sequences) {
+                for (size_t j=0; j<units; ++j) {
+                    output->array[(in_height-1-i)*units+j] = state[j];
+                }
+            }
+        }
+    }
+    else {
+        for (size_t i=0; i<in_height; ++i) {
+            k2c_grucell(state, &input->array[i*in_width], kernel, recurrent_kernel, bias,
+                        fwork, reset_after, recurrent_activation, output_activation);
+            if (return_sequences) {
+                for (size_t j=0; j<units; ++j) {
+                    output->array[i*units+j] = state[j];
+                }
+            }
+        }
+    }
+
+    if (!return_sequences) {
+        for (size_t i=0; i<units; ++i) {
+            output->array[i] = state[i];
+        }
+    }
+}
+
+
+/**
+ * Global max pooling.
+ * works for 1D, 2D, or 3D inputs.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ */
+void k2c_global_max_pooling(k2c_tensor* output, const k2c_tensor* input) {
+
+    const size_t in_chan = input->shape[input->ndim-1];
+    size_t i;
+    for (i=0; i<in_chan; ++i) {
+        output->array[i] = input->array[i];
+    }
+
+    for (i=0; i<input->numel; i+=in_chan) {
+        for (size_t j=0; j<in_chan; ++j) {
+            if (output->array[j]<input->array[i+j]) {
+                output->array[j] = input->array[i+j];
+            }
+        }
+    }
+}
+
+
+/**
+ * Global average pooling.
+ * works for 1D, 2D, or 3D inputs.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ */
+void k2c_global_avg_pooling(k2c_tensor* output, const k2c_tensor* input) {
+
+    const size_t in_chan = input->shape[input->ndim-1];
+    // memset(output->array,0,output->numel*sizeof(input->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    const float num_inv = 1.0f/(input->numel/in_chan);
+
+    for (size_t i=0; i<input->numel; i+=in_chan) {
+        for (size_t j=0; j<in_chan; ++j) {
+            output->array[j] += input->array[i+j]*num_inv;
+        }
+    }
+}
+
+
+/**
+ * Max pooling for 1D (temporal) data.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param pool_size: size of the max pooling window.
+ * :param stride: factor by which to downscale.
+ */
+void k2c_maxpool1d(k2c_tensor* output, const k2c_tensor* input, const size_t pool_size,
+                   const size_t stride) {
+    const size_t channels = input->shape[1];
+
+    for(size_t i=0; i<channels; ++i) {
+        for (size_t j=0, k=0; j<output->shape[0]*channels; j+=channels, k+=stride*channels) {
+            output->array[j+i] = input->array[k+i];
+            for (size_t l=0; l<pool_size*channels; l+=channels) {
+                if (output->array[j+i] < input->array[k+i+l]) {
+                    output->array[j+i] = input->array[k+i+l];
+                }
+            }
+        }
+    }
+}
+
+
+/**
+ * Max pooling for 2D (spatial) data.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param pool_size: array[2] size of the max pooling window. Order is {pool size dim 1, pool size dim 2}.
+ * :param stride: array[2] factor by which to downscale. Order is {stride dim 1, stride dim 2}.
+ */
+void k2c_maxpool2d(k2c_tensor* output, const k2c_tensor* input, const size_t * pool_size,
+                   const size_t * stride) {
+
+
+    const size_t channels = input->shape[2];
+    // i,j,l output indices
+    /// i, k, m input indices
+    for (size_t i=0; i< channels; ++i) {
+        for (size_t j=0, k=0; j<output->shape[1]*channels;
+                j+=channels, k+=channels*stride[1]) {
+            for (size_t l=0, m=0; l<output->numel; l+=channels*output->shape[1],
+                    m+=channels*input->shape[1]*stride[0]) {
+                output->array[l+j+i] = input->array[m+k+i];
+                for (size_t n=0; n<pool_size[1]*channels; n+=channels) {
+                    for (size_t p=0; p<pool_size[0]*channels*input->shape[1];
+                            p+=channels*input->shape[1]) {
+                        if (output->array[l+j+i] < input->array[m+k+i+n+p]) {
+                            output->array[l+j+i] = input->array[m+k+i+n+p];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/**
+ * Average pooling for 1D (temporal) data.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param pool_size: size of the average pooling window.
+ * :param stride: factor by which to downscale.
+ */
+void k2c_avgpool1d(k2c_tensor* output, const k2c_tensor* input, const size_t pool_size,
+                   const size_t stride) {
+
+    const size_t channels = input->shape[1];
+    // memset(output->array,0,output->numel*sizeof(output->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    for(size_t i=0; i<channels; ++i) {
+        for (size_t j=0, k=0; j<output->numel; j+=channels, k+=stride*channels) {
+            int count = 0;
+            for (size_t l=0; l<pool_size*channels; l+=channels) {
+                if (input->array[k+i+l] > -HUGE_VALF) {
+                    output->array[j+i] += input->array[k+i+l];
+                    ++count;
+                }
+            }
+            output->array[i+j] /= (float)count;
+        }
+    }
+}
+
+
+/**
+ * Average pooling for 2D (spatial) data.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param pool_size: array[2] size of the average pooling window. Order is {pool size dim 1, pool size dim 2}.
+ * :param stride: array[2] factor by which to downscale. Order is {stride dim 1, stride dim 2}.
+ */
+void k2c_avgpool2d(k2c_tensor* output, const k2c_tensor* input, const size_t * pool_size,
+                   const size_t * stride) {
+    // memset(output->array,0,output->numel*sizeof(output->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    const size_t channels = input->shape[2];
+    // i,j,l output indices
+    /// i, k, m input indices
+    for (size_t i=0; i< channels; ++i) {
+        for (size_t j=0, k=0; j<output->shape[1]*channels;
+                j+=channels, k+=channels*stride[1]) {
+            for (size_t l=0, m=0; l<output->numel; l+=channels*output->shape[1],
+                    m+=channels*input->shape[1]*stride[0]) {
+                size_t count = 0;
+                for (size_t n=0; n<pool_size[1]*channels; n+=channels) {
+                    for (size_t p=0; p<pool_size[0]*channels*input->shape[1];
+                            p+=channels*input->shape[1]) {
+                        if (-HUGE_VALF < input->array[m+k+i+n+p]) {
+                            output->array[l+j+i] += input->array[m+k+i+n+p];
+                            ++count;
+                        }
+                    }
+                }
+                output->array[l+j+i] /= (float)count;
+            }
+        }
+    }
+}
+
+
+/**
+ * Batch normalization layer.
+ * applies a transformation that maintains the mean activation close to 0 and the activation standard deviation close to 1.
+ *
+ * :param outputs: output tensor.
+ * :param inputs: input tensor.
+ * :param mean: tensor of mean values.
+ * :param stdev: tensor of standard deviation values.
+ * :param gamma: tensor of gamma (scale) values.
+ * :param beta: tensor of beta (offset) values.
+ * :param axis: axis to be normalized.
+ */
+void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
+                    const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
+                    const size_t axis) {
+
+    size_t offset = 1;
+    size_t i;
+    for ( i=axis+1; i<inputs->ndim; ++i) {
+        offset *= inputs->shape[i];
+    }
+    const size_t step = inputs->shape[axis];
+
+    for ( i=0; i<inputs->numel; ++i) {
+        size_t idx = (i/offset)%step;
+        outputs->array[i] = (inputs->array[i] - mean->array[idx]) /
+                            stdev->array[idx] *
+                            gamma->array[idx] +
+                            beta->array[idx];
+    }
+}
+
+
+/**
+ * Element-wise sum of several tensors.
+ *
+ * :param output: output tensor.
+ * :param num_tensors: number of tensors being summed.
+ * :param ...: variadic. Tensors to be summed.
+ */
+void k2c_add(k2c_tensor* output, const size_t num_tensors,...) {
+
+    va_list args;
+    const k2c_tensor *arrptr;
+    va_start (args, num_tensors);
+    // memset(output->array, 0, output->numel*sizeof(output->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+
+    for (size_t i = 0; i < num_tensors; ++i) {
+        arrptr = va_arg(args, k2c_tensor*);
+        for (size_t j=0; j<output->numel; ++j) {
+            output->array[j] += arrptr->array[j];
+        }
+    }
+    va_end (args);
+}
+
+
+/**
+ * Element-wise difference of two tensors.
+ *
+ * :param output: output tensor.
+ * :param num_tensors: number of tensors being summed. Not used but kept for a consistent API with other merge layers.
+ * :param tensor1: first input tensor.
+ * :param tensor2: second input tensor.
+ */
+void k2c_subtract(k2c_tensor* output, const size_t num_tensors,
+                  const k2c_tensor* tensor1, const k2c_tensor* tensor2) {
+
+    for (size_t i=0; i<output->numel; ++i) {
+        output->array[i] = tensor1->array[i]-
+                           tensor2->array[i];
+    }
+}
+
+
+/**
+ * Element-wise product of several tensors.
+ *
+ * :param output: output tensor.
+ * :param num_tensors: number of tensors being multiplied.
+ * :param ...: variadic. Tensors to be multiplied.
+ */
+void k2c_multiply(k2c_tensor* output, const size_t num_tensors,...) {
+
+    va_list args;
+    const k2c_tensor *arrptr;
+    va_start (args, num_tensors);
+    size_t i;
+
+    for ( i=0; i<output->numel; ++i) {
+        output->array[i] = 1.0f;
+    }
+
+    for ( i = 0; i < num_tensors; ++i) {
+        arrptr = va_arg(args, k2c_tensor*);
+        for (size_t j=0; j<output->numel; ++j) {
+            output->array[j] *= arrptr->array[j];
+        }
+    }
+    va_end (args);
+}
+
+
+/**
+ * Element-wise average of several tensors.
+ *
+ * :param output: output tensor.
+ * :param num_tensors: number of tensors being averaged.
+ * :param ...: variadic. Tensors to be averaged.
+ */
+void k2c_average(k2c_tensor* output, const size_t num_tensors,...) {
+
+    va_list args;
+    const k2c_tensor *arrptr;
+    const float num_tensors_inv = 1.0f/num_tensors;
+
+    va_start (args, num_tensors);
+    // memset(output->array, 0, output->numel*sizeof(output->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    for (size_t i = 0; i < num_tensors; ++i) {
+        arrptr = va_arg(args, k2c_tensor*);
+        for (size_t j=0; j<output->numel; ++j) {
+            output->array[j] += arrptr->array[j]*num_tensors_inv;
+        }
+    }
+    va_end (args);
+}
+
+
+/**
+ * Element-wise maximum of several tensors.
+ *
+ * :param output: output tensor.
+ * :param num_tensors: number of tensors over which to take max.
+ * :param ...: variadic. Tensors to take the max of.
+ */
+void k2c_max(k2c_tensor* output, const size_t num_tensors,...) {
+
+    va_list args;
+    const k2c_tensor *arrptr;
+    va_start (args, num_tensors);
+    arrptr = va_arg(args, k2c_tensor*);
+    size_t i;
+    for ( i=0; i<output->numel; ++i) {
+        output->array[i] = arrptr->array[i];
+    }
+
+    for ( i = 0; i < num_tensors-1; ++i) {
+        arrptr = va_arg(args, k2c_tensor*);
+        for (size_t j=0; j<output->numel; ++j) {
+            if (output->array[j]<arrptr->array[j]) {
+                output->array[j] = arrptr->array[j];
+            }
+        }
+    }
+    va_end (args);
+}
+
+
+/**
+ * Element-wise minimum of several tensors.
+ *
+ * :param output: output tensor.
+ * :param num_tensors: number of tensors over which to take min.
+ * :param ...: variadic. Tensors to take the min of.
+ */
+void k2c_min(k2c_tensor* output, const size_t num_tensors,...) {
+
+    va_list args;
+    const k2c_tensor *arrptr;
+    va_start (args, num_tensors);
+    arrptr = va_arg(args, k2c_tensor*);
+    size_t i;
+    for ( i=0; i<output->numel; ++i) {
+        output->array[i] = arrptr->array[i];
+    }
+
+    for ( i = 0; i < num_tensors-1; ++i) {
+        arrptr = va_arg(args, k2c_tensor*);
+        for (size_t j=0; j<output->numel; ++j) {
+            if (output->array[j]>arrptr->array[j]) {
+                output->array[j] = arrptr->array[j];
+            }
+        }
+    }
+    va_end (args);
+}
+
+
+/**
+ * Concatenation of several tensors.
+ *
+ * :param output: output tensor.
+ * :param axis: axis along which to concatenate.
+ * :param num_tensors: number of tensors being concatenated.
+ * :param ...: variadic. Tensors to concatenate.
+ */
+void k2c_concatenate(k2c_tensor* output, const size_t axis, const size_t num_tensors,...) {
+
+    va_list args;
+    const k2c_tensor* arrptr;
+    size_t  offset = 0;
+    size_t outidx;
+    size_t insub[K2C_MAX_NDIM], outsub[K2C_MAX_NDIM];
+    va_start (args, num_tensors);
+
+    for (size_t i=0; i<num_tensors; ++i) {
+        arrptr = va_arg(args, k2c_tensor*);
+        for (size_t j=0; j<arrptr->numel; ++j) {
+            k2c_idx2sub(j,insub,arrptr->shape,arrptr->ndim);
+            // memcpy(outsub,insub,K2C_MAX_NDIM*sizeof(size_t));
+            for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+            //#pragma HLS pipeline
+            outsub[k] = insub[k];
+            }   
+            outsub[axis] += offset;
+            outidx = k2c_sub2idx(outsub,output->shape, output->ndim);
+            output->array[outidx] = arrptr->array[j];
+        }
+        offset += arrptr->shape[axis];
+    }
+    va_end (args);
+}
+
+
+/**
+ * Just your basic 1d matrix multipication.
+ * computes C = A*B
+ * assumes A,B,C are all 1d arrays of matrices stored in row major order.
+ *
+ * :param C: output array.
+ * :param A: input array 1.
+ * :param B: input array 2.
+ * :param outrows: number of rows of C and A.
+ * :param outcols: number of cols of C and B.
+ * :param innderdim: number of cols of A and rows of B
+ */
+// void k2c_matmul(float  *C, const float * A, const float * B, const size_t outrows,
+//                 const size_t outcols, const size_t innerdim) {
+// 	size_t i; size_t j;
+//     for (i = 0 ; i < outrows; ++i) {
+//         for (j = 0;  j < outcols; ++j) {
+//             C[i*outcols + j] = 0;
+//             for (size_t k = 0; k < innerdim; ++k) {
+//                 C[i*outcols + j] += A[i*innerdim + k] * B[k*outcols + j];
+//             }
+//         }
+//     }
+// }
+
+
+
+
+/**
+ * Just your basic 1d matrix multipication.
+ * computes C = A*B
+ * assumes A,B,C are all 1d arrays of matrices stored in row major order.
+ *
+ * :param C: output array.
+ * :param A: input array 1.
+ * :param B: input array 2.
+ * :param outrows: number of rows of C and A.
+ * :param outcols: number of cols of C and B.
+ * :param innderdim: number of cols of A and rows of B
+ */
+// void k2c_matmul(float  *C, const float * A, const float * B, const size_t outrows,
+//                 const size_t outcols, const size_t innerdim) {
+// 	size_t i; size_t j;
+//     for (i = 0 ; i < outrows; ++i) {
+//         for (j = 0;  j < outcols; ++j) {
+//             C[i*outcols + j] = 0;
+//             for (size_t k = 0; k < innerdim; ++k) {
+//                 C[i*outcols + j] += A[i*innerdim + k] * B[k*outcols + j];
+//             }
+//         }
+//     }
+// }
+/**
+ * Embedding Layer.
+ * turns positive integers (indexes) into dense vectors of fixed size. eg. [[4], [20]] -> [[0.25, 0.1], [0.6, -0.2]]
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param kernel: kernel mapping integers to vectors.
+ */
+void k2c_embedding(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* kernel) {
+
+    const size_t output_dim = kernel->shape[1];
+    for (size_t i = 0; i< inputs->numel; ++i) {
+        for (size_t j = 0; j< output_dim; ++j) {
+            outputs->array[i*output_dim + j] = kernel->array[(int)inputs->array[i]*output_dim+j];
+        }
+    }
+}
+
+
+
+/**
+ * Dense (fully connected) Layer.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param kernel: kernel tensor.
+ * :param bias: bias tensor.
+ * :param activation: activation function to apply to output.
+ * :param fwork: array of working space, size(fwork) = size(input) + size(kernel)
+ */
+void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
+               const k2c_tensor* bias, float * fwork) {
+
+    if (input->ndim <=2) {
+        size_t outrows;
+
+        if (input->ndim>1) {
+            outrows = input->shape[0];
+        }
+        else {
+            outrows = 1;
+        }
+        const size_t outcols = kernel->shape[1];
+        const size_t innerdim = kernel->shape[0];
+        const size_t outsize = outrows*outcols;
+        // k2c_affine_matmul(output->array,input->array,kernel->array,bias->array,
+        //                   outrows,outcols,innerdim);
+
+        size_t i;
+        for ( i = 0 ; i < outrows; ++i) {
+        const size_t outrowidx = i*outcols;
+        const size_t inneridx = i*innerdim;
+        for (size_t j = 0;  j < outcols; ++j) {
+            output->array[outrowidx+j] = bias->array[j];
+            for (size_t k = 0; k < innerdim; ++k) {
+                output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
+            }
+        }
+        }
+        k2c_linear_func(output->array,outsize);
+    }
+    else {
+        const size_t axesA[1] = {input->ndim-1};
+        const size_t axesB[1] = {0};
+        const size_t naxes = 1;
+        const int normalize = 0;
+
+        k2c_dot(output, input, kernel, axesA, axesB, naxes, normalize, fwork);
+        k2c_bias_add(output, bias);
+        k2c_linear_func(output->array, output->numel);
+    }
+}
+
+
+/**
+ * Flatten Layer.
+ * flattens inputs to ndim=1
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param kernel: kernel tensor.
+ */
+void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
+
+    // memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
+    for (size_t k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
+            //#pragma HLS pipeline
+            output->array[k] = input->array[k];
+            }   
+    for (size_t i=0; i<input->ndim; ++i) {
+        output->shape[i] = 1;
+    }
+    output->shape[0] = input->numel;
+    output->numel = input->numel;
+    output->ndim = 1;
+}
+
+/**
+ * Reshape Layer.
+ * reshapes input to arbitrary output shape, while preserving total number of elements.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param newshp: array[newndim] of the desired new shape.
+ * :param newndim: number of dimensions after reshaping.
+ */
+void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * newshp,
+                 const size_t newndim) {
+
+    // memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
+       for (size_t k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
+        //#pragma HLS pipeline
+        output->array[k] = input->array[k];
+        }  
+    for (size_t i=0; i<newndim; ++i) {
+        output->shape[i] = newshp[i];
+    }
+    output->ndim = newndim;
+    output->numel = input->numel;
+}
+
+
+/**
+ * Permute Layer.
+ * permutes the dimensions of the input according to a given pattern.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param permute: array[ndim] Permutation pattern. Indexing starts at 0. For instance, (1, 0) permutes the first and second dimension of the input.
+ */
+void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
+                      const size_t * permute) {
+
+    size_t Asub[K2C_MAX_NDIM];
+    size_t Bsub[K2C_MAX_NDIM];
+    size_t newshp[K2C_MAX_NDIM];
+    size_t oldshp[K2C_MAX_NDIM];
+    const size_t ndim = input->ndim;
+    size_t bidx=0;
+    size_t i;
+    for ( i=0; i<ndim; ++i) {
+        oldshp[i] = input->shape[i];
+    }
+    for (i=0; i<ndim; ++i) {
+        newshp[i] = oldshp[permute[i]];
+    }
+
+    for ( i=0; i<input->numel; ++i) {
+        k2c_idx2sub(i,Asub,oldshp,ndim);
+        for (size_t j=0; j<ndim; ++j) {
+            Bsub[j] = Asub[permute[j]];
+        }
+        bidx = k2c_sub2idx(Bsub,newshp,ndim);
+        output->array[bidx] = input->array[i];
+    }
+}
+
+
+/**
+ * Repeat Vector Layer.
+ * repeats the input n times.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param n: repetition factor.
+ */
+void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n) {
+
+    const size_t in_width = input->shape[0];
+    for (size_t i=0; i<n; ++i) {
+        for(size_t j=0; j<in_width; ++j) {
+            output->array[i*in_width + j] = input->array[j];
+        }
+    }
+}
+
+
+/**
+ * 1D (temporal) Padding.
+ *
+ * :param output: tensor to store padded output data.
+ * :param input: tensor to pad.
+ * :param fill: value to fill in padded areas.
+ * :param pad: array[2] of how many rows to pad. Order is {before dim 1, after dim 1}.
+ */
+void k2c_pad1d(k2c_tensor* output, const k2c_tensor* input, const float fill,
+               const size_t * pad) {
+
+    const size_t in_width = input->shape[1];
+    const size_t pad_top = pad[0];
+
+    // set output array to fill value
+    if (fabs(fill) < 1e-6) {
+        // fill is ~zero, use memset
+        // memset(output->array,0,output->numel*sizeof(output->array[0]));
+        for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    }
+    else {
+        for(size_t i=0; i<output->numel; ++i) {
+            output->array[i] = fill;
+        }
+    }
+
+    // memcpy the old array in the right place
+    const size_t offset = pad_top*in_width;
+    // memcpy(&output->array[offset],&input->array[0],
+    //        input->numel*sizeof(input->array[0]));
+     for (size_t k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
+        //#pragma HLS pipeline
+        output->array[offset + k] = input->array[0 + k];
+        }  
+}
+
+
+/**
+ * 2D (spatial) Padding.
+ *
+ * :param output: tensor to store padded output data.
+ * :param input: tensor to pad.
+ * :param fill: value to fill in padded areas.
+ * :param pad: array[4] of how many rows/cols to pad. Order is {before dim 1, after dim 1, before dim 2, after dim 2}.
+ */
+void k2c_pad2d(k2c_tensor* output, const k2c_tensor* input, const float fill,
+               const size_t * pad) {
+
+    const size_t in_height = input->shape[0];
+    const size_t in_width = input->shape[1];
+    const size_t in_channels = input->shape[2];
+    const size_t pad_top = pad[0];
+    const size_t pad_left = pad[2];
+    const size_t pad_right = pad[3];
+
+    // set output array to fill value
+    if (fabs(fill) < 1e-6) {
+        // fill is ~zero, use memset
+        // memset(output->array,0,output->numel*sizeof(output->array[0]));
+
+        for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    }
+    else {
+        for(size_t i=0; i<output->numel; ++i) {
+            output->array[i] = fill;
+        }
+    }
+    // memcpy the old array in the middle
+    size_t offset = in_channels*(pad_left+pad_right+in_width)*pad_top +
+                    in_channels*pad_left;
+    const size_t num = in_channels*in_width;
+    const size_t step = num+in_channels*(pad_left+pad_right);
+    for (size_t i=0; i<in_height; ++i) {
+        // memcpy(&output->array[offset],
+        //        &input->array[i*num],
+        //        num*sizeof(input->array[0]));
+        for (size_t j = 0; j < num*sizeof(input->array[0]); ++j) {
+            //#pragma HLS pipeline
+            output->array[offset+j] =input->array[i*num+j];
+        }
+        offset += step;
+    }
+}
+
+
+/**
+ * 3D (spatial or spatio-temporal) Padding.
+ *
+ * :param output: tensor to store padded output data.
+ * :param input: tensor to pad.
+ * :param fill: value to fill in padded areas.
+ * :param pad: array[6] of how many rows/cols to pad. Order is {before dim 1, after dim 1, before dim 2, after dim 2, before dim 3, after dim 3}.
+ */
+void k2c_pad3d(k2c_tensor* output, const k2c_tensor* input, const float fill,
+               const size_t * pad) {
+
+    const size_t dim1 = input->shape[0];
+    const size_t dim2 = input->shape[1];
+    const size_t dim3 = input->shape[2];
+    const size_t outdim1 = dim1 + pad[0] + pad[1];
+    const size_t outdim2 = dim2 + pad[2] + pad[3];
+    const size_t outdim3 = dim3 + pad[4] + pad[5];
+    const size_t in_channels = input->shape[3];
+
+    // set output array to fill value
+    if (fabs(fill) < 1e-6) {
+        // fill is ~zero, use memset
+        // memset(output->array,0,output->numel*sizeof(output->array[0]));
+
+        for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    }
+    else {
+        for(size_t i=0; i<output->numel; ++i) {
+            output->array[i] = fill;
+        }
+    }
+    // memcpy the old array in the middle
+    const size_t offset1 = in_channels*(outdim2*outdim3)*pad[0] + in_channels*outdim3*pad[2] + in_channels*pad[4];
+    const size_t num = in_channels*dim3;
+    const size_t outstep2 = num+in_channels*(pad[4]+pad[5]);
+    const size_t outstep1 = outdim2*outdim3*in_channels;
+    const size_t instep1 = dim2*dim3*in_channels;
+    const size_t instep2 = dim3*in_channels;
+
+    for (size_t i=0; i<dim1; ++i) {
+        for (size_t j=0; j<dim2; ++j) {
+            // memcpy(&output->array[offset1+i*outstep1 + j*outstep2],
+            //        &input->array[i*instep1+j*instep2],
+            //        num*sizeof(input->array[0]));
+                for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+                //#pragma HLS pipeline
+                output->array[offset1+i*outstep1 + j*outstep2+k] =input->array[i*instep1+j*instep2+k];
+            }
+        }
+    }
+}
+
+
+/**
+ * 1D (temporal) Convolution.
+ * Assumes a "channels last" structure.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param kernel: kernel tensor.
+ * :param bias: bias tensor.
+ * :param stride: stride length of the convolution.
+ * :param dilation: dilation rate to use for dilated convolution.
+ * :param activation: activation function to apply to output.
+ */
+void k2c_conv1d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
+                const k2c_tensor* bias, const size_t stride, const size_t dilation,
+                k2c_activationType *activation) {
+
+    // memset(output->array,0,output->numel*sizeof(output->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+
+    const size_t out_times = output->shape[0];
+    const size_t out_channels = output->shape[1];
+    const size_t in_channels = input->shape[1];
+
+    for (size_t x0=0; x0 < out_times; ++x0) {
+        for (size_t z=0; z < kernel->shape[0]; ++z) {
+            for (size_t q=0; q < in_channels; ++q) {
+                for (size_t k=0; k < out_channels; ++k) {
+                    output->array[x0*out_channels + k] +=
+                        kernel->array[z*(kernel->shape[2]*kernel->shape[1]) +
+                                                                            q*(kernel->shape[2]) + k]*
+                        input->array[(x0*stride + dilation*z)*in_channels + q];
+                }
+            }
+        }
+    }
+    k2c_bias_add(output,bias);
+    activation(output->array,output->numel);
+}
+
+
+/**
+ * 2D (spatial) Convolution.
+ * Assumes a "channels last" structure.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param kernel: kernel tensor.
+ * :param bias: bias tensor.
+ * :param stride: array[2] of stride length of the convolution. Order is {stride dim 1, stride dim 2}.
+ * :param dilation: array[2] dilation rate to use for dilated convolution. Order is {dilation dim 1, dilation dim 2}.
+ * :param activation: activation function to apply to output.
+ */
+void k2c_conv2d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
+                const k2c_tensor* bias, const size_t * stride, const size_t * dilation,
+                k2c_activationType *activation) {
+
+    // memset(output->array,0,output->numel*sizeof(output->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+
+    const size_t out_rows = output->shape[0];
+    const size_t out_cols = output->shape[1];
+    const size_t out_channels = output->shape[2];
+    const size_t in_channels = input->shape[2];
+
+    for (size_t x0=0; x0 < out_rows; ++x0) {
+        for (size_t x1=0; x1 < out_cols; ++x1) {
+            for (size_t z0=0; z0 < kernel->shape[0]; ++z0) {
+                for (size_t z1=0; z1 < kernel->shape[1]; ++z1) {
+                    for (size_t q=0; q < in_channels; ++q) {
+                        for (size_t k=0; k < out_channels; ++k) {
+                            output->array[x0*(output->shape[2]*output->shape[1])
+                                          + x1*(output->shape[2]) + k] +=
+                                              kernel->array[z0*(kernel->shape[3]*kernel->shape[2]*kernel->shape[1])
+                                                            + z1*(kernel->shape[3]*kernel->shape[2])
+                                                            + q*(kernel->shape[3]) + k]*
+                                              input->array[(x0*stride[0]
+                                                            + dilation[0]*z0)*(input->shape[2]*input->shape[1])
+                                                           + (x1*stride[1] + dilation[1]*z1)*(input->shape[2]) + q];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    k2c_bias_add(output,bias);
+    activation(output->array,output->numel);
+}
+
+
+/**
+ * 3D (spatial or spatio-temporal) Convolution.
+ * Assumes a "channels last" structure.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param kernel: kernel tensor.
+ * :param bias: bias tensor.
+ * :param stride: array[3] of stride length of the convolution. Order is {stride dim 1, stride dim 2, stride dim 3}.
+ * :param dilation: array[3] dilation rate to use for dilated convolution. Order is {dilation dim 1, dilation dim 2, dilation dim 3}.
+ * :param activation: activation function to apply to output.
+ */
+void k2c_conv3d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
+                const k2c_tensor* bias, const size_t * stride, const size_t * dilation,
+                k2c_activationType *activation) {
+
+    // memset(output->array,0,output->numel*sizeof(output->array[0]));
+    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+            //#pragma HLS pipeline
+            output->array[i] = 0;
+        }
+    const size_t dim1 = output->shape[0];
+    const size_t dim2 = output->shape[1];
+    const size_t dim3 = output->shape[2];
+    const size_t out_channels = output->shape[3];
+    const size_t in_channels = input->shape[3];
+
+    for (size_t x0=0; x0 < dim1; ++x0) {
+        for (size_t x1=0; x1 < dim2; ++x1) {
+            for (size_t x2=0; x2<dim3; ++x2) {
+                for (size_t z0=0; z0 < kernel->shape[0]; ++z0) {
+                    for (size_t z1=0; z1 < kernel->shape[1]; ++z1) {
+                        for (size_t z2=0; z2 < kernel->shape[2]; ++z2) {
+                            for (size_t q=0; q < in_channels; ++q) {
+                                for (size_t k=0; k < out_channels; ++k) {
+                                    output->array[x0*(output->shape[3]*output->shape[2]
+                                                      *output->shape[1])
+                                                  + x1*(output->shape[3]*output->shape[2])
+                                                  + x2*(output->shape[3]) + k] +=
+                                                      kernel->array[z0*(kernel->shape[4]*kernel->shape[3]
+                                                                        *kernel->shape[2]*kernel->shape[1])
+                                                                    + z1*(kernel->shape[4]*kernel->shape[3]
+                                                                          *kernel->shape[2])
+                                                                    + z2*(kernel->shape[4]*kernel->shape[3])
+                                                                    + q*(kernel->shape[4]) + k]
+                                                      *input->array[(x0*stride[0] + dilation[0]*z0)
+                                                                    *(input->shape[3]*input->shape[2]*input->shape[1])
+                                                                    + (x1*stride[1] + dilation[1]*z1)
+                                                                    *(input->shape[3]*input->shape[2])
+                                                                    + (x2*stride[2] + dilation[2]*z2)
+                                                                    *(input->shape[3]) + q];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    k2c_bias_add(output,bias);
+    activation(output->array,output->numel);
+}
+
+
+/**
+ * 1D (temporal) Cropping.
+ *
+ * :param output: tensor to store cropped output data.
+ * :param input: tensor to crop.
+ * :param pad: array[2] of how many rows to crop. Order is {before dim 1, after dim 1}.
+ */
+// void k2c_crop1d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop) {
+
+//     const size_t offset = crop[0]*input->shape[1];
+//     // memcpy(&output->array[0],&input->array[offset],
+//     //        output->numel*sizeof(output->array[0]));
+//         for (size_t k = 0; k < output->numel*sizeof(output->array[0]); ++k) {
+//         //#pragma HLS pipeline
+//         input->array[offset+k] = output->array[0+k];
+//     }
+// }
+void k2c_crop1d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop) {
+
+    const size_t offset = crop[0]*input->shape[1];
+    // memcpy(&output->array[0],&input->array[offset],
+    //        output->numel*sizeof(output->array[0]));
+        for (size_t k = 0; k < output->numel*sizeof(output->array[0]); ++k) {
+        //#pragma HLS pipeline
+        output->array[0+k] = input->array[offset+k];
+    }
+}
+
+
+/**
+ * 2D (spatial) Cropping.
+ *
+ * :param output: tensor to store cropped output data.
+ * :param input: tensor to crop.
+ * :param pad: array[4] of how many rows/cols to crop. Order is {before dim 1, after dim 1, before dim 2, after dim 2}.
+ */
+// void k2c_crop2d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop) {
+
+//     const size_t out_height = output->shape[0];
+//     const size_t in_width = input->shape[1];
+//     const size_t in_channels = input->shape[2];
+//     const size_t crop_top = crop[0];
+//     const size_t crop_left = crop[2];
+//     const size_t crop_right = crop[3];
+
+//     size_t offset = in_channels*in_width*crop_top + in_channels*crop_left;
+//     const size_t num = in_channels*(in_width-crop_left-crop_right);
+//     for (size_t i=0; i<out_height; ++i) {
+//         // memcpy(&output->array[i*num],&input->array[offset],num*sizeof(input->array[0]));
+//         offset += in_width*in_channels;
+//          for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+//         //#pragma HLS pipeline
+//         input->array[offset+k] = output->array[i*num + k];
+//     }
+//     }
+// }
+
+void k2c_crop2d(k2c_tensor* output,const k2c_tensor* input, const size_t * crop) {
+
+    const size_t out_height = output->shape[0];
+    const size_t in_width = input->shape[1];
+    const size_t in_channels = input->shape[2];
+    const size_t crop_top = crop[0];
+    const size_t crop_left = crop[2];
+    const size_t crop_right = crop[3];
+
+    size_t offset = in_channels*in_width*crop_top + in_channels*crop_left;
+    const size_t num = in_channels*(in_width-crop_left-crop_right);
+    for (size_t i=0; i<out_height; ++i) {
+        // memcpy(&output->array[i*num],&input->array[offset],num*sizeof(input->array[0]));
+        offset += in_width*in_channels;
+            for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+            //#pragma HLS pipeline
+            output->array[i*num + k] = input->array[offset+k];
+        }
+    }
+}
+
+/**
+ * 3D (spatial or spatio-temporal) Cropping.
+ *
+ * :param output: tensor to store cropped output data.
+ * :param input: tensor to crop.
+ * :param pad: array[6] of how many rows/cols to crop. Order is {before dim 1, after dim 1, before dim 2, after dim 2, before dim 3, after dim 3}.
+ */
+// void k2c_crop3d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop) {
+
+//     const size_t dim1 = input->shape[0];
+//     const size_t dim2 = input->shape[1];
+//     const size_t dim3 = input->shape[2];
+//     const size_t outdim1 = dim1 - crop[0] - crop[1];
+//     const size_t outdim2 = dim2 - crop[2] - crop[3];
+//     const size_t outdim3 = dim3 - crop[4] - crop[5];
+//     const size_t in_channels = input->shape[3];
+
+//     const size_t offset1 = in_channels*(dim2*dim3)*crop[0] +
+//                            in_channels*dim3*crop[2] + in_channels*crop[4];
+//     const size_t num = in_channels*outdim3;
+//     const size_t instep2 = num+in_channels*(crop[4]+crop[5]);
+//     const size_t instep1 = dim2*dim3*in_channels;
+//     const size_t outstep1 = outdim2*outdim3*in_channels;
+//     const size_t outstep2 = outdim3*in_channels;
+
+//     for (size_t i=0; i<outdim1; ++i) {
+//         for (size_t j=0; j<outdim2; ++j) {
+//             // memcpy(&output->array[i*outstep1 + j*outstep2],
+//             //        &input->array[offset1+i*instep1+j*instep2],
+//             //        num*sizeof(input->array[0]));
+//                 for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+//                 //#pragma HLS pipeline
+//                 input->array[offset+k] = output->array[i*outstep1 + j*outstep2 + k];
+//             }
+//         }
+//     }
+// }
+
+void k2c_crop3d(k2c_tensor* output,const k2c_tensor* input, const size_t * crop) {
+
+    const size_t dim1 = input->shape[0];
+    const size_t dim2 = input->shape[1];
+    const size_t dim3 = input->shape[2];
+    const size_t outdim1 = dim1 - crop[0] - crop[1];
+    const size_t outdim2 = dim2 - crop[2] - crop[3];
+    const size_t outdim3 = dim3 - crop[4] - crop[5];
+    const size_t in_channels = input->shape[3];
+
+    const size_t offset1 = in_channels*(dim2*dim3)*crop[0] +
+                           in_channels*dim3*crop[2] + in_channels*crop[4];
+    const size_t num = in_channels*outdim3;
+    const size_t instep2 = num+in_channels*(crop[4]+crop[5]);
+    const size_t instep1 = dim2*dim3*in_channels;
+    const size_t outstep1 = outdim2*outdim3*in_channels;
+    const size_t outstep2 = outdim3*in_channels;
+
+    for (size_t i=0; i<outdim1; ++i) {
+        for (size_t j=0; j<outdim2; ++j) {
+            // memcpy(&output->array[i*outstep1 + j*outstep2],
+            //        &input->array[offset1+i*instep1+j*instep2],
+            //        num*sizeof(input->array[0]));
+                for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+                //#pragma HLS pipeline
+                output->array[i*outstep1 + j*outstep2 + k] = input->array[offset1+i*instep1+j*instep2 + k] ;
+            }
+        }
+    }
+}
+
+/**
+ * 1D (temporal) Upsampling.
+ * Repeats each temporal step size times along the time axis.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param size: Upsampling factor.
+ */
+void k2c_upsampling1d(k2c_tensor* output, const k2c_tensor* input, const size_t size) {
+
+    const size_t in_height = input->shape[0];
+    const size_t in_width = input->shape[1];
+
+    for (size_t i=0; i<in_height; ++i) {
+        for (size_t j=0; j<size; ++j) {
+            for (size_t k=0; k<in_width; ++k) {
+                output->array[(size*i+j)*in_width + k] = input->array[i*in_width+k];
+            }
+        }
+    }
+}
+
+
+/**
+ * 2D (spatial) Upsampling.
+ * Repeats the rows and columns of the data by size[0] and size[1] respectively.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param size: array[2] of upsampling factors. Order is {upsampling dim 1, upsampling dim 2}.
+ */
+// void k2c_upsampling2d(k2c_tensor* output, const k2c_tensor* input, const size_t * size) {
+
+//     const size_t out_height = output->shape[0];
+//     const size_t out_width = output->shape[1];
+//     const size_t channels = input->shape[2];
+
+//     for (size_t i=0; i<out_height; ++i) {
+//         for (size_t j=0; j<out_width; ++j) {
+//             const size_t insub[K2C_MAX_NDIM] = {i/size[0],j/size[1],0};
+//             const size_t outsub[K2C_MAX_NDIM] = {i,j,0};
+//             memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
+//                    &input->array[k2c_sub2idx(insub,input->shape,input->ndim)],
+//                    channels*sizeof(input->array[0]));
+//             //        for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+//             //     //#pragma HLS pipeline
+//             //     output->array[i*outstep1 + j*outstep2 + k] = input->array[offset1+i*instep1+j*instep2 + k] ;
+//             // }
+//         }
+//     }
+// }
+
+void k2c_upsampling2d(k2c_tensor* output, const k2c_tensor* input, const size_t * size) {
+
+    const size_t out_height = output->shape[0];
+    const size_t out_width = output->shape[1];
+    const size_t channels = input->shape[2];
+
+    for (size_t i=0; i<out_height; ++i) {
+        for (size_t j=0; j<out_width; ++j) {
+            const size_t insub[K2C_MAX_NDIM] = {i/size[0],j/size[1],0};
+            const size_t outsub[K2C_MAX_NDIM] = {i,j,0};
+            // memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
+            //        &input->array[k2c_sub2idx(insub,input->shape,input->ndim)],
+            //        channels*sizeof(input->array[0]));
+                   for (size_t k = 0; k < channels*sizeof(input->array[0]); ++k) {
+                //#pragma HLS pipeline
+                output->array[k2c_sub2idx(outsub,output->shape,output->ndim) + k] = input->array[k2c_sub2idx(insub,input->shape,input->ndim) + k] ;
+            }
+        }
+    }
+}
+
+
+/**
+ * 2D (spatial) Upsampling.
+ * Repeats the 1st, 2nd and 3rd dimensions of the data by size[0], size[1] and size[2] respectively.
+ *
+ * :param output: output tensor.
+ * :param input: input tensor.
+ * :param size: array[3] of upsampling factors. Order is {upsampling dim 1, upsampling dim 2, upsampling dim 3}.
+ */
+void k2c_upsampling3d(k2c_tensor* output, const k2c_tensor* input, const size_t * size) {
+
+    const size_t dim1 = output->shape[0];
+    const size_t dim2 = output->shape[1];
+    const size_t dim3 = output->shape[2];
+    const size_t channels = input->shape[3];
+
+    for (size_t i=0; i<dim1; ++i) {
+        for (size_t j=0; j<dim2; ++j) {
+            for (size_t k=0; k<dim3; ++k) {
+                const size_t insub[K2C_MAX_NDIM] = {i/size[0],j/size[1],k/size[2],0};
+                const size_t outsub[K2C_MAX_NDIM] = {i,j,k,0};
+                // memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
+                //        &input->array[k2c_sub2idx(insub,input->shape,input->ndim)],
+                //        channels*sizeof(input->array[0]));
+                for (size_t k = 0; k < channels*sizeof(input->array[0]); ++k) {
+                    //#pragma HLS pipeline
+                    output->array[k2c_sub2idx(outsub,output->shape,output->ndim) + k] = input->array[k2c_sub2idx(insub,input->shape,input->ndim) + k] ;
+                }
+            }
+        }
+    }
+}
+
+
+/**
+ * Linear activation function.
+ *   y=x
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_linear_func(float * x, const size_t size) {
+
+}
+k2c_activationType * k2c_linear = k2c_linear_func;
+
+
+/**
+ * Exponential activation function.
+ *   y = exp(x)
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_exponential_func(float * x, const size_t size) {
+
+    for (size_t i=0; i<size; ++i) {
+        x[i] = expf(x[i]);
+    }
+}
+k2c_activationType * k2c_exponential = k2c_exponential_func;
+
+
+/**
+ * ReLU activation function.
+ *   y = max(x,0)
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_relu_func(float * x, const size_t size) {
+
+    for (size_t i=0; i < size; ++i) {
+        if (x[i] <= 0.0f) {
+            x[i] = 0.0f;
+        }
+    }
+}
+k2c_activationType * k2c_relu = k2c_relu_func;
+
+
+/**
+ * ReLU activation function.
+ *   y = {1          if      x> 2.5}
+ *       {0.2*x+0.5  if -2.5<x< 2.5}
+ *       {0          if      x<-2.5}
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_hard_sigmoid_func(float * x, const size_t size) {
+
+    for (size_t i=0; i < size; ++i) {
+        if (x[i] <= -2.5f) {
+            x[i] = 0.0f;
+        }
+        else if (x[i]>=2.5f) {
+            x[i] = 1.0f;
+        }
+        else {
+            x[i] = 0.2f*x[i] + 0.5f;
+        }
+    }
+}
+k2c_activationType * k2c_hard_sigmoid = k2c_hard_sigmoid_func;
+
+
+/**
+ * Tanh activation function.
+ *   y = tanh(x)
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_tanh_func(float * x, const size_t size) {
+    for (size_t i=0; i<size; ++i) {
+        x[i] = tanhf(x[i]);
+    }
+}
+k2c_activationType * k2c_tanh = k2c_tanh_func;
+
+
+/**
+ * Sigmoid activation function.
+ *   y = 1/(1+exp(-x))
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_sigmoid_func(float * x, const size_t size) {
+
+    for (size_t i=0; i < size; ++i) {
+        x[i] = 1/(1+expf(-x[i]));
+    }
+}
+k2c_activationType * k2c_sigmoid = k2c_sigmoid_func;
+
+
+/**
+ * Soft max activation function.
+ *   z[i] = exp(x[i]-max(x))
+ *   y = z/sum(z)
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_softmax_func(float x[6], const size_t size) {
+
+    float xmax = x[0];
+    float sum = 0;
+    size_t i;
+    for ( i=1; i < 6; ++i) {
+        if (x[i]>xmax) {
+            xmax = x[i];
+        }
+    }
+
+    for ( i=0; i < 6; ++i) {
+        x[i] = expf(x[i]-xmax);
+        sum += x[i];
+    }
+
+//    for ( i=0; i < 6; ++i) {
+//        sum += x[i];
+//    }
+
+    sum = 1.0f/sum;
+    for ( i=0; i < 6; ++i) {
+        x[i] = x[i]*sum;
+    }
+}
+k2c_activationType * k2c_softmax = k2c_softmax_func;
+
+
+/**
+ * Soft plus activation function.
+ *   y = ln(1+exp(x))
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_softplus_func(float * x, const size_t size) {
+
+    for (size_t i=0; i < size; ++i) {
+        x[i] = log1pf(expf(x[i]));
+    }
+}
+k2c_activationType * k2c_softplus = k2c_softplus_func;
+
+
+/**
+ * Soft sign activation function.
+ *   y = x/(1+|x|)
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ */
+void k2c_softsign_func(float * x, const size_t size) {
+
+    for (size_t i=0; i < size; ++i) {
+        x[i] = x[i]/(1.0f + fabsf(x[i]));
+    }
+}
+k2c_activationType * k2c_softsign = k2c_softsign_func;
+
+
+/**
+ * Leaky version of a Rectified Linear Unit.
+ * It allows a small gradient when the unit is not active:
+ *   y = {alpha*x    if x < 0}
+ *       {x          if x >= 0}
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ * :param alpha: slope of negative portion of activation curve.
+ */
+void k2c_LeakyReLU(float * x, const size_t size, const float alpha) {
+
+    for (size_t i=0; i<size; ++i) {
+        if (x[i]<0) {
+            x[i] = alpha*x[i];
+        }
+    }
+}
+
+
+/**
+ * Parametric Rectified Linear Unit.
+ * It allows a small gradient when the unit is not active:
+ *   y = {alpha*x    if x < 0}
+ *       {x          if x >= 0}
+ * Where alpha is a learned array with the same shape as x.
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ * :param alpha: slope of negative portion of activation curve for each unit.
+ */
+void k2c_PReLU(float * x, const size_t size, const float * alpha) {
+
+    for (size_t i=0; i<size; ++i) {
+        if (x[i]<0.0f) {
+            x[i] = x[i]*alpha[i];
+        }
+    }
+}
+
+
+/**
+ * Exponential Linear Unit activation (ELU).
+ *   y = {alpha*(exp(x) - 1)  if x <  0}
+ *       {x                   if x >= 0}
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ * :param alpha: slope of negative portion of activation curve.
+ */
+void k2c_ELU(float * x, const size_t size, const float alpha) {
+
+    for (size_t i=0; i < size; ++i) {
+        if (x[i] <= 0.0f) {
+            x[i] = alpha*expm1f(x[i]);
+        }
+    }
+}
+
+
+/**
+ * Thresholded Rectified Linear Unit.
+ *   y = {x    if x >  theta}
+         {0    if x <= theta}
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ * :param theta: threshold for activation.
+ */
+void k2c_ThresholdedReLU(float * x, const size_t size, const float theta) {
+
+    for (size_t i=0; i<size; ++i) {
+        if (x[i]<= theta) {
+            x[i] = 0;
+        }
+    }
+}
+
+/**
+ * Rectified Linear Unit activation function.
+ *   y = {max_value       if          x >= max_value}
+ *       {x               if theta <= x <  max_value}
+ *       {alpha*(x-theta) if          x < theta}
+ *
+ * :param x: array of input values. Gets overwritten by output.
+ * :param size: length of input array.
+ * :param max_value: maximum value for activated x.
+ * :param alpha: slope of negative portion of activation curve.
+ * :param theta: threshold for activation.
+ */
+void k2c_ReLU(float * x, const size_t size, const float max_value,
+              const float alpha, const float theta) {
+
+    for (size_t i=0; i<size; ++i) {
+        if (x[i] >= max_value) {
+            x[i] = max_value;
+        }
+        else if (x[i] < theta) {
+            x[i] = alpha*(x[i] - theta);
+        }
+    }
+}
+
 
 
 void fake_img(k2c_tensor* conv2d_input_input, k2c_tensor* dense_2_output) { 
@@ -11,9 +2221,14 @@ void fake_img(k2c_tensor* conv2d_input_input, k2c_tensor* dense_2_output) {
 size_t conv2d_stride[2] = {1,1}; 
 size_t conv2d_dilation[2] = {1,1}; 
 float conv2d_output_array[103680] = {0}; 
-k2c_tensor conv2d_output = {&conv2d_output_array[0],3,103680,{36,36,80, 1, 1}}; 
+// k2c_tensor conv2d_output = {&conv2d_output_array[0],3,103680,{36,36,80, 1, 1}}; 
+k2c_tensor conv2d_output = {conv2d_output_array[0],3,103680,{36,36,80, 1, 1}}; 
+
 float conv2d_padded_input_array[4332] = {0}; 
-k2c_tensor conv2d_padded_input = {&conv2d_padded_input_array[0],3,4332,{38,38, 3, 1, 1}}; 
+
+// k2c_tensor conv2d_padded_input = {&conv2d_padded_input_array[0],3,4332,{38,38, 3, 1, 1}}; 
+k2c_tensor conv2d_padded_input = {conv2d_padded_input_array[0],3,4332,{38,38, 3, 1, 1}}; 
+
 size_t conv2d_pad[4] = {1,1,1,1}; 
 float conv2d_fill = 0.0f; 
 float conv2d_kernel_array[2160] = {
@@ -450,7 +2665,9 @@ float conv2d_kernel_array[2160] = {
 -1.30139768e-01f,-3.50438394e-02f,+6.25636950e-02f,-9.65786912e-03f,-6.92248419e-02f,
 +1.87783495e-01f,-2.16133833e-01f,+1.09846056e-01f,-5.80911003e-02f,+6.85587078e-02f,
 }; 
-k2c_tensor conv2d_kernel = {&conv2d_kernel_array[0],4,2160,{ 3, 3, 3,80, 1}}; 
+// k2c_tensor conv2d_kernel = {&conv2d_kernel_array[0],4,2160,{ 3, 3, 3,80, 1}}; 
+k2c_tensor conv2d_kernel = {conv2d_kernel_array[0],4,2160,{ 3, 3, 3,80, 1}}; 
+
 float conv2d_bias_array[80] = {
 -1.05523713e-01f,-3.38347107e-01f,-6.05451353e-02f,-8.96657258e-02f,+2.11685300e-01f,
 +2.87295915e-02f,+8.26492086e-02f,-2.00407635e-02f,+4.52574231e-02f,-1.94108877e-02f,
@@ -469,21 +2686,29 @@ float conv2d_bias_array[80] = {
 +3.17473114e-02f,-6.41828328e-02f,-3.43051925e-02f,+2.68527530e-02f,-1.15612172e-01f,
 +1.11764614e-02f,+1.51976999e-02f,-4.07676786e-01f,+2.76723178e-03f,+1.01789162e-01f,
 }; 
-k2c_tensor conv2d_bias = {&conv2d_bias_array[0],1,80,{80, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_bias = {&conv2d_bias_array[0],1,80,{80, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_bias = {conv2d_bias_array[0],1,80,{80, 1, 1, 1, 1}}; 
+
 
  
 size_t max_pooling2d_stride[2] = {2,2}; 
 size_t max_pooling2d_pool_size[2] = {2,2}; 
 float max_pooling2d_output_array[25920] = {0}; 
-k2c_tensor max_pooling2d_output = {&max_pooling2d_output_array[0],3,25920,{18,18,80, 1, 1}}; 
+// k2c_tensor max_pooling2d_output = {&max_pooling2d_output_array[0],3,25920,{18,18,80, 1, 1}}; 
+k2c_tensor max_pooling2d_output = {max_pooling2d_output_array[0],3,25920,{18,18,80, 1, 1}}; 
+
 
 
 size_t conv2d_1_stride[2] = {1,1}; 
 size_t conv2d_1_dilation[2] = {1,1}; 
 float conv2d_1_output_array[20736] = {0}; 
-k2c_tensor conv2d_1_output = {&conv2d_1_output_array[0],3,20736,{18,18,64, 1, 1}}; 
+// k2c_tensor conv2d_1_output = {&conv2d_1_output_array[0],3,20736,{18,18,64, 1, 1}}; 
+k2c_tensor conv2d_1_output = {conv2d_1_output_array[0],3,20736,{18,18,64, 1, 1}}; 
+
 float conv2d_1_padded_input_array[32000] = {0}; 
-k2c_tensor conv2d_1_padded_input = {&conv2d_1_padded_input_array[0],3,32000,{20,20,80, 1, 1}}; 
+// k2c_tensor conv2d_1_padded_input = {&conv2d_1_padded_input_array[0],3,32000,{20,20,80, 1, 1}}; 
+k2c_tensor conv2d_1_padded_input = {conv2d_1_padded_input_array[0],3,32000,{20,20,80, 1, 1}}; 
+
 size_t conv2d_1_pad[4] = {1,1,1,1}; 
 float conv2d_1_fill = 0.0f; 
 float conv2d_1_kernel_array[46080] = {
@@ -9704,7 +11929,9 @@ float conv2d_1_kernel_array[46080] = {
 -8.66883248e-02f,+1.38496563e-01f,+2.48539019e-02f,+5.37989587e-02f,-2.60799937e-02f,
 -2.78927475e-01f,-4.84062493e-01f,+1.45813495e-01f,-4.27667648e-02f,-3.36963236e-01f,
 }; 
-k2c_tensor conv2d_1_kernel = {&conv2d_1_kernel_array[0],4,46080,{ 3, 3,80,64, 1}}; 
+// k2c_tensor conv2d_1_kernel = {&conv2d_1_kernel_array[0],4,46080,{ 3, 3,80,64, 1}}; 
+k2c_tensor conv2d_1_kernel = {conv2d_1_kernel_array[0],4,46080,{ 3, 3,80,64, 1}}; 
+
 float conv2d_1_bias_array[64] = {
 -1.12834804e-01f,+2.23310277e-01f,-7.18082413e-02f,-7.63988169e-03f,-3.13808590e-01f,
 -3.52545738e-01f,-2.00695500e-01f,+1.34997368e-01f,-6.40073493e-02f,-4.11199182e-01f,
@@ -9719,21 +11946,29 @@ float conv2d_1_bias_array[64] = {
 -4.59698617e-01f,+6.98004514e-02f,-2.56760921e-02f,+4.87235039e-02f,-6.16297172e-03f,
 -7.73593560e-02f,-2.59512901e-01f,-9.15718824e-02f,-2.97547221e-01f,-2.12170526e-01f,
 -2.38448873e-01f,-4.47248220e-01f,-1.23613060e-01f,-2.26234376e-01f,}; 
-k2c_tensor conv2d_1_bias = {&conv2d_1_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_1_bias = {&conv2d_1_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_1_bias = {conv2d_1_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+
 
  
 size_t max_pooling2d_1_stride[2] = {2,2}; 
 size_t max_pooling2d_1_pool_size[2] = {2,2}; 
 float max_pooling2d_1_output_array[5184] = {0}; 
-k2c_tensor max_pooling2d_1_output = {&max_pooling2d_1_output_array[0],3,5184,{ 9, 9,64, 1, 1}}; 
+// k2c_tensor max_pooling2d_1_output = {&max_pooling2d_1_output_array[0],3,5184,{ 9, 9,64, 1, 1}}; 
+k2c_tensor max_pooling2d_1_output = {max_pooling2d_1_output_array[0],3,5184,{ 9, 9,64, 1, 1}}; 
+
 
 
 size_t conv2d_2_stride[2] = {1,1}; 
 size_t conv2d_2_dilation[2] = {1,1}; 
 float conv2d_2_output_array[3240] = {0}; 
-k2c_tensor conv2d_2_output = {&conv2d_2_output_array[0],3,3240,{ 9, 9,40, 1, 1}}; 
+// k2c_tensor conv2d_2_output = {&conv2d_2_output_array[0],3,3240,{ 9, 9,40, 1, 1}}; 
+k2c_tensor conv2d_2_output = {conv2d_2_output_array[0],3,3240,{ 9, 9,40, 1, 1}}; 
+
 float conv2d_2_padded_input_array[7744] = {0}; 
-k2c_tensor conv2d_2_padded_input = {&conv2d_2_padded_input_array[0],3,7744,{11,11,64, 1, 1}}; 
+// k2c_tensor conv2d_2_padded_input = {&conv2d_2_padded_input_array[0],3,7744,{11,11,64, 1, 1}}; 
+k2c_tensor conv2d_2_padded_input = {conv2d_2_padded_input_array[0],3,7744,{11,11,64, 1, 1}}; 
+
 size_t conv2d_2_pad[4] = {1,1,1,1}; 
 float conv2d_2_fill = 0.0f; 
 float conv2d_2_kernel_array[23040] = {
@@ -14346,7 +16581,9 @@ float conv2d_2_kernel_array[23040] = {
 +4.48206514e-02f,-1.21439118e-02f,-8.47140513e-03f,-1.65254787e-01f,+1.99652791e-01f,
 -2.04176873e-01f,+1.29550681e-01f,+2.54501581e-01f,-1.31609505e-02f,-7.95610547e-02f,
 }; 
-k2c_tensor conv2d_2_kernel = {&conv2d_2_kernel_array[0],4,23040,{ 3, 3,64,40, 1}}; 
+// k2c_tensor conv2d_2_kernel = {&conv2d_2_kernel_array[0],4,23040,{ 3, 3,64,40, 1}}; 
+k2c_tensor conv2d_2_kernel = {conv2d_2_kernel_array[0],4,23040,{ 3, 3,64,40, 1}}; 
+
 float conv2d_2_bias_array[40] = {
 -7.27843195e-02f,+1.42310470e-01f,-4.51335423e-02f,-1.36928231e-01f,+2.74567574e-01f,
 -9.29499418e-03f,+1.61350548e-01f,-6.85937554e-02f,-9.50416028e-02f,+1.54791832e-01f,
@@ -14357,21 +16594,29 @@ float conv2d_2_bias_array[40] = {
 -1.21631540e-01f,-1.26403257e-01f,-1.22087792e-01f,-9.87758338e-02f,-1.14986509e-01f,
 +2.84517944e-01f,-6.45415410e-02f,-6.00723401e-02f,-8.09104368e-02f,+1.57339051e-01f,
 }; 
-k2c_tensor conv2d_2_bias = {&conv2d_2_bias_array[0],1,40,{40, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_2_bias = {&conv2d_2_bias_array[0],1,40,{40, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_2_bias = {conv2d_2_bias_array[0],1,40,{40, 1, 1, 1, 1}}; 
+
 
  
 size_t max_pooling2d_2_stride[2] = {2,2}; 
 size_t max_pooling2d_2_pool_size[2] = {2,2}; 
 float max_pooling2d_2_output_array[640] = {0}; 
-k2c_tensor max_pooling2d_2_output = {&max_pooling2d_2_output_array[0],3,640,{ 4, 4,40, 1, 1}}; 
+// k2c_tensor max_pooling2d_2_output = {&max_pooling2d_2_output_array[0],3,640,{ 4, 4,40, 1, 1}}; 
+k2c_tensor max_pooling2d_2_output = {max_pooling2d_2_output_array[0],3,640,{ 4, 4,40, 1, 1}}; 
+
 
 
 size_t conv2d_3_stride[2] = {1,1}; 
 size_t conv2d_3_dilation[2] = {1,1}; 
 float conv2d_3_output_array[320] = {0}; 
-k2c_tensor conv2d_3_output = {&conv2d_3_output_array[0],3,320,{ 4, 4,20, 1, 1}}; 
+// k2c_tensor conv2d_3_output = {&conv2d_3_output_array[0],3,320,{ 4, 4,20, 1, 1}}; 
+k2c_tensor conv2d_3_output = {conv2d_3_output_array[0],3,320,{ 4, 4,20, 1, 1}}; 
+
 float conv2d_3_padded_input_array[1440] = {0}; 
-k2c_tensor conv2d_3_padded_input = {&conv2d_3_padded_input_array[0],3,1440,{ 6, 6,40, 1, 1}}; 
+// k2c_tensor conv2d_3_padded_input = {&conv2d_3_padded_input_array[0],3,1440,{ 6, 6,40, 1, 1}}; 
+k2c_tensor conv2d_3_padded_input = {conv2d_3_padded_input_array[0],3,1440,{ 6, 6,40, 1, 1}}; 
+
 size_t conv2d_3_pad[4] = {1,1,1,1}; 
 float conv2d_3_fill = 0.0f; 
 float conv2d_3_kernel_array[7200] = {
@@ -15816,26 +18061,36 @@ float conv2d_3_kernel_array[7200] = {
 -5.20768352e-02f,+3.56416963e-02f,-4.33843099e-02f,-1.28937930e-01f,+1.04812823e-01f,
 -1.87758237e-01f,-1.41722217e-01f,+3.47995460e-02f,+2.31273562e-01f,+2.70381778e-01f,
 }; 
-k2c_tensor conv2d_3_kernel = {&conv2d_3_kernel_array[0],4,7200,{ 3, 3,40,20, 1}}; 
+// k2c_tensor conv2d_3_kernel = {&conv2d_3_kernel_array[0],4,7200,{ 3, 3,40,20, 1}}; 
+k2c_tensor conv2d_3_kernel = {conv2d_3_kernel_array[0],4,7200,{ 3, 3,40,20, 1}}; 
+
 float conv2d_3_bias_array[20] = {
 +1.80148825e-01f,+3.20762724e-01f,-1.25984907e-01f,+3.75281125e-01f,+1.04205571e-02f,
 -1.61951050e-01f,-1.32725939e-01f,+5.28017700e-01f,-2.44024210e-02f,+1.37603179e-01f,
 +9.77365151e-02f,+9.16272309e-03f,+1.20974004e-01f,+1.31790593e-01f,-6.19606495e-01f,
 -3.06218825e-02f,-3.37826423e-02f,+3.34480792e-01f,-2.00303793e-01f,-3.14062387e-01f,
 }; 
-k2c_tensor conv2d_3_bias = {&conv2d_3_bias_array[0],1,20,{20, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_3_bias = {&conv2d_3_bias_array[0],1,20,{20, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_3_bias = {conv2d_3_bias_array[0],1,20,{20, 1, 1, 1, 1}}; 
+
 
  
 size_t max_pooling2d_3_stride[2] = {2,2}; 
 size_t max_pooling2d_3_pool_size[2] = {2,2}; 
 float max_pooling2d_3_output_array[80] = {0}; 
-k2c_tensor max_pooling2d_3_output = {&max_pooling2d_3_output_array[0],3,80,{ 2, 2,20, 1, 1}}; 
+// k2c_tensor max_pooling2d_3_output = {&max_pooling2d_3_output_array[0],3,80,{ 2, 2,20, 1, 1}}; 
+k2c_tensor max_pooling2d_3_output = {max_pooling2d_3_output_array[0],3,80,{ 2, 2,20, 1, 1}}; 
+
 
 
 float flatten_output_array[80] = {0}; 
-k2c_tensor flatten_output = {&flatten_output_array[0],1,80,{80, 1, 1, 1, 1}}; 
+// k2c_tensor flatten_output = {&flatten_output_array[0],1,80,{80, 1, 1, 1, 1}}; 
+k2c_tensor flatten_output = {flatten_output_array[0],1,80,{80, 1, 1, 1, 1}}; 
+
 float dense_output_array[64] = {0}; 
-k2c_tensor dense_output = {&dense_output_array[0],1,64,{64, 1, 1, 1, 1}}; 
+// k2c_tensor dense_output = {&dense_output_array[0],1,64,{64, 1, 1, 1, 1}}; 
+k2c_tensor dense_output = {dense_output_array[0],1,64,{64, 1, 1, 1, 1}}; 
+
 float dense_kernel_array[5120] = {
 -2.19868585e-01f,-4.45053726e-01f,-5.07176071e-02f,+2.20753878e-01f,-1.17114805e-01f,
 +6.27046125e-03f,-1.48240089e-01f,+2.92505890e-01f,-1.24139398e-01f,-1.71519995e-01f,
@@ -16862,7 +19117,9 @@ float dense_kernel_array[5120] = {
 +1.63692668e-01f,-3.91161561e-01f,-4.20376301e-01f,-2.68962026e-01f,-2.94820786e-01f,
 +7.28204399e-02f,+5.10882065e-02f,-2.64565468e-01f,+8.06553513e-02f,+2.74430573e-01f,
 }; 
-k2c_tensor dense_kernel = {&dense_kernel_array[0],2,5120,{80,64, 1, 1, 1}}; 
+// k2c_tensor dense_kernel = {&dense_kernel_array[0],2,5120,{80,64, 1, 1, 1}}; 
+k2c_tensor dense_kernel = {dense_kernel_array[0],2,5120,{80,64, 1, 1, 1}}; 
+
 float dense_bias_array[64] = {
 -2.00436682e-01f,-3.24991532e-02f,-2.39020243e-01f,+3.05076957e-01f,+4.97695804e-02f,
 -2.23277032e-01f,+9.98260006e-02f,+2.00308561e-01f,-1.09090962e-01f,-4.61277843e-01f,
@@ -16877,12 +19134,16 @@ float dense_bias_array[64] = {
 -6.38000891e-02f,-2.34033763e-01f,+1.84447885e-01f,+8.62059891e-02f,-4.37115058e-02f,
 +2.10524604e-01f,+9.36970115e-02f,+1.88212544e-01f,+2.29534030e-01f,+2.36084089e-02f,
 -7.09639713e-02f,+2.37581253e-01f,-3.79155576e-02f,-1.72115073e-01f,}; 
-k2c_tensor dense_bias = {&dense_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+// k2c_tensor dense_bias = {&dense_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+k2c_tensor dense_bias = {dense_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+
 float dense_fwork[5200] = {0}; 
 
  
 float dense_1_output_array[48] = {0}; 
-k2c_tensor dense_1_output = {&dense_1_output_array[0],1,48,{48, 1, 1, 1, 1}}; 
+// k2c_tensor dense_1_output = {&dense_1_output_array[0],1,48,{48, 1, 1, 1, 1}}; 
+k2c_tensor dense_1_output = {dense_1_output_array[0],1,48,{48, 1, 1, 1, 1}}; 
+
 float dense_1_kernel_array[3072] = {
 -8.11860859e-02f,+9.88746658e-02f,-1.66008789e-02f,+8.54265243e-02f,-1.24141693e-01f,
 -1.62047312e-01f,-1.41794175e-01f,-1.82828173e-01f,-6.50240555e-02f,+9.30057764e-02f,
@@ -17499,7 +19760,9 @@ float dense_1_kernel_array[3072] = {
 -1.11838534e-01f,-4.08490509e-01f,-3.35404314e-02f,-5.89440987e-02f,+1.41751036e-01f,
 +1.47156790e-01f,-2.82437652e-01f,-3.43989469e-02f,+2.48631328e-01f,-1.72745451e-01f,
 -3.54628172e-03f,-2.74145812e-01f,}; 
-k2c_tensor dense_1_kernel = {&dense_1_kernel_array[0],2,3072,{64,48, 1, 1, 1}}; 
+// k2c_tensor dense_1_kernel = {&dense_1_kernel_array[0],2,3072,{64,48, 1, 1, 1}}; 
+k2c_tensor dense_1_kernel = {dense_1_kernel_array[0],2,3072,{64,48, 1, 1, 1}}; 
+
 float dense_1_bias_array[48] = {
 -1.74734201e-02f,+1.83163226e-01f,+2.98729807e-01f,+2.71802515e-01f,+2.64099956e-01f,
 +2.36959189e-01f,+4.37664658e-01f,+1.51349694e-01f,+1.93510249e-01f,+2.52099246e-01f,
@@ -17511,7 +19774,9 @@ float dense_1_bias_array[48] = {
 +2.32132107e-01f,+4.61868607e-02f,+3.07073176e-01f,+4.35064852e-01f,+2.43783444e-01f,
 +1.78222150e-01f,+2.67239451e-01f,+3.57036173e-01f,+3.18275630e-01f,+2.75912285e-01f,
 +2.33179346e-01f,-3.96833748e-01f,+3.01788270e-01f,}; 
-k2c_tensor dense_1_bias = {&dense_1_bias_array[0],1,48,{48, 1, 1, 1, 1}}; 
+// k2c_tensor dense_1_bias = {&dense_1_bias_array[0],1,48,{48, 1, 1, 1, 1}}; 
+k2c_tensor dense_1_bias = {dense_1_bias_array[0],1,48,{48, 1, 1, 1, 1}}; 
+
 float dense_1_fwork[3136] = {0}; 
 
  
@@ -17536,10 +19801,14 @@ float dense_2_kernel_array[96] = {
 +1.71916619e-01f,-5.44236228e-03f,+6.12674430e-02f,-9.00182724e-02f,-2.07437545e-01f,
 -9.92593095e-02f,+7.73919225e-02f,-2.56478153e-02f,+8.45352095e-03f,+1.74939066e-01f,
 +2.35808372e-01f,}; 
-k2c_tensor dense_2_kernel = {&dense_2_kernel_array[0],2,96,{48, 2, 1, 1, 1}}; 
+// k2c_tensor dense_2_kernel = {&dense_2_kernel_array[0],2,96,{48, 2, 1, 1, 1}}; 
+k2c_tensor dense_2_kernel = {dense_2_kernel_array[0],2,96,{48, 2, 1, 1, 1}}; 
+
 float dense_2_bias_array[2] = {
 -7.59470239e-02f,+7.59469792e-02f,}; 
-k2c_tensor dense_2_bias = {&dense_2_bias_array[0],1,2,{2,1,1,1,1}}; 
+// k2c_tensor dense_2_bias = {&dense_2_bias_array[0],1,2,{2,1,1,1,1}}; 
+k2c_tensor dense_2_bias = {dense_2_bias_array[0],1,2,{2,1,1,1,1}}; 
+
 float dense_2_fwork[144] = {0}; 
 
  
@@ -17552,8 +19821,16 @@ k2c_maxpool2d(&max_pooling2d_output,&conv2d_output,max_pooling2d_pool_size,
 k2c_tensor dropout_output; 
 dropout_output.ndim = max_pooling2d_output.ndim; // copy data into output struct 
 dropout_output.numel = max_pooling2d_output.numel; 
-memcpy(dropout_output.shape,max_pooling2d_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-dropout_output.array = &max_pooling2d_output.array[0]; // rename for clarity 
+// memcpy(dropout_output.shape,max_pooling2d_output.shape,K2C_MAX_NDIM*sizeof(size_t)); 
+
+for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+    //#pragma HLS pipeline
+    dropout_output.shape[k] = max_pooling2d_output.shape[k];
+}
+
+//  dropout_output.array = &max_pooling2d_output.array[0]; //  rename for clarity 
+copy_array(max_pooling2d_output.array,dropout_output.array,264822);
+
 k2c_pad2d(&conv2d_1_padded_input,&dropout_output,conv2d_1_fill, 
 	conv2d_1_pad); 
 k2c_conv2d(&conv2d_1_output,&conv2d_1_padded_input,&conv2d_1_kernel, 
@@ -17563,8 +19840,15 @@ k2c_maxpool2d(&max_pooling2d_1_output,&conv2d_1_output,max_pooling2d_1_pool_size
 k2c_tensor dropout_1_output; 
 dropout_1_output.ndim = max_pooling2d_1_output.ndim; // copy data into output struct 
 dropout_1_output.numel = max_pooling2d_1_output.numel; 
-memcpy(dropout_1_output.shape,max_pooling2d_1_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-dropout_1_output.array = &max_pooling2d_1_output.array[0]; // rename for clarity 
+// memcpy(dropout_1_output.shape,max_pooling2d_1_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
+for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+    //#pragma HLS pipeline
+    dropout_1_output.shape[k] = max_pooling2d_1_output.shape[k];
+}
+
+// dropout_1_output.array = &max_pooling2d_1_output.array[0]; // rename for clarity 
+copy_array(max_pooling2d_1_output.array,dropout_1_output.array,264822);
+
 k2c_pad2d(&conv2d_2_padded_input,&dropout_1_output,conv2d_2_fill, 
 	conv2d_2_pad); 
 k2c_conv2d(&conv2d_2_output,&conv2d_2_padded_input,&conv2d_2_kernel, 
@@ -17574,8 +19858,14 @@ k2c_maxpool2d(&max_pooling2d_2_output,&conv2d_2_output,max_pooling2d_2_pool_size
 k2c_tensor dropout_2_output; 
 dropout_2_output.ndim = max_pooling2d_2_output.ndim; // copy data into output struct 
 dropout_2_output.numel = max_pooling2d_2_output.numel; 
-memcpy(dropout_2_output.shape,max_pooling2d_2_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-dropout_2_output.array = &max_pooling2d_2_output.array[0]; // rename for clarity 
+// memcpy(dropout_2_output.shape,max_pooling2d_2_output.shape,K2C_MAX_NDIM*sizeof(size_t));
+for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+    //#pragma HLS pipeline
+    dropout_2_output.shape[k] = max_pooling2d_2_output.shape[k];
+}  
+// dropout_2_output.array = &max_pooling2d_2_output.array[0]; // rename for clarity 
+copy_array(max_pooling2d_2_output.array,dropout_2_output.array,264822);
+
 k2c_pad2d(&conv2d_3_padded_input,&dropout_2_output,conv2d_3_fill, 
 	conv2d_3_pad); 
 k2c_conv2d(&conv2d_3_output,&conv2d_3_padded_input,&conv2d_3_kernel, 
@@ -17585,25 +19875,52 @@ k2c_maxpool2d(&max_pooling2d_3_output,&conv2d_3_output,max_pooling2d_3_pool_size
 k2c_tensor dropout_3_output; 
 dropout_3_output.ndim = max_pooling2d_3_output.ndim; // copy data into output struct 
 dropout_3_output.numel = max_pooling2d_3_output.numel; 
-memcpy(dropout_3_output.shape,max_pooling2d_3_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-dropout_3_output.array = &max_pooling2d_3_output.array[0]; // rename for clarity 
+// memcpy(dropout_3_output.shape,max_pooling2d_3_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
+for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+    //#pragma HLS pipeline
+    dropout_3_output.shape[k] = max_pooling2d_3_output.shape[k];
+}  
+
+// dropout_3_output.array = &max_pooling2d_3_output.array[0]; // rename for clarity 
+copy_array(max_pooling2d_3_output.array,dropout_3_output.array,264822);
+
 k2c_flatten(&flatten_output,&dropout_3_output); 
+// k2c_dense(&dense_output,&flatten_output,&dense_kernel, 
+// 	&dense_bias,k2c_relu,dense_fwork); 
 k2c_dense(&dense_output,&flatten_output,&dense_kernel, 
-	&dense_bias,k2c_relu,dense_fwork); 
+	&dense_bias,&dense_fwork); 
+
 k2c_tensor dropout_4_output; 
 dropout_4_output.ndim = dense_output.ndim; // copy data into output struct 
 dropout_4_output.numel = dense_output.numel; 
-memcpy(dropout_4_output.shape,dense_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-dropout_4_output.array = &dense_output.array[0]; // rename for clarity 
+// memcpy(dropout_4_output.shape,dense_output.shape,K2C_MAX_NDIM*sizeof(size_t)); 
+for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+    //#pragma HLS pipeline
+    dropout_4_output.shape[k] = dense_output.shape[k];
+}   
+// dropout_4_output.array = &dense_output.array[0]; // rename for clarity 
+copy_array(dense_output.array,dropout_4_output.array,264822);
+
+// k2c_dense(&dense_1_output,&dropout_4_output,&dense_1_kernel, 
+// 	&dense_1_bias,k2c_relu,dense_1_fwork); 
 k2c_dense(&dense_1_output,&dropout_4_output,&dense_1_kernel, 
-	&dense_1_bias,k2c_relu,dense_1_fwork); 
+	&dense_1_bias,&dense_1_fwork); 
+
 k2c_tensor dropout_5_output; 
 dropout_5_output.ndim = dense_1_output.ndim; // copy data into output struct 
 dropout_5_output.numel = dense_1_output.numel; 
-memcpy(dropout_5_output.shape,dense_1_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-dropout_5_output.array = &dense_1_output.array[0]; // rename for clarity 
+// memcpy(dropout_5_output.shape,dense_1_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
+for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+    //#pragma HLS pipeline
+    dropout_5_output.shape[k] = dense_1_output.shape[k];
+}   
+// dropout_5_output.array = &dense_1_output.array[0]; // rename for clarity 
+copy_array(dense_1_output.array,dropout_5_output.array,264822);
+
+// k2c_dense(dense_2_output,&dropout_5_output,&dense_2_kernel, 
+// 	&dense_2_bias,k2c_sigmoid,dense_2_fwork); 
 k2c_dense(dense_2_output,&dropout_5_output,&dense_2_kernel, 
-	&dense_2_bias,k2c_sigmoid,dense_2_fwork); 
+	&dense_2_bias,&dense_2_fwork); 
 
  } 
 

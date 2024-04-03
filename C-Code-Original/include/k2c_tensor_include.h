@@ -32,7 +32,9 @@ struct k2c_tensor
     size_t numel;
 
     /** Array, size of the tensor in each dimension. */
-    size_t shape[K2C_MAX_NDIM];
+    // size_t shape[K2C_MAX_NDIM];
+    size_t shape[5];
+
 };
 
 typedef struct k2c_tensor k2c_tensor;
