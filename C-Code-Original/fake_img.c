@@ -11,7 +11,9 @@
         y[i] = x[i];
     }
 }
-
+size_t i;
+size_t j;
+size_t k;
 /**
  * Cell for the LSTM layer.
  * "units" is the dimension of the output space
@@ -44,13 +46,13 @@ void k2c_affine_matmul(float C[100000], const float A[100000], const float B[100
 
     // make sure output is empty
 //    memset(C, 0, outrows*outcols*sizeof(C[0]));
-	size_t i;
+
     for ( i = 0 ; i < outrows; ++i) {
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t j = 0;  j < outcols; ++j) {
             C[outrowidx+j] = 0;
-            for (size_t k = 0; k < innerdim; ++k) {
+            for (k = 0; k < innerdim; ++k) {
                 C[outrowidx+j] += A[inneridx+k] * B[k*outcols+j];
             }
             C[outrowidx+j] += d[j];
@@ -71,9 +73,9 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
 
     size_t idx = 0;
     size_t temp = 0;
-    for (size_t i=0; i<ndim; ++i) {
+    for (i=0; i<ndim; ++i) {
         temp = sub[i];
-        for (size_t j=ndim-1; j>i; --j) {
+        for (j=ndim-1; j>i; --j) {
             temp *= shape[j];
         }
         idx += temp;
@@ -93,9 +95,9 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
 void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim) {
 
     size_t idx2 = idx;
-    for (int i=ndim-1; i>=0; --i) {
-        sub[i] = idx2%shape[i];
-        idx2 /= shape[i];
+    for (int idx1=ndim-1; idx1>=0; --idx1) {
+        sub[idx1] = idx2%shape[idx1];
+        idx2 /= shape[idx1];
     }
 }
 
@@ -137,7 +139,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
     size_t i,j;
     for ( i=0; i<ndimA; ++i) {
         isin = 0;
-        for (size_t j=0; j<naxes; ++j) {
+        for ( j=0; j<naxes; ++j) {
             if (i==axesA[j]) {
                 isin=1;
             }
@@ -150,7 +152,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
     count=0;
     for ( i=0; i<ndimB; ++i) {
         isin = 0;
-        for (size_t j=0; j<naxes; ++j) {
+        for (j=0; j<naxes; ++j) {
             if (i==axesB[j]) {
                 isin=1;
             }
@@ -197,7 +199,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
     // reshape arrays
     for ( i=0; i<Ar->numel; ++i) {
         k2c_idx2sub(i,Asub,Ar->shape,ndimA);
-        for (size_t j=0; j<ndimA; ++j) {
+        for (j=0; j<ndimA; ++j) {
             Bsub[j] = Asub[permA[j]];
         }
         size_t bidx = k2c_sub2idx(Bsub,newshpA,ndimA);
@@ -206,7 +208,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
 
     for ( i=0; i<B->numel; ++i) {
         k2c_idx2sub(i,Bsub,B->shape,ndimB);
-        for (size_t j=0; j<ndimB; ++j) {
+        for (j=0; j<ndimB; ++j) {
             Asub[j] = Bsub[permB[j]];
         }
         size_t bidx = k2c_sub2idx(Asub,newshpB,ndimB);
@@ -218,10 +220,10 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
 
         float sum;
         float inorm;
-        size_t i;
+    
         for ( i=0; i<free_axesA; ++i) {
             sum = 0;
-            size_t j;
+            
             for ( j=0; j<prod_axesA; ++j) {
                 sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
             }
@@ -232,7 +234,7 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
         }
         for ( i=0; i<free_axesB; ++i) {
             sum = 0;
-            size_t j;
+            
             for ( j=0; j<prod_axesB; ++j) {
                 sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
             }
@@ -246,9 +248,9 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
     //k2c_matmul(C->array, reshapeA, reshapeB, free_axesA,free_axesB, prod_axesA);
 
         for (i = 0 ; i < free_axesA; ++i) {
-            for (size_t j = 0;  j < free_axesB; ++j) {
+            for (j = 0;  j < free_axesB; ++j) {
                 C->array[i*free_axesB + j] = 0;
-                for (size_t k = 0; k < prod_axesA; ++k) {
+                for (k = 0; k < prod_axesA; ++k) {
                     C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
                 }
             }
@@ -265,8 +267,8 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
  */
 void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b) {
 
-    for (size_t i=0; i<A->numel; i+=b->numel) {
-        for (size_t j=0; j<b->numel; ++j) {
+    for (i=0; i<A->numel; i+=b->numel) {
+        for (j=0; j<b->numel; ++j) {
             A->array[i+j] += b->array[j];
         }
     }
@@ -287,12 +289,12 @@ void k2c_flip(k2c_tensor *A, const size_t axis) {
     const size_t numel = A->numel;
     size_t sub[K2C_MAX_NDIM] = {0};
     const size_t step = 1;
-    size_t k = 0;
+    k = 0;
     size_t idx = 0;
     float temp;
 
     size_t reduced_size = 1;
-    for (size_t i=axis; i<ndim; ++i) {
+    for (i=axis; i<ndim; ++i) {
         reduced_size *= shape[i];
     }
     const size_t threshold = reduced_size/2;
@@ -398,7 +400,7 @@ void k2c_lstmcell(float * state, const float * input, const k2c_tensor* kernel,
     // yc = yf.*c_tm1 + yi.*output_activation(xc + h_tm1*Uc);
     k2c_affine_matmul(yc, h_tm1, Uc, xc, outrows, units, units);
     output_activation(yc, units);
-    size_t i;
+
     for ( i=0; i < units; ++i) {
         yc[i] = yf[i]*c_tm1[i] + yi[i]*yc[i];
     }
@@ -453,25 +455,25 @@ void k2c_lstm(k2c_tensor* output, const k2c_tensor* input, float * state,
             k2c_lstmcell(state, &input->array[i*in_width], kernel, recurrent_kernel,
                          bias, fwork, recurrent_activation, output_activation);
             if (return_sequences) {
-                for (size_t j=0; j<units; ++j) {
+                for (j=0; j<units; ++j) {
                     output->array[(in_height-1-i)*units+j] = state[j];
                 }
             }
         }
     }
     else {
-        for (size_t i=0; i < in_height; ++i) {
+        for (i=0; i < in_height; ++i) {
             k2c_lstmcell(state, &input->array[i*in_width], kernel, recurrent_kernel,
                          bias, fwork, recurrent_activation, output_activation);
             if (return_sequences) {
-                for (size_t j=0; j<units; ++j) {
+                for (j=0; j<units; ++j) {
                     output->array[i*units+j] = state[j];
                 }
             }
         }
     }
     if (!return_sequences) {
-        for (size_t i=0; i < units; ++i) {
+        for (i=0; i < units; ++i) {
             output->array[i] = state[i];
         }
     }
@@ -507,7 +509,7 @@ void k2c_simpleRNNcell(float * state, const float * input, const k2c_tensor* ker
     k2c_affine_matmul(h2,state,recurrent_kernel->array,h1,outrows,units,units);
     output_activation(h2,units);
 
-    for (size_t i=0; i<units; ++i) {
+    for (i=0; i<units; ++i) {
         state[i] = h2[i];
     }
 }
@@ -542,25 +544,25 @@ void k2c_simpleRNN(k2c_tensor* output, const k2c_tensor* input, float * state,
             k2c_simpleRNNcell(state,&input->array[i*in_width],kernel,recurrent_kernel,bias,
                               fwork, output_activation);
             if (return_sequences) {
-                for (size_t j=0; j<units; ++j) {
+                for (j=0; j<units; ++j) {
                     output->array[(in_height-1-i)*units+j] = state[j];
                 }
             }
         }
     }
     else {
-        for (size_t i=0; i<in_height; ++i) {
+        for (i=0; i<in_height; ++i) {
             k2c_simpleRNNcell(state,&input->array[i*in_width],kernel,recurrent_kernel,bias,
                               fwork, output_activation);
             if (return_sequences) {
-                for (size_t j=0; j<units; ++j) {
+                for (j=0; j<units; ++j) {
                     output->array[i*units+j] = state[j];
                 }
             }
         }
     }
     if (!return_sequences) {
-        for (size_t i=0; i < units; ++i) {
+        for (i=0; i < units; ++i) {
             output->array[i] = state[i];
         }
     }
@@ -624,7 +626,7 @@ void k2c_grucell(float * state, const float * input, const k2c_tensor* kernel,
 
     //    z = np.tanh(x_z + recurrent_z)
     //    r = np.tanh(x_r + recurrent_r)
-    size_t i;
+
     for ( i=0; i<units; ++i) {
         yz[i] = xz[i] + yz[i];
         yr[i] = xr[i] + yr[i];
@@ -637,23 +639,23 @@ void k2c_grucell(float * state, const float * input, const k2c_tensor* kernel,
         //        recurrent_h = h_tm1*recurrent_kernel_h + recurrent_bias_h
         k2c_affine_matmul(yh, h_tm1, Uh, rbh, outrows, units, units);
         //        recurrent_h = r .* recurrent_h
-        for (size_t i=0; i<units; ++i) {
+        for (i=0; i<units; ++i) {
             yh[i] = yr[i] * yh[i];
         }
     }
     else {
         //        recurrent_h = (r .* h_tm1)*recurrent_kernel_h
-    	size_t i;
+    
         for ( i=0; i<units; ++i) {
             yh[i] = yr[i]*h_tm1[i];
         }
         //k2c_matmul(xz, yh, Uh, outrows, units, units); //reuse xz as new yh
 
-        size_t j;
+        
         for (i = 0 ; i < outrows; ++i) {
             for (j = 0;  j < units; ++j) {
                 xz[i*units + j] = 0;
-                for (size_t k = 0; k < units; ++k) {
+                for (k = 0; k < units; ++k) {
                     xz[i*units + j] += yh[i*units + k] * Uh[k*units + j];
                 }
             }
@@ -710,18 +712,18 @@ void k2c_gru(k2c_tensor* output, const k2c_tensor* input, float * state,
             k2c_grucell(state, &input->array[i*in_width], kernel, recurrent_kernel, bias,
                         fwork, reset_after, recurrent_activation, output_activation);
             if (return_sequences) {
-                for (size_t j=0; j<units; ++j) {
+                for (j=0; j<units; ++j) {
                     output->array[(in_height-1-i)*units+j] = state[j];
                 }
             }
         }
     }
     else {
-        for (size_t i=0; i<in_height; ++i) {
+        for (i=0; i<in_height; ++i) {
             k2c_grucell(state, &input->array[i*in_width], kernel, recurrent_kernel, bias,
                         fwork, reset_after, recurrent_activation, output_activation);
             if (return_sequences) {
-                for (size_t j=0; j<units; ++j) {
+                for (j=0; j<units; ++j) {
                     output->array[i*units+j] = state[j];
                 }
             }
@@ -729,7 +731,7 @@ void k2c_gru(k2c_tensor* output, const k2c_tensor* input, float * state,
     }
 
     if (!return_sequences) {
-        for (size_t i=0; i<units; ++i) {
+        for (i=0; i<units; ++i) {
             output->array[i] = state[i];
         }
     }
@@ -746,13 +748,13 @@ void k2c_gru(k2c_tensor* output, const k2c_tensor* input, float * state,
 void k2c_global_max_pooling(k2c_tensor* output, const k2c_tensor* input) {
 
     const size_t in_chan = input->shape[input->ndim-1];
-    size_t i;
+
     for (i=0; i<in_chan; ++i) {
         output->array[i] = input->array[i];
     }
 
     for (i=0; i<input->numel; i+=in_chan) {
-        for (size_t j=0; j<in_chan; ++j) {
+        for (j=0; j<in_chan; ++j) {
             if (output->array[j]<input->array[i+j]) {
                 output->array[j] = input->array[i+j];
             }
@@ -772,14 +774,14 @@ void k2c_global_avg_pooling(k2c_tensor* output, const k2c_tensor* input) {
 
     const size_t in_chan = input->shape[input->ndim-1];
     // memset(output->array,0,output->numel*sizeof(input->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for ( i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
     const float num_inv = 1.0f/(input->numel/in_chan);
 
-    for (size_t i=0; i<input->numel; i+=in_chan) {
-        for (size_t j=0; j<in_chan; ++j) {
+    for ( i=0; i<input->numel; i+=in_chan) {
+        for ( j=0; j<in_chan; ++j) {
             output->array[j] += input->array[i+j]*num_inv;
         }
     }
@@ -798,8 +800,8 @@ void k2c_maxpool1d(k2c_tensor* output, const k2c_tensor* input, const size_t poo
                    const size_t stride) {
     const size_t channels = input->shape[1];
 
-    for(size_t i=0; i<channels; ++i) {
-        for (size_t j=0, k=0; j<output->shape[0]*channels; j+=channels, k+=stride*channels) {
+    for(i=0; i<channels; ++i) {
+        for ( j=0, k=0; j<output->shape[0]*channels; j+=channels, k+=stride*channels) {
             output->array[j+i] = input->array[k+i];
             for (size_t l=0; l<pool_size*channels; l+=channels) {
                 if (output->array[j+i] < input->array[k+i+l]) {
@@ -826,8 +828,9 @@ void k2c_maxpool2d(k2c_tensor* output, const k2c_tensor* input, const size_t * p
     const size_t channels = input->shape[2];
     // i,j,l output indices
     /// i, k, m input indices
-    for (size_t i=0; i< channels; ++i) {
-        for (size_t j=0, k=0; j<output->shape[1]*channels;
+
+    for (i=0; i< channels; ++i) {
+        for (j=0, k=0; j<output->shape[1]*channels;
                 j+=channels, k+=channels*stride[1]) {
             for (size_t l=0, m=0; l<output->numel; l+=channels*output->shape[1],
                     m+=channels*input->shape[1]*stride[0]) {
@@ -859,12 +862,13 @@ void k2c_avgpool1d(k2c_tensor* output, const k2c_tensor* input, const size_t poo
 
     const size_t channels = input->shape[1];
     // memset(output->array,0,output->numel*sizeof(output->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
-    for(size_t i=0; i<channels; ++i) {
-        for (size_t j=0, k=0; j<output->numel; j+=channels, k+=stride*channels) {
+
+    for(i=0; i<channels; ++i) {
+        for (j=0, k=0; j<output->numel; j+=channels, k+=stride*channels) {
             int count = 0;
             for (size_t l=0; l<pool_size*channels; l+=channels) {
                 if (input->array[k+i+l] > -HUGE_VALF) {
@@ -889,15 +893,15 @@ void k2c_avgpool1d(k2c_tensor* output, const k2c_tensor* input, const size_t poo
 void k2c_avgpool2d(k2c_tensor* output, const k2c_tensor* input, const size_t * pool_size,
                    const size_t * stride) {
     // memset(output->array,0,output->numel*sizeof(output->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
     const size_t channels = input->shape[2];
     // i,j,l output indices
     /// i, k, m input indices
-    for (size_t i=0; i< channels; ++i) {
-        for (size_t j=0, k=0; j<output->shape[1]*channels;
+    for (i=0; i< channels; ++i) {
+        for (j=0, k=0; j<output->shape[1]*channels;
                 j+=channels, k+=channels*stride[1]) {
             for (size_t l=0, m=0; l<output->numel; l+=channels*output->shape[1],
                     m+=channels*input->shape[1]*stride[0]) {
@@ -935,7 +939,7 @@ void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_ten
                     const size_t axis) {
 
     size_t offset = 1;
-    size_t i;
+
     for ( i=axis+1; i<inputs->ndim; ++i) {
         offset *= inputs->shape[i];
     }
@@ -964,14 +968,14 @@ void k2c_add(k2c_tensor* output, const size_t num_tensors,...) {
     const k2c_tensor *arrptr;
     va_start (args, num_tensors);
     // memset(output->array, 0, output->numel*sizeof(output->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
 
-    for (size_t i = 0; i < num_tensors; ++i) {
+    for (i = 0; i < num_tensors; ++i) {
         arrptr = va_arg(args, k2c_tensor*);
-        for (size_t j=0; j<output->numel; ++j) {
+        for (j=0; j<output->numel; ++j) {
             output->array[j] += arrptr->array[j];
         }
     }
@@ -990,7 +994,7 @@ void k2c_add(k2c_tensor* output, const size_t num_tensors,...) {
 void k2c_subtract(k2c_tensor* output, const size_t num_tensors,
                   const k2c_tensor* tensor1, const k2c_tensor* tensor2) {
 
-    for (size_t i=0; i<output->numel; ++i) {
+    for (i=0; i<output->numel; ++i) {
         output->array[i] = tensor1->array[i]-
                            tensor2->array[i];
     }
@@ -1009,7 +1013,7 @@ void k2c_multiply(k2c_tensor* output, const size_t num_tensors,...) {
     va_list args;
     const k2c_tensor *arrptr;
     va_start (args, num_tensors);
-    size_t i;
+
 
     for ( i=0; i<output->numel; ++i) {
         output->array[i] = 1.0f;
@@ -1017,7 +1021,7 @@ void k2c_multiply(k2c_tensor* output, const size_t num_tensors,...) {
 
     for ( i = 0; i < num_tensors; ++i) {
         arrptr = va_arg(args, k2c_tensor*);
-        for (size_t j=0; j<output->numel; ++j) {
+        for (j=0; j<output->numel; ++j) {
             output->array[j] *= arrptr->array[j];
         }
     }
@@ -1040,13 +1044,13 @@ void k2c_average(k2c_tensor* output, const size_t num_tensors,...) {
 
     va_start (args, num_tensors);
     // memset(output->array, 0, output->numel*sizeof(output->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
-    for (size_t i = 0; i < num_tensors; ++i) {
+    for (i = 0; i < num_tensors; ++i) {
         arrptr = va_arg(args, k2c_tensor*);
-        for (size_t j=0; j<output->numel; ++j) {
+        for (j=0; j<output->numel; ++j) {
             output->array[j] += arrptr->array[j]*num_tensors_inv;
         }
     }
@@ -1067,14 +1071,14 @@ void k2c_max(k2c_tensor* output, const size_t num_tensors,...) {
     const k2c_tensor *arrptr;
     va_start (args, num_tensors);
     arrptr = va_arg(args, k2c_tensor*);
-    size_t i;
+
     for ( i=0; i<output->numel; ++i) {
         output->array[i] = arrptr->array[i];
     }
 
     for ( i = 0; i < num_tensors-1; ++i) {
         arrptr = va_arg(args, k2c_tensor*);
-        for (size_t j=0; j<output->numel; ++j) {
+        for (j=0; j<output->numel; ++j) {
             if (output->array[j]<arrptr->array[j]) {
                 output->array[j] = arrptr->array[j];
             }
@@ -1097,14 +1101,14 @@ void k2c_min(k2c_tensor* output, const size_t num_tensors,...) {
     const k2c_tensor *arrptr;
     va_start (args, num_tensors);
     arrptr = va_arg(args, k2c_tensor*);
-    size_t i;
+
     for ( i=0; i<output->numel; ++i) {
         output->array[i] = arrptr->array[i];
     }
 
     for ( i = 0; i < num_tensors-1; ++i) {
         arrptr = va_arg(args, k2c_tensor*);
-        for (size_t j=0; j<output->numel; ++j) {
+        for (j=0; j<output->numel; ++j) {
             if (output->array[j]>arrptr->array[j]) {
                 output->array[j] = arrptr->array[j];
             }
@@ -1131,12 +1135,12 @@ void k2c_concatenate(k2c_tensor* output, const size_t axis, const size_t num_ten
     size_t insub[K2C_MAX_NDIM], outsub[K2C_MAX_NDIM];
     va_start (args, num_tensors);
 
-    for (size_t i=0; i<num_tensors; ++i) {
+    for (i=0; i<num_tensors; ++i) {
         arrptr = va_arg(args, k2c_tensor*);
-        for (size_t j=0; j<arrptr->numel; ++j) {
+        for (j=0; j<arrptr->numel; ++j) {
             k2c_idx2sub(j,insub,arrptr->shape,arrptr->ndim);
             // memcpy(outsub,insub,K2C_MAX_NDIM*sizeof(size_t));
-            for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+            for (k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
             //#pragma HLS pipeline
             outsub[k] = insub[k];
             }   
@@ -1164,11 +1168,11 @@ void k2c_concatenate(k2c_tensor* output, const size_t axis, const size_t num_ten
  */
 // void k2c_matmul(float  *C, const float * A, const float * B, const size_t outrows,
 //                 const size_t outcols, const size_t innerdim) {
-// 	size_t i; size_t j;
+//  
 //     for (i = 0 ; i < outrows; ++i) {
 //         for (j = 0;  j < outcols; ++j) {
 //             C[i*outcols + j] = 0;
-//             for (size_t k = 0; k < innerdim; ++k) {
+//             for (k = 0; k < innerdim; ++k) {
 //                 C[i*outcols + j] += A[i*innerdim + k] * B[k*outcols + j];
 //             }
 //         }
@@ -1192,11 +1196,11 @@ void k2c_concatenate(k2c_tensor* output, const size_t axis, const size_t num_ten
  */
 // void k2c_matmul(float  *C, const float * A, const float * B, const size_t outrows,
 //                 const size_t outcols, const size_t innerdim) {
-// 	size_t i; size_t j;
+//  
 //     for (i = 0 ; i < outrows; ++i) {
 //         for (j = 0;  j < outcols; ++j) {
 //             C[i*outcols + j] = 0;
-//             for (size_t k = 0; k < innerdim; ++k) {
+//             for (k = 0; k < innerdim; ++k) {
 //                 C[i*outcols + j] += A[i*innerdim + k] * B[k*outcols + j];
 //             }
 //         }
@@ -1213,8 +1217,8 @@ void k2c_concatenate(k2c_tensor* output, const size_t axis, const size_t num_ten
 void k2c_embedding(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* kernel) {
 
     const size_t output_dim = kernel->shape[1];
-    for (size_t i = 0; i< inputs->numel; ++i) {
-        for (size_t j = 0; j< output_dim; ++j) {
+    for (i = 0; i< inputs->numel; ++i) {
+        for (j = 0; j< output_dim; ++j) {
             outputs->array[i*output_dim + j] = kernel->array[(int)inputs->array[i]*output_dim+j];
         }
     }
@@ -1250,13 +1254,13 @@ void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* ke
         // k2c_affine_matmul(output->array,input->array,kernel->array,bias->array,
         //                   outrows,outcols,innerdim);
 
-        size_t i;
+    
         for ( i = 0 ; i < outrows; ++i) {
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
-        for (size_t j = 0;  j < outcols; ++j) {
+        for (j = 0;  j < outcols; ++j) {
             output->array[outrowidx+j] = bias->array[j];
-            for (size_t k = 0; k < innerdim; ++k) {
+            for (k = 0; k < innerdim; ++k) {
                 output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
             }
         }
@@ -1287,11 +1291,11 @@ void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* ke
 void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
 
     // memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
-    for (size_t k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
+    for (k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
             //#pragma HLS pipeline
             output->array[k] = input->array[k];
             }   
-    for (size_t i=0; i<input->ndim; ++i) {
+    for (i=0; i<input->ndim; ++i) {
         output->shape[i] = 1;
     }
     output->shape[0] = input->numel;
@@ -1312,11 +1316,11 @@ void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * new
                  const size_t newndim) {
 
     // memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
-       for (size_t k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
+       for (k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
         //#pragma HLS pipeline
         output->array[k] = input->array[k];
         }  
-    for (size_t i=0; i<newndim; ++i) {
+    for (i=0; i<newndim; ++i) {
         output->shape[i] = newshp[i];
     }
     output->ndim = newndim;
@@ -1341,7 +1345,7 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
     size_t oldshp[K2C_MAX_NDIM];
     const size_t ndim = input->ndim;
     size_t bidx=0;
-    size_t i;
+
     for ( i=0; i<ndim; ++i) {
         oldshp[i] = input->shape[i];
     }
@@ -1351,7 +1355,7 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
 
     for ( i=0; i<input->numel; ++i) {
         k2c_idx2sub(i,Asub,oldshp,ndim);
-        for (size_t j=0; j<ndim; ++j) {
+        for (j=0; j<ndim; ++j) {
             Bsub[j] = Asub[permute[j]];
         }
         bidx = k2c_sub2idx(Bsub,newshp,ndim);
@@ -1371,8 +1375,8 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
 void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n) {
 
     const size_t in_width = input->shape[0];
-    for (size_t i=0; i<n; ++i) {
-        for(size_t j=0; j<in_width; ++j) {
+    for (i=0; i<n; ++i) {
+        for(j=0; j<in_width; ++j) {
             output->array[i*in_width + j] = input->array[j];
         }
     }
@@ -1397,13 +1401,13 @@ void k2c_pad1d(k2c_tensor* output, const k2c_tensor* input, const float fill,
     if (fabs(fill) < 1e-6) {
         // fill is ~zero, use memset
         // memset(output->array,0,output->numel*sizeof(output->array[0]));
-        for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+        for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
     }
     else {
-        for(size_t i=0; i<output->numel; ++i) {
+        for(i=0; i<output->numel; ++i) {
             output->array[i] = fill;
         }
     }
@@ -1412,7 +1416,7 @@ void k2c_pad1d(k2c_tensor* output, const k2c_tensor* input, const float fill,
     const size_t offset = pad_top*in_width;
     // memcpy(&output->array[offset],&input->array[0],
     //        input->numel*sizeof(input->array[0]));
-     for (size_t k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
+     for (k = 0; k < input->numel*sizeof(input->array[0]); ++k) {
         //#pragma HLS pipeline
         output->array[offset + k] = input->array[0 + k];
         }  
@@ -1442,13 +1446,13 @@ void k2c_pad2d(k2c_tensor* output, const k2c_tensor* input, const float fill,
         // fill is ~zero, use memset
         // memset(output->array,0,output->numel*sizeof(output->array[0]));
 
-        for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+        for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
     }
     else {
-        for(size_t i=0; i<output->numel; ++i) {
+        for(i=0; i<output->numel; ++i) {
             output->array[i] = fill;
         }
     }
@@ -1457,7 +1461,7 @@ void k2c_pad2d(k2c_tensor* output, const k2c_tensor* input, const float fill,
                     in_channels*pad_left;
     const size_t num = in_channels*in_width;
     const size_t step = num+in_channels*(pad_left+pad_right);
-    for (size_t i=0; i<in_height; ++i) {
+    for (i=0; i<in_height; ++i) {
         // memcpy(&output->array[offset],
         //        &input->array[i*num],
         //        num*sizeof(input->array[0]));
@@ -1494,13 +1498,13 @@ void k2c_pad3d(k2c_tensor* output, const k2c_tensor* input, const float fill,
         // fill is ~zero, use memset
         // memset(output->array,0,output->numel*sizeof(output->array[0]));
 
-        for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+        for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
     }
     else {
-        for(size_t i=0; i<output->numel; ++i) {
+        for(i=0; i<output->numel; ++i) {
             output->array[i] = fill;
         }
     }
@@ -1512,12 +1516,12 @@ void k2c_pad3d(k2c_tensor* output, const k2c_tensor* input, const float fill,
     const size_t instep1 = dim2*dim3*in_channels;
     const size_t instep2 = dim3*in_channels;
 
-    for (size_t i=0; i<dim1; ++i) {
-        for (size_t j=0; j<dim2; ++j) {
+    for (i=0; i<dim1; ++i) {
+        for (j=0; j<dim2; ++j) {
             // memcpy(&output->array[offset1+i*outstep1 + j*outstep2],
             //        &input->array[i*instep1+j*instep2],
             //        num*sizeof(input->array[0]));
-                for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+                for (k = 0; k < num*sizeof(input->array[0]); ++k) {
                 //#pragma HLS pipeline
                 output->array[offset1+i*outstep1 + j*outstep2+k] =input->array[i*instep1+j*instep2+k];
             }
@@ -1543,7 +1547,7 @@ void k2c_conv1d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* k
                 k2c_activationType *activation) {
 
     // memset(output->array,0,output->numel*sizeof(output->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
@@ -1581,12 +1585,61 @@ void k2c_conv1d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* k
  * :param dilation: array[2] dilation rate to use for dilated convolution. Order is {dilation dim 1, dilation dim 2}.
  * :param activation: activation function to apply to output.
  */
+
+// void k2c_relu_func(float * x, const size_t size) {
+
+//     for (size_t i=0; i < size; ++i) {
+//         if (x[i] <= 0.0f) {
+//             x[i] = 0.0f;
+//         }
+//     }
+// }
+
+// void k2c_conv2d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
+//                 const k2c_tensor* bias, const size_t * stride, const size_t * dilation,
+//                 k2c_activationType *activation) {
+
+//     // memset(output->array,0,output->numel*sizeof(output->array[0]));
+//     for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+//             //#pragma HLS pipeline
+//             output->array[i] = 0;
+//         }
+
+//     const size_t out_rows = output->shape[0];
+//     const size_t out_cols = output->shape[1];
+//     const size_t out_channels = output->shape[2];
+//     const size_t in_channels = input->shape[2];
+
+//     for (size_t x0=0; x0 < out_rows; ++x0) {
+//         for (size_t x1=0; x1 < out_cols; ++x1) {
+//             for (size_t z0=0; z0 < kernel->shape[0]; ++z0) {
+//                 for (size_t z1=0; z1 < kernel->shape[1]; ++z1) {
+//                     for (size_t q=0; q < in_channels; ++q) {
+//                         for (size_t k=0; k < out_channels; ++k) {
+//                             output->array[x0*(output->shape[2]*output->shape[1])
+//                                           + x1*(output->shape[2]) + k] +=
+//                                               kernel->array[z0*(kernel->shape[3]*kernel->shape[2]*kernel->shape[1])
+//                                                             + z1*(kernel->shape[3]*kernel->shape[2])
+//                                                             + q*(kernel->shape[3]) + k]*
+//                                               input->array[(x0*stride[0]
+//                                                             + dilation[0]*z0)*(input->shape[2]*input->shape[1])
+//                                                            + (x1*stride[1] + dilation[1]*z1)*(input->shape[2]) + q];
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     k2c_bias_add(output,bias);
+//     activation(output->array,output->numel);
+// }
+
 void k2c_conv2d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
                 const k2c_tensor* bias, const size_t * stride, const size_t * dilation,
                 k2c_activationType *activation) {
 
     // memset(output->array,0,output->numel*sizeof(output->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
@@ -1617,7 +1670,13 @@ void k2c_conv2d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* k
         }
     }
     k2c_bias_add(output,bias);
-    activation(output->array,output->numel);
+    // activation(output->array,output->numel);
+    // k2c_relu_func(output->array,output->numel);
+     for (i=0; i < output->numel; ++i) {
+        if (output->array[i] <= 0.0f) {
+            output->array[i] = 0.0f;
+        }
+    }
 }
 
 
@@ -1638,7 +1697,7 @@ void k2c_conv3d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* k
                 k2c_activationType *activation) {
 
     // memset(output->array,0,output->numel*sizeof(output->array[0]));
-    for (size_t i=0; i < output->numel*sizeof(output->array[0]); ++i) {
+    for (i=0; i < output->numel*sizeof(output->array[0]); ++i) {
             //#pragma HLS pipeline
             output->array[i] = 0;
         }
@@ -1697,7 +1756,7 @@ void k2c_conv3d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* k
 //     const size_t offset = crop[0]*input->shape[1];
 //     // memcpy(&output->array[0],&input->array[offset],
 //     //        output->numel*sizeof(output->array[0]));
-//         for (size_t k = 0; k < output->numel*sizeof(output->array[0]); ++k) {
+//         for (k = 0; k < output->numel*sizeof(output->array[0]); ++k) {
 //         //#pragma HLS pipeline
 //         input->array[offset+k] = output->array[0+k];
 //     }
@@ -1707,7 +1766,7 @@ void k2c_crop1d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop
     const size_t offset = crop[0]*input->shape[1];
     // memcpy(&output->array[0],&input->array[offset],
     //        output->numel*sizeof(output->array[0]));
-        for (size_t k = 0; k < output->numel*sizeof(output->array[0]); ++k) {
+        for (k = 0; k < output->numel*sizeof(output->array[0]); ++k) {
         //#pragma HLS pipeline
         output->array[0+k] = input->array[offset+k];
     }
@@ -1732,10 +1791,10 @@ void k2c_crop1d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop
 
 //     size_t offset = in_channels*in_width*crop_top + in_channels*crop_left;
 //     const size_t num = in_channels*(in_width-crop_left-crop_right);
-//     for (size_t i=0; i<out_height; ++i) {
+//     for (i=0; i<out_height; ++i) {
 //         // memcpy(&output->array[i*num],&input->array[offset],num*sizeof(input->array[0]));
 //         offset += in_width*in_channels;
-//          for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+//          for (k = 0; k < num*sizeof(input->array[0]); ++k) {
 //         //#pragma HLS pipeline
 //         input->array[offset+k] = output->array[i*num + k];
 //     }
@@ -1753,10 +1812,10 @@ void k2c_crop2d(k2c_tensor* output,const k2c_tensor* input, const size_t * crop)
 
     size_t offset = in_channels*in_width*crop_top + in_channels*crop_left;
     const size_t num = in_channels*(in_width-crop_left-crop_right);
-    for (size_t i=0; i<out_height; ++i) {
+    for (i=0; i<out_height; ++i) {
         // memcpy(&output->array[i*num],&input->array[offset],num*sizeof(input->array[0]));
         offset += in_width*in_channels;
-            for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+            for (k = 0; k < num*sizeof(input->array[0]); ++k) {
             //#pragma HLS pipeline
             output->array[i*num + k] = input->array[offset+k];
         }
@@ -1788,12 +1847,12 @@ void k2c_crop2d(k2c_tensor* output,const k2c_tensor* input, const size_t * crop)
 //     const size_t outstep1 = outdim2*outdim3*in_channels;
 //     const size_t outstep2 = outdim3*in_channels;
 
-//     for (size_t i=0; i<outdim1; ++i) {
-//         for (size_t j=0; j<outdim2; ++j) {
+//     for (i=0; i<outdim1; ++i) {
+//         for (j=0; j<outdim2; ++j) {
 //             // memcpy(&output->array[i*outstep1 + j*outstep2],
 //             //        &input->array[offset1+i*instep1+j*instep2],
 //             //        num*sizeof(input->array[0]));
-//                 for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+//                 for (k = 0; k < num*sizeof(input->array[0]); ++k) {
 //                 //#pragma HLS pipeline
 //                 input->array[offset+k] = output->array[i*outstep1 + j*outstep2 + k];
 //             }
@@ -1819,12 +1878,12 @@ void k2c_crop3d(k2c_tensor* output,const k2c_tensor* input, const size_t * crop)
     const size_t outstep1 = outdim2*outdim3*in_channels;
     const size_t outstep2 = outdim3*in_channels;
 
-    for (size_t i=0; i<outdim1; ++i) {
-        for (size_t j=0; j<outdim2; ++j) {
+    for (i=0; i<outdim1; ++i) {
+        for (j=0; j<outdim2; ++j) {
             // memcpy(&output->array[i*outstep1 + j*outstep2],
             //        &input->array[offset1+i*instep1+j*instep2],
             //        num*sizeof(input->array[0]));
-                for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+                for (k = 0; k < num*sizeof(input->array[0]); ++k) {
                 //#pragma HLS pipeline
                 output->array[i*outstep1 + j*outstep2 + k] = input->array[offset1+i*instep1+j*instep2 + k] ;
             }
@@ -1845,8 +1904,8 @@ void k2c_upsampling1d(k2c_tensor* output, const k2c_tensor* input, const size_t 
     const size_t in_height = input->shape[0];
     const size_t in_width = input->shape[1];
 
-    for (size_t i=0; i<in_height; ++i) {
-        for (size_t j=0; j<size; ++j) {
+    for (i=0; i<in_height; ++i) {
+        for (j=0; j<size; ++j) {
             for (size_t k=0; k<in_width; ++k) {
                 output->array[(size*i+j)*in_width + k] = input->array[i*in_width+k];
             }
@@ -1869,14 +1928,14 @@ void k2c_upsampling1d(k2c_tensor* output, const k2c_tensor* input, const size_t 
 //     const size_t out_width = output->shape[1];
 //     const size_t channels = input->shape[2];
 
-//     for (size_t i=0; i<out_height; ++i) {
-//         for (size_t j=0; j<out_width; ++j) {
+//     for (i=0; i<out_height; ++i) {
+//         for (j=0; j<out_width; ++j) {
 //             const size_t insub[K2C_MAX_NDIM] = {i/size[0],j/size[1],0};
 //             const size_t outsub[K2C_MAX_NDIM] = {i,j,0};
 //             memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
 //                    &input->array[k2c_sub2idx(insub,input->shape,input->ndim)],
 //                    channels*sizeof(input->array[0]));
-//             //        for (size_t k = 0; k < num*sizeof(input->array[0]); ++k) {
+//             //        for (k = 0; k < num*sizeof(input->array[0]); ++k) {
 //             //     //#pragma HLS pipeline
 //             //     output->array[i*outstep1 + j*outstep2 + k] = input->array[offset1+i*instep1+j*instep2 + k] ;
 //             // }
@@ -1890,14 +1949,14 @@ void k2c_upsampling2d(k2c_tensor* output, const k2c_tensor* input, const size_t 
     const size_t out_width = output->shape[1];
     const size_t channels = input->shape[2];
 
-    for (size_t i=0; i<out_height; ++i) {
-        for (size_t j=0; j<out_width; ++j) {
+    for (i=0; i<out_height; ++i) {
+        for (j=0; j<out_width; ++j) {
             const size_t insub[K2C_MAX_NDIM] = {i/size[0],j/size[1],0};
             const size_t outsub[K2C_MAX_NDIM] = {i,j,0};
             // memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
             //        &input->array[k2c_sub2idx(insub,input->shape,input->ndim)],
             //        channels*sizeof(input->array[0]));
-                   for (size_t k = 0; k < channels*sizeof(input->array[0]); ++k) {
+                   for (k = 0; k < channels*sizeof(input->array[0]); ++k) {
                 //#pragma HLS pipeline
                 output->array[k2c_sub2idx(outsub,output->shape,output->ndim) + k] = input->array[k2c_sub2idx(insub,input->shape,input->ndim) + k] ;
             }
@@ -1921,15 +1980,15 @@ void k2c_upsampling3d(k2c_tensor* output, const k2c_tensor* input, const size_t 
     const size_t dim3 = output->shape[2];
     const size_t channels = input->shape[3];
 
-    for (size_t i=0; i<dim1; ++i) {
-        for (size_t j=0; j<dim2; ++j) {
+    for (i=0; i<dim1; ++i) {
+        for (j=0; j<dim2; ++j) {
             for (size_t k=0; k<dim3; ++k) {
                 const size_t insub[K2C_MAX_NDIM] = {i/size[0],j/size[1],k/size[2],0};
                 const size_t outsub[K2C_MAX_NDIM] = {i,j,k,0};
                 // memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
                 //        &input->array[k2c_sub2idx(insub,input->shape,input->ndim)],
                 //        channels*sizeof(input->array[0]));
-                for (size_t k = 0; k < channels*sizeof(input->array[0]); ++k) {
+                for (k = 0; k < channels*sizeof(input->array[0]); ++k) {
                     //#pragma HLS pipeline
                     output->array[k2c_sub2idx(outsub,output->shape,output->ndim) + k] = input->array[k2c_sub2idx(insub,input->shape,input->ndim) + k] ;
                 }
@@ -1961,7 +2020,7 @@ k2c_activationType * k2c_linear = k2c_linear_func;
  */
 void k2c_exponential_func(float * x, const size_t size) {
 
-    for (size_t i=0; i<size; ++i) {
+    for (i=0; i<size; ++i) {
         x[i] = expf(x[i]);
     }
 }
@@ -1975,9 +2034,17 @@ k2c_activationType * k2c_exponential = k2c_exponential_func;
  * :param x: array of input values. Gets overwritten by output.
  * :param size: length of input array.
  */
-void k2c_relu_func(float * x, const size_t size) {
+// void k2c_relu_func(float * x, const size_t size) {
 
-    for (size_t i=0; i < size; ++i) {
+//     for (i=0; i < size; ++i) {
+//         if (x[i] <= 0.0f) {
+//             x[i] = 0.0f;
+//         }
+//     }
+// }
+void k2c_relu_func(float x[264822], const size_t size) {
+
+    for (i=0; i < size; ++i) {
         if (x[i] <= 0.0f) {
             x[i] = 0.0f;
         }
@@ -1997,7 +2064,7 @@ k2c_activationType * k2c_relu = k2c_relu_func;
  */
 void k2c_hard_sigmoid_func(float * x, const size_t size) {
 
-    for (size_t i=0; i < size; ++i) {
+    for (i=0; i < size; ++i) {
         if (x[i] <= -2.5f) {
             x[i] = 0.0f;
         }
@@ -2020,7 +2087,7 @@ k2c_activationType * k2c_hard_sigmoid = k2c_hard_sigmoid_func;
  * :param size: length of input array.
  */
 void k2c_tanh_func(float * x, const size_t size) {
-    for (size_t i=0; i<size; ++i) {
+    for (i=0; i<size; ++i) {
         x[i] = tanhf(x[i]);
     }
 }
@@ -2036,7 +2103,7 @@ k2c_activationType * k2c_tanh = k2c_tanh_func;
  */
 void k2c_sigmoid_func(float * x, const size_t size) {
 
-    for (size_t i=0; i < size; ++i) {
+    for (i=0; i < size; ++i) {
         x[i] = 1/(1+expf(-x[i]));
     }
 }
@@ -2055,7 +2122,7 @@ void k2c_softmax_func(float x[6], const size_t size) {
 
     float xmax = x[0];
     float sum = 0;
-    size_t i;
+
     for ( i=1; i < 6; ++i) {
         if (x[i]>xmax) {
             xmax = x[i];
@@ -2088,7 +2155,7 @@ k2c_activationType * k2c_softmax = k2c_softmax_func;
  */
 void k2c_softplus_func(float * x, const size_t size) {
 
-    for (size_t i=0; i < size; ++i) {
+    for (i=0; i < size; ++i) {
         x[i] = log1pf(expf(x[i]));
     }
 }
@@ -2104,7 +2171,7 @@ k2c_activationType * k2c_softplus = k2c_softplus_func;
  */
 void k2c_softsign_func(float * x, const size_t size) {
 
-    for (size_t i=0; i < size; ++i) {
+    for (i=0; i < size; ++i) {
         x[i] = x[i]/(1.0f + fabsf(x[i]));
     }
 }
@@ -2123,7 +2190,7 @@ k2c_activationType * k2c_softsign = k2c_softsign_func;
  */
 void k2c_LeakyReLU(float * x, const size_t size, const float alpha) {
 
-    for (size_t i=0; i<size; ++i) {
+    for (i=0; i<size; ++i) {
         if (x[i]<0) {
             x[i] = alpha*x[i];
         }
@@ -2144,7 +2211,7 @@ void k2c_LeakyReLU(float * x, const size_t size, const float alpha) {
  */
 void k2c_PReLU(float * x, const size_t size, const float * alpha) {
 
-    for (size_t i=0; i<size; ++i) {
+    for (i=0; i<size; ++i) {
         if (x[i]<0.0f) {
             x[i] = x[i]*alpha[i];
         }
@@ -2163,7 +2230,7 @@ void k2c_PReLU(float * x, const size_t size, const float * alpha) {
  */
 void k2c_ELU(float * x, const size_t size, const float alpha) {
 
-    for (size_t i=0; i < size; ++i) {
+    for (i=0; i < size; ++i) {
         if (x[i] <= 0.0f) {
             x[i] = alpha*expm1f(x[i]);
         }
@@ -2182,7 +2249,7 @@ void k2c_ELU(float * x, const size_t size, const float alpha) {
  */
 void k2c_ThresholdedReLU(float * x, const size_t size, const float theta) {
 
-    for (size_t i=0; i<size; ++i) {
+    for (i=0; i<size; ++i) {
         if (x[i]<= theta) {
             x[i] = 0;
         }
@@ -2204,7 +2271,7 @@ void k2c_ThresholdedReLU(float * x, const size_t size, const float theta) {
 void k2c_ReLU(float * x, const size_t size, const float max_value,
               const float alpha, const float theta) {
 
-    for (size_t i=0; i<size; ++i) {
+    for (i=0; i<size; ++i) {
         if (x[i] >= max_value) {
             x[i] = max_value;
         }
@@ -2222,12 +2289,38 @@ size_t conv2d_stride[2] = {1,1};
 size_t conv2d_dilation[2] = {1,1}; 
 float conv2d_output_array[103680] = {0}; 
 // k2c_tensor conv2d_output = {&conv2d_output_array[0],3,103680,{36,36,80, 1, 1}}; 
-k2c_tensor conv2d_output = {conv2d_output_array[0],3,103680,{36,36,80, 1, 1}}; 
+k2c_tensor conv2d_output;
+conv2d_output.ndim = 3; 
+conv2d_output.numel = 103680; 
+conv2d_output.shape[0] = 36;
+conv2d_output.shape[1] = 36;
+conv2d_output.shape[2] = 80;
+conv2d_output.shape[3] = 1;
+conv2d_output.shape[4] = 1;
+
+for(j=0; j < 103680; j++) {
+	#pragma HLS PIPELINE
+	conv2d_output.array[j] = conv2d_output_array[j];
+}
 
 float conv2d_padded_input_array[4332] = {0}; 
 
 // k2c_tensor conv2d_padded_input = {&conv2d_padded_input_array[0],3,4332,{38,38, 3, 1, 1}}; 
-k2c_tensor conv2d_padded_input = {conv2d_padded_input_array[0],3,4332,{38,38, 3, 1, 1}}; 
+// k2c_tensor conv2d_padded_input = {conv2d_padded_input_array[0],3,4332,{38,38, 3, 1, 1}}; 
+
+k2c_tensor conv2d_padded_input;
+conv2d_padded_input.ndim = 3; 
+conv2d_padded_input.numel = 4332; 
+conv2d_padded_input.shape[0] = 36;
+conv2d_padded_input.shape[1] = 36;
+conv2d_padded_input.shape[2] = 3;
+conv2d_padded_input.shape[3] = 1;
+conv2d_padded_input.shape[4] = 1;
+
+for(j=0; j < 4332; j++) {
+	#pragma HLS PIPELINE
+	conv2d_padded_input.array[j] = conv2d_padded_input_array[j];
+}
 
 size_t conv2d_pad[4] = {1,1,1,1}; 
 float conv2d_fill = 0.0f; 
@@ -2666,7 +2759,21 @@ float conv2d_kernel_array[2160] = {
 +1.87783495e-01f,-2.16133833e-01f,+1.09846056e-01f,-5.80911003e-02f,+6.85587078e-02f,
 }; 
 // k2c_tensor conv2d_kernel = {&conv2d_kernel_array[0],4,2160,{ 3, 3, 3,80, 1}}; 
-k2c_tensor conv2d_kernel = {conv2d_kernel_array[0],4,2160,{ 3, 3, 3,80, 1}}; 
+// k2c_tensor conv2d_kernel = {conv2d_kernel_array[0],4,2160,{ 3, 3, 3,80, 1}}; 
+k2c_tensor conv2d_kernel;
+conv2d_kernel.ndim = 4; 
+conv2d_kernel.numel = 2160; 
+conv2d_kernel.shape[0] = 3;
+conv2d_kernel.shape[1] = 3;
+conv2d_kernel.shape[2] = 3;
+conv2d_kernel.shape[3] = 80;
+conv2d_kernel.shape[4] = 1;
+
+for(j=0; j < 2160; j++) {
+	#pragma HLS PIPELINE
+	conv2d_kernel.array[j] = conv2d_kernel_array[j];
+}
+
 
 float conv2d_bias_array[80] = {
 -1.05523713e-01f,-3.38347107e-01f,-6.05451353e-02f,-8.96657258e-02f,+2.11685300e-01f,
@@ -2687,7 +2794,20 @@ float conv2d_bias_array[80] = {
 +1.11764614e-02f,+1.51976999e-02f,-4.07676786e-01f,+2.76723178e-03f,+1.01789162e-01f,
 }; 
 // k2c_tensor conv2d_bias = {&conv2d_bias_array[0],1,80,{80, 1, 1, 1, 1}}; 
-k2c_tensor conv2d_bias = {conv2d_bias_array[0],1,80,{80, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_bias = {conv2d_bias_array[0],1,80,{80, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_bias;
+conv2d_bias.ndim = 1; 
+conv2d_bias.numel = 80; 
+conv2d_bias.shape[0] = 80;
+conv2d_bias.shape[1] = 1;
+conv2d_bias.shape[2] = 1;
+conv2d_bias.shape[3] = 1;
+conv2d_bias.shape[4] = 1;
+
+for(j=0; j < 80; j++) {
+	#pragma HLS PIPELINE
+	conv2d_bias.array[j] = conv2d_bias_array[j];
+}  
 
 
  
@@ -2695,7 +2815,20 @@ size_t max_pooling2d_stride[2] = {2,2};
 size_t max_pooling2d_pool_size[2] = {2,2}; 
 float max_pooling2d_output_array[25920] = {0}; 
 // k2c_tensor max_pooling2d_output = {&max_pooling2d_output_array[0],3,25920,{18,18,80, 1, 1}}; 
-k2c_tensor max_pooling2d_output = {max_pooling2d_output_array[0],3,25920,{18,18,80, 1, 1}}; 
+// k2c_tensor max_pooling2d_output = {max_pooling2d_output_array[0],3,25920,{18,18,80, 1, 1}};
+k2c_tensor max_pooling2d_output;
+max_pooling2d_output.ndim = 3; 
+max_pooling2d_output.numel = 25920; 
+max_pooling2d_output.shape[0] = 18;
+max_pooling2d_output.shape[1] = 18;
+max_pooling2d_output.shape[2] = 80;
+max_pooling2d_output.shape[3] = 1;
+max_pooling2d_output.shape[4] = 1;
+
+for(j=0; j < 25920; j++) {
+	#pragma HLS PIPELINE
+	max_pooling2d_output.array[j] = max_pooling2d_output_array[j];
+} 
 
 
 
@@ -2703,11 +2836,37 @@ size_t conv2d_1_stride[2] = {1,1};
 size_t conv2d_1_dilation[2] = {1,1}; 
 float conv2d_1_output_array[20736] = {0}; 
 // k2c_tensor conv2d_1_output = {&conv2d_1_output_array[0],3,20736,{18,18,64, 1, 1}}; 
-k2c_tensor conv2d_1_output = {conv2d_1_output_array[0],3,20736,{18,18,64, 1, 1}}; 
+// k2c_tensor conv2d_1_output = {conv2d_1_output_array[0],3,20736,{18,18,64, 1, 1}}; 
+k2c_tensor conv2d_1_output;
+conv2d_1_output.ndim = 3; 
+conv2d_1_output.numel = 20736; 
+conv2d_1_output.shape[0] = 18;
+conv2d_1_output.shape[1] = 18;
+conv2d_1_output.shape[2] = 64;
+conv2d_1_output.shape[3] = 1;
+conv2d_1_output.shape[4] = 1;
+
+for(j=0; j < 20736; j++) {
+	#pragma HLS PIPELINE
+	conv2d_1_output.array[j] = conv2d_1_output_array[j];
+} 
 
 float conv2d_1_padded_input_array[32000] = {0}; 
 // k2c_tensor conv2d_1_padded_input = {&conv2d_1_padded_input_array[0],3,32000,{20,20,80, 1, 1}}; 
-k2c_tensor conv2d_1_padded_input = {conv2d_1_padded_input_array[0],3,32000,{20,20,80, 1, 1}}; 
+// k2c_tensor conv2d_1_padded_input = {conv2d_1_padded_input_array[0],3,32000,{20,20,80, 1, 1}}; 
+k2c_tensor conv2d_1_padded_input;
+conv2d_1_padded_input.ndim = 3; 
+conv2d_1_padded_input.numel = 32000; 
+conv2d_1_padded_input.shape[0] = 20;
+conv2d_1_padded_input.shape[1] = 20;
+conv2d_1_padded_input.shape[2] = 80;
+conv2d_1_padded_input.shape[3] = 1;
+conv2d_1_padded_input.shape[4] = 1;
+
+for(j=0; j < 32000; j++) {
+	#pragma HLS PIPELINE
+	conv2d_1_padded_input.array[j] = conv2d_1_padded_input_array[j];
+} 
 
 size_t conv2d_1_pad[4] = {1,1,1,1}; 
 float conv2d_1_fill = 0.0f; 
@@ -11930,7 +12089,20 @@ float conv2d_1_kernel_array[46080] = {
 -2.78927475e-01f,-4.84062493e-01f,+1.45813495e-01f,-4.27667648e-02f,-3.36963236e-01f,
 }; 
 // k2c_tensor conv2d_1_kernel = {&conv2d_1_kernel_array[0],4,46080,{ 3, 3,80,64, 1}}; 
-k2c_tensor conv2d_1_kernel = {conv2d_1_kernel_array[0],4,46080,{ 3, 3,80,64, 1}}; 
+// k2c_tensor conv2d_1_kernel = {conv2d_1_kernel_array[0],4,46080,{ 3, 3,80,64, 1}}; 
+k2c_tensor conv2d_1_kernel;
+conv2d_1_kernel.ndim = 4; 
+conv2d_1_kernel.numel = 46080; 
+conv2d_1_kernel.shape[0] = 3;
+conv2d_1_kernel.shape[1] = 3;
+conv2d_1_kernel.shape[2] = 80;
+conv2d_1_kernel.shape[3] = 64;
+conv2d_1_kernel.shape[4] = 1;
+
+for(j=0; j < 46080; j++) {
+	#pragma HLS PIPELINE
+	conv2d_1_kernel.array[j] = conv2d_1_kernel_array[j];
+} 
 
 float conv2d_1_bias_array[64] = {
 -1.12834804e-01f,+2.23310277e-01f,-7.18082413e-02f,-7.63988169e-03f,-3.13808590e-01f,
@@ -11947,7 +12119,20 @@ float conv2d_1_bias_array[64] = {
 -7.73593560e-02f,-2.59512901e-01f,-9.15718824e-02f,-2.97547221e-01f,-2.12170526e-01f,
 -2.38448873e-01f,-4.47248220e-01f,-1.23613060e-01f,-2.26234376e-01f,}; 
 // k2c_tensor conv2d_1_bias = {&conv2d_1_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
-k2c_tensor conv2d_1_bias = {conv2d_1_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_1_bias = {conv2d_1_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_1_bias;
+conv2d_1_bias.ndim = 1; 
+conv2d_1_bias.numel = 64; 
+conv2d_1_bias.shape[0] = 64;
+conv2d_1_bias.shape[1] = 1;
+conv2d_1_bias.shape[2] = 1;
+conv2d_1_bias.shape[3] = 1;
+conv2d_1_bias.shape[4] = 1;
+
+for(j=0; j < 64; j++) {
+	#pragma HLS PIPELINE
+	conv2d_1_bias.array[j] = conv2d_1_bias_array[j];
+} 
 
 
  
@@ -11955,7 +12140,20 @@ size_t max_pooling2d_1_stride[2] = {2,2};
 size_t max_pooling2d_1_pool_size[2] = {2,2}; 
 float max_pooling2d_1_output_array[5184] = {0}; 
 // k2c_tensor max_pooling2d_1_output = {&max_pooling2d_1_output_array[0],3,5184,{ 9, 9,64, 1, 1}}; 
-k2c_tensor max_pooling2d_1_output = {max_pooling2d_1_output_array[0],3,5184,{ 9, 9,64, 1, 1}}; 
+// k2c_tensor max_pooling2d_1_output = {max_pooling2d_1_output_array[0],3,5184,{ 9, 9,64, 1, 1}}; 
+k2c_tensor max_pooling2d_1_output;
+max_pooling2d_1_output.ndim = 3; 
+max_pooling2d_1_output.numel = 5184; 
+max_pooling2d_1_output.shape[0] = 9;
+max_pooling2d_1_output.shape[1] = 9;
+max_pooling2d_1_output.shape[2] = 64;
+max_pooling2d_1_output.shape[3] = 1;
+max_pooling2d_1_output.shape[4] = 1;
+
+for(j=0; j < 5184; j++) {
+	#pragma HLS PIPELINE
+	max_pooling2d_1_output.array[j] = max_pooling2d_1_output_array[j];
+} 
 
 
 
@@ -11963,11 +12161,37 @@ size_t conv2d_2_stride[2] = {1,1};
 size_t conv2d_2_dilation[2] = {1,1}; 
 float conv2d_2_output_array[3240] = {0}; 
 // k2c_tensor conv2d_2_output = {&conv2d_2_output_array[0],3,3240,{ 9, 9,40, 1, 1}}; 
-k2c_tensor conv2d_2_output = {conv2d_2_output_array[0],3,3240,{ 9, 9,40, 1, 1}}; 
+// k2c_tensor conv2d_2_output = {conv2d_2_output_array[0],3,3240,{ 9, 9,40, 1, 1}}; 
+k2c_tensor conv2d_2_output;
+conv2d_2_output.ndim = 3; 
+conv2d_2_output.numel = 3240; 
+conv2d_2_output.shape[0] = 9;
+conv2d_2_output.shape[1] = 9;
+conv2d_2_output.shape[2] = 40;
+conv2d_2_output.shape[3] = 1;
+conv2d_2_output.shape[4] = 1;
+
+for(j=0; j < 3240; j++) {
+	#pragma HLS PIPELINE
+	conv2d_2_output.array[j] = conv2d_2_output_array[j];
+} 
 
 float conv2d_2_padded_input_array[7744] = {0}; 
 // k2c_tensor conv2d_2_padded_input = {&conv2d_2_padded_input_array[0],3,7744,{11,11,64, 1, 1}}; 
-k2c_tensor conv2d_2_padded_input = {conv2d_2_padded_input_array[0],3,7744,{11,11,64, 1, 1}}; 
+// k2c_tensor conv2d_2_padded_input = {conv2d_2_padded_input_array[0],3,7744,{11,11,64, 1, 1}}; 
+k2c_tensor conv2d_2_padded_input;
+conv2d_2_padded_input.ndim = 3; 
+conv2d_2_padded_input.numel = 7744; 
+conv2d_2_padded_input.shape[0] = 11;
+conv2d_2_padded_input.shape[1] = 11;
+conv2d_2_padded_input.shape[2] = 64;
+conv2d_2_padded_input.shape[3] = 1;
+conv2d_2_padded_input.shape[4] = 1;
+
+for(j=0; j < 7744; j++) {
+	#pragma HLS PIPELINE
+	conv2d_2_padded_input.array[j] = conv2d_2_padded_input_array[j];
+} 
 
 size_t conv2d_2_pad[4] = {1,1,1,1}; 
 float conv2d_2_fill = 0.0f; 
@@ -16582,7 +16806,20 @@ float conv2d_2_kernel_array[23040] = {
 -2.04176873e-01f,+1.29550681e-01f,+2.54501581e-01f,-1.31609505e-02f,-7.95610547e-02f,
 }; 
 // k2c_tensor conv2d_2_kernel = {&conv2d_2_kernel_array[0],4,23040,{ 3, 3,64,40, 1}}; 
-k2c_tensor conv2d_2_kernel = {conv2d_2_kernel_array[0],4,23040,{ 3, 3,64,40, 1}}; 
+// k2c_tensor conv2d_2_kernel = {conv2d_2_kernel_array[0],4,23040,{ 3, 3,64,40, 1}};
+k2c_tensor conv2d_2_kernel;
+conv2d_2_kernel.ndim = 4; 
+conv2d_2_kernel.numel = 23040; 
+conv2d_2_kernel.shape[0] = 3;
+conv2d_2_kernel.shape[1] = 3;
+conv2d_2_kernel.shape[2] = 64;
+conv2d_2_kernel.shape[3] = 40;
+conv2d_2_kernel.shape[4] = 1;
+
+for(j=0; j < 23040; j++) {
+	#pragma HLS PIPELINE
+	conv2d_2_kernel.array[j] = conv2d_2_kernel_array[j];
+}  
 
 float conv2d_2_bias_array[40] = {
 -7.27843195e-02f,+1.42310470e-01f,-4.51335423e-02f,-1.36928231e-01f,+2.74567574e-01f,
@@ -16595,7 +16832,20 @@ float conv2d_2_bias_array[40] = {
 +2.84517944e-01f,-6.45415410e-02f,-6.00723401e-02f,-8.09104368e-02f,+1.57339051e-01f,
 }; 
 // k2c_tensor conv2d_2_bias = {&conv2d_2_bias_array[0],1,40,{40, 1, 1, 1, 1}}; 
-k2c_tensor conv2d_2_bias = {conv2d_2_bias_array[0],1,40,{40, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_2_bias = {conv2d_2_bias_array[0],1,40,{40, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_2_bias;
+conv2d_2_bias.ndim = 4; 
+conv2d_2_bias.numel = 40; 
+conv2d_2_bias.shape[0] = 40;
+conv2d_2_bias.shape[1] = 1;
+conv2d_2_bias.shape[2] = 1;
+conv2d_2_bias.shape[3] = 1;
+conv2d_2_bias.shape[4] = 1;
+
+for(j=0; j < 40; j++) {
+	#pragma HLS PIPELINE
+	conv2d_2_bias.array[j] = conv2d_2_bias_array[j];
+}  
 
 
  
@@ -16603,7 +16853,20 @@ size_t max_pooling2d_2_stride[2] = {2,2};
 size_t max_pooling2d_2_pool_size[2] = {2,2}; 
 float max_pooling2d_2_output_array[640] = {0}; 
 // k2c_tensor max_pooling2d_2_output = {&max_pooling2d_2_output_array[0],3,640,{ 4, 4,40, 1, 1}}; 
-k2c_tensor max_pooling2d_2_output = {max_pooling2d_2_output_array[0],3,640,{ 4, 4,40, 1, 1}}; 
+// k2c_tensor max_pooling2d_2_output = {max_pooling2d_2_output_array[0],3,640,{ 4, 4,40, 1, 1}};
+k2c_tensor max_pooling2d_2_output;
+max_pooling2d_2_output.ndim = 3; 
+max_pooling2d_2_output.numel = 640; 
+max_pooling2d_2_output.shape[0] = 4;
+max_pooling2d_2_output.shape[1] = 4;
+max_pooling2d_2_output.shape[2] = 40;
+max_pooling2d_2_output.shape[3] = 1;
+max_pooling2d_2_output.shape[4] = 1;
+
+for(j=0; j < 640; j++) {
+	#pragma HLS PIPELINE
+	max_pooling2d_2_output.array[j] = max_pooling2d_2_output_array[j];
+}   
 
 
 
@@ -16611,11 +16874,37 @@ size_t conv2d_3_stride[2] = {1,1};
 size_t conv2d_3_dilation[2] = {1,1}; 
 float conv2d_3_output_array[320] = {0}; 
 // k2c_tensor conv2d_3_output = {&conv2d_3_output_array[0],3,320,{ 4, 4,20, 1, 1}}; 
-k2c_tensor conv2d_3_output = {conv2d_3_output_array[0],3,320,{ 4, 4,20, 1, 1}}; 
+// k2c_tensor conv2d_3_output = {conv2d_3_output_array[0],3,320,{ 4, 4,20, 1, 1}}; 
+k2c_tensor conv2d_3_output;
+conv2d_3_output.ndim = 3; 
+conv2d_3_output.numel = 320; 
+conv2d_3_output.shape[0] = 4;
+conv2d_3_output.shape[1] = 4;
+conv2d_3_output.shape[2] = 20;
+conv2d_3_output.shape[3] = 1;
+conv2d_3_output.shape[4] = 1;
+
+for(j=0; j < 320; j++) {
+	#pragma HLS PIPELINE
+	conv2d_3_output.array[j] = conv2d_3_output_array[j];
+}   
 
 float conv2d_3_padded_input_array[1440] = {0}; 
 // k2c_tensor conv2d_3_padded_input = {&conv2d_3_padded_input_array[0],3,1440,{ 6, 6,40, 1, 1}}; 
-k2c_tensor conv2d_3_padded_input = {conv2d_3_padded_input_array[0],3,1440,{ 6, 6,40, 1, 1}}; 
+// k2c_tensor conv2d_3_padded_input = {conv2d_3_padded_input_array[0],3,1440,{ 6, 6,40, 1, 1}}; 
+k2c_tensor conv2d_3_padded_input;
+conv2d_3_padded_input.ndim = 3; 
+conv2d_3_padded_input.numel = 1440; 
+conv2d_3_padded_input.shape[0] = 6;
+conv2d_3_padded_input.shape[1] = 6;
+conv2d_3_padded_input.shape[2] = 40;
+conv2d_3_padded_input.shape[3] = 1;
+conv2d_3_padded_input.shape[4] = 1;
+
+for(j=0; j < 1440; j++) {
+	#pragma HLS PIPELINE
+	conv2d_3_padded_input.array[j] = conv2d_3_padded_input_array[j];
+} 
 
 size_t conv2d_3_pad[4] = {1,1,1,1}; 
 float conv2d_3_fill = 0.0f; 
@@ -18062,7 +18351,20 @@ float conv2d_3_kernel_array[7200] = {
 -1.87758237e-01f,-1.41722217e-01f,+3.47995460e-02f,+2.31273562e-01f,+2.70381778e-01f,
 }; 
 // k2c_tensor conv2d_3_kernel = {&conv2d_3_kernel_array[0],4,7200,{ 3, 3,40,20, 1}}; 
-k2c_tensor conv2d_3_kernel = {conv2d_3_kernel_array[0],4,7200,{ 3, 3,40,20, 1}}; 
+// k2c_tensor conv2d_3_kernel = {conv2d_3_kernel_array[0],4,7200,{ 3, 3,40,20, 1}}; 
+k2c_tensor conv2d_3_kernel;
+conv2d_3_kernel.ndim = 4; 
+conv2d_3_kernel.numel = 7200; 
+conv2d_3_kernel.shape[0] = 3;
+conv2d_3_kernel.shape[1] = 3;
+conv2d_3_kernel.shape[2] = 40;
+conv2d_3_kernel.shape[3] = 20;
+conv2d_3_kernel.shape[4] = 1;
+
+for(j=0; j < 7200; j++) {
+	#pragma HLS PIPELINE
+	conv2d_3_kernel.array[j] = conv2d_3_kernel_array[j];
+} 
 
 float conv2d_3_bias_array[20] = {
 +1.80148825e-01f,+3.20762724e-01f,-1.25984907e-01f,+3.75281125e-01f,+1.04205571e-02f,
@@ -18071,7 +18373,20 @@ float conv2d_3_bias_array[20] = {
 -3.06218825e-02f,-3.37826423e-02f,+3.34480792e-01f,-2.00303793e-01f,-3.14062387e-01f,
 }; 
 // k2c_tensor conv2d_3_bias = {&conv2d_3_bias_array[0],1,20,{20, 1, 1, 1, 1}}; 
-k2c_tensor conv2d_3_bias = {conv2d_3_bias_array[0],1,20,{20, 1, 1, 1, 1}}; 
+// k2c_tensor conv2d_3_bias = {conv2d_3_bias_array[0],1,20,{20, 1, 1, 1, 1}}; 
+k2c_tensor conv2d_3_bias;
+conv2d_3_bias.ndim = 1; 
+conv2d_3_bias.numel = 20; 
+conv2d_3_bias.shape[0] = 20;
+conv2d_3_bias.shape[1] = 1;
+conv2d_3_bias.shape[2] = 1;
+conv2d_3_bias.shape[3] = 1;
+conv2d_3_bias.shape[4] = 1;
+
+for(j=0; j < 20; j++) {
+	#pragma HLS PIPELINE
+	conv2d_3_bias.array[j] = conv2d_3_bias_array[j];
+} 
 
 
  
@@ -18079,17 +18394,57 @@ size_t max_pooling2d_3_stride[2] = {2,2};
 size_t max_pooling2d_3_pool_size[2] = {2,2}; 
 float max_pooling2d_3_output_array[80] = {0}; 
 // k2c_tensor max_pooling2d_3_output = {&max_pooling2d_3_output_array[0],3,80,{ 2, 2,20, 1, 1}}; 
-k2c_tensor max_pooling2d_3_output = {max_pooling2d_3_output_array[0],3,80,{ 2, 2,20, 1, 1}}; 
+// k2c_tensor max_pooling2d_3_output = {max_pooling2d_3_output_array[0],3,80,{ 2, 2,20, 1, 1}}; 
+k2c_tensor max_pooling2d_3_output;
+max_pooling2d_3_output.ndim = 3; 
+max_pooling2d_3_output.numel = 80; 
+max_pooling2d_3_output.shape[0] = 2;
+max_pooling2d_3_output.shape[1] = 2;
+max_pooling2d_3_output.shape[2] = 20;
+max_pooling2d_3_output.shape[3] = 1;
+max_pooling2d_3_output.shape[4] = 1;
+
+for(j=0; j < 80; j++) {
+	#pragma HLS PIPELINE
+	max_pooling2d_3_output.array[j] = max_pooling2d_3_output_array[j];
+} 
 
 
 
 float flatten_output_array[80] = {0}; 
 // k2c_tensor flatten_output = {&flatten_output_array[0],1,80,{80, 1, 1, 1, 1}}; 
-k2c_tensor flatten_output = {flatten_output_array[0],1,80,{80, 1, 1, 1, 1}}; 
+// k2c_tensor flatten_output = {flatten_output_array[0],1,80,{80, 1, 1, 1, 1}}; 
+k2c_tensor flatten_output;
+flatten_output.ndim = 1; 
+flatten_output.numel = 80; 
+flatten_output.shape[0] = 80;
+flatten_output.shape[1] = 1;
+flatten_output.shape[2] = 1;
+flatten_output.shape[3] = 1;
+flatten_output.shape[4] = 1;
+
+for(j=0; j < 80; j++) {
+	#pragma HLS PIPELINE
+	flatten_output.array[j] = flatten_output_array[j];
+} 
 
 float dense_output_array[64] = {0}; 
 // k2c_tensor dense_output = {&dense_output_array[0],1,64,{64, 1, 1, 1, 1}}; 
-k2c_tensor dense_output = {dense_output_array[0],1,64,{64, 1, 1, 1, 1}}; 
+// k2c_tensor dense_output = {dense_output_array[0],1,64,{64, 1, 1, 1, 1}}; 
+
+k2c_tensor dense_output;
+dense_output.ndim = 1; 
+dense_output.numel = 64; 
+dense_output.shape[0] = 64;
+dense_output.shape[1] = 1;
+dense_output.shape[2] = 1;
+dense_output.shape[3] = 1;
+dense_output.shape[4] = 1;
+
+for(j=0; j < 64; j++) {
+	#pragma HLS PIPELINE
+	dense_output.array[j] = dense_output_array[j];
+} 
 
 float dense_kernel_array[5120] = {
 -2.19868585e-01f,-4.45053726e-01f,-5.07176071e-02f,+2.20753878e-01f,-1.17114805e-01f,
@@ -19118,7 +19473,20 @@ float dense_kernel_array[5120] = {
 +7.28204399e-02f,+5.10882065e-02f,-2.64565468e-01f,+8.06553513e-02f,+2.74430573e-01f,
 }; 
 // k2c_tensor dense_kernel = {&dense_kernel_array[0],2,5120,{80,64, 1, 1, 1}}; 
-k2c_tensor dense_kernel = {dense_kernel_array[0],2,5120,{80,64, 1, 1, 1}}; 
+// k2c_tensor dense_kernel = {dense_kernel_array[0],2,5120,{80,64, 1, 1, 1}}; 
+k2c_tensor dense_kernel;
+dense_kernel.ndim = 2; 
+dense_kernel.numel = 5120; 
+dense_kernel.shape[0] = 80;
+dense_kernel.shape[1] = 64;
+dense_kernel.shape[2] = 1;
+dense_kernel.shape[3] = 1;
+dense_kernel.shape[4] = 1;
+
+for(j=0; j < 5120; j++) {
+	#pragma HLS PIPELINE
+	dense_kernel.array[j] = dense_kernel_array[j];
+} 
 
 float dense_bias_array[64] = {
 -2.00436682e-01f,-3.24991532e-02f,-2.39020243e-01f,+3.05076957e-01f,+4.97695804e-02f,
@@ -19135,14 +19503,40 @@ float dense_bias_array[64] = {
 +2.10524604e-01f,+9.36970115e-02f,+1.88212544e-01f,+2.29534030e-01f,+2.36084089e-02f,
 -7.09639713e-02f,+2.37581253e-01f,-3.79155576e-02f,-1.72115073e-01f,}; 
 // k2c_tensor dense_bias = {&dense_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
-k2c_tensor dense_bias = {dense_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+// k2c_tensor dense_bias = {dense_bias_array[0],1,64,{64, 1, 1, 1, 1}}; 
+k2c_tensor dense_bias;
+dense_bias.ndim = 1; 
+dense_bias.numel = 64; 
+dense_bias.shape[0] = 64;
+dense_bias.shape[1] = 1;
+dense_bias.shape[2] = 1;
+dense_bias.shape[3] = 1;
+dense_bias.shape[4] = 1;
+
+for(j=0; j < 64; j++) {
+	#pragma HLS PIPELINE
+	dense_bias.array[j] = dense_bias_array[j];
+} 
 
 float dense_fwork[5200] = {0}; 
 
  
 float dense_1_output_array[48] = {0}; 
 // k2c_tensor dense_1_output = {&dense_1_output_array[0],1,48,{48, 1, 1, 1, 1}}; 
-k2c_tensor dense_1_output = {dense_1_output_array[0],1,48,{48, 1, 1, 1, 1}}; 
+// k2c_tensor dense_1_output = {dense_1_output_array[0],1,48,{48, 1, 1, 1, 1}}; 
+k2c_tensor dense_1_output;
+dense_1_output.ndim = 1; 
+dense_1_output.numel = 48; 
+dense_1_output.shape[0] = 48;
+dense_1_output.shape[1] = 1;
+dense_1_output.shape[2] = 1;
+dense_1_output.shape[3] = 1;
+dense_1_output.shape[4] = 1;
+
+for(j=0; j < 48; j++) {
+	#pragma HLS PIPELINE
+	dense_1_output.array[j] = dense_1_output_array[j];
+} 
 
 float dense_1_kernel_array[3072] = {
 -8.11860859e-02f,+9.88746658e-02f,-1.66008789e-02f,+8.54265243e-02f,-1.24141693e-01f,
@@ -19761,7 +20155,20 @@ float dense_1_kernel_array[3072] = {
 +1.47156790e-01f,-2.82437652e-01f,-3.43989469e-02f,+2.48631328e-01f,-1.72745451e-01f,
 -3.54628172e-03f,-2.74145812e-01f,}; 
 // k2c_tensor dense_1_kernel = {&dense_1_kernel_array[0],2,3072,{64,48, 1, 1, 1}}; 
-k2c_tensor dense_1_kernel = {dense_1_kernel_array[0],2,3072,{64,48, 1, 1, 1}}; 
+// k2c_tensor dense_1_kernel = {dense_1_kernel_array[0],2,3072,{64,48, 1, 1, 1}};
+k2c_tensor dense_1_kernel;
+dense_1_kernel.ndim = 2; 
+dense_1_kernel.numel = 3072; 
+dense_1_kernel.shape[0] = 64;
+dense_1_kernel.shape[1] = 48;
+dense_1_kernel.shape[2] = 1;
+dense_1_kernel.shape[3] = 1;
+dense_1_kernel.shape[4] = 1;
+
+for(j=0; j < 3072; j++) {
+	#pragma HLS PIPELINE
+	dense_1_kernel.array[j] = dense_1_kernel_array[j];
+}  
 
 float dense_1_bias_array[48] = {
 -1.74734201e-02f,+1.83163226e-01f,+2.98729807e-01f,+2.71802515e-01f,+2.64099956e-01f,
@@ -19775,7 +20182,20 @@ float dense_1_bias_array[48] = {
 +1.78222150e-01f,+2.67239451e-01f,+3.57036173e-01f,+3.18275630e-01f,+2.75912285e-01f,
 +2.33179346e-01f,-3.96833748e-01f,+3.01788270e-01f,}; 
 // k2c_tensor dense_1_bias = {&dense_1_bias_array[0],1,48,{48, 1, 1, 1, 1}}; 
-k2c_tensor dense_1_bias = {dense_1_bias_array[0],1,48,{48, 1, 1, 1, 1}}; 
+// k2c_tensor dense_1_bias = {dense_1_bias_array[0],1,48,{48, 1, 1, 1, 1}}; 
+k2c_tensor dense_1_bias;
+dense_1_bias.ndim = 1; 
+dense_1_bias.numel = 48; 
+dense_1_bias.shape[0] = 48;
+dense_1_bias.shape[1] = 1;
+dense_1_bias.shape[2] = 1;
+dense_1_bias.shape[3] = 1;
+dense_1_bias.shape[4] = 1;
+
+for(j=0; j < 48; j++) {
+	#pragma HLS PIPELINE
+	dense_1_bias.array[j] = dense_1_bias_array[j];
+}  
 
 float dense_1_fwork[3136] = {0}; 
 
@@ -19802,12 +20222,38 @@ float dense_2_kernel_array[96] = {
 -9.92593095e-02f,+7.73919225e-02f,-2.56478153e-02f,+8.45352095e-03f,+1.74939066e-01f,
 +2.35808372e-01f,}; 
 // k2c_tensor dense_2_kernel = {&dense_2_kernel_array[0],2,96,{48, 2, 1, 1, 1}}; 
-k2c_tensor dense_2_kernel = {dense_2_kernel_array[0],2,96,{48, 2, 1, 1, 1}}; 
+// k2c_tensor dense_2_kernel = {dense_2_kernel_array[0],2,96,{48, 2, 1, 1, 1}}; 
+k2c_tensor dense_2_kernel;
+dense_2_kernel.ndim = 2; 
+dense_2_kernel.numel = 96; 
+dense_2_kernel.shape[0] = 48;
+dense_2_kernel.shape[1] = 2;
+dense_2_kernel.shape[2] = 1;
+dense_2_kernel.shape[3] = 1;
+dense_2_kernel.shape[4] = 1;
+
+for(j=0; j < 96; j++) {
+	#pragma HLS PIPELINE
+	dense_2_kernel.array[j] = dense_2_kernel_array[j];
+}  
 
 float dense_2_bias_array[2] = {
 -7.59470239e-02f,+7.59469792e-02f,}; 
 // k2c_tensor dense_2_bias = {&dense_2_bias_array[0],1,2,{2,1,1,1,1}}; 
-k2c_tensor dense_2_bias = {dense_2_bias_array[0],1,2,{2,1,1,1,1}}; 
+// k2c_tensor dense_2_bias = {dense_2_bias_array[0],1,2,{2,1,1,1,1}}; 
+k2c_tensor dense_2_bias;
+dense_2_bias.ndim = 1; 
+dense_2_bias.numel = 2; 
+dense_2_bias.shape[0] = 2;
+dense_2_bias.shape[1] = 1;
+dense_2_bias.shape[2] = 1;
+dense_2_bias.shape[3] = 1;
+dense_2_bias.shape[4] = 1;
+
+for(j=0; j < 96; j++) {
+	#pragma HLS PIPELINE
+	dense_2_bias.array[j] = dense_2_bias_array[j];
+}  
 
 float dense_2_fwork[144] = {0}; 
 
@@ -19823,7 +20269,7 @@ dropout_output.ndim = max_pooling2d_output.ndim; // copy data into output struct
 dropout_output.numel = max_pooling2d_output.numel; 
 // memcpy(dropout_output.shape,max_pooling2d_output.shape,K2C_MAX_NDIM*sizeof(size_t)); 
 
-for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+for (k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
     //#pragma HLS pipeline
     dropout_output.shape[k] = max_pooling2d_output.shape[k];
 }
@@ -19841,7 +20287,7 @@ k2c_tensor dropout_1_output;
 dropout_1_output.ndim = max_pooling2d_1_output.ndim; // copy data into output struct 
 dropout_1_output.numel = max_pooling2d_1_output.numel; 
 // memcpy(dropout_1_output.shape,max_pooling2d_1_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+for (k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
     //#pragma HLS pipeline
     dropout_1_output.shape[k] = max_pooling2d_1_output.shape[k];
 }
@@ -19859,7 +20305,7 @@ k2c_tensor dropout_2_output;
 dropout_2_output.ndim = max_pooling2d_2_output.ndim; // copy data into output struct 
 dropout_2_output.numel = max_pooling2d_2_output.numel; 
 // memcpy(dropout_2_output.shape,max_pooling2d_2_output.shape,K2C_MAX_NDIM*sizeof(size_t));
-for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+for (k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
     //#pragma HLS pipeline
     dropout_2_output.shape[k] = max_pooling2d_2_output.shape[k];
 }  
@@ -19876,7 +20322,7 @@ k2c_tensor dropout_3_output;
 dropout_3_output.ndim = max_pooling2d_3_output.ndim; // copy data into output struct 
 dropout_3_output.numel = max_pooling2d_3_output.numel; 
 // memcpy(dropout_3_output.shape,max_pooling2d_3_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+for (k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
     //#pragma HLS pipeline
     dropout_3_output.shape[k] = max_pooling2d_3_output.shape[k];
 }  
@@ -19894,7 +20340,7 @@ k2c_tensor dropout_4_output;
 dropout_4_output.ndim = dense_output.ndim; // copy data into output struct 
 dropout_4_output.numel = dense_output.numel; 
 // memcpy(dropout_4_output.shape,dense_output.shape,K2C_MAX_NDIM*sizeof(size_t)); 
-for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+for (k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
     //#pragma HLS pipeline
     dropout_4_output.shape[k] = dense_output.shape[k];
 }   
@@ -19910,7 +20356,7 @@ k2c_tensor dropout_5_output;
 dropout_5_output.ndim = dense_1_output.ndim; // copy data into output struct 
 dropout_5_output.numel = dense_1_output.numel; 
 // memcpy(dropout_5_output.shape,dense_1_output.shape,K2C_MAX_NDIM*sizeof(size_t));  
-for (size_t k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
+for (k = 0; k < K2C_MAX_NDIM*sizeof(size_t); ++k) {
     //#pragma HLS pipeline
     dropout_5_output.shape[k] = dense_1_output.shape[k];
 }   
