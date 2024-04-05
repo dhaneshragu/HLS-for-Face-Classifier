@@ -23,7 +23,9 @@ https://github.com/f0uriest/keras2c
 struct k2c_tensor
 {
     /** Pointer to array of tensor values flattened in row major order. */
-    float array[264822];
+    // float array[264822];
+    float array[10];
+
 
     /** Rank of the tensor (number of dimensions). */
     size_t ndim;

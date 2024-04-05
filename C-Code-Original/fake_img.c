@@ -2086,12 +2086,12 @@ k2c_activationType * k2c_hard_sigmoid = k2c_hard_sigmoid_func;
  * :param x: array of input values. Gets overwritten by output.
  * :param size: length of input array.
  */
-void k2c_tanh_func(float * x, const size_t size) {
-    for (i=0; i<size; ++i) {
-        x[i] = tanhf(x[i]);
-    }
-}
-k2c_activationType * k2c_tanh = k2c_tanh_func;
+// void k2c_tanh_func(float * x, const size_t size) {
+//     for (i=0; i<size; ++i) {
+//         x[i] = tanhf(x[i]);
+//     }
+// }
+// k2c_activationType * k2c_tanh = k2c_tanh_func;
 
 
 /**
