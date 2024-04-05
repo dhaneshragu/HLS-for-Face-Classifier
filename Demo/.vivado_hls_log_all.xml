@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Demo" solutionName="solution1" date="2024-03-27T16:01:08.603+0530"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="Demo" solutionName="solution1" date="2024-03-27T16:01:08.603+0530"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Demo" solutionName="solution1" date="2024-03-27T16:00:17.705+0530"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="Demo" solutionName="solution1" date="2024-03-27T16:00:17.690+0530"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="Demo" solutionName="solution1" date="2024-03-27T15:59:49.138+0530"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="Demo" solutionName="solution1" date="2024-03-27T15:59:49.138+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:57:17.323+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:56:37.430+0530"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed.&#xD;&#xA;g++.exe: error: obj/face_classifier_c.o: No such file or directory&#xD;&#xA;make: *** [csim.exe] Error 1" projectName="Demo" solutionName="solution1" date="2024-03-27T15:56:37.430+0530"/>
+        <logs message="ERROR: [APCC 202-1] ProcessSources failed" projectName="Demo" solutionName="solution1" date="2024-03-27T15:56:37.419+0530"/>
+        <logs message="ERROR: [APCC 202-10] clang compile failed: child process exited abnormally" projectName="Demo" solutionName="solution1" date="2024-03-27T15:56:37.405+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:49:57.944+0530"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed.&#xD;&#xA;g++.exe: error: obj/face_classifier_c.o: No such file or directory&#xD;&#xA;make: *** [csim.exe] Error 1" projectName="Demo" solutionName="solution1" date="2024-03-27T15:49:57.928+0530"/>
+        <logs message="ERROR: [APCC 202-1] ProcessSources failed" projectName="Demo" solutionName="solution1" date="2024-03-27T15:49:57.928+0530"/>
+        <logs message="ERROR: [APCC 202-10] clang compile failed: child process exited abnormally" projectName="Demo" solutionName="solution1" date="2024-03-27T15:49:57.912+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:47:57.229+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:47:03.691+0530"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed.&#xD;&#xA;g++.exe: error: obj/face_classifier_c.o: No such file or directory&#xD;&#xA;make: *** [csim.exe] Error 1" projectName="Demo" solutionName="solution1" date="2024-03-27T15:47:03.691+0530"/>
+        <logs message="ERROR: [APCC 202-1] ProcessSources failed" projectName="Demo" solutionName="solution1" date="2024-03-27T15:47:03.674+0530"/>
+        <logs message="ERROR: [APCC 202-10] clang compile failed: child process exited abnormally" projectName="Demo" solutionName="solution1" date="2024-03-27T15:47:03.674+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:44:09.234+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:42:32.582+0530"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed.&#xD;&#xA;g++.exe: error: obj/face_classifier_c.o: No such file or directory&#xD;&#xA;make: *** [csim.exe] Error 1" projectName="Demo" solutionName="solution1" date="2024-03-27T15:42:32.574+0530"/>
+        <logs message="ERROR: [APCC 202-1] ProcessSources failed" projectName="Demo" solutionName="solution1" date="2024-03-27T15:42:32.568+0530"/>
+        <logs message="ERROR: [APCC 202-10] clang compile failed: child process exited abnormally" projectName="Demo" solutionName="solution1" date="2024-03-27T15:42:32.550+0530"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="Demo" solutionName="solution1" date="2024-03-27T15:25:26.137+0530"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

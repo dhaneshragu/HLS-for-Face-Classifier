@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="face_classifier_c.c" path="C:\Users\sahil\Downloads\CS-577-Course-Project\C-Code-Original\face_classifier_c.c"/>
+    <originFiles name="face_classifier_c.h" path="C:\Users\sahil\Downloads\CS-577-Course-Project\C-Code-Original\face_classifier_c.h"/>
+    <originFiles name="k2c_include.h" path="C:\Users\sahil\Downloads\CS-577-Course-Project\C-Code-Original\include\k2c_include.h"/>
+    <originFiles name="k2c_tensor_include.h" path="C:\Users\sahil\Downloads\CS-577-Course-Project\C-Code-Original\include\k2c_tensor_include.h"/>
+  </source>
+  <testbench>
+    <originFiles name="face_classifier_c_test_suite.c" path="C:\Users\sahil\Downloads\CS-577-Course-Project\C-Code-Original\face_classifier_c_test_suite.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
