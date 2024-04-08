@@ -1,0 +1,243 @@
+
+
+================================================================
+== Vivado HLS Report for 'k2c_dense'
+================================================================
+* Date:           Mon Apr  8 17:34:50 2024
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        FaceClassifier
+* Solution:       solution1
+* Product family: aartix7
+* Target device:  xa7a12tcsg325-1q
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+--------+----------+------------+
+    |  Clock | Target | Estimated| Uncertainty|
+    +--------+--------+----------+------------+
+    |ap_clk  |  100.00|    33.093|       12.50|
+    +--------+--------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------+-----------+-----+-----+-----+-----+---------+
+        |                      |           |  Latency  |  Interval | Pipeline|
+        |       Instance       |   Module  | min | max | min | max |   Type  |
+        +----------------------+-----------+-----+-----+-----+-----+---------+
+        |grp_k2c_dot_2_fu_240  |k2c_dot_2  |    ?|    ?|    ?|    ?|   none  |
+        +----------------------+-----------+-----+-----+-----+-----+---------+
+
+        * Loop: 
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                 |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1         |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1      |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |  ++ Loop 1.1.1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        |- Loop 2         |  202|  202|       202|          -|          -|     1|    no    |
+        | + Loop 2.1      |  200|  200|         2|          -|          -|   100|    no    |
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+-------+------+
+|       Name      | BRAM_18K| DSP48E|   FF  |  LUT |
++-----------------+---------+-------+-------+------+
+|DSP              |        -|      -|      -|     -|
+|Expression       |        -|      3|      0|   677|
+|FIFO             |        -|      -|      -|     -|
+|Instance         |        0|     23|   8168|  7446|
+|Memory           |        -|      -|      -|     -|
+|Multiplexer      |        -|      -|      -|   347|
+|Register         |        -|      -|    839|     -|
++-----------------+---------+-------+-------+------+
+|Total            |        0|     26|   9007|  8470|
++-----------------+---------+-------+-------+------+
+|Available        |       40|     40|  16000|  8000|
++-----------------+---------+-------+-------+------+
+|Utilization (%)  |        0|     65|     56|   105|
++-----------------+---------+-------+-------+------+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+----------------------+---------+-------+------+------+
+    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF  |  LUT |
+    +--------------------------+----------------------+---------+-------+------+------+
+    |face_classifier_cbkb_U28  |face_classifier_cbkb  |        0|      2|   177|   385|
+    |face_classifier_ccud_U29  |face_classifier_ccud  |        0|      3|   128|   320|
+    |grp_k2c_dot_2_fu_240      |k2c_dot_2             |        0|     18|  7863|  6741|
+    +--------------------------+----------------------+---------+-------+------+------+
+    |Total                     |                      |        0|     23|  8168|  7446|
+    +--------------------------+----------------------+---------+-------+------+------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |inneridx_fu_339_p2    |     *    |      1|  0|  12|          20|          20|
+    |outrowidx_fu_334_p2   |     *    |      1|  0|  12|          20|          20|
+    |tmp_22_fu_446_p2      |     *    |      1|  0|  12|          20|          20|
+    |i_20_fu_328_p2        |     +    |      0|  0|  71|           1|          64|
+    |i_s_fu_375_p2         |     +    |      0|  0|  15|           6|           6|
+    |j_11_fu_359_p2        |     +    |      0|  0|  15|           7|           1|
+    |j_9_fu_405_p2         |     +    |      0|  0|  71|           1|          64|
+    |k_2_fu_430_p2         |     +    |      0|  0|  71|           1|          64|
+    |tmp_18_fu_282_p2      |     +    |      0|  0|  71|          64|           2|
+    |tmp_19_fu_411_p2      |     +    |      0|  0|  27|          20|          20|
+    |tmp_21_fu_436_p2      |     +    |      0|  0|  27|          20|          20|
+    |tmp_23_fu_451_p2      |     +    |      0|  0|  27|          20|          20|
+    |tmp_i_42_fu_365_p2    |     +    |      0|  0|  15|           8|           8|
+    |exitcond1_fu_400_p2   |   icmp   |      0|  0|  29|          64|          64|
+    |exitcond2_fu_323_p2   |   icmp   |      0|  0|  29|          64|          64|
+    |exitcond_fu_425_p2    |   icmp   |      0|  0|  29|          64|          64|
+    |exitcond_i_fu_353_p2  |   icmp   |      0|  0|  11|           7|           6|
+    |icmp_fu_299_p2        |   icmp   |      0|  0|  29|          63|           1|
+    |tmp_fu_276_p2         |   icmp   |      0|  0|  29|          64|           2|
+    |tmp_i_fu_313_p2       |   icmp   |      0|  0|  11|           6|           6|
+    |outrows1_fu_381_p3    |  select  |      0|  0|  64|           1|          64|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      3|  0| 677|         541|         600|
+    +----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm              |  50|         11|    1|         11|
+    |bias_array_address0    |  15|          3|   19|         57|
+    |grp_fu_261_p0          |  15|          3|   32|         96|
+    |grp_fu_261_p1          |  15|          3|   32|         96|
+    |i_i_reg_172            |   9|          2|    6|         12|
+    |i_reg_184              |   9|          2|   64|        128|
+    |input_array_address0   |  15|          3|   19|         57|
+    |input_array_ce0        |  15|          3|    1|          3|
+    |input_shape_address0   |  15|          3|    3|          9|
+    |input_shape_ce0        |  15|          3|    1|          3|
+    |j_i_reg_195            |   9|          2|    7|         14|
+    |j_reg_206              |   9|          2|   64|        128|
+    |k_reg_229              |   9|          2|   64|        128|
+    |kernel_array_address0  |  15|          3|   19|         57|
+    |kernel_array_ce0       |  15|          3|    1|          3|
+    |kernel_shape_address0  |  15|          3|    3|          9|
+    |kernel_shape_ce0       |  15|          3|    1|          3|
+    |output_array_address0  |  27|          5|   19|         95|
+    |output_array_ce0       |  15|          3|    1|          3|
+    |output_array_d0        |  21|          4|   32|        128|
+    |output_array_we0       |  15|          3|    1|          3|
+    |storemerge_reg_218     |   9|          2|   32|         64|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  | 347|         71|  422|       1107|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------+----+----+-----+-----------+
+    |                Name               | FF | LUT| Bits| Const Bits|
+    +-----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                          |  10|   0|   10|          0|
+    |grp_k2c_dot_2_fu_240_ap_start_reg  |   1|   0|    1|          0|
+    |i_20_reg_511                       |  64|   0|   64|          0|
+    |i_i_cast_reg_500                   |   7|   0|    8|          1|
+    |i_i_reg_172                        |   6|   0|    6|          0|
+    |i_reg_184                          |  64|   0|   64|          0|
+    |icmp_reg_480                       |   1|   0|    1|          0|
+    |innerdim_reg_565                   |  64|   0|   64|          0|
+    |inneridx_reg_521                   |  20|   0|   20|          0|
+    |j_11_reg_529                       |   7|   0|    7|          0|
+    |j_9_reg_583                        |  64|   0|   64|          0|
+    |j_i_reg_195                        |   7|   0|    7|          0|
+    |j_reg_206                          |  64|   0|   64|          0|
+    |k_2_reg_606                        |  64|   0|   64|          0|
+    |k_reg_229                          |  64|   0|   64|          0|
+    |outcols_reg_554                    |  64|   0|   64|          0|
+    |output_array_addr_3_reg_539        |   8|   0|   19|         11|
+    |output_array_addr_reg_593          |  19|   0|   19|          0|
+    |outrowidx_reg_516                  |  20|   0|   20|          0|
+    |outrows1_reg_549                   |  64|   0|   64|          0|
+    |storemerge_reg_218                 |  32|   0|   32|          0|
+    |tmp_18_reg_475                     |  64|   0|   64|          0|
+    |tmp_70_reg_559                     |  20|   0|   20|          0|
+    |tmp_71_reg_570                     |  20|   0|   20|          0|
+    |tmp_73_reg_575                     |  20|   0|   20|          0|
+    |tmp_reg_471                        |   1|   0|    1|          0|
+    +-----------------------------------+----+----+-----+-----------+
+    |Total                              | 839|   0|  851|         12|
+    +-----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++-----------------------+-----+-----+------------+------------------+--------------+
+|ap_clk                 |  in |    1| ap_ctrl_hs |     k2c_dense    | return value |
+|ap_rst                 |  in |    1| ap_ctrl_hs |     k2c_dense    | return value |
+|ap_start               |  in |    1| ap_ctrl_hs |     k2c_dense    | return value |
+|ap_done                | out |    1| ap_ctrl_hs |     k2c_dense    | return value |
+|ap_idle                | out |    1| ap_ctrl_hs |     k2c_dense    | return value |
+|ap_ready               | out |    1| ap_ctrl_hs |     k2c_dense    | return value |
+|output_array_address0  | out |   19|  ap_memory |   output_array   |     array    |
+|output_array_ce0       | out |    1|  ap_memory |   output_array   |     array    |
+|output_array_we0       | out |    1|  ap_memory |   output_array   |     array    |
+|output_array_d0        | out |   32|  ap_memory |   output_array   |     array    |
+|output_array_q0        |  in |   32|  ap_memory |   output_array   |     array    |
+|input_array_address0   | out |   19|  ap_memory |    input_array   |     array    |
+|input_array_ce0        | out |    1|  ap_memory |    input_array   |     array    |
+|input_array_q0         |  in |   32|  ap_memory |    input_array   |     array    |
+|input_ndim_read        |  in |   64|   ap_none  |  input_ndim_read |    scalar    |
+|input_numel_read       |  in |   64|   ap_none  | input_numel_read |    scalar    |
+|input_shape_address0   | out |    3|  ap_memory |    input_shape   |     array    |
+|input_shape_ce0        | out |    1|  ap_memory |    input_shape   |     array    |
+|input_shape_q0         |  in |   64|  ap_memory |    input_shape   |     array    |
+|kernel_array_address0  | out |   19|  ap_memory |   kernel_array   |     array    |
+|kernel_array_ce0       | out |    1|  ap_memory |   kernel_array   |     array    |
+|kernel_array_q0        |  in |   32|  ap_memory |   kernel_array   |     array    |
+|kernel_shape_address0  | out |    3|  ap_memory |   kernel_shape   |     array    |
+|kernel_shape_ce0       | out |    1|  ap_memory |   kernel_shape   |     array    |
+|kernel_shape_q0        |  in |   64|  ap_memory |   kernel_shape   |     array    |
+|kernel_shape_address1  | out |    3|  ap_memory |   kernel_shape   |     array    |
+|kernel_shape_ce1       | out |    1|  ap_memory |   kernel_shape   |     array    |
+|kernel_shape_q1        |  in |   64|  ap_memory |   kernel_shape   |     array    |
+|bias_array_address0    | out |   19|  ap_memory |    bias_array    |     array    |
+|bias_array_ce0         | out |    1|  ap_memory |    bias_array    |     array    |
+|bias_array_q0          |  in |   32|  ap_memory |    bias_array    |     array    |
+|fwork_address0         | out |   19|  ap_memory |       fwork      |     array    |
+|fwork_ce0              | out |    1|  ap_memory |       fwork      |     array    |
+|fwork_we0              | out |    1|  ap_memory |       fwork      |     array    |
+|fwork_d0               | out |   32|  ap_memory |       fwork      |     array    |
+|fwork_q0               |  in |   32|  ap_memory |       fwork      |     array    |
+|fwork_address1         | out |   19|  ap_memory |       fwork      |     array    |
+|fwork_ce1              | out |    1|  ap_memory |       fwork      |     array    |
+|fwork_q1               |  in |   32|  ap_memory |       fwork      |     array    |
++-----------------------+-----+-----+------------+------------------+--------------+
+

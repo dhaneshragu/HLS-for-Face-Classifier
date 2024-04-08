@@ -1,0 +1,114 @@
+#pragma line 1 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c" ::: -10
+#pragma line 1 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c" 1 ::: -9
+#pragma line 1 "<built-in>" 1 ::: -8
+#pragma line 1 "<built-in>" 3 ::: -7
+#pragma line 147 "<built-in>" 3 ::: -6
+#pragma line 1 "<command line>" 1 ::: -5
+#pragma line 1 "<built-in>" 2 ::: -4
+#pragma line 1 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c" 2 ::: -3
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 1 3 ::: -2
+#pragma line 10 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: -1
+#pragma line 10 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 0
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 ::: 3
+#pragma line 10 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 4
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/_mingw_mac.h" 1 3 ::: 5
+#pragma line 10 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3 ::: 6
+#pragma line 277 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 7
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 1 3 ::: 8
+#pragma line 13 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 3 ::: 9
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 ::: 10
+#pragma line 674 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 11
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/sdks/_mingw_directx.h" 1 3 ::: 12
+#pragma line 674 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3 ::: 13
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/sdks/_mingw_ddk.h" 1 3 ::: 15
+#pragma line 675 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3 ::: 16
+#pragma line 13 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 2 3 ::: 17
+#pragma line 102 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 3 ::: 37
+#pragma line 277 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3 ::: 39
+#pragma line 370 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 43
+#pragma line 380 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 45
+#pragma line 392 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 47
+#pragma line 405 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 49
+#pragma line 418 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 51
+#pragma line 428 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 53
+#pragma line 456 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 64
+#pragma line 607 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3 ::: 84
+#pragma line 12 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 2 3 ::: 146
+#pragma line 79 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 152
+#pragma line 91 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 154
+#pragma line 135 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 188
+#pragma line 162 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 207
+#pragma line 189 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 225
+#pragma line 219 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 248
+#pragma line 264 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 251
+#pragma line 299 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 254
+#pragma line 335 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 258
+#pragma line 376 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 262
+#pragma line 404 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 266
+#pragma line 553 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 384
+#pragma line 583 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 405
+#pragma line 595 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 407
+#pragma line 739 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 473
+#pragma line 788 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 515
+#pragma line 871 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 551
+#pragma line 898 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3 ::: 563
+#pragma line 2 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c" 2 ::: 565
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3 ::: 566
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 ::: 575
+#pragma line 9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3 ::: 576
+#pragma line 36 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 3 ::: 577
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 1 3 ::: 718
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3 ::: 727
+#pragma line 9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 2 3 ::: 728
+#pragma line 175 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3 ::: 729
+#pragma line 3 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c" 2 ::: 730
+#pragma line 1 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_include.h" 1 ::: 731
+#pragma line 11 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_include.h" ::: 732
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 1 3 ::: 733
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 ::: 742
+#pragma line 9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 2 3 ::: 743
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\limits.h" 1 3 4 ::: 745
+#pragma line 38 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\limits.h" 3 4 ::: 746
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\limits.h" 1 3 4 ::: 747
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 4 ::: 753
+#pragma line 6 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\limits.h" 2 3 4 ::: 754
+#pragma line 38 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\limits.h" 2 3 4 ::: 755
+#pragma line 10 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 2 3 ::: 756
+#pragma line 36 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 760
+#pragma line 46 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 762
+#pragma line 100 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 807
+#pragma line 132 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 817
+#pragma line 172 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 844
+#pragma line 200 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 862
+#pragma line 209 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 864
+#pragma line 218 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 866
+#pragma line 227 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 868
+#pragma line 257 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 891
+#pragma line 266 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 893
+#pragma line 275 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 895
+#pragma line 284 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 897
+#pragma line 307 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 908
+#pragma line 321 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 915
+#pragma line 400 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 984
+#pragma line 574 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 1139
+#pragma line 627 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 3 ::: 1175
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/stdlib_s.h" 1 3 ::: 1179
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 1 3 ::: 1188
+#pragma line 9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/stdlib_s.h" 2 3 ::: 1189
+#pragma line 629 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 2 3 ::: 1190
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\malloc.h" 1 3 ::: 1192
+#pragma line 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 ::: 1201
+#pragma line 9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\malloc.h" 2 3 ::: 1202
+#pragma line 46 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\malloc.h" 3 ::: 1206
+#pragma line 99 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\malloc.h" 3 ::: 1215
+#pragma line 140 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\malloc.h" 3 ::: 1245
+#pragma line 159 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\malloc.h" 3 ::: 1253
+#pragma line 205 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\malloc.h" 3 ::: 1269
+#pragma line 630 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 2 3 ::: 1271
+#pragma line 11 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_include.h" 2 ::: 1272
+#pragma line 1 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_tensor_include.h" 1 ::: 1274
+#pragma line 23 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_tensor_include.h" ::: 1275
+#pragma line 12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_include.h" 2 ::: 1292
+#pragma line 68 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_include.h" ::: 1316
+#pragma line 102 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/./include/k2c_include.h" ::: 1319
+#pragma line 4 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c" 2 ::: 1323

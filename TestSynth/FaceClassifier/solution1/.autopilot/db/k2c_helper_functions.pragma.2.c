@@ -1912,7 +1912,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 struct k2c_tensor
 {
 
-    float * array;
+    float array[300000];
 
 
     size_t ndim;
@@ -1936,7 +1936,7 @@ void k2c_relu_func(float * x, const size_t size);
 void k2c_hard_sigmoid_func(float * x, const size_t size);
 void k2c_tanh_func(float * x, const size_t size);
 void k2c_sigmoid_func(float * x, const size_t size);
-void k2c_softmax_func(float * x, const size_t size);
+void k2c_softmax_func(float x[6], const size_t size);
 void k2c_softplus_func(float * x, const size_t size);
 void k2c_softsign_func(float * x, const size_t size);
 typedef void k2c_activationType(float * x, const size_t size);
@@ -1949,159 +1949,25 @@ extern k2c_activationType * k2c_sigmoid;
 extern k2c_activationType * k2c_softmax;
 extern k2c_activationType * k2c_softplus;
 extern k2c_activationType * k2c_softsign;
-
-
-void k2c_LeakyReLU(float * x, const size_t size, const float alpha);
-void k2c_PReLU(float * x, const size_t size, const float * alpha);
-void k2c_ELU(float * x, const size_t size, const float alpha);
-void k2c_ThresholdedReLU(float * x, const size_t size, const float theta);
-void k2c_ReLU(float * x, const size_t size, const float max_value, const float negative_slope,
-              const float threshold);
-
-
-void k2c_pad1d(k2c_tensor* output, const k2c_tensor* input, const float fill,
-               const size_t * pad);
-void k2c_pad2d(k2c_tensor* output, const k2c_tensor* input, const float fill,
-               const size_t * pad);
-void k2c_pad3d(k2c_tensor* output, const k2c_tensor* input, const float fill,
-               const size_t * pad);
-void k2c_conv1d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-                const k2c_tensor* bias, const size_t stride, const size_t dilation,
-                k2c_activationType *activation);
-void k2c_conv2d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-                const k2c_tensor* bias, const size_t * stride, const size_t * dilation,
-                k2c_activationType *activation);
-void k2c_conv3d(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-                const k2c_tensor* bias, const size_t * stride, const size_t * dilation,
-                k2c_activationType *activation);
-void k2c_crop1d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop);
-void k2c_crop2d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop);
-void k2c_crop3d(k2c_tensor* output, const k2c_tensor* input, const size_t * crop);
-void k2c_upsampling1d(k2c_tensor* output, const k2c_tensor* input, const size_t size);
-void k2c_upsampling2d(k2c_tensor* output, const k2c_tensor* input, const size_t * size);
-void k2c_upsampling3d(k2c_tensor* output, const k2c_tensor* input, const size_t * size);
-
-
+# 68 "../C-Code-Original/include/k2c_include.h"
 void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-               const k2c_tensor* bias, k2c_activationType *activation, float * fwork);
-void k2c_flatten(k2c_tensor *output, const k2c_tensor* input);
-void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * newshp,
-                 const size_t newndim);
-void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
-                      const size_t * permute);
-void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n);
-
-
-void k2c_embedding(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* kernel);
-
-
-void k2c_matmul(float * C, const float * A, const float * B, const size_t outrows,
-                const size_t outcols, const size_t innerdim);
-void k2c_affine_matmul(float * C, const float * A, const float * B, const float * d,
-                       const size_t outrows,const size_t outcols, const size_t innerdim);
-size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim);
-void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim);
-void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size_t * axesA,
-             const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
-void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b);
-void k2c_flip(k2c_tensor *A, const size_t axis);
-float* k2c_read_array(const char* filename, const size_t array_size);
-
-
-void k2c_add(k2c_tensor* output, const size_t num_tensors,...);
-void k2c_subtract(k2c_tensor* output, const size_t num_tensors,
-                  const k2c_tensor* tensor1, const k2c_tensor* tensor2);
-void k2c_multiply(k2c_tensor* output, const size_t num_tensors,...);
-void k2c_average(k2c_tensor* output, const size_t num_tensors,...);
-void k2c_max(k2c_tensor* output, const size_t num_tensors,...);
-void k2c_min(k2c_tensor* output, const size_t num_tensors,...);
-void k2c_concatenate(k2c_tensor* output, const size_t axis, const size_t num_tensors,...);
-
-
+               const k2c_tensor* bias, float * fwork);
+# 102 "../C-Code-Original/include/k2c_include.h"
 void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
                     const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
                     const size_t axis);
-
-
-void k2c_global_max_pooling(k2c_tensor* output, const k2c_tensor* input);
-void k2c_global_avg_pooling(k2c_tensor* output, const k2c_tensor* input);
-void k2c_maxpool1d(k2c_tensor* output, const k2c_tensor* input, const size_t pool_size,
-                   const size_t stride);
-void k2c_maxpool2d(k2c_tensor* output, const k2c_tensor* input, const size_t * pool_size,
-                   const size_t * stride);
-void k2c_avgpool1d(k2c_tensor* output, const k2c_tensor* input, const size_t pool_size,
-                   const size_t stride);
-void k2c_avgpool2d(k2c_tensor* output, const k2c_tensor* input, const size_t * pool_size,
-                   const size_t * stride);
-
-
-void k2c_lstmcell(float * state, const float * input, const k2c_tensor* kernel,
-                  const k2c_tensor* recurrent_kernel, const k2c_tensor* bias, float * fwork,
-                  k2c_activationType *recurrent_activation,
-                  k2c_activationType *output_activation);
-void k2c_lstm(k2c_tensor* output, const k2c_tensor* input, float * state,
-              const k2c_tensor* kernel, const k2c_tensor* recurrent_kernel,
-              const k2c_tensor* bias, float * fwork, const int go_backwards,
-              const int return_sequences, k2c_activationType *recurrent_activation,
-              k2c_activationType *output_activation);
-void k2c_simpleRNNcell(float * state, const float * input, const k2c_tensor* kernel,
-                       const k2c_tensor* recurrent_kernel, const k2c_tensor* bias,
-                       float * fwork, k2c_activationType *output_activation);
-void k2c_simpleRNN(k2c_tensor* output, const k2c_tensor* input, float * state,
-                   const k2c_tensor* kernel, const k2c_tensor* recurrent_kernel,
-                   const k2c_tensor* bias, float * fwork, const int go_backwards,
-                   const int return_sequences, k2c_activationType *output_activation);
-void k2c_grucell(float * state, const float * input, const k2c_tensor* kernel,
-                 const k2c_tensor* recurrent_kernel, const k2c_tensor* bias, float * fwork,
-                 const int reset_after, k2c_activationType *recurrent_activation,
-                 k2c_activationType *output_activation);
-void k2c_gru(k2c_tensor* output, const k2c_tensor* input, float * state,
-             const k2c_tensor* kernel, const k2c_tensor* recurrent_kernel,
-             const k2c_tensor* bias, float * fwork, const int reset_after,
-             const int go_backwards, const int return_sequences,
-             k2c_activationType *recurrent_activation,
-             k2c_activationType *output_activation);
 # 13 "../C-Code-Original/include/k2c_helper_functions.c" 2
-# 28 "../C-Code-Original/include/k2c_helper_functions.c"
-void k2c_matmul(float C[100000], const float * A, const float * B, const size_t outrows,
-                const size_t outcols, const size_t innerdim) {_ssdm_SpecArrayDimSize(C, 100000);
+# 56 "../C-Code-Original/include/k2c_helper_functions.c"
+void k2c_affine_matmul(float C[100000], const float A[100000], const float B[100000], const float d[100000], const size_t outrows,const size_t outcols, const size_t innerdim) {_ssdm_SpecArrayDimSize(C, 100000);_ssdm_SpecArrayDimSize(A, 100000);_ssdm_SpecArrayDimSize(B, 100000);_ssdm_SpecArrayDimSize(d, 100000);
 
 
 
  size_t i;
-
-    for ( i = 0 ; i < outrows; ++i) {
-        const size_t outrowidx = i*outcols;
-        const size_t inneridx = i*innerdim;
-        for (size_t k = 0; k < innerdim; ++k) {
-            for (size_t j = 0; j < outcols; ++j) {
-             C[outrowidx+j] = 0;
-                C[outrowidx+j] += A[inneridx+k] * B[k*outcols+j];
-            }
-        }
-    }
-}
-# 62 "../C-Code-Original/include/k2c_helper_functions.c"
-void k2c_affine_matmul(float * C, const float * A, const float * B, const float * d,
-                       const size_t outrows,const size_t outcols, const size_t innerdim) {
-
-
-
- size_t i;
- for ( i = 0 ; i < outrows; ++i) {
-         const size_t outrowidx = i*outcols;
-         const size_t inneridx = i*innerdim;
-         for (size_t k = 0; k < innerdim; ++k) {
-             for (size_t j = 0; j < outcols; ++j) {
-                 C[outrowidx+j] = 0;
-             }
-         }
-     }
-
     for ( i = 0 ; i < outrows; ++i) {
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t j = 0; j < outcols; ++j) {
+            C[outrowidx+j] = 0;
             for (size_t k = 0; k < innerdim; ++k) {
                 C[outrowidx+j] += A[inneridx+k] * B[k*outcols+j];
             }
@@ -2109,7 +1975,7 @@ void k2c_affine_matmul(float * C, const float * A, const float * B, const float 
         }
     }
 }
-# 99 "../C-Code-Original/include/k2c_helper_functions.c"
+# 83 "../C-Code-Original/include/k2c_helper_functions.c"
 size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) {
 
     size_t idx = 0;
@@ -2123,7 +1989,7 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
     }
     return idx;
 }
-# 122 "../C-Code-Original/include/k2c_helper_functions.c"
+# 106 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim) {
 
     size_t idx2 = idx;
@@ -2132,8 +1998,8 @@ void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const siz
         idx2 /= shape[i];
     }
 }
-# 144 "../C-Code-Original/include/k2c_helper_functions.c"
-void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size_t * axesA,
+# 128 "../C-Code-Original/include/k2c_helper_functions.c"
+void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const size_t * axesA,
              const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
 
     size_t permA[5];
@@ -2147,10 +2013,10 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
     int isin;
     size_t newshpA[5];
     size_t newshpB[5];
-    const size_t ndimA = A->ndim;
+    const size_t ndimA = Ar->ndim;
     const size_t ndimB = B->ndim;
     float *reshapeA = &fwork[0];
-    float *reshapeB = &fwork[A->numel];
+    float *reshapeB = &fwork[Ar->numel];
     size_t Asub[5];
     size_t Bsub[5];
 
@@ -2184,13 +2050,13 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
 
 
     for ( i=0; i < naxes; ++i) {
-        prod_axesA *= A->shape[axesA[i]];
+        prod_axesA *= Ar->shape[axesA[i]];
     }
     for (i=0; i < naxes; ++i) {
         prod_axesB *= B->shape[axesB[i]];
     }
 
-    free_axesA = A->numel/prod_axesA;
+    free_axesA = Ar->numel/prod_axesA;
     free_axesB = B->numel/prod_axesB;
 
     for ( i=0; i<ndimA-naxes; ++i) {
@@ -2209,20 +2075,20 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
 
 
     for ( i=0; i<ndimA; ++i) {
-        newshpA[i] = A->shape[permA[i]];
+        newshpA[i] = Ar->shape[permA[i]];
     }
     for ( i=0; i<ndimB; ++i) {
         newshpB[i] = B->shape[permB[i]];
     }
 
 
-    for ( i=0; i<A->numel; ++i) {
-        k2c_idx2sub(i,Asub,A->shape,ndimA);
+    for ( i=0; i<Ar->numel; ++i) {
+        k2c_idx2sub(i,Asub,Ar->shape,ndimA);
         for (size_t j=0; j<ndimA; ++j) {
             Bsub[j] = Asub[permA[j]];
         }
         size_t bidx = k2c_sub2idx(Bsub,newshpA,ndimA);
-        reshapeA[bidx] = A->array[i];
+        reshapeA[bidx] = Ar->array[i];
     }
 
     for ( i=0; i<B->numel; ++i) {
@@ -2264,10 +2130,18 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size
         }
     }
 
-    k2c_matmul(C->array, reshapeA, reshapeB, free_axesA,
-               free_axesB, prod_axesA);
+
+
+        for (i = 0 ; i < free_axesA; ++i) {
+            for (size_t j = 0; j < free_axesB; ++j) {
+                C->array[i*free_axesB + j] = 0;
+                for (size_t k = 0; k < prod_axesA; ++k) {
+                    C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
+                }
+            }
+        }
 }
-# 287 "../C-Code-Original/include/k2c_helper_functions.c"
+# 279 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b) {
 
     for (size_t i=0; i<A->numel; i+=b->numel) {
@@ -2276,7 +2150,7 @@ void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b) {
         }
     }
 }
-# 305 "../C-Code-Original/include/k2c_helper_functions.c"
+# 297 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_flip(k2c_tensor *A, const size_t axis) {
     const size_t ndim = A->ndim;
     const size_t * shape = A->shape;
@@ -2309,7 +2183,7 @@ void k2c_flip(k2c_tensor *A, const size_t axis) {
         }
     }
 }
-# 347 "../C-Code-Original/include/k2c_helper_functions.c"
+# 339 "../C-Code-Original/include/k2c_helper_functions.c"
 float* k2c_read_array(const char* filename, const size_t array_size) {
     float* ptr = (float*) malloc(array_size * sizeof(float));
     if (!ptr) {

@@ -5,9 +5,14 @@
     <downStreamTool>
         <DownStreamTool name=""/>
     </downStreamTool>
-    <config/>
+    <clockList>
+        <clock default="false" name="default" period="100"/>
+    </clockList>
+    <config>
+        <schedule model="face_classifier_c"/>
+    </config>
     <UIConfigurations>
-        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
+        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="true" isStopAskAgain="false" showDetailDesignViewer="false">
             <Platform>xilinx/aartix7/aartix7</Platform>
             <Platform>xilinx/aartix7/aartix7_fpv6</Platform>
             <customLibs/>
@@ -38,7 +43,7 @@
             </RTLs>
         </UIAutoSimConf>
     </UIConfigurations>
-    <ExportDesign askAgain="true" evaluate="false" flow="false" flowChoice="syn" formatName="ip_catalog" rtl="verilog" rtlButton="false" rtlCombo="verilog">
+    <ExportDesign askAgain="true" evaluate="false" flow="false" flowChoice="syn" formatName="ip_catalog" rtl="verilog" rtlButton="true" rtlCombo="verilog">
         <Format formatName="ip_catalog"/>
         <Format formatName="sysgen"/>
         <Format formatName="sysgen_ise"/>
@@ -65,8 +70,5 @@
         <library name="DefaultPlatform" value="xilinx/aartix7/aartix7"/>
         <library name="DefaultPlatform" value="xilinx/aartix7/aartix7_fpv6"/>
     </libraryList>
-    <clockList>
-        <clock name="default" default="false" period="10"/>
-    </clockList>
 </solution>
 

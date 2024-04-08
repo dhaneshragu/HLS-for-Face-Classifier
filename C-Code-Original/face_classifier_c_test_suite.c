@@ -1,12 +1,13 @@
 #include <stdio.h> 
 #include <math.h> 
 #include <time.h> 
-#include "./include/k2c_include.h" 
+#include "./include/k2c_include.h"
 #include "face_classifier_c.h" 
 
 float maxabs(k2c_tensor *tensor1, k2c_tensor *tensor2);
 struct timeval GetTimeStamp(); 
- 
+int j; 
+
 float test1_dense_input_input_array[2622] = {
 +1.74251463e+00f,-1.16141724e+00f,-2.42990927e-01f,+1.53812874e+00f,+6.95742213e-01f,
 -1.35479308e+00f,-1.77093722e+00f,+8.15564913e-01f,-5.08028811e-01f,-1.74354966e+00f,
@@ -533,13 +534,19 @@ float test1_dense_input_input_array[2622] = {
 +9.38828857e-01f,-2.63017527e-01f,+8.02756375e-01f,+2.08271576e-01f,-1.97441321e+00f,
 -1.56962812e+00f,-1.09825256e+00f,+4.90577253e-01f,-3.33406109e-01f,+1.79705514e+00f,
 +5.00166568e-01f,-1.25646568e+00f,}; 
-k2c_tensor test1_dense_input_input = {&test1_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test1_dense_input_input = {&test1_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test1_dense_input_input;
+
+
+
 float keras_activation_3_test1_array[6] = {
 +2.45758802e-01f,+7.06300586e-02f,+2.70211566e-02f,+1.14849284e-01f,+5.15316486e-01f,
 +2.64242887e-02f,}; 
-k2c_tensor keras_activation_3_test1 = {&keras_activation_3_test1_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test1 = {&keras_activation_3_test1_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor keras_activation_3_test1;
 float c_activation_3_test1_array[6] = {0}; 
-k2c_tensor c_activation_3_test1 = {&c_activation_3_test1_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test1 = {&c_activation_3_test1_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor c_activation_3_test1;
 float test2_dense_input_input_array[2622] = {
 +7.80737206e-01f,-1.37054080e+00f,+1.95460880e+00f,-1.91128059e+00f,-1.40341752e+00f,
 +8.92815769e-01f,-5.66819862e-02f,-1.21214298e+00f,+1.38288353e+00f,-1.85234674e+00f,
@@ -1066,13 +1073,16 @@ float test2_dense_input_input_array[2622] = {
 +1.63401544e+00f,+1.22459968e+00f,-1.78103662e+00f,+9.50906450e-01f,+3.73183939e-01f,
 +1.94049011e+00f,+1.07317802e+00f,+8.11166662e-01f,+1.72895578e+00f,+1.00633752e+00f,
 -1.68865505e+00f,+4.86740281e-01f,}; 
-k2c_tensor test2_dense_input_input = {&test2_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test2_dense_input_input = {&test2_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test2_dense_input_input;
 float keras_activation_3_test2_array[6] = {
 +2.21840292e-01f,+4.65670787e-02f,+2.54097451e-02f,+7.35354424e-02f,+6.10528409e-01f,
 +2.21190136e-02f,}; 
-k2c_tensor keras_activation_3_test2 = {&keras_activation_3_test2_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test2 = {&keras_activation_3_test2_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor keras_activation_3_test2;
 float c_activation_3_test2_array[6] = {0}; 
-k2c_tensor c_activation_3_test2 = {&c_activation_3_test2_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test2 = {&c_activation_3_test2_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor c_activation_3_test2;
 float test3_dense_input_input_array[2622] = {
 -1.88052132e+00f,-4.85467378e-01f,-1.95951438e+00f,+5.92962600e-01f,+1.50069738e+00f,
 -1.17713546e+00f,+2.51181052e-01f,-1.37105759e+00f,+1.34104493e+00f,+2.11507760e-01f,
@@ -1599,13 +1609,16 @@ float test3_dense_input_input_array[2622] = {
 +6.50737923e-01f,-1.20572529e+00f,-4.84821901e-01f,+1.18498208e+00f,-6.68739385e-01f,
 -1.96419263e+00f,+5.38066460e-01f,-2.30127152e-02f,+7.95264440e-01f,+1.01877359e+00f,
 +1.02522963e+00f,-4.56093221e-01f,}; 
-k2c_tensor test3_dense_input_input = {&test3_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test3_dense_input_input = {&test3_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}};
+k2c_tensor test3_dense_input_input;
 float keras_activation_3_test3_array[6] = {
 +1.97282121e-01f,+4.15162854e-02f,+3.49963643e-02f,+1.20413259e-01f,+5.59746623e-01f,
 +4.60453667e-02f,}; 
-k2c_tensor keras_activation_3_test3 = {&keras_activation_3_test3_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test3 = {&keras_activation_3_test3_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor keras_activation_3_test3; 
 float c_activation_3_test3_array[6] = {0}; 
-k2c_tensor c_activation_3_test3 = {&c_activation_3_test3_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test3 = {&c_activation_3_test3_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor c_activation_3_test3;
 float test4_dense_input_input_array[2622] = {
 -1.36024063e+00f,-1.27472391e-01f,+5.38084857e-01f,-1.68639847e+00f,+7.23614011e-01f,
 -1.87970492e+00f,-1.13511354e+00f,-1.75435099e+00f,+2.10758214e-01f,+7.01636063e-01f,
@@ -2132,13 +2145,16 @@ float test4_dense_input_input_array[2622] = {
 -1.12404032e+00f,+8.79549663e-01f,+1.25567654e+00f,+1.86316681e+00f,+1.92649865e+00f,
 +9.12302138e-02f,+1.10953257e+00f,+1.38268443e+00f,-7.25960853e-02f,-1.96341197e-01f,
 -1.97463023e+00f,-1.08676323e+00f,}; 
-k2c_tensor test4_dense_input_input = {&test4_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test4_dense_input_input = {&test4_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test4_dense_input_input;
 float keras_activation_3_test4_array[6] = {
 +3.12954247e-01f,+9.44210738e-02f,+2.72490121e-02f,+5.33314571e-02f,+4.82105345e-01f,
 +2.99389679e-02f,}; 
-k2c_tensor keras_activation_3_test4 = {&keras_activation_3_test4_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test4 = {&keras_activation_3_test4_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor keras_activation_3_test4;
 float c_activation_3_test4_array[6] = {0}; 
-k2c_tensor c_activation_3_test4 = {&c_activation_3_test4_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test4 = {&c_activation_3_test4_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor c_activation_3_test4;
 float test5_dense_input_input_array[2622] = {
 +1.56495860e+00f,+8.77737460e-01f,+1.89733757e+00f,-9.63450335e-01f,+1.49808503e+00f,
 +1.03388050e+00f,+1.66252377e+00f,+1.48019646e+00f,+6.75597648e-01f,+1.61849662e+00f,
@@ -2665,13 +2681,16 @@ float test5_dense_input_input_array[2622] = {
 -8.78844361e-01f,-1.66334953e+00f,-1.83537631e+00f,-1.68004503e+00f,-7.24687739e-01f,
 +5.79492452e-01f,-9.81699807e-01f,-5.84730883e-01f,-1.65665656e+00f,-7.61908080e-01f,
 +1.51928370e+00f,-1.54055093e+00f,}; 
-k2c_tensor test5_dense_input_input = {&test5_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test5_dense_input_input = {&test5_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test5_dense_input_input;
 float keras_activation_3_test5_array[6] = {
 +1.97925776e-01f,+9.08211619e-02f,+3.62759382e-02f,+5.88581525e-02f,+5.90811908e-01f,
 +2.53070574e-02f,}; 
-k2c_tensor keras_activation_3_test5 = {&keras_activation_3_test5_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test5 = {&keras_activation_3_test5_array[0],1,6,{6,1,1,1,1}}; 
+k2c_tensor keras_activation_3_test5;
 float c_activation_3_test5_array[6] = {0}; 
-k2c_tensor c_activation_3_test5 = {&c_activation_3_test5_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test5 = {&c_activation_3_test5_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor c_activation_3_test5; 
 float test6_dense_input_input_array[2622] = {
 +5.00375907e-01f,+1.31544018e+00f,-6.78965498e-01f,+9.39711868e-01f,-1.05110101e+00f,
 -1.07226836e+00f,-9.14664032e-01f,-1.71994713e+00f,-1.70247183e+00f,-7.57063674e-01f,
@@ -3198,13 +3217,16 @@ float test6_dense_input_input_array[2622] = {
 +3.65250223e-01f,+2.94649104e-01f,+1.31367696e+00f,+1.48906968e+00f,+1.24626259e+00f,
 +1.13038613e+00f,+1.41564495e+00f,+1.69279512e+00f,-9.10524862e-02f,-1.47585647e+00f,
 -1.93622372e+00f,-9.51587745e-01f,}; 
-k2c_tensor test6_dense_input_input = {&test6_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test6_dense_input_input = {&test6_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test6_dense_input_input;
 float keras_activation_3_test6_array[6] = {
 +2.09965557e-01f,+4.01499458e-02f,+2.57555917e-02f,+8.30503106e-02f,+6.08563125e-01f,
 +3.25154997e-02f,}; 
-k2c_tensor keras_activation_3_test6 = {&keras_activation_3_test6_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test6 = {&keras_activation_3_test6_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor keras_activation_3_test6; 
 float c_activation_3_test6_array[6] = {0}; 
-k2c_tensor c_activation_3_test6 = {&c_activation_3_test6_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test6 = {&c_activation_3_test6_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor c_activation_3_test6; 
 float test7_dense_input_input_array[2622] = {
 +1.04437563e+00f,+3.62293753e-01f,+4.06065385e-01f,+3.78466374e-01f,-1.44297189e+00f,
 -8.29730817e-01f,+1.65569963e+00f,+1.82351401e+00f,+9.96936560e-01f,+1.43428142e+00f,
@@ -3731,13 +3753,16 @@ float test7_dense_input_input_array[2622] = {
 +1.47709239e+00f,+6.22709645e-01f,-1.12816034e+00f,-1.82091325e+00f,-9.55035688e-01f,
 +1.72408246e+00f,+1.23483292e-01f,-9.22970133e-01f,+1.96306412e+00f,+1.78080048e+00f,
 +1.42623736e+00f,-1.93655288e+00f,}; 
-k2c_tensor test7_dense_input_input = {&test7_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test7_dense_input_input = {&test7_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test7_dense_input_input;
 float keras_activation_3_test7_array[6] = {
 +2.17712551e-01f,+6.54873997e-02f,+2.20640954e-02f,+6.72326908e-02f,+6.04854047e-01f,
 +2.26493180e-02f,}; 
-k2c_tensor keras_activation_3_test7 = {&keras_activation_3_test7_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test7 = {&keras_activation_3_test7_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor keras_activation_3_test7 ; 
 float c_activation_3_test7_array[6] = {0}; 
-k2c_tensor c_activation_3_test7 = {&c_activation_3_test7_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test7 = {&c_activation_3_test7_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor c_activation_3_test7; 
 float test8_dense_input_input_array[2622] = {
 +1.10578879e+00f,+1.98048820e+00f,-6.77926123e-01f,+4.81753131e-01f,+9.41812446e-01f,
 +1.65779653e+00f,+1.76609220e+00f,+1.19267376e+00f,+3.56359803e-01f,+3.34788083e-01f,
@@ -4264,13 +4289,16 @@ float test8_dense_input_input_array[2622] = {
 -2.42496049e-02f,+5.09364689e-01f,-1.25653428e+00f,-1.24827369e-01f,+4.10475981e-01f,
 -8.03812744e-01f,+1.88421671e+00f,-4.85824252e-01f,-7.52460616e-03f,-1.82059380e+00f,
 +1.80205601e+00f,-1.14607999e+00f,}; 
-k2c_tensor test8_dense_input_input = {&test8_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test8_dense_input_input = {&test8_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test8_dense_input_input;
 float keras_activation_3_test8_array[6] = {
 +1.43220797e-01f,+7.67253041e-02f,+1.98385231e-02f,+4.98321317e-02f,+6.96328342e-01f,
 +1.40548479e-02f,}; 
-k2c_tensor keras_activation_3_test8 = {&keras_activation_3_test8_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test8 = {&keras_activation_3_test8_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor keras_activation_3_test8; 
 float c_activation_3_test8_array[6] = {0}; 
-k2c_tensor c_activation_3_test8 = {&c_activation_3_test8_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test8 = {&c_activation_3_test8_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor c_activation_3_test8; 
 float test9_dense_input_input_array[2622] = {
 -7.97465897e-01f,-1.57799200e+00f,+1.57808814e+00f,-2.74583683e-01f,+1.62286863e-01f,
 -4.77284310e-01f,-1.16308189e+00f,-1.36640859e+00f,-1.75932527e+00f,-1.49931409e+00f,
@@ -4797,13 +4825,16 @@ float test9_dense_input_input_array[2622] = {
 +1.22501417e+00f,-9.89030027e-01f,-1.32239553e-01f,-4.73760669e-01f,-1.82465069e+00f,
 -1.08374231e+00f,-1.20877097e+00f,-7.45532518e-01f,+6.07694584e-01f,+1.73375973e+00f,
 +1.20219418e+00f,-5.64602709e-01f,}; 
-k2c_tensor test9_dense_input_input = {&test9_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test9_dense_input_input = {&test9_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+k2c_tensor test9_dense_input_input;
 float keras_activation_3_test9_array[6] = {
 +2.03097045e-01f,+7.29966685e-02f,+1.88512001e-02f,+4.35272530e-02f,+6.48888230e-01f,
 +1.26395272e-02f,}; 
-k2c_tensor keras_activation_3_test9 = {&keras_activation_3_test9_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test9 = {&keras_activation_3_test9_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor keras_activation_3_test9 ; 
 float c_activation_3_test9_array[6] = {0}; 
-k2c_tensor c_activation_3_test9 = {&c_activation_3_test9_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test9 = {&c_activation_3_test9_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor c_activation_3_test9; 
 float test10_dense_input_input_array[2622] = {
 +2.56742684e-01f,-5.68371920e-02f,-6.50332571e-01f,-3.51336531e-01f,-9.10212881e-01f,
 +1.06643801e+00f,+1.92299285e+00f,-1.97070921e+00f,-6.75197294e-01f,-1.84747674e+00f,
@@ -5330,15 +5361,437 @@ float test10_dense_input_input_array[2622] = {
 -9.78648454e-01f,+3.24373349e-01f,+1.84927698e+00f,+4.50965861e-02f,-8.49044402e-01f,
 -1.51833097e+00f,+1.25165446e+00f,+1.69636816e+00f,-6.73208688e-01f,-1.56100027e+00f,
 -5.22307091e-01f,+1.14915453e+00f,}; 
-k2c_tensor test10_dense_input_input = {&test10_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
+// k2c_tensor test10_dense_input_input = {&test10_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}};
+k2c_tensor test10_dense_input_input; 
 float keras_activation_3_test10_array[6] = {
 +2.11835340e-01f,+7.01521859e-02f,+2.48494148e-02f,+9.73711163e-02f,+5.61626017e-01f,
 +3.41659449e-02f,}; 
-k2c_tensor keras_activation_3_test10 = {&keras_activation_3_test10_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor keras_activation_3_test10 = {&keras_activation_3_test10_array[0],1,6,{6,1,1,1,1}};
+k2c_tensor keras_activation_3_test10; 
 float c_activation_3_test10_array[6] = {0}; 
-k2c_tensor c_activation_3_test10 = {&c_activation_3_test10_array[0],1,6,{6,1,1,1,1}}; 
+// k2c_tensor c_activation_3_test10 = {&c_activation_3_test10_array[0],1,6,{6,1,1,1,1}};
+ k2c_tensor c_activation_3_test10; 
 int main(){
  float errors[10];
+test1_dense_input_input.ndim = 1;
+test1_dense_input_input.numel = 2622;
+test1_dense_input_input.shape[0] = 2622;
+test1_dense_input_input.shape[1] = 1;
+test1_dense_input_input.shape[2] = 1;
+test1_dense_input_input.shape[3] = 1;
+test1_dense_input_input.shape[4] = 1;
+for (j = 0; j < 2622; j++) {
+    test1_dense_input_input.array[j] = test1_dense_input_input_array[j];
+}
+
+keras_activation_3_test1.ndim = 1;
+keras_activation_3_test1.numel = 6;
+keras_activation_3_test1.shape[0] = 6;
+keras_activation_3_test1.shape[1] = 1;
+keras_activation_3_test1.shape[2] = 1;
+keras_activation_3_test1.shape[3] = 1;
+keras_activation_3_test1.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test1.array[j] = keras_activation_3_test1_array[j];
+}
+
+c_activation_3_test1.ndim = 1;
+c_activation_3_test1.numel = 6;
+c_activation_3_test1.shape[0] = 6;
+c_activation_3_test1.shape[1] = 1;
+c_activation_3_test1.shape[2] = 1;
+c_activation_3_test1.shape[3] = 1;
+c_activation_3_test1.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test1.array[j] = c_activation_3_test1_array[j];
+}
+
+test2_dense_input_input.ndim = 1;
+test2_dense_input_input.numel = 2622;
+test2_dense_input_input.shape[0] = 2622;
+test2_dense_input_input.shape[1] = 1;
+test2_dense_input_input.shape[2] = 1;
+test2_dense_input_input.shape[3] = 1;
+test2_dense_input_input.shape[4] = 1;
+
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test2_dense_input_input.array[j] = test2_dense_input_input_array[j];
+}
+
+
+keras_activation_3_test2.ndim = 1;
+keras_activation_3_test2.numel = 6;
+keras_activation_3_test2.shape[0] = 6;
+keras_activation_3_test2.shape[1] = 1;
+keras_activation_3_test2.shape[2] = 1;
+keras_activation_3_test2.shape[3] = 1;
+keras_activation_3_test2.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test2.array[j] = keras_activation_3_test2_array[j];
+}
+
+c_activation_3_test2.ndim = 1;
+c_activation_3_test2.numel = 6;
+c_activation_3_test2.shape[0] = 6;
+c_activation_3_test2.shape[1] = 1;
+c_activation_3_test2.shape[2] = 1;
+c_activation_3_test2.shape[3] = 1;
+c_activation_3_test2.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test2.array[j] = c_activation_3_test2_array[j];
+}
+
+test3_dense_input_input.ndim = 1;
+test3_dense_input_input.numel = 2622;
+test3_dense_input_input.shape[0] = 2622;
+test3_dense_input_input.shape[1] = 1;
+test3_dense_input_input.shape[2] = 1;
+test3_dense_input_input.shape[3] = 1;
+test3_dense_input_input.shape[4] = 1;
+
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test3_dense_input_input.array[j] = test3_dense_input_input_array[j];
+}
+
+keras_activation_3_test3.ndim = 1;
+keras_activation_3_test3.numel = 6;
+keras_activation_3_test3.shape[0] = 6;
+keras_activation_3_test3.shape[1] = 1;
+keras_activation_3_test3.shape[2] = 1;
+keras_activation_3_test3.shape[3] = 1;
+keras_activation_3_test3.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test3.array[j] = keras_activation_3_test3_array[j];
+}
+
+c_activation_3_test3.ndim = 1;
+c_activation_3_test3.numel = 6;
+c_activation_3_test3.shape[0] = 6;
+c_activation_3_test3.shape[1] = 1;
+c_activation_3_test3.shape[2] = 1;
+c_activation_3_test3.shape[3] = 1;
+c_activation_3_test3.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test3.array[j] = c_activation_3_test3_array[j];
+}
+
+test4_dense_input_input.ndim = 1;
+test4_dense_input_input.numel = 2622;
+test4_dense_input_input.shape[0] = 2622;
+test4_dense_input_input.shape[1] = 1;
+test4_dense_input_input.shape[2] = 1;
+test4_dense_input_input.shape[3] = 1;
+test4_dense_input_input.shape[4] = 1;
+
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test4_dense_input_input.array[j] = test4_dense_input_input_array[j];
+}
+
+keras_activation_3_test4.ndim = 1;
+keras_activation_3_test4.numel = 6;
+keras_activation_3_test4.shape[0] = 6;
+keras_activation_3_test4.shape[1] = 1;
+keras_activation_3_test4.shape[2] = 1;
+keras_activation_3_test4.shape[3] = 1;
+keras_activation_3_test4.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test4.array[j] = keras_activation_3_test4_array[j];
+}
+
+c_activation_3_test4.ndim = 1;
+c_activation_3_test4.numel = 6;
+c_activation_3_test4.shape[0] = 6;
+c_activation_3_test4.shape[1] = 1;
+c_activation_3_test4.shape[2] = 1;
+c_activation_3_test4.shape[3] = 1;
+c_activation_3_test4.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test4.array[j] = c_activation_3_test4_array[j];
+}
+
+test5_dense_input_input.ndim = 1;
+test5_dense_input_input.numel = 2622;
+test5_dense_input_input.shape[0] = 2622;
+test5_dense_input_input.shape[1] = 1;
+test5_dense_input_input.shape[2] = 1;
+test5_dense_input_input.shape[3] = 1;
+test5_dense_input_input.shape[4] = 1;
+
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test5_dense_input_input.array[j] = test5_dense_input_input_array[j];
+}
+
+keras_activation_3_test5.ndim = 1;
+keras_activation_3_test5.numel = 6;
+keras_activation_3_test5.shape[0] = 6;
+keras_activation_3_test5.shape[1] = 1;
+keras_activation_3_test5.shape[2] = 1;
+keras_activation_3_test5.shape[3] = 1;
+keras_activation_3_test5.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test5.array[j] = keras_activation_3_test5_array[j];
+}
+
+c_activation_3_test5.ndim = 1;
+c_activation_3_test5.numel = 6;
+c_activation_3_test5.shape[0] = 6;
+c_activation_3_test5.shape[1] = 1;
+c_activation_3_test5.shape[2] = 1;
+c_activation_3_test5.shape[3] = 1;
+c_activation_3_test5.shape[4] = 1;
+
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test5.array[j] = c_activation_3_test5_array[j];
+}
+
+test6_dense_input_input.ndim = 1;
+test6_dense_input_input.numel = 2622;
+test6_dense_input_input.shape[0] = 2622;
+test6_dense_input_input.shape[1] = 1;
+test6_dense_input_input.shape[2] = 1;
+test6_dense_input_input.shape[3] = 1;
+test6_dense_input_input.shape[4] = 1;
+
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test6_dense_input_input.array[j] = test6_dense_input_input_array[j];
+}
+
+// Initialize keras_activation_3_test6 structure
+keras_activation_3_test6.ndim = 1;
+keras_activation_3_test6.numel = 6;
+keras_activation_3_test6.shape[0] = 6;
+keras_activation_3_test6.shape[1] = 1;
+keras_activation_3_test6.shape[2] = 1;
+keras_activation_3_test6.shape[3] = 1;
+keras_activation_3_test6.shape[4] = 1;
+
+// Copy elements to keras_activation_3_test6.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test6.array[j] = keras_activation_3_test6_array[j];
+}
+
+// Initialize c_activation_3_test6 structure
+c_activation_3_test6.ndim = 1;
+c_activation_3_test6.numel = 6;
+c_activation_3_test6.shape[0] = 6;
+c_activation_3_test6.shape[1] = 1;
+c_activation_3_test6.shape[2] = 1;
+c_activation_3_test6.shape[3] = 1;
+c_activation_3_test6.shape[4] = 1;
+
+// Copy elements to c_activation_3_test6.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test6.array[j] = c_activation_3_test6_array[j];
+}
+
+// Initialize test7_dense_input_input structure
+test7_dense_input_input.ndim = 1;
+test7_dense_input_input.numel = 2622;
+test7_dense_input_input.shape[0] = 2622;
+test7_dense_input_input.shape[1] = 1;
+test7_dense_input_input.shape[2] = 1;
+test7_dense_input_input.shape[3] = 1;
+test7_dense_input_input.shape[4] = 1;
+
+// Copy elements to test7_dense_input_input.array
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test7_dense_input_input.array[j] = test7_dense_input_input_array[j];
+}
+
+// Initialize keras_activation_3_test7 structure
+keras_activation_3_test7.ndim = 1;
+keras_activation_3_test7.numel = 6;
+keras_activation_3_test7.shape[0] = 6;
+keras_activation_3_test7.shape[1] = 1;
+keras_activation_3_test7.shape[2] = 1;
+keras_activation_3_test7.shape[3] = 1;
+keras_activation_3_test7.shape[4] = 1;
+
+// Copy elements to keras_activation_3_test7.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test7.array[j] = keras_activation_3_test7_array[j];
+}
+
+// Initialize c_activation_3_test7 structure
+c_activation_3_test7.ndim = 1;
+c_activation_3_test7.numel = 6;
+c_activation_3_test7.shape[0] = 6;
+c_activation_3_test7.shape[1] = 1;
+c_activation_3_test7.shape[2] = 1;
+c_activation_3_test7.shape[3] = 1;
+c_activation_3_test7.shape[4] = 1;
+
+// Copy elements to c_activation_3_test7.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test7.array[j] = c_activation_3_test7_array[j];
+}
+
+// Initialize test8_dense_input_input structure
+test8_dense_input_input.ndim = 1;
+test8_dense_input_input.numel = 2622;
+test8_dense_input_input.shape[0] = 2622;
+test8_dense_input_input.shape[1] = 1;
+test8_dense_input_input.shape[2] = 1;
+test8_dense_input_input.shape[3] = 1;
+test8_dense_input_input.shape[4] = 1;
+
+// Copy elements to test8_dense_input_input.array
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test8_dense_input_input.array[j] = test8_dense_input_input_array[j];
+}
+
+
+// Initialize keras_activation_3_test8 structure
+keras_activation_3_test8.ndim = 1;
+keras_activation_3_test8.numel = 6;
+keras_activation_3_test8.shape[0] = 6;
+keras_activation_3_test8.shape[1] = 1;
+keras_activation_3_test8.shape[2] = 1;
+keras_activation_3_test8.shape[3] = 1;
+keras_activation_3_test8.shape[4] = 1;
+
+// Copy elements to keras_activation_3_test8.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test8.array[j] = keras_activation_3_test8_array[j];
+}
+
+// Initialize c_activation_3_test8 structure
+c_activation_3_test8.ndim = 1;
+c_activation_3_test8.numel = 6;
+c_activation_3_test8.shape[0] = 6;
+c_activation_3_test8.shape[1] = 1;
+c_activation_3_test8.shape[2] = 1;
+c_activation_3_test8.shape[3] = 1;
+c_activation_3_test8.shape[4] = 1;
+
+// Copy elements to c_activation_3_test8.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test8.array[j] = c_activation_3_test8_array[j];
+}
+
+// Initialize test9_dense_input_input structure
+test9_dense_input_input.ndim = 1;
+test9_dense_input_input.numel = 2622;
+test9_dense_input_input.shape[0] = 2622;
+test9_dense_input_input.shape[1] = 1;
+test9_dense_input_input.shape[2] = 1;
+test9_dense_input_input.shape[3] = 1;
+test9_dense_input_input.shape[4] = 1;
+
+// Copy elements to test9_dense_input_input.array
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test9_dense_input_input.array[j] = test9_dense_input_input_array[j];
+}
+
+// Initialize keras_activation_3_test9 structure
+keras_activation_3_test9.ndim = 1;
+keras_activation_3_test9.numel = 6;
+keras_activation_3_test9.shape[0] = 6;
+keras_activation_3_test9.shape[1] = 1;
+keras_activation_3_test9.shape[2] = 1;
+keras_activation_3_test9.shape[3] = 1;
+keras_activation_3_test9.shape[4] = 1;
+
+// Copy elements to keras_activation_3_test9.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test9.array[j] = keras_activation_3_test9_array[j];
+}
+
+// Initialize c_activation_3_test9 structure
+c_activation_3_test9.ndim = 1;
+c_activation_3_test9.numel = 6;
+c_activation_3_test9.shape[0] = 6;
+c_activation_3_test9.shape[1] = 1;
+c_activation_3_test9.shape[2] = 1;
+c_activation_3_test9.shape[3] = 1;
+c_activation_3_test9.shape[4] = 1;
+
+// Copy elements to c_activation_3_test9.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test9.array[j] = c_activation_3_test9_array[j];
+}
+
+// Initialize test10_dense_input_input structure
+test10_dense_input_input.ndim = 1;
+test10_dense_input_input.numel = 2622;
+test10_dense_input_input.shape[0] = 2622;
+test10_dense_input_input.shape[1] = 1;
+test10_dense_input_input.shape[2] = 1;
+test10_dense_input_input.shape[3] = 1;
+test10_dense_input_input.shape[4] = 1;
+
+// Copy elements to test10_dense_input_input.array
+for ( j = 0; j < 2622; j++) {
+    #pragma HLS PIPELINE
+    test10_dense_input_input.array[j] = test10_dense_input_input_array[j];
+}
+
+// Initialize keras_activation_3_test10 structure
+keras_activation_3_test10.ndim = 1;
+keras_activation_3_test10.numel = 6;
+keras_activation_3_test10.shape[0] = 6;
+keras_activation_3_test10.shape[1] = 1;
+keras_activation_3_test10.shape[2] = 1;
+keras_activation_3_test10.shape[3] = 1;
+keras_activation_3_test10.shape[4] = 1;
+
+// Copy elements to keras_activation_3_test10.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    keras_activation_3_test10.array[j] = keras_activation_3_test10_array[j];
+}
+
+// Initialize c_activation_3_test10 structure
+c_activation_3_test10.ndim = 1;
+c_activation_3_test10.numel = 6;
+c_activation_3_test10.shape[0] = 6;
+c_activation_3_test10.shape[1] = 1;
+c_activation_3_test10.shape[2] = 1;
+c_activation_3_test10.shape[3] = 1;
+c_activation_3_test10.shape[4] = 1;
+
+// Copy elements to c_activation_3_test10.array
+for ( j = 0; j < 6; j++) {
+    #pragma HLS PIPELINE
+    c_activation_3_test10.array[j] = c_activation_3_test10_array[j];
+}
+
+
  size_t num_tests = 10; 
 size_t num_outputs = 1; 
 face_classifier_c_initialize(); 

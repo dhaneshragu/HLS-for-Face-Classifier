@@ -1,0 +1,13 @@
+
+#####################Xilinx BRAM########################
+BUS_INTERFACE BUS = dense_input_input_shape_PORTA, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+## Ports
+PORT dense_input_input_shape_Rst_A = BRAM_Rst, DIR = O, BUS = dense_input_input_shape_PORTA
+PORT dense_input_input_shape_Clk_A = BRAM_Clk, DIR = O, BUS = dense_input_input_shape_PORTA
+PORT dense_input_input_shape_EN_A = BRAM_EN, DIR = O, BUS = dense_input_input_shape_PORTA
+PORT dense_input_input_shape_WEN_A = BRAM_WEN, DIR = O, BUS = dense_input_input_shape_PORTA, VEC = [7:0]
+PORT dense_input_input_shape_Addr_A = BRAM_Addr, DIR = O, BUS = dense_input_input_shape_PORTA, VEC = [31:0]
+PORT dense_input_input_shape_Dout_A = BRAM_Dout, DIR = O, BUS = dense_input_input_shape_PORTA, VEC = [63:0]
+PORT dense_input_input_shape_Din_A = BRAM_Din, DIR = I, BUS = dense_input_input_shape_PORTA, VEC = [63:0]
+########################################################
+
