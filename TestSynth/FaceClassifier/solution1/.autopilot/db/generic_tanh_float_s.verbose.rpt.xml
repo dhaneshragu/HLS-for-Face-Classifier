@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'generic_tanh_float_s'" level="0">
-<item name = "Date">Mon Apr  8 17:34:52 2024
+<item name = "Date">Wed Apr 10 00:29:37 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -120,9 +120,9 @@
 <column name="p_1_fu_311_p3">select, 0, 0, 31, 1, 30</column>
 <column name="x_2_fu_262_p3">select, 0, 0, 32, 1, 32</column>
 <column name="ap_enable_pp0">xor, 0, 0, 8, 1, 2</column>
-<column name="tmp_90_neg_fu_251_p2">xor, 0, 0, 40, 32, 33</column>
-<column name="tmp_91_neg_fu_300_p2">xor, 0, 0, 40, 32, 33</column>
-<column name="tmp_95_neg_fu_322_p2">xor, 0, 0, 40, 32, 33</column>
+<column name="tmp_92_neg_fu_251_p2">xor, 0, 0, 40, 32, 33</column>
+<column name="tmp_93_neg_fu_300_p2">xor, 0, 0, 40, 32, 33</column>
+<column name="tmp_97_neg_fu_322_p2">xor, 0, 0, 40, 32, 33</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -168,7 +168,7 @@
 <column name="tmp_29_reg_383">1, 0, 1, 0</column>
 <column name="tmp_30_reg_348">1, 0, 1, 0</column>
 <column name="tmp_34_reg_360">1, 0, 1, 0</column>
-<column name="tmp_96_i_reg_388">64, 0, 64, 0</column>
+<column name="tmp_98_i_reg_388">64, 0, 64, 0</column>
 <column name="tmp_i_43_reg_374">1, 0, 1, 0</column>
 <column name="tmp_i_reg_370">1, 0, 1, 0</column>
 <column name="tmp_s_reg_344">1, 0, 1, 0</column>

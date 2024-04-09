@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_dot_1'
 ================================================================
-* Date:           Mon Apr  8 17:34:43 2024
+* Date:           Wed Apr 10 00:29:24 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -2035,7 +2035,7 @@ The critical path consists of the following:
  <State 85>: 7.24ns
 The critical path consists of the following:
 	'load' operation ('Ar_shape_load_3', ../C-Code-Original/include/k2c_helper_functions.c:110->../C-Code-Original/include/k2c_helper_functions.c:212) on array 'Ar_shape' [175]  (2.15 ns)
-	'urem' operation ('tmp_6_i', ../C-Code-Original/include/k2c_helper_functions.c:110->../C-Code-Original/include/k2c_helper_functions.c:212) [176]  (5.08 ns)
+	'udiv' operation ('idx2', ../C-Code-Original/include/k2c_helper_functions.c:111->../C-Code-Original/include/k2c_helper_functions.c:212) [179]  (5.08 ns)
 
  <State 86>: 5.08ns
 The critical path consists of the following:
@@ -2342,7 +2342,7 @@ The critical path consists of the following:
  <State 159>: 7.24ns
 The critical path consists of the following:
 	'load' operation ('B_shape_load_3', ../C-Code-Original/include/k2c_helper_functions.c:110->../C-Code-Original/include/k2c_helper_functions.c:221) on array 'B_shape' [224]  (2.15 ns)
-	'udiv' operation ('idx2', ../C-Code-Original/include/k2c_helper_functions.c:111->../C-Code-Original/include/k2c_helper_functions.c:221) [228]  (5.08 ns)
+	'urem' operation ('tmp_6_i1', ../C-Code-Original/include/k2c_helper_functions.c:110->../C-Code-Original/include/k2c_helper_functions.c:221) [225]  (5.08 ns)
 
  <State 160>: 5.08ns
 The critical path consists of the following:

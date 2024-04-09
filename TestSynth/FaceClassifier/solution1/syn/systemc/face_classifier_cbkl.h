@@ -22,8 +22,8 @@ using namespace sc_dt;
 struct face_classifier_cbkl_ram : public sc_core::sc_module {
 
   static const unsigned DataWidth = 32;
-  static const unsigned AddressRange = 70;
-  static const unsigned AddressWidth = 7;
+  static const unsigned AddressRange = 1100;
+  static const unsigned AddressWidth = 11;
 
 //latency = 1
 //input_reg = 1
@@ -98,8 +98,8 @@ SC_MODULE(face_classifier_cbkl) {
 
 
 static const unsigned DataWidth = 32;
-static const unsigned AddressRange = 70;
-static const unsigned AddressWidth = 7;
+static const unsigned AddressRange = 1100;
+static const unsigned AddressWidth = 11;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;

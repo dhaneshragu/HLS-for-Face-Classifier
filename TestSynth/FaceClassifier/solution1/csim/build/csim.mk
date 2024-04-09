@@ -23,7 +23,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../../C-Code-Original/face_classifier_c_test_suite.c ../../../../../C-Code-Original/include/k2c_recurrent_layers.c ../../../../../C-Code-Original/include/k2c_pooling_layers.c ../../../../../C-Code-Original/include/k2c_normalization_layers.c ../../../../../C-Code-Original/include/k2c_merge_layers.c ../../../../../C-Code-Original/include/k2c_helper_functions.c ../../../../../C-Code-Original/include/k2c_embedding_layers.c ../../../../../C-Code-Original/include/k2c_core_layers.c ../../../../../C-Code-Original/include/k2c_convolution_layers.c ../../../../../C-Code-Original/include/k2c_activations.c ../../../../../C-Code-Original/face_classifier_c.c
+HLS_SOURCES = ../../../../../C-Code-Original/face_classifier_c_test_suite.c ../../../../../C-Code-Original/face_classifier_c.c ../../../../../C-Code-Original/include/k2c_activations.c ../../../../../C-Code-Original/include/k2c_convolution_layers.c ../../../../../C-Code-Original/include/k2c_core_layers.c ../../../../../C-Code-Original/include/k2c_embedding_layers.c ../../../../../C-Code-Original/include/k2c_helper_functions.c ../../../../../C-Code-Original/include/k2c_merge_layers.c ../../../../../C-Code-Original/include/k2c_normalization_layers.c ../../../../../C-Code-Original/include/k2c_pooling_layers.c ../../../../../C-Code-Original/include/k2c_recurrent_layers.c
 
 TARGET := csim.exe
 
@@ -62,6 +62,7 @@ IFLAG += -D__SIM_FIR__
 IFLAG += -D__SIM_DDS__
 
 IFLAG += -D__DSP48E1__
+LFLAG += -Wl,--stack,16777216
 IFLAG += -g
 IFLAG += -DNT
 LFLAG += -Wl,--enable-auto-import 
@@ -86,53 +87,11 @@ $(ObjDir)/face_classifier_c_test_suite.o: ../../../../../C-Code-Original/face_cl
 
 -include $(ObjDir)/face_classifier_c_test_suite.d
 
-$(ObjDir)/k2c_recurrent_layers.o: ../../../../../C-Code-Original/include/k2c_recurrent_layers.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_recurrent_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/face_classifier_c.o: ../../../../../C-Code-Original/face_classifier_c.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/face_classifier_c.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/k2c_recurrent_layers.d
-
-$(ObjDir)/k2c_pooling_layers.o: ../../../../../C-Code-Original/include/k2c_pooling_layers.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_pooling_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/k2c_pooling_layers.d
-
-$(ObjDir)/k2c_normalization_layers.o: ../../../../../C-Code-Original/include/k2c_normalization_layers.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_normalization_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/k2c_normalization_layers.d
-
-$(ObjDir)/k2c_merge_layers.o: ../../../../../C-Code-Original/include/k2c_merge_layers.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_merge_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/k2c_merge_layers.d
-
-$(ObjDir)/k2c_helper_functions.o: ../../../../../C-Code-Original/include/k2c_helper_functions.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_helper_functions.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/k2c_helper_functions.d
-
-$(ObjDir)/k2c_embedding_layers.o: ../../../../../C-Code-Original/include/k2c_embedding_layers.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_embedding_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/k2c_embedding_layers.d
-
-$(ObjDir)/k2c_core_layers.o: ../../../../../C-Code-Original/include/k2c_core_layers.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_core_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/k2c_core_layers.d
-
-$(ObjDir)/k2c_convolution_layers.o: ../../../../../C-Code-Original/include/k2c_convolution_layers.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_convolution_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/k2c_convolution_layers.d
+-include $(ObjDir)/face_classifier_c.d
 
 $(ObjDir)/k2c_activations.o: ../../../../../C-Code-Original/include/k2c_activations.c $(ObjDir)/.dir
 	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_activations.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
@@ -140,8 +99,50 @@ $(ObjDir)/k2c_activations.o: ../../../../../C-Code-Original/include/k2c_activati
 
 -include $(ObjDir)/k2c_activations.d
 
-$(ObjDir)/face_classifier_c.o: ../../../../../C-Code-Original/face_classifier_c.c $(ObjDir)/.dir
-	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/face_classifier_c.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/k2c_convolution_layers.o: ../../../../../C-Code-Original/include/k2c_convolution_layers.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_convolution_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/face_classifier_c.d
+-include $(ObjDir)/k2c_convolution_layers.d
+
+$(ObjDir)/k2c_core_layers.o: ../../../../../C-Code-Original/include/k2c_core_layers.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_core_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/k2c_core_layers.d
+
+$(ObjDir)/k2c_embedding_layers.o: ../../../../../C-Code-Original/include/k2c_embedding_layers.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_embedding_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/k2c_embedding_layers.d
+
+$(ObjDir)/k2c_helper_functions.o: ../../../../../C-Code-Original/include/k2c_helper_functions.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_helper_functions.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/k2c_helper_functions.d
+
+$(ObjDir)/k2c_merge_layers.o: ../../../../../C-Code-Original/include/k2c_merge_layers.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_merge_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/k2c_merge_layers.d
+
+$(ObjDir)/k2c_normalization_layers.o: ../../../../../C-Code-Original/include/k2c_normalization_layers.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_normalization_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/k2c_normalization_layers.d
+
+$(ObjDir)/k2c_pooling_layers.o: ../../../../../C-Code-Original/include/k2c_pooling_layers.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_pooling_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/k2c_pooling_layers.d
+
+$(ObjDir)/k2c_recurrent_layers.o: ../../../../../C-Code-Original/include/k2c_recurrent_layers.c $(ObjDir)/.dir
+	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_recurrent_layers.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/k2c_recurrent_layers.d

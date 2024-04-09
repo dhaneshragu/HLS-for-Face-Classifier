@@ -1037,7 +1037,7 @@
 					<Obj>
 						<type>0</type>
 						<id>28</id>
-						<name>tmp_90_neg</name>
+						<name>tmp_92_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>79</lineNumber>
@@ -1668,7 +1668,7 @@
 					<Obj>
 						<type>0</type>
 						<id>42</id>
-						<name>tmp_96_i</name>
+						<name>tmp_98_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1724,7 +1724,7 @@
 					<Obj>
 						<type>0</type>
 						<id>43</id>
-						<name>tmp_97_i</name>
+						<name>tmp_99_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1777,7 +1777,7 @@
 					<Obj>
 						<type>0</type>
 						<id>44</id>
-						<name>tmp_98_i</name>
+						<name>tmp_100_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -2133,7 +2133,7 @@
 					<Obj>
 						<type>0</type>
 						<id>55</id>
-						<name>tmp_91_to_int</name>
+						<name>tmp_93_to_int</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2178,7 +2178,7 @@
 					<Obj>
 						<type>0</type>
 						<id>56</id>
-						<name>tmp_91_neg</name>
+						<name>tmp_93_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2721,7 +2721,7 @@
 					<Obj>
 						<type>0</type>
 						<id>71</id>
-						<name>tmp_95_to_int</name>
+						<name>tmp_97_to_int</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>
@@ -2766,7 +2766,7 @@
 					<Obj>
 						<type>0</type>
 						<id>72</id>
-						<name>tmp_95_neg</name>
+						<name>tmp_97_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>
@@ -6277,6 +6277,14 @@
 			</second>
 		</item>
 		<item>
+			<first>tmp_100_i_fu_131</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>44</item>
+			</second>
+		</item>
+		<item>
 			<first>tmp_17_fu_139</first>
 			<second>
 				<count>1</count>
@@ -6349,7 +6357,7 @@
 			</second>
 		</item>
 		<item>
-			<first>tmp_90_neg_fu_251</first>
+			<first>tmp_92_neg_fu_251</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -6357,7 +6365,7 @@
 			</second>
 		</item>
 		<item>
-			<first>tmp_91_neg_fu_300</first>
+			<first>tmp_93_neg_fu_300</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -6365,7 +6373,7 @@
 			</second>
 		</item>
 		<item>
-			<first>tmp_91_to_int_fu_296</first>
+			<first>tmp_93_to_int_fu_296</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -6373,7 +6381,7 @@
 			</second>
 		</item>
 		<item>
-			<first>tmp_95_neg_fu_322</first>
+			<first>tmp_97_neg_fu_322</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -6381,7 +6389,7 @@
 			</second>
 		</item>
 		<item>
-			<first>tmp_95_to_int_fu_318</first>
+			<first>tmp_97_to_int_fu_318</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -6389,19 +6397,11 @@
 			</second>
 		</item>
 		<item>
-			<first>tmp_97_i_fu_144</first>
+			<first>tmp_99_i_fu_144</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
 				<item>43</item>
-			</second>
-		</item>
-		<item>
-			<first>tmp_98_i_fu_131</first>
-			<second>
-				<count>1</count>
-				<item_version>0</item_version>
-				<item>44</item>
 			</second>
 		</item>
 		<item>
@@ -6798,7 +6798,7 @@
 			</second>
 		</item>
 		<item>
-			<first>tmp_96_i_reg_388</first>
+			<first>tmp_98_i_reg_388</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

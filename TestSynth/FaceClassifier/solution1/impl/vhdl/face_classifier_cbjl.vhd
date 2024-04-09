@@ -14,8 +14,8 @@ entity face_classifier_cbjl_ram is
     generic(
             MEM_TYPE    : string := "block"; 
             DWIDTH     : integer := 32; 
-            AWIDTH     : integer := 11; 
-            MEM_SIZE    : integer := 1100
+            AWIDTH     : integer := 19; 
+            MEM_SIZE    : integer := 264822
     ); 
     port (
           addr0     : in std_logic_vector(AWIDTH-1 downto 0); 
@@ -101,8 +101,8 @@ use IEEE.std_logic_1164.all;
 entity face_classifier_cbjl is
     generic (
         DataWidth : INTEGER := 32;
-        AddressRange : INTEGER := 1100;
-        AddressWidth : INTEGER := 11);
+        AddressRange : INTEGER := 264822;
+        AddressWidth : INTEGER := 19);
     port (
         reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;

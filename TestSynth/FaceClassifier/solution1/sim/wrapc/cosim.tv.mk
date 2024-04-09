@@ -49,7 +49,8 @@ IFLAG += -D__SIM_FIR__
 IFLAG += -D__SIM_DDS__
 IFLAG += -D__DSP48E1__
 IFLAG += -DNT
-LFLAG += -L "${AUTOPILOT_ROOT}/${AUTOPILOT_MACH}/tools/systemc/lib" -lsystemc -lpthread
+IFLAG += -Wno-unknown-pragmas
+LFLAG += -L "${AUTOPILOT_ROOT}/${AUTOPILOT_MACH}/tools/systemc/lib" -lsystemc -lpthread -Wl,--stack,16777216
 IFLAG += -D__RTL_SIMULATION__
 IFLAG += -D__xilinx_ip_top=
 DFLAG += -DAESL_PIPELINE

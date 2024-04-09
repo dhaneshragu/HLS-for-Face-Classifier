@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'generic_tanh_float_s'" level="0">
-<item name = "Date">Mon Apr  8 17:34:41 2024
+<item name = "Date">Wed Apr 10 00:29:22 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>

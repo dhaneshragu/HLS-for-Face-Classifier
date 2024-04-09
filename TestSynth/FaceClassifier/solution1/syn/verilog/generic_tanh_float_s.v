@@ -123,7 +123,7 @@ reg   [0:0] tmp_29_reg_383_pp0_iter2_reg;
 reg   [0:0] tmp_29_reg_383_pp0_iter3_reg;
 reg   [0:0] tmp_29_reg_383_pp0_iter4_reg;
 wire   [63:0] grp_exp_generic_double_s_fu_89_ap_return;
-reg   [63:0] tmp_96_i_reg_388;
+reg   [63:0] tmp_98_i_reg_388;
 wire   [31:0] tmp_36_fu_306_p1;
 wire   [31:0] p_1_fu_311_p3;
 reg    ap_block_pp0_stage0_subdone;
@@ -134,7 +134,7 @@ wire    grp_exp_generic_double_s_fu_89_ap_ready;
 reg    grp_exp_generic_double_s_fu_89_ap_ce;
 reg    ap_predicate_op43_call_state2;
 reg   [31:0] ap_phi_mux_expx_phi_fu_62_p6;
-wire   [31:0] tmp_98_i_fu_131_p1;
+wire   [31:0] tmp_100_i_fu_131_p1;
 reg   [31:0] ap_phi_reg_pp0_iter3_expx_reg_58;
 wire   [31:0] ap_phi_reg_pp0_iter0_expx_reg_58;
 reg   [31:0] ap_phi_reg_pp0_iter1_expx_reg_58;
@@ -157,7 +157,7 @@ wire   [31:0] abst_in_fu_211_p1;
 reg   [31:0] grp_fu_100_p1;
 wire   [31:0] grp_fu_100_p2;
 reg   [31:0] grp_fu_126_p0;
-wire   [63:0] tmp_97_i_fu_144_p2;
+wire   [63:0] tmp_99_i_fu_144_p2;
 wire   [22:0] loc_V_1_fu_193_p1;
 wire   [31:0] p_Val2_s_fu_171_p1;
 wire   [30:0] tmp_fu_199_p1;
@@ -165,14 +165,14 @@ wire   [31:0] p_Result_9_fu_203_p3;
 wire   [7:0] loc_V_fu_183_p4;
 wire   [0:0] tmp_31_fu_233_p2;
 wire   [0:0] tmp_32_fu_150_p2;
-wire   [31:0] tmp_90_neg_fu_251_p2;
+wire   [31:0] tmp_92_neg_fu_251_p2;
 wire   [31:0] x_1_fu_104_p2;
 wire   [31:0] p_Val2_3_fu_270_p1;
 wire   [7:0] loc_V_2_fu_274_p4;
-wire   [31:0] tmp_91_to_int_fu_296_p1;
-wire   [31:0] tmp_91_neg_fu_300_p2;
-wire   [31:0] tmp_95_to_int_fu_318_p1;
-wire   [31:0] tmp_95_neg_fu_322_p2;
+wire   [31:0] tmp_93_to_int_fu_296_p1;
+wire   [31:0] tmp_93_neg_fu_300_p2;
+wire   [31:0] tmp_97_to_int_fu_318_p1;
+wire   [31:0] tmp_97_neg_fu_322_p2;
 wire   [31:0] tmp_40_fu_328_p1;
 reg   [1:0] grp_fu_100_opcode;
 reg    ap_block_pp0_stage0_00001;
@@ -302,8 +302,8 @@ face_classifier_cocq #(
     .din0_WIDTH( 64 ),
     .dout_WIDTH( 32 ))
 face_classifier_cocq_U68(
-    .din0(tmp_97_i_fu_144_p2),
-    .dout(tmp_98_i_fu_131_p1)
+    .din0(tmp_99_i_fu_144_p2),
+    .dout(tmp_100_i_fu_131_p1)
 );
 
 face_classifier_cpcA #(
@@ -336,9 +336,9 @@ face_classifier_crcU #(
     .din1_WIDTH( 64 ),
     .dout_WIDTH( 64 ))
 face_classifier_crcU_U71(
-    .din0(tmp_96_i_reg_388),
+    .din0(tmp_98_i_reg_388),
     .din1(64'd13830554455654793216),
-    .dout(tmp_97_i_fu_144_p2)
+    .dout(tmp_99_i_fu_144_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -460,7 +460,7 @@ end
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_condition_79)) begin
         if ((1'b1 == ap_condition_282)) begin
-            expx_reg_58 <= tmp_98_i_fu_131_p1;
+            expx_reg_58 <= tmp_100_i_fu_131_p1;
         end else if ((1'b1 == 1'b1)) begin
             expx_reg_58 <= ap_phi_reg_pp0_iter3_expx_reg_58;
         end
@@ -599,7 +599,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((tmp_17_reg_356_pp0_iter1_reg == 1'd1) & (tmp_i_43_reg_374_pp0_iter1_reg == 1'd0) & (tmp_i_reg_370_pp0_iter1_reg == 1'd0) & (or_cond_reg_352_pp0_iter1_reg == 1'd0) & (tmp_30_reg_348_pp0_iter1_reg == 1'd0) & (tmp_s_reg_344_pp0_iter1_reg == 1'd0) & (1'b1 == ap_ce) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        tmp_96_i_reg_388 <= grp_exp_generic_double_s_fu_89_ap_return;
+        tmp_98_i_reg_388 <= grp_exp_generic_double_s_fu_89_ap_return;
     end
 end
 
@@ -643,7 +643,7 @@ end
 
 always @ (*) begin
     if (((tmp_17_reg_356_pp0_iter2_reg == 1'd1) & (or_cond_reg_352_pp0_iter2_reg == 1'd0) & (tmp_30_reg_348_pp0_iter2_reg == 1'd0) & (tmp_i_43_reg_374_pp0_iter2_reg == 1'd0) & (tmp_i_reg_370_pp0_iter2_reg == 1'd0) & (tmp_s_reg_344_pp0_iter2_reg == 1'd0) & (1'b0 == ap_block_pp0_stage0) & (ap_enable_reg_pp0_iter3 == 1'b1))) begin
-        ap_phi_mux_expx_phi_fu_62_p6 = tmp_98_i_fu_131_p1;
+        ap_phi_mux_expx_phi_fu_62_p6 = tmp_100_i_fu_131_p1;
     end else begin
         ap_phi_mux_expx_phi_fu_62_p6 = ap_phi_reg_pp0_iter3_expx_reg_58;
     end
@@ -892,21 +892,21 @@ assign tmp_32_fu_150_p2 = ((loc_V_1_fu_193_p1 == 23'd0) ? 1'b1 : 1'b0);
 
 assign tmp_34_fu_245_p2 = ((loc_V_fu_183_p4 < 8'd127) ? 1'b1 : 1'b0);
 
-assign tmp_35_fu_257_p1 = tmp_90_neg_fu_251_p2;
+assign tmp_35_fu_257_p1 = tmp_92_neg_fu_251_p2;
 
-assign tmp_36_fu_306_p1 = tmp_91_neg_fu_300_p2;
+assign tmp_36_fu_306_p1 = tmp_93_neg_fu_300_p2;
 
-assign tmp_40_fu_328_p1 = tmp_95_neg_fu_322_p2;
+assign tmp_40_fu_328_p1 = tmp_97_neg_fu_322_p2;
 
-assign tmp_90_neg_fu_251_p2 = (p_Result_9_fu_203_p3 ^ 32'd2147483648);
+assign tmp_92_neg_fu_251_p2 = (p_Result_9_fu_203_p3 ^ 32'd2147483648);
 
-assign tmp_91_neg_fu_300_p2 = (tmp_91_to_int_fu_296_p1 ^ 32'd2147483648);
+assign tmp_93_neg_fu_300_p2 = (tmp_93_to_int_fu_296_p1 ^ 32'd2147483648);
 
-assign tmp_91_to_int_fu_296_p1 = expx_reg_58;
+assign tmp_93_to_int_fu_296_p1 = expx_reg_58;
 
-assign tmp_95_neg_fu_322_p2 = (tmp_95_to_int_fu_318_p1 ^ 32'd2147483648);
+assign tmp_97_neg_fu_322_p2 = (tmp_97_to_int_fu_318_p1 ^ 32'd2147483648);
 
-assign tmp_95_to_int_fu_318_p1 = ap_phi_mux_resultf_4_phi_fu_76_p10;
+assign tmp_97_to_int_fu_318_p1 = ap_phi_mux_resultf_4_phi_fu_76_p10;
 
 assign tmp_fu_199_p1 = p_Val2_s_fu_171_p1[30:0];
 

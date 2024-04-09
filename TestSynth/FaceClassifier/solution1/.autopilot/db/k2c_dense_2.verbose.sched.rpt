@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_dense_2'
 ================================================================
-* Date:           Mon Apr  8 17:34:42 2024
+* Date:           Wed Apr 10 00:29:23 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -243,7 +243,7 @@ The critical path consists of the following:
  <State 3>: 5.85ns
 The critical path consists of the following:
 	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/include/k2c_core_layers.c:43) [69]  (0 ns)
-	'mul' operation ('inneridx', ../C-Code-Original/include/k2c_core_layers.c:45) [76]  (5.85 ns)
+	'mul' operation ('outrowidx', ../C-Code-Original/include/k2c_core_layers.c:44) [75]  (5.85 ns)
 
  <State 4>: 5.54ns
 The critical path consists of the following:
