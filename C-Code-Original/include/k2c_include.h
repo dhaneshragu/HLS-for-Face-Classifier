@@ -78,13 +78,12 @@ void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* ke
 // void k2c_embedding(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* kernel);
 
 // // Helper functions
-// //void k2c_matmul(float * C, const float * A, const float * B, const size_t outrows,const size_t outcols, const size_t innerdim);
-// void k2c_affine_matmul(float C[100000], const float A[100000], const float B[100000], const float d[100000],const size_t outrows,const size_t outcols, const size_t innerdim);
-// size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim);
-// void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim);
-// void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size_t * axesA,
-//              const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
-// void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b);
+void k2c_matmul(float * C, const float * A, const float * B, const size_t outrows,const size_t outcols, const size_t innerdim);
+void k2c_affine_matmul(float C[100000], const float A[100000], const float B[100000], const float d[100000],const size_t outrows,const size_t outcols, const size_t innerdim);
+size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_dot(k2c_tensor* C, const k2c_tensor* A, const k2c_tensor* B, const size_t * axesA,const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
+void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b);
 // void k2c_flip(k2c_tensor *A, const size_t axis);
 // float* k2c_read_array(const char* filename, const size_t array_size);
 
