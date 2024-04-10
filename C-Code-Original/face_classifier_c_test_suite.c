@@ -3,7 +3,7 @@
 #include <time.h> 
 #include "face_classifier_c.h" 
 
-float maxabs(k2c_tensor *tensor1, k2c_tensor *tensor2);
+float maxabs(k2c_tensor *tensor1, k2c_tensor2 *tensor2);
 struct timeval GetTimeStamp(); 
 int j=0; 
 
@@ -534,7 +534,7 @@ int j=0;
 -1.56962812e+00f,-1.09825256e+00f,+4.90577253e-01f,-3.33406109e-01f,+1.79705514e+00f,
 +5.00166568e-01f,-1.25646568e+00f,}; 
 // k2c_tensor test1_dense_input_input = {&test1_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
-k2c_tensor test1_dense_input_input;
+k2c_tensor2 test1_dense_input_input;
 
 
 
@@ -545,7 +545,7 @@ k2c_tensor test1_dense_input_input;
 k2c_tensor keras_activation_3_test1;
   float c_activation_3_test1_array[6] = {0}; 
 // k2c_tensor c_activation_3_test1 = {&c_activation_3_test1_array[0],1,6,{6,1,1,1,1}}; 
-k2c_tensor c_activation_3_test1;
+k2c_tensor2 c_activation_3_test1;
   float test2_dense_input_input_array[2622] = {
 +7.80737206e-01f,-1.37054080e+00f,+1.95460880e+00f,-1.91128059e+00f,-1.40341752e+00f,
 +8.92815769e-01f,-5.66819862e-02f,-1.21214298e+00f,+1.38288353e+00f,-1.85234674e+00f,
@@ -1073,7 +1073,7 @@ k2c_tensor c_activation_3_test1;
 +1.94049011e+00f,+1.07317802e+00f,+8.11166662e-01f,+1.72895578e+00f,+1.00633752e+00f,
 -1.68865505e+00f,+4.86740281e-01f,}; 
 // // k2c_tensor test2_dense_input_input = {&test2_dense_input_input_array[0],1,2622,{2622,   1,   1,   1,   1}}; 
-k2c_tensor test2_dense_input_input;
+k2c_tensor2 test2_dense_input_input;
   float keras_activation_3_test2_array[6] = {
 +2.21840292e-01f,+4.65670787e-02f,+2.54097451e-02f,+7.35354424e-02f,+6.10528409e-01f,
 +2.21190136e-02f,}; 
@@ -1081,7 +1081,7 @@ k2c_tensor test2_dense_input_input;
 k2c_tensor keras_activation_3_test2;
 float c_activation_3_test2_array[6] = {0}; 
 // // k2c_tensor c_activation_3_test2 = {&c_activation_3_test2_array[0],1,6,{6,1,1,1,1}}; 
-k2c_tensor c_activation_3_test2;
+k2c_tensor2 c_activation_3_test2;
 //   float test3_dense_input_input_array[2622] = {
 // -1.88052132e+00f,-4.85467378e-01f,-1.95951438e+00f,+5.92962600e-01f,+1.50069738e+00f,
 // -1.17713546e+00f,+2.51181052e-01f,-1.37105759e+00f,+1.34104493e+00f,+2.11507760e-01f,
@@ -5807,7 +5807,7 @@ face_classifier_c(test2_dense_input_input,&c_activation_3_test2);
 // face_classifier_c(&test10_dense_input_input,&c_activation_3_test10); 
 
 clock_t t1 = clock(); 
-printf("Average time over 1 tests: %e s \n", 
+printf("Average time over 2 tests: %e s \n",
  ((double)t1-t0)/(double)CLOCKS_PER_SEC/(double)10); 
 errors[0] = maxabs(&keras_activation_3_test1,&c_activation_3_test1); 
 errors[1] = maxabs(&keras_activation_3_test2,&c_activation_3_test2); 
@@ -5820,17 +5820,18 @@ errors[1] = maxabs(&keras_activation_3_test2,&c_activation_3_test2);
 // errors[8] = maxabs(&keras_activation_3_test9,&c_activation_3_test9); 
 // errors[9] = maxabs(&keras_activation_3_test10,&c_activation_3_test10); 
 float maxerror = errors[0]; 
+num_tests = 2;
 for(size_t i=1; i< num_tests*num_outputs;i++){ 
 if (errors[i] > maxerror) { 
 maxerror = errors[i];}} 
-printf("Max absolute error for 10 tests: %e \n", maxerror);
+printf("Max absolute error for 2 tests: %e \n", maxerror);
 face_classifier_c_terminate(); 
 if (maxerror > 1) { 
 return 1;} 
 return 0;
 } 
 
-float maxabs(k2c_tensor *tensor1, k2c_tensor *tensor2){ 
+float maxabs(k2c_tensor *tensor1, k2c_tensor2 *tensor2){
 
     float x = 0; 
 

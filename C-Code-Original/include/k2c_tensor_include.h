@@ -40,7 +40,7 @@ typedef struct k2c_tensor k2c_tensor;
 struct k2c_tensor2
 {
     /** Pointer to array of tensor values flattened in row major order. */
-    float array[270];
+    float array[300000];
 
     /** Rank of the tensor (number of dimensions). */
     size_t ndim;
