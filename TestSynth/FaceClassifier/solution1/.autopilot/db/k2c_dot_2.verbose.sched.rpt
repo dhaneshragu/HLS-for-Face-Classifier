@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_dot_2'
 ================================================================
-* Date:           Wed Apr 10 00:29:19 2024
+* Date:           Wed Apr 10 13:49:36 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -2043,7 +2043,7 @@ The critical path consists of the following:
  <State 85>: 7.24ns
 The critical path consists of the following:
 	'load' operation ('Ar_shape_load_2', ../C-Code-Original/include/k2c_helper_functions.c:110->../C-Code-Original/include/k2c_helper_functions.c:212) on array 'Ar_shape' [173]  (2.15 ns)
-	'udiv' operation ('idx2', ../C-Code-Original/include/k2c_helper_functions.c:111->../C-Code-Original/include/k2c_helper_functions.c:212) [177]  (5.08 ns)
+	'urem' operation ('tmp_6_i', ../C-Code-Original/include/k2c_helper_functions.c:110->../C-Code-Original/include/k2c_helper_functions.c:212) [174]  (5.08 ns)
 
  <State 86>: 5.08ns
 The critical path consists of the following:

@@ -3,57 +3,57 @@
 	<Message severity="INFO" prefix="[COSIM 212-47]" key="COSIM_TCL_47_1115" tag="" content="Using XSIM for RTL simulation."/>
 	<Message severity="INFO" prefix="[COSIM 212-14]" key="COSIM_TCL_14_1084" tag="" content="Instrumenting C test bench ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:31:45 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:31:49 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:31:49 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:31:54 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:31:53 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:31:58 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:31:57 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:02 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:32:00 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:06 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:32:04 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:10 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:32:07 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:14 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:32:15 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:23 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:32:19 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:28 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:32:23 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:32 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 00:32:26 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:37 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
@@ -62,4 +62,7 @@
 	<Message severity="INFO" prefix="[COSIM 212-12]" key="COSIM_TCL_12_1082" tag="" content="Generating RTL test bench ..."/>
 	<Message severity="INFO" prefix="[COSIM 212-323]" key="COSIM_TCL_323_1195" tag="" content="Starting verilog simulation."/>
 	<Message severity="INFO" prefix="[COSIM 212-15]" key="COSIM_TCL_15_1085" tag="" content="Starting XSIM ..."/>
+	<Message severity="INFO" prefix="[COSIM 212-316]" key="COSIM_TCL_316_1188" tag="" content="Starting C post checking ..."/>
+	<Message severity="INFO" prefix="[COSIM 212-1000]" key="COSIM_TCL_1000_1070" tag="" content="*** C/RTL co-simulation finished: PASS ***"/>
+	<Message severity="INFO" prefix="[COSIM 212-211]" key="COSIM_TCL_211_1174" tag="" content="II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation."/>
 </Messages>

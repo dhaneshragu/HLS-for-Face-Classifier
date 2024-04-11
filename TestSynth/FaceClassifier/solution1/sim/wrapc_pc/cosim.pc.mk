@@ -49,7 +49,7 @@ IFLAG += -D__SIM_FIR__
 IFLAG += -D__SIM_DDS__
 IFLAG += -D__DSP48E1__
 IFLAG += -DNT
-IFLAG += -Wno-unknown-pragmas
+IFLAG += -Wno-unknown-pragmas -Wuninitialized -Wall
 LFLAG += -L "${AUTOPILOT_ROOT}/${AUTOPILOT_MACH}/tools/systemc/lib" -lsystemc -lpthread -Wl,--stack,16777216
 IFLAG += -D__RTL_SIMULATION__
 IFLAG += -D__xilinx_ip_top=
@@ -67,42 +67,42 @@ $(ObjDir)/face_classifier_c_test_suite.c_pre.c.tb.o : face_classifier_c_test_sui
 	$(Echo) "   Compiling (apcc) face_classifier_c_test_suite.c_pre.c.tb.c" $(AVE_DIR_DLOG)
 	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
 
-$(ObjDir)/k2c_recurrent_layers.c_pre.c.tb.o : k2c_recurrent_layers.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_recurrent_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
-	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
-
-$(ObjDir)/k2c_pooling_layers.c_pre.c.tb.o : k2c_pooling_layers.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_pooling_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
-	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
-
-$(ObjDir)/k2c_normalization_layers.c_pre.c.tb.o : k2c_normalization_layers.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_normalization_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
-	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
-
-$(ObjDir)/k2c_merge_layers.c_pre.c.tb.o : k2c_merge_layers.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_merge_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
-	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
-
-$(ObjDir)/k2c_helper_functions.c_pre.c.tb.o : k2c_helper_functions.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_helper_functions.c_pre.c.tb.c" $(AVE_DIR_DLOG)
-	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
-
-$(ObjDir)/k2c_embedding_layers.c_pre.c.tb.o : k2c_embedding_layers.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_embedding_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
-	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
-
-$(ObjDir)/k2c_core_layers.c_pre.c.tb.o : k2c_core_layers.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_core_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
-	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
-
-$(ObjDir)/k2c_convolution_layers.c_pre.c.tb.o : k2c_convolution_layers.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) k2c_convolution_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+$(ObjDir)/face_classifier_c.c_pre.c.tb.o : face_classifier_c.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) face_classifier_c.c_pre.c.tb.c" $(AVE_DIR_DLOG)
 	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
 
 $(ObjDir)/k2c_activations.c_pre.c.tb.o : k2c_activations.c_pre.c.tb.c $(ObjDir)/.dir
 	$(Echo) "   Compiling (apcc) k2c_activations.c_pre.c.tb.c" $(AVE_DIR_DLOG)
 	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
 
-$(ObjDir)/face_classifier_c.c_pre.c.tb.o : face_classifier_c.c_pre.c.tb.c $(ObjDir)/.dir
-	$(Echo) "   Compiling (apcc) face_classifier_c.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+$(ObjDir)/k2c_convolution_layers.c_pre.c.tb.o : k2c_convolution_layers.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_convolution_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
+
+$(ObjDir)/k2c_core_layers.c_pre.c.tb.o : k2c_core_layers.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_core_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
+
+$(ObjDir)/k2c_embedding_layers.c_pre.c.tb.o : k2c_embedding_layers.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_embedding_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
+
+$(ObjDir)/k2c_helper_functions.c_pre.c.tb.o : k2c_helper_functions.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_helper_functions.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
+
+$(ObjDir)/k2c_merge_layers.c_pre.c.tb.o : k2c_merge_layers.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_merge_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
+
+$(ObjDir)/k2c_normalization_layers.c_pre.c.tb.o : k2c_normalization_layers.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_normalization_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
+
+$(ObjDir)/k2c_pooling_layers.c_pre.c.tb.o : k2c_pooling_layers.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_pooling_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
+	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \
+
+$(ObjDir)/k2c_recurrent_layers.c_pre.c.tb.o : k2c_recurrent_layers.c_pre.c.tb.c $(ObjDir)/.dir
+	$(Echo) "   Compiling (apcc) k2c_recurrent_layers.c_pre.c.tb.c" $(AVE_DIR_DLOG)
 	$(Verb) $(AUTOCC) -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG) $< -o $@; \

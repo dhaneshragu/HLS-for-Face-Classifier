@@ -160,9 +160,9 @@ void k2c_ReLU(float *llvm_cbe_x, signed long long llvm_cbe_size, float llvm_cbe_
 
 
 /* Global Variable Definitions and Initialization */
+void  (*k2c_linear) (float *, unsigned long long ) = k2c_linear_func;
 void  (*k2c_exponential) (float *, unsigned long long ) = k2c_exponential_func;
 void  (*k2c_relu) (float *, unsigned long long ) = k2c_relu_func;
-void  (*k2c_linear) (float *, unsigned long long ) = k2c_linear_func;
 void  (*k2c_hard_sigmoid) (float *, unsigned long long ) = k2c_hard_sigmoid_func;
 void  (*k2c_tanh) (float *, unsigned long long ) = k2c_tanh_func;
 void  (*k2c_sigmoid) (float *, unsigned long long ) = k2c_sigmoid_func;

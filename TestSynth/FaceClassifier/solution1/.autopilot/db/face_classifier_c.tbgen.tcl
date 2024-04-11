@@ -23,10 +23,10 @@ set C_TypeInfoList {{
  "22": [ "batch_normalization_1_beta", [[],"1"],""],
  "23": [ "activation_2_output", [[],"1"],""],
  "24": [ "activation_1_output", [[],"1"],""], 
+"1": [ "k2c_tensor", {"typedef": [[[],"25"],""]}], 
 "0": [ "k2c_tensor", {"typedef": [[[],"25"],""]}], 
 "25": [ "k2c_tensor", {"struct": [[],[],[{ "array": [[],  {"array": [ {"scalar": "float"}, [300000]]}]},{ "ndim": [[64], "26"]},{ "numel": [[64], "26"]},{ "shape": [[],  {"array": ["26", [5]]}]}],""]}], 
-"26": [ "size_t", {"typedef": [[[], {"scalar": "long long unsigned int"}],""]}], 
-"1": [ "k2c_tensor", {"typedef": [[[],"25"],""]}]
+"26": [ "size_t", {"typedef": [[[], {"scalar": "long long unsigned int"}],""]}]
 }}
 set moduleName face_classifier_c
 set isTaskLevelControl 1
@@ -190,8 +190,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "dense_1_output_numel", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "dense_1_output_array", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "75", "SubInstance" : "grp_k2c_dense_2_fu_1863", "Port" : "output_array"},
-					{"ID" : "135", "SubInstance" : "grp_k2c_batch_norm_fu_1920", "Port" : "inputs_array"}]},
+					{"ID" : "135", "SubInstance" : "grp_k2c_batch_norm_fu_1920", "Port" : "inputs_array"},
+					{"ID" : "75", "SubInstance" : "grp_k2c_dense_2_fu_1863", "Port" : "output_array"}]},
 			{"Name" : "dense_1_kernel_ndim", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "dense_1_kernel_numel", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "dense_1_kernel_array", "Type" : "Memory", "Direction" : "I"},

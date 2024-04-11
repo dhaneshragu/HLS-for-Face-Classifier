@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'exp_generic_double_s'
 ================================================================
-* Date:           Wed Apr 10 00:29:21 2024
+* Date:           Wed Apr 10 13:49:38 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -158,7 +158,7 @@ ST_1 : Operation 76 [1/1] (4.27ns) (out node of the LUT)   --->   "%tmp_112 = ic
 ST_1 : Operation 77 [1/1] (0.00ns)   --->   "%tmp_123 = call i1 @_ssdm_op_BitSelect.i1.i54.i32(i54 %p_Val2_1, i32 53)" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:328]   --->   Operation 77 'bitselect' 'tmp_123' <Predicate = true> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 61.2>
-ST_2 : Operation 78 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str115) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:180]   --->   Operation 78 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str126) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:180]   --->   Operation 78 'specpipeline' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 79 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp2)   --->   "%not_Result_i4 = xor i1 %p_Result_s, true" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:204]   --->   Operation 79 'xor' 'not_Result_i4' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.94> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 80 [1/1] (0.94ns)   --->   "%x_is_ninf = and i1 %tmp_32_i, %p_Result_s" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:205]   --->   Operation 80 'and' 'x_is_ninf' <Predicate = true> <Delay = 0.94> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.94> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 81 [1/2] (3.25ns)   --->   "%p_Val2_25 = load i58* %table_exp_Z1_array_1, align 8" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:312]   --->   Operation 81 'load' 'p_Val2_25' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 42> <Depth = 256> <ROM>
@@ -260,7 +260,7 @@ The critical path consists of the following:
 	wire read on port 'x' [5]  (0 ns)
 	'sub' operation ('p_Val2_s_116', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:246) [21]  (3.3 ns)
 	'select' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:246) [22]  (1.37 ns)
-	'shl' operation ('tmp_96', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:251) [34]  (0 ns)
+	'ashr' operation ('tmp_95', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:251) [32]  (0 ns)
 	'select' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:251) [35]  (4.28 ns)
 	'mul' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:265) [43]  (3.36 ns)
 	'add' operation ('r.V', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:265) [46]  (3.82 ns)
@@ -269,8 +269,8 @@ The critical path consists of the following:
 	'select' operation ('r_exp.V', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:265) [53]  (1.37 ns)
 	'mul' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:271) [55]  (13.5 ns)
 	'sub' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:275) [62]  (3.79 ns)
-	'getelementptr' operation ('table_exp_Z1_array_1', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:312) [65]  (0 ns)
-	'load' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:312) on array 'table_exp_Z1_array_s' [66]  (3.26 ns)
+	'getelementptr' operation ('table_f_Z3_array_V_2', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:145->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:313) [79]  (0 ns)
+	'load' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:145->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:313) on array 'table_f_Z3_array_V' [80]  (3.26 ns)
 
  <State 2>: 61.2ns
 The critical path consists of the following:

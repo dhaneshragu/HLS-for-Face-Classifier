@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'generic_tanh_float_s'
 ================================================================
-* Date:           Wed Apr 10 00:29:22 2024
+* Date:           Wed Apr 10 13:49:39 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -177,7 +177,7 @@ The critical path consists of the following:
 	wire read on port 't_in' [5]  (0 ns)
 	'icmp' operation ('tmp_34', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:78) [27]  (1.48 ns)
 	'select' operation ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [32]  (26.6 ns)
-	'icmp' operation ('tmp_i_43', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:9->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [38]  (1.48 ns)
+	'icmp' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:8->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [35]  (1.48 ns)
 	multiplexor before 'phi' operation ('x') with incoming values : ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) ('tmp_100_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [47]  (1.71 ns)
 
  <State 2>: 42.5ns

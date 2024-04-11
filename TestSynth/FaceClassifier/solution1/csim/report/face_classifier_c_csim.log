@@ -2,72 +2,140 @@ INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling(apcc) ../../../../../C-Code-Original/face_classifier_c_test_suite.c in debug mode
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:15:23 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/face_classifier_c.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:15:28 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_activations.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:15:37 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_convolution_layers.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:15:42 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_core_layers.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:15:47 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_embedding_layers.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:15:51 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_helper_functions.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:15:56 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_merge_layers.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:16:01 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_normalization_layers.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:16:06 +0530 2024
-INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is apcc_db
-INFO: [APCC 202-1] APCC is done.
-   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_pooling_layers.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:16:11 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:45:56 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
 INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling(apcc) ../../../../../C-Code-Original/include/k2c_recurrent_layers.c in debug mode
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 00:16:15 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:00 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+../../../../../C-Code-Original/include/k2c_recurrent_layers.c:62:5: warning: implicit declaration of function 'k2c_affine_matmul' [-Wimplicit-function-declaration]
+    k2c_affine_matmul(xi, input, Wi, bi, outrows, units, in_width);
+    ^
+1 warning generated.
+../../../../../C-Code-Original/include/k2c_recurrent_layers.c:62:5: warning: implicit declaration of function 'k2c_affine_matmul' [-Wimplicit-function-declaration]
+    k2c_affine_matmul(xi, input, Wi, bi, outrows, units, in_width);
+    ^
+1 warning generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_pooling_layers.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:05 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_normalization_layers.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:10 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_merge_layers.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:14 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+../../../../../C-Code-Original/include/k2c_merge_layers.c:188:13: warning: implicit declaration of function 'k2c_idx2sub' [-Wimplicit-function-declaration]
+            k2c_idx2sub(j,insub,arrptr->shape,arrptr->ndim);
+            ^
+../../../../../C-Code-Original/include/k2c_merge_layers.c:191:22: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
+            outidx = k2c_sub2idx(outsub,output->shape, output->ndim);
+                     ^
+2 warnings generated.
+../../../../../C-Code-Original/include/k2c_merge_layers.c:188:13: warning: implicit declaration of function 'k2c_idx2sub' [-Wimplicit-function-declaration]
+            k2c_idx2sub(j,insub,arrptr->shape,arrptr->ndim);
+            ^
+../../../../../C-Code-Original/include/k2c_merge_layers.c:191:22: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
+            outidx = k2c_sub2idx(outsub,output->shape, output->ndim);
+                     ^
+2 warnings generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_helper_functions.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:19 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_embedding_layers.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:24 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_core_layers.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:28 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+../../../../../C-Code-Original/include/k2c_core_layers.c:61:9: warning: implicit declaration of function 'k2c_dot' [-Wimplicit-function-declaration]
+        k2c_dot(output, input, kernel, axesA, axesB, naxes, normalize, fwork);
+        ^
+../../../../../C-Code-Original/include/k2c_core_layers.c:62:9: warning: implicit declaration of function 'k2c_bias_add' [-Wimplicit-function-declaration]
+        k2c_bias_add(output, bias);
+        ^
+../../../../../C-Code-Original/include/k2c_core_layers.c:134:9: warning: implicit declaration of function 'k2c_idx2sub' [-Wimplicit-function-declaration]
+        k2c_idx2sub(i,Asub,oldshp,ndim);
+        ^
+../../../../../C-Code-Original/include/k2c_core_layers.c:138:16: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
+        bidx = k2c_sub2idx(Bsub,newshp,ndim);
+               ^
+4 warnings generated.
+../../../../../C-Code-Original/include/k2c_core_layers.c:61:9: warning: implicit declaration of function 'k2c_dot' [-Wimplicit-function-declaration]
+        k2c_dot(output, input, kernel, axesA, axesB, naxes, normalize, fwork);
+        ^
+../../../../../C-Code-Original/include/k2c_core_layers.c:62:9: warning: implicit declaration of function 'k2c_bias_add' [-Wimplicit-function-declaration]
+        k2c_bias_add(output, bias);
+        ^
+../../../../../C-Code-Original/include/k2c_core_layers.c:134:9: warning: implicit declaration of function 'k2c_idx2sub' [-Wimplicit-function-declaration]
+        k2c_idx2sub(i,Asub,oldshp,ndim);
+        ^
+../../../../../C-Code-Original/include/k2c_core_layers.c:138:16: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
+        bidx = k2c_sub2idx(Bsub,newshp,ndim);
+               ^
+4 warnings generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_convolution_layers.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:32 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+../../../../../C-Code-Original/include/k2c_convolution_layers.c:104:18: warning: unused variable 'outdim1' [-Wunused-variable]
+    const size_t outdim1 = dim1 + pad[0] + pad[1];
+                 ^
+../../../../../C-Code-Original/include/k2c_convolution_layers.c:171:5: warning: implicit declaration of function 'k2c_bias_add' [-Wimplicit-function-declaration]
+    k2c_bias_add(output,bias);
+    ^
+../../../../../C-Code-Original/include/k2c_convolution_layers.c:400:35: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
+            memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
+                                  ^
+3 warnings generated.
+../../../../../C-Code-Original/include/k2c_convolution_layers.c:104:18: warning: unused variable 'outdim1' [-Wunused-variable]
+    const size_t outdim1 = dim1 + pad[0] + pad[1];
+                 ^
+../../../../../C-Code-Original/include/k2c_convolution_layers.c:171:5: warning: implicit declaration of function 'k2c_bias_add' [-Wimplicit-function-declaration]
+    k2c_bias_add(output,bias);
+    ^
+../../../../../C-Code-Original/include/k2c_convolution_layers.c:400:35: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
+            memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
+                                  ^
+3 warnings generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_activations.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:37 +0530 2024
+INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../../C-Code-Original/face_classifier_c.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 13:46:42 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/csim/build'
 INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Generating csim.exe
-Average time over 1 tests: 9.000000e-004 s 
+Average time over 1 tests: 7.000000e-004 s 
 Max absolute error for 10 tests: 3.725290e-008 
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************
