@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 65
-set name face_classifier_cncg
+set id 70
+set name face_classifier_cpcA
 set corename simcore_fsub
 set op fsub
 set stage_num 1
@@ -73,8 +73,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 68
-set name face_classifier_cocq
+set id 73
+set name face_classifier_cqcK
 set corename simcore_fptrunc
 set op fptrunc
 set stage_num 1
@@ -137,8 +137,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 69
-set name face_classifier_cpcA
+set id 74
+set name face_classifier_crcU
 set corename simcore_fpext
 set op fpext
 set stage_num 1
@@ -201,8 +201,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 70
-set name face_classifier_cqcK
+set id 75
+set name face_classifier_csc4
 set corename simcore_fcmp
 set op fcmp
 set stage_num 1
@@ -277,8 +277,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 71
-set name face_classifier_crcU
+set id 76
+set name face_classifier_ctde
 set corename simcore_dadd
 set op dadd
 set stage_num 1
@@ -360,7 +360,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 77 \
+    id 82 \
     name t_in \
     type other \
     dir I \

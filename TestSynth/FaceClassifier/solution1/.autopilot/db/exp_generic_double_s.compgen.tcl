@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 56
-set name face_classifier_cmb6
+set id 61
+set name face_classifier_cocq
 set corename simcore_mac
 set op mac
 set stage_num 1
@@ -83,9 +83,9 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 
 
 # Memory (RAM/ROM)  definition:
-set ID 58
+set ID 63
 set hasByteEnable 0
-set MemName exp_generic_doubljbC
+set MemName exp_generic_doubllbW
 set CoreName ap_simcore_mem
 set PortList { 1 }
 set DataWd 58
@@ -166,9 +166,9 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 59
+set ID 64
 set hasByteEnable 0
-set MemName exp_generic_doublkbM
+set MemName exp_generic_doublmb6
 set CoreName ap_simcore_mem
 set PortList { 1 1 }
 set DataWd 26
@@ -249,9 +249,9 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 60
+set ID 65
 set hasByteEnable 0
-set MemName exp_generic_doubllbW
+set MemName exp_generic_doublncg
 set CoreName ap_simcore_mem
 set PortList { 1 }
 set DataWd 42
@@ -341,7 +341,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 61 \
+    id 66 \
     name x \
     type other \
     dir I \

@@ -5,36 +5,104 @@
 // 
 // ==============================================================
 
+`timescale 1 ns / 1 ps
+module face_classifier_cbml_ram (addr0, ce0, d0, we0, addr1, ce1, d1, we1, q1,  clk);
 
-`timescale 1ns/1ps
+parameter DWIDTH = 5;
+parameter AWIDTH = 3;
+parameter MEM_SIZE = 5;
 
-module face_classifier_cbml
-#(parameter
-    ID         = 157,
-    NUM_STAGE  = 1,
-    din0_WIDTH = 32,
-    din1_WIDTH = 32,
-    dout_WIDTH = 32
-)(
-    input  wire [din0_WIDTH-1:0] din0,
-    input  wire [din1_WIDTH-1:0] din1,
-    output wire [dout_WIDTH-1:0] dout
-);
-//------------------------Local signal-------------------
-wire        a_tvalid;
-wire [31:0] a_tdata;
-wire        r_tvalid;
-wire [31:0] r_tdata;
-//------------------------Instantiation------------------
-face_classifier_c_ap_fexp_0_full_dsp_32 face_classifier_c_ap_fexp_0_full_dsp_32_u (
-    .s_axis_a_tvalid      ( a_tvalid ),
-    .s_axis_a_tdata       ( a_tdata ),
-    .m_axis_result_tvalid ( r_tvalid ),
-    .m_axis_result_tdata  ( r_tdata )
-);
-//------------------------Body---------------------------
-assign a_tvalid = 1'b1;
-assign a_tdata  = din1;
-assign dout     = r_tdata;
+input[AWIDTH-1:0] addr0;
+input ce0;
+input[DWIDTH-1:0] d0;
+input we0;
+input[AWIDTH-1:0] addr1;
+input ce1;
+input[DWIDTH-1:0] d1;
+input we1;
+output reg[DWIDTH-1:0] q1;
+input clk;
+
+(* ram_style = "block" *)reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
+
+initial begin
+    $readmemh("./face_classifier_cbml_ram.dat", ram);
+end
+
+
+
+always @(posedge clk)  
+begin 
+    if (ce0) 
+    begin
+        if (we0) 
+        begin 
+            ram[addr0] <= d0; 
+        end 
+    end
+end
+
+
+always @(posedge clk)  
+begin 
+    if (ce1) 
+    begin
+        if (we1) 
+        begin 
+            ram[addr1] <= d1; 
+            q1 <= d1;
+        end 
+        else 
+            q1 <= ram[addr1];
+    end
+end
+
 
 endmodule
+
+
+`timescale 1 ns / 1 ps
+module face_classifier_cbml(
+    reset,
+    clk,
+    address0,
+    ce0,
+    we0,
+    d0,
+    address1,
+    ce1,
+    we1,
+    d1,
+    q1);
+
+parameter DataWidth = 32'd5;
+parameter AddressRange = 32'd5;
+parameter AddressWidth = 32'd3;
+input reset;
+input clk;
+input[AddressWidth - 1:0] address0;
+input ce0;
+input we0;
+input[DataWidth - 1:0] d0;
+input[AddressWidth - 1:0] address1;
+input ce1;
+input we1;
+input[DataWidth - 1:0] d1;
+output[DataWidth - 1:0] q1;
+
+
+
+face_classifier_cbml_ram face_classifier_cbml_ram_U(
+    .clk( clk ),
+    .addr0( address0 ),
+    .ce0( ce0 ),
+    .we0( we0 ),
+    .d0( d0 ),
+    .addr1( address1 ),
+    .ce1( ce1 ),
+    .we1( we1 ),
+    .d1( d1 ),
+    .q1( q1 ));
+
+endmodule
+

@@ -36,7 +36,7 @@
 <Loop2>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
-<IterationLatency>94</IterationLatency>
+<IterationLatency>87</IterationLatency>
 </Loop2>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
@@ -44,8 +44,8 @@
 <AreaEstimates>
 <Resources>
 <DSP48E>15</DSP48E>
-<FF>2530</FF>
-<LUT>3315</LUT>
+<FF>2502</FF>
+<LUT>3272</LUT>
 <BRAM_18K>0</BRAM_18K>
 </Resources>
 <AvailableResources>
@@ -131,7 +131,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -175,7 +175,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -263,7 +263,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -296,7 +296,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -329,7 +329,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -362,7 +362,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>

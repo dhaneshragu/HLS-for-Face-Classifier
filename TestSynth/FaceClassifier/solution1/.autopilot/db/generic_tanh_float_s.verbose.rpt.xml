@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'generic_tanh_float_s'" level="0">
-<item name = "Date">Wed Apr 10 13:49:49 2024
+<item name = "Date">Thu Apr 11 22:31:17 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -63,16 +63,16 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="grp_exp_generic_double_s_fu_89">exp_generic_double_s, 5, 34, 72, 2617</column>
-<column name="face_classifier_cbkb_U63">face_classifier_cbkb, 0, 2, 177, 385</column>
-<column name="face_classifier_cbkb_U64">face_classifier_cbkb, 0, 2, 177, 385</column>
-<column name="face_classifier_ccud_U66">face_classifier_ccud, 0, 3, 128, 320</column>
-<column name="face_classifier_cg8j_U62">face_classifier_cg8j, 0, 2, 177, 385</column>
-<column name="face_classifier_chbi_U67">face_classifier_chbi, 0, 0, 128, 947</column>
-<column name="face_classifier_cncg_U65">face_classifier_cncg, 0, 2, 177, 385</column>
-<column name="face_classifier_cocq_U68">face_classifier_cocq, 0, 0, 128, 284</column>
-<column name="face_classifier_cpcA_U69">face_classifier_cpcA, 0, 0, 100, 137</column>
-<column name="face_classifier_cqcK_U70">face_classifier_cqcK, 0, 0, 66, 239</column>
-<column name="face_classifier_crcU_U71">face_classifier_crcU, 0, 3, 342, 1065</column>
+<column name="face_classifier_cbkb_U68">face_classifier_cbkb, 0, 2, 177, 385</column>
+<column name="face_classifier_cbkb_U69">face_classifier_cbkb, 0, 2, 177, 385</column>
+<column name="face_classifier_ccud_U71">face_classifier_ccud, 0, 3, 128, 320</column>
+<column name="face_classifier_cibs_U67">face_classifier_cibs, 0, 2, 177, 385</column>
+<column name="face_classifier_cjbC_U72">face_classifier_cjbC, 0, 0, 128, 947</column>
+<column name="face_classifier_cpcA_U70">face_classifier_cpcA, 0, 2, 177, 385</column>
+<column name="face_classifier_cqcK_U73">face_classifier_cqcK, 0, 0, 128, 284</column>
+<column name="face_classifier_crcU_U74">face_classifier_crcU, 0, 0, 100, 137</column>
+<column name="face_classifier_csc4_U75">face_classifier_csc4, 0, 0, 66, 239</column>
+<column name="face_classifier_ctde_U76">face_classifier_ctde, 0, 3, 342, 1065</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -105,12 +105,12 @@
 <column name="ap_predicate_op43_call_state2">and, 0, 0, 8, 1, 1</column>
 <column name="ap_predicate_op43_call_state2_state1">and, 0, 0, 8, 1, 1</column>
 <column name="or_cond_fu_239_p2">and, 0, 0, 8, 1, 1</column>
-<column name="tmp_29_fu_155_p2">icmp, 0, 0, 18, 23, 1</column>
-<column name="tmp_30_fu_227_p2">icmp, 0, 0, 11, 8, 7</column>
-<column name="tmp_31_fu_233_p2">icmp, 0, 0, 11, 8, 7</column>
-<column name="tmp_32_fu_150_p2">icmp, 0, 0, 18, 23, 1</column>
-<column name="tmp_34_fu_245_p2">icmp, 0, 0, 11, 8, 7</column>
-<column name="tmp_i_43_fu_290_p2">icmp, 0, 0, 11, 8, 7</column>
+<column name="tmp_53_fu_155_p2">icmp, 0, 0, 18, 23, 1</column>
+<column name="tmp_54_fu_227_p2">icmp, 0, 0, 11, 8, 7</column>
+<column name="tmp_55_fu_233_p2">icmp, 0, 0, 11, 8, 7</column>
+<column name="tmp_56_fu_150_p2">icmp, 0, 0, 18, 23, 1</column>
+<column name="tmp_58_fu_245_p2">icmp, 0, 0, 11, 8, 7</column>
+<column name="tmp_i_44_fu_290_p2">icmp, 0, 0, 11, 8, 7</column>
 <column name="tmp_i_fu_284_p2">icmp, 0, 0, 11, 8, 1</column>
 <column name="tmp_s_fu_221_p2">icmp, 0, 0, 11, 8, 2</column>
 <column name="ap_block_pp0_stage0_subdone">or, 0, 0, 8, 1, 1</column>
@@ -120,9 +120,9 @@
 <column name="p_1_fu_311_p3">select, 0, 0, 31, 1, 30</column>
 <column name="x_2_fu_262_p3">select, 0, 0, 32, 1, 32</column>
 <column name="ap_enable_pp0">xor, 0, 0, 8, 1, 2</column>
-<column name="tmp_92_neg_fu_251_p2">xor, 0, 0, 40, 32, 33</column>
-<column name="tmp_93_neg_fu_300_p2">xor, 0, 0, 40, 32, 33</column>
-<column name="tmp_97_neg_fu_322_p2">xor, 0, 0, 40, 32, 33</column>
+<column name="tmp_117_neg_fu_251_p2">xor, 0, 0, 40, 32, 33</column>
+<column name="tmp_118_neg_fu_300_p2">xor, 0, 0, 40, 32, 33</column>
+<column name="tmp_122_neg_fu_322_p2">xor, 0, 0, 40, 32, 33</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -164,23 +164,23 @@
 <column name="reg_160">32, 0, 32, 0</column>
 <column name="reg_165">32, 0, 32, 0</column>
 <column name="resultf_reg_378">32, 0, 32, 0</column>
-<column name="tmp_17_reg_356">1, 0, 1, 0</column>
-<column name="tmp_29_reg_383">1, 0, 1, 0</column>
-<column name="tmp_30_reg_348">1, 0, 1, 0</column>
-<column name="tmp_34_reg_360">1, 0, 1, 0</column>
-<column name="tmp_98_i_reg_388">64, 0, 64, 0</column>
-<column name="tmp_i_43_reg_374">1, 0, 1, 0</column>
+<column name="tmp_121_i_reg_388">64, 0, 64, 0</column>
+<column name="tmp_18_reg_356">1, 0, 1, 0</column>
+<column name="tmp_53_reg_383">1, 0, 1, 0</column>
+<column name="tmp_54_reg_348">1, 0, 1, 0</column>
+<column name="tmp_58_reg_360">1, 0, 1, 0</column>
+<column name="tmp_i_44_reg_374">1, 0, 1, 0</column>
 <column name="tmp_i_reg_370">1, 0, 1, 0</column>
 <column name="tmp_s_reg_344">1, 0, 1, 0</column>
 <column name="x_2_reg_364">32, 0, 32, 0</column>
 <column name="or_cond_reg_352">64, 32, 1, 0</column>
 <column name="p_Result_s_reg_339">64, 32, 1, 0</column>
 <column name="resultf_reg_378">64, 32, 32, 0</column>
-<column name="tmp_17_reg_356">64, 32, 1, 0</column>
-<column name="tmp_29_reg_383">64, 32, 1, 0</column>
-<column name="tmp_30_reg_348">64, 32, 1, 0</column>
-<column name="tmp_34_reg_360">64, 32, 1, 0</column>
-<column name="tmp_i_43_reg_374">64, 32, 1, 0</column>
+<column name="tmp_18_reg_356">64, 32, 1, 0</column>
+<column name="tmp_53_reg_383">64, 32, 1, 0</column>
+<column name="tmp_54_reg_348">64, 32, 1, 0</column>
+<column name="tmp_58_reg_360">64, 32, 1, 0</column>
+<column name="tmp_i_44_reg_374">64, 32, 1, 0</column>
 <column name="tmp_i_reg_370">64, 32, 1, 0</column>
 <column name="tmp_s_reg_344">64, 32, 1, 0</column>
 </table>

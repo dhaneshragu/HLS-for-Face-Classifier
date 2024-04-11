@@ -7,7 +7,7 @@
 
 #ifndef __face_classifier_ctde__HH__
 #define __face_classifier_ctde__HH__
-#include "ACMP_smul_ss.h"
+#include "ACMP_dadd_comb.h"
 #include <systemc>
 
 template<
@@ -23,12 +23,12 @@ SC_MODULE(face_classifier_ctde) {
 
 
 
-    ACMP_smul_ss<ID, 1, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_smul_ss_U;
+    ACMP_dadd_comb<ID, 1, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_dadd_comb_U;
 
-    SC_CTOR(face_classifier_ctde):  ACMP_smul_ss_U ("ACMP_smul_ss_U") {
-        ACMP_smul_ss_U.din0(din0);
-        ACMP_smul_ss_U.din1(din1);
-        ACMP_smul_ss_U.dout(dout);
+    SC_CTOR(face_classifier_ctde):  ACMP_dadd_comb_U ("ACMP_dadd_comb_U") {
+        ACMP_dadd_comb_U.din0(din0);
+        ACMP_dadd_comb_U.din1(din1);
+        ACMP_dadd_comb_U.dout(dout);
 
     }
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'k2c_batch_norm'" level="0">
-<item name = "Date">Wed Apr 10 13:49:37 2024
+<item name = "Date">Thu Apr 11 22:30:51 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -36,7 +36,7 @@
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">?, ?, 2, -, -, ?, no</column>
-<column name="- Loop 2">?, ?, 94, -, -, ?, no</column>
+<column name="- Loop 2">?, ?, 87, -, -, ?, no</column>
 </table>
 </item>
 </section>

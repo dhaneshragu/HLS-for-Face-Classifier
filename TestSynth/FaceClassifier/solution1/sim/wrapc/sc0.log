@@ -2,7 +2,7 @@
    Compiling apatb_face_classifier_c.cpp
    Compiling (apcc) face_classifier_c_test_suite.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:31:49 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:49 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -10,29 +10,20 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_core_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:31:54 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:54 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
 In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:1:
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:61:9: warning: implicit declaration of function 'k2c_dot' [-Wimplicit-function-declaration]
-        k2c_dot(output, input, kernel, axesA, axesB, naxes, normalize, fwork);
-        ^
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:62:9: warning: implicit declaration of function 'k2c_bias_add' [-Wimplicit-function-declaration]
-        k2c_bias_add(output, bias);
-        ^
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:134:9: warning: implicit declaration of function 'k2c_idx2sub' [-Wimplicit-function-declaration]
-        k2c_idx2sub(i,Asub,oldshp,ndim);
-        ^
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:138:16: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
-        bidx = k2c_sub2idx(Bsub,newshp,ndim);
-               ^
-4 warnings generated.
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:48:13: warning: unused label 'k2c_dense_label0' [-Wunused-label]
+            k2c_dense_label0:for (size_t k = 0; k < innerdim; ++k) {
+            ^~~~~~~~~~~~~~~~~
+1 warning generated.
 INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_recurrent_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:31:58 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:58 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -45,7 +36,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_activations.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:02 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:02 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -53,23 +44,15 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_merge_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:06 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:06 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
-In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_merge_layers.c:1:
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_merge_layers.c:188:13: warning: implicit declaration of function 'k2c_idx2sub' [-Wimplicit-function-declaration]
-            k2c_idx2sub(j,insub,arrptr->shape,arrptr->ndim);
-            ^
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_merge_layers.c:191:22: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
-            outidx = k2c_sub2idx(outsub,output->shape, output->ndim);
-                     ^
-2 warnings generated.
 INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_normalization_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:10 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:10 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -77,7 +60,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) face_classifier_c.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:14 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:13 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -85,7 +68,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_convolution_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:23 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:22 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -93,18 +76,53 @@ In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Cod
 C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:104:18: warning: unused variable 'outdim1' [-Wunused-variable]
     const size_t outdim1 = dim1 + pad[0] + pad[1];
                  ^
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:171:5: warning: implicit declaration of function 'k2c_bias_add' [-Wimplicit-function-declaration]
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:171:18: warning: incompatible pointer types passing 'k2c_tensor *' (aka 'struct k2c_tensor *') to parameter of type 'k2c_tensor2 *' (aka 'struct k2c_tensor2 *') [-Wincompatible-pointer-types]
     k2c_bias_add(output,bias);
-    ^
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:400:35: warning: implicit declaration of function 'k2c_sub2idx' [-Wimplicit-function-declaration]
-            memcpy(&output->array[k2c_sub2idx(outsub,output->shape,output->ndim)],
-                                  ^
-3 warnings generated.
+                 ^~~~~~
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h:91:32: note: passing argument to parameter 'A' here
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+                               ^
+In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:1:
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:171:25: warning: incompatible pointer types passing 'const k2c_tensor *' (aka 'const struct k2c_tensor *') to parameter of type 'const k2c_tensor2 *' (aka 'const struct k2c_tensor2 *') [-Wincompatible-pointer-types]
+    k2c_bias_add(output,bias);
+                        ^~~~
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h:91:54: note: passing argument to parameter 'b' here
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+                                                     ^
+In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:1:
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:219:18: warning: incompatible pointer types passing 'k2c_tensor *' (aka 'struct k2c_tensor *') to parameter of type 'k2c_tensor2 *' (aka 'struct k2c_tensor2 *') [-Wincompatible-pointer-types]
+    k2c_bias_add(output,bias);
+                 ^~~~~~
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h:91:32: note: passing argument to parameter 'A' here
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+                               ^
+In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:1:
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:219:25: warning: incompatible pointer types passing 'const k2c_tensor *' (aka 'const struct k2c_tensor *') to parameter of type 'const k2c_tensor2 *' (aka 'const struct k2c_tensor2 *') [-Wincompatible-pointer-types]
+    k2c_bias_add(output,bias);
+                        ^~~~
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h:91:54: note: passing argument to parameter 'b' here
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+                                                     ^
+In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:1:
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:279:18: warning: incompatible pointer types passing 'k2c_tensor *' (aka 'struct k2c_tensor *') to parameter of type 'k2c_tensor2 *' (aka 'struct k2c_tensor2 *') [-Wincompatible-pointer-types]
+    k2c_bias_add(output,bias);
+                 ^~~~~~
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h:91:32: note: passing argument to parameter 'A' here
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+                               ^
+In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:1:
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c:279:25: warning: incompatible pointer types passing 'const k2c_tensor *' (aka 'const struct k2c_tensor *') to parameter of type 'const k2c_tensor2 *' (aka 'const struct k2c_tensor2 *') [-Wincompatible-pointer-types]
+    k2c_bias_add(output,bias);
+                        ^~~~
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h:91:54: note: passing argument to parameter 'b' here
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+                                                     ^
+7 warnings generated.
 INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_helper_functions.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:28 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:26 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -112,7 +130,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_pooling_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:32 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:31 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -120,7 +138,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_embedding_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 10 15:32:37 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:35 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'

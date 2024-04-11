@@ -5,111 +5,43 @@
 // 
 // ==============================================================
 
-#ifndef __face_classifier_cyd2_H__
-#define __face_classifier_cyd2_H__
-
-
+#ifndef __face_classifier_cyd2__HH__
+#define __face_classifier_cyd2__HH__
+#include "ACMP_udiv_seq.h"
 #include <systemc>
-using namespace sc_core;
-using namespace sc_dt;
 
-
-
-
-#include <iostream>
-#include <fstream>
-
-struct face_classifier_cyd2_ram : public sc_core::sc_module {
-
-  static const unsigned DataWidth = 32;
-  static const unsigned AddressRange = 262200;
-  static const unsigned AddressWidth = 19;
-
-//latency = 1
-//input_reg = 1
-//output_reg = 0
-sc_core::sc_in <sc_lv<AddressWidth> > address0;
-sc_core::sc_in <sc_logic> ce0;
-sc_core::sc_out <sc_lv<DataWidth> > q0;
-sc_core::sc_in<sc_logic> we0;
-sc_core::sc_in<sc_lv<DataWidth> > d0;
-sc_core::sc_in<sc_logic> reset;
-sc_core::sc_in<bool> clk;
-
-
-sc_lv<DataWidth> ram[AddressRange];
-
-
-   SC_CTOR(face_classifier_cyd2_ram) {
-
-
-SC_METHOD(prc_write_0);
-  sensitive<<clk.pos();
-   }
-
-
-void prc_write_0()
-{
-    if (ce0.read() == sc_dt::Log_1) 
-    {
-        if (we0.read() == sc_dt::Log_1) 
-        {
-           if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
-           {
-              ram[address0.read().to_uint()] = d0.read(); 
-              q0 = d0.read();
-           }
-           else
-              q0 = sc_lv<DataWidth>();
-        }
-        else {
-            if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
-              q0 = ram[address0.read().to_uint()];
-            else
-              q0 = sc_lv<DataWidth>();
-        }
-    }
-}
-
-
-}; //endmodule
-
-
+template<
+    int ID,
+    int NUM_STAGE,
+    int din0_WIDTH,
+    int din1_WIDTH,
+    int dout_WIDTH>
 SC_MODULE(face_classifier_cyd2) {
+    sc_core::sc_in_clk clk;
+    sc_core::sc_in<sc_dt::sc_logic> reset;
+    sc_core::sc_in<sc_dt::sc_logic> ce;
+    sc_core::sc_in< sc_dt::sc_logic >   start;
+    sc_core::sc_out< sc_dt::sc_logic >   done;
+    sc_core::sc_in< sc_dt::sc_lv<din0_WIDTH> >   din0;
+    sc_core::sc_in< sc_dt::sc_lv<din1_WIDTH> >   din1;
+    sc_core::sc_out< sc_dt::sc_lv<dout_WIDTH> >   dout;
 
 
-static const unsigned DataWidth = 32;
-static const unsigned AddressRange = 262200;
-static const unsigned AddressWidth = 19;
 
-sc_core::sc_in <sc_lv<AddressWidth> > address0;
-sc_core::sc_in<sc_logic> ce0;
-sc_core::sc_out <sc_lv<DataWidth> > q0;
-sc_core::sc_in<sc_logic> we0;
-sc_core::sc_in<sc_lv<DataWidth> > d0;
-sc_core::sc_in<sc_logic> reset;
-sc_core::sc_in<bool> clk;
+    ACMP_udiv_seq<ID, 11, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_udiv_seq_U;
 
+    SC_CTOR(face_classifier_cyd2):  ACMP_udiv_seq_U ("ACMP_udiv_seq_U") {
+        ACMP_udiv_seq_U.clk(clk);
+        ACMP_udiv_seq_U.reset(reset);
+        ACMP_udiv_seq_U.ce(ce);
+        ACMP_udiv_seq_U.din0(din0);
+        ACMP_udiv_seq_U.din1(din1);
+        ACMP_udiv_seq_U.dout(dout);
+        ACMP_udiv_seq_U.start(start);
+        ACMP_udiv_seq_U.done(done);
 
-face_classifier_cyd2_ram* meminst;
+    }
 
+};
 
-SC_CTOR(face_classifier_cyd2) {
-meminst = new face_classifier_cyd2_ram("face_classifier_cyd2_ram");
-meminst->address0(address0);
-meminst->ce0(ce0);
-meminst->q0(q0);
-meminst->we0(we0);
-meminst->d0(d0);
-
-
-meminst->reset(reset);
-meminst->clk(clk);
-}
-~face_classifier_cyd2() {
-    delete meminst;
-}
-
-
-};//endmodule
-#endif
+#endif //

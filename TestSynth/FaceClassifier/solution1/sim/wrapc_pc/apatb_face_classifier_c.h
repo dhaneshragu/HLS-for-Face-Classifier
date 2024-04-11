@@ -5,5 +5,5 @@
 // ==============================================================
 
 extern void AESL_WRAP_face_classifier_c (
-const k2c_tensor dense_input_input,
-k2c_tensor* activation_3_output);
+const k2c_tensor2 dense_input_input,
+k2c_tensor2* activation_3_output);

@@ -5,197 +5,80 @@
 // 
 // ==============================================================
 
-`timescale 1 ns / 1 ps
 
-module face_classifier_csc4_div_u
+`timescale 1ns/1ps
+
+module face_classifier_csc4
 #(parameter
-    in0_WIDTH = 32,
-    in1_WIDTH = 32,
-    out_WIDTH = 32
-)
-(
-    input                       clk,
-    input                       reset,
-    input                       ce,
-    input                       start,
-    input       [in0_WIDTH-1:0] dividend,
-    input       [in1_WIDTH-1:0] divisor,
-    output wire                 done,
-    output wire [out_WIDTH-1:0] quot,
-    output wire [out_WIDTH-1:0] remd
+    ID         = 75,
+    NUM_STAGE  = 1,
+    din0_WIDTH = 32,
+    din1_WIDTH = 32,
+    dout_WIDTH = 1
+)(
+    input  wire [din0_WIDTH-1:0] din0,
+    input  wire [din1_WIDTH-1:0] din1,
+    input  wire [4:0]            opcode,
+    output wire [dout_WIDTH-1:0] dout
 );
-
-localparam cal_WIDTH = (in0_WIDTH > in1_WIDTH)? in0_WIDTH : in1_WIDTH;
-
+//------------------------Parameter----------------------
+// AutoESL opcode
+localparam [4:0]
+    AP_OEQ = 5'b00001,
+    AP_OGT = 5'b00010,
+    AP_OGE = 5'b00011,
+    AP_OLT = 5'b00100,
+    AP_OLE = 5'b00101,
+    AP_ONE = 5'b00110,
+    AP_UNO = 5'b01000;
+// FPV6 opcode
+localparam [7:0]
+    OP_EQ = 8'b00010100,
+    OP_GT = 8'b00100100,
+    OP_GE = 8'b00110100,
+    OP_LT = 8'b00001100,
+    OP_LE = 8'b00011100,
+    OP_NE = 8'b00101100,
+    OP_UO = 8'b00000100;
 //------------------------Local signal-------------------
-reg     [in0_WIDTH-1:0] dividend0;
-reg     [in1_WIDTH-1:0] divisor0;
-reg     [in0_WIDTH-1:0] dividend_tmp;
-reg     [in0_WIDTH-1:0] remd_tmp;
-wire    [in0_WIDTH-1:0] dividend_tmp_mux;
-wire    [in0_WIDTH-1:0] remd_tmp_mux;
-wire    [in0_WIDTH-1:0] comb_tmp;
-wire    [cal_WIDTH:0]   cal_tmp;
-
-//------------------------Body---------------------------
-assign  quot   = dividend_tmp;
-assign  remd   = remd_tmp;
-
-// dividend0, divisor0
-always @(posedge clk)
-begin
-    if (start) begin
-        dividend0 <= dividend;
-        divisor0  <= divisor;
-    end
-end
-
-// One-Hot Register
-// r_stage[0]=1:accept input; r_stage[in0_WIDTH]=1:done
-reg     [in0_WIDTH:0]     r_stage;
-assign done = r_stage[in0_WIDTH];
-always @(posedge clk)
-begin
-    if (reset == 1'b1)
-        r_stage[in0_WIDTH:0] <= {in0_WIDTH{1'b0}};
-    else if (ce)
-        r_stage[in0_WIDTH:0] <= {r_stage[in0_WIDTH-1:0], start};
-end
-
-// MUXs
-assign  dividend_tmp_mux = r_stage[0]? dividend0 : dividend_tmp;
-assign  remd_tmp_mux     = r_stage[0]? {in0_WIDTH{1'b0}} : remd_tmp;
-
-if (in0_WIDTH == 1) assign comb_tmp = dividend_tmp_mux[0];
-else                assign comb_tmp = {remd_tmp_mux[in0_WIDTH-2:0], dividend_tmp_mux[in0_WIDTH-1]};
-
-assign  cal_tmp  = {1'b0, comb_tmp} - {1'b0, divisor0};
-
-always @(posedge clk)
-begin
-    if (ce) begin
-        if (in0_WIDTH == 1) dividend_tmp <= ~cal_tmp[cal_WIDTH];
-        else           dividend_tmp <= {dividend_tmp_mux[in0_WIDTH-2:0], ~cal_tmp[cal_WIDTH]};
-        remd_tmp     <= cal_tmp[cal_WIDTH]? comb_tmp : cal_tmp[in0_WIDTH-1:0];
-    end
-end
-
-endmodule
-
-module face_classifier_csc4_div
-#(parameter
-        in0_WIDTH   = 32,
-        in1_WIDTH   = 32,
-        out_WIDTH   = 32
-)
-(
-        input                           clk,
-        input                           reset,
-        input                           ce,
-        input                           start,
-        output  reg                     done,
-        input           [in0_WIDTH-1:0] dividend,
-        input           [in1_WIDTH-1:0] divisor,
-        output  reg     [out_WIDTH-1:0] quot,
-        output  reg     [out_WIDTH-1:0] remd
-);
-//------------------------Local signal-------------------
-reg                       start0 = 'b0;
-wire                      done0;
-reg     [in0_WIDTH-1:0] dividend0;
-reg     [in1_WIDTH-1:0] divisor0;
-wire    [in0_WIDTH-1:0] dividend_u;
-wire    [in1_WIDTH-1:0] divisor_u;
-wire    [out_WIDTH-1:0] quot_u;
-wire    [out_WIDTH-1:0] remd_u;
+wire        a_tvalid;
+wire [31:0] a_tdata;
+wire        b_tvalid;
+wire [31:0] b_tdata;
+wire        op_tvalid;
+reg  [7:0]  op_tdata;
+wire        r_tvalid;
+wire [7:0]  r_tdata;
 //------------------------Instantiation------------------
-face_classifier_csc4_div_u #(
-    .in0_WIDTH      ( in0_WIDTH ),
-    .in1_WIDTH      ( in1_WIDTH ),
-    .out_WIDTH      ( out_WIDTH )
-) face_classifier_csc4_div_u_0 (
-    .clk      ( clk ),
-    .reset    ( reset ),
-    .ce       ( ce ),
-    .start    ( start0 ),
-    .done     ( done0 ),
-    .dividend ( dividend_u ),
-    .divisor  ( divisor_u ),
-    .quot     ( quot_u ),
-    .remd     ( remd_u )
+face_classifier_c_ap_fcmp_0_no_dsp_32 face_classifier_c_ap_fcmp_0_no_dsp_32_u (
+    .s_axis_a_tvalid         ( a_tvalid ),
+    .s_axis_a_tdata          ( a_tdata ),
+    .s_axis_b_tvalid         ( b_tvalid ),
+    .s_axis_b_tdata          ( b_tdata ),
+    .s_axis_operation_tvalid ( op_tvalid ),
+    .s_axis_operation_tdata  ( op_tdata ),
+    .m_axis_result_tvalid    ( r_tvalid ),
+    .m_axis_result_tdata     ( r_tdata )
 );
 //------------------------Body---------------------------
-assign dividend_u = dividend0;
-assign divisor_u = divisor0;
+assign a_tvalid  = 1'b1;
+assign a_tdata   = din0;
+assign b_tvalid  = 1'b1;
+assign b_tdata   = din1;
+assign op_tvalid = 1'b1;
+assign dout      = r_tdata[0];
 
-always @(posedge clk)
-begin
-    if (ce) begin
-        dividend0 <= dividend;
-        divisor0  <= divisor;
-        start0    <= start;
-    end
-end
-
-always @(posedge clk)
-begin
-    done <= done0;
-end
-
-always @(posedge clk)
-begin
-    if (done0) begin
-        quot <= quot_u;
-        remd <= remd_u;
-    end
+always @(*) begin
+    case (opcode)
+        AP_OEQ  : op_tdata = OP_EQ;
+        AP_OGT  : op_tdata = OP_GT;
+        AP_OGE  : op_tdata = OP_GE;
+        AP_OLT  : op_tdata = OP_LT;
+        AP_OLE  : op_tdata = OP_LE;
+        AP_ONE  : op_tdata = OP_NE;
+        AP_UNO  : op_tdata = OP_UO;
+        default : op_tdata = OP_EQ;
+    endcase
 end
 
 endmodule
-
-
-
-`timescale 1 ns / 1 ps
-module face_classifier_csc4(
-    clk,
-    reset,
-    ce,
-    start,
-    done,
-    din0,
-    din1,
-    dout);
-
-parameter ID = 32'd1;
-parameter NUM_STAGE = 32'd1;
-parameter din0_WIDTH = 32'd1;
-parameter din1_WIDTH = 32'd1;
-parameter dout_WIDTH = 32'd1;
-input clk;
-input reset;
-input ce;
-input start;
-output done;
-input[din0_WIDTH - 1:0] din0;
-input[din1_WIDTH - 1:0] din1;
-output[dout_WIDTH - 1:0] dout;
-
-wire[dout_WIDTH - 1:0] sig_remd;
-
-
-face_classifier_csc4_div #(
-.in0_WIDTH( din0_WIDTH ),
-.in1_WIDTH( din1_WIDTH ),
-.out_WIDTH( dout_WIDTH ))
-face_classifier_csc4_div_U(
-    .dividend( din0 ),
-    .divisor( din1 ),
-    .quot( dout ),
-    .remd( sig_remd ),
-    .clk( clk ),
-    .ce( ce ),
-    .reset( reset ),
-    .start( start ),
-    .done( done ));
-
-endmodule
-

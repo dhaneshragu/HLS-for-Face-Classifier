@@ -5,34 +5,56 @@
 // 
 // ==============================================================
 
+`timescale 1 ns / 1 ps
 
-`timescale 1ns/1ps
+module face_classifier_cocq_DSP48_2(
+    input  [16 - 1:0] in0,
+    input  [16 - 1:0] in1,
+    input  [19 - 1:0] in2,
+    output [31 - 1:0]  dout);
 
-module face_classifier_cocq
-#(parameter
-    ID         = 68,
-    NUM_STAGE  = 1,
-    din0_WIDTH = 64,
-    dout_WIDTH = 32
-)(
-    input  wire [din0_WIDTH-1:0] din0,
-    output wire [dout_WIDTH-1:0] dout
-);
-//------------------------Local signal-------------------
-wire        a_tvalid;
-wire [63:0] a_tdata;
-wire        r_tvalid;
-wire [31:0] r_tdata;
-//------------------------Instantiation------------------
-face_classifier_c_ap_fptrunc_0_no_dsp_64 face_classifier_c_ap_fptrunc_0_no_dsp_64_u (
-    .s_axis_a_tvalid      ( a_tvalid ),
-    .s_axis_a_tdata       ( a_tdata ),
-    .m_axis_result_tvalid ( r_tvalid ),
-    .m_axis_result_tdata  ( r_tdata )
-);
-//------------------------Body---------------------------
-assign a_tvalid = 1'b1;
-assign a_tdata  = din0;
-assign dout     = r_tdata;
+wire signed [25 - 1:0]     a;
+wire signed [18 - 1:0]     b;
+wire signed [48 - 1:0]     c;
+wire signed [43 - 1:0]     m;
+wire signed [48 - 1:0]     p;
+
+assign a  = $unsigned(in0);
+assign b  = $signed(in1);
+assign c  = $signed(in2);
+
+assign m  = a * b;
+assign p  = m + c;
+
+assign dout = p;
 
 endmodule
+
+`timescale 1 ns / 1 ps
+module face_classifier_cocq(
+    din0,
+    din1,
+    din2,
+    dout);
+
+parameter ID = 32'd1;
+parameter NUM_STAGE = 32'd1;
+parameter din0_WIDTH = 32'd1;
+parameter din1_WIDTH = 32'd1;
+parameter din2_WIDTH = 32'd1;
+parameter dout_WIDTH = 32'd1;
+input[din0_WIDTH - 1:0] din0;
+input[din1_WIDTH - 1:0] din1;
+input[din2_WIDTH - 1:0] din2;
+output[dout_WIDTH - 1:0] dout;
+
+
+
+face_classifier_cocq_DSP48_2 face_classifier_cocq_DSP48_2_U(
+    .in0( din0 ),
+    .in1( din1 ),
+    .in2( din2 ),
+    .dout( dout ));
+
+endmodule
+

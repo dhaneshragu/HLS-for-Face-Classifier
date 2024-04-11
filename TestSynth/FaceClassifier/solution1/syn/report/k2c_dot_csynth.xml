@@ -115,8 +115,8 @@
 <Resources>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>18</DSP48E>
-<FF>8399</FF>
-<LUT>6948</LUT>
+<FF>8338</FF>
+<LUT>6917</LUT>
 </Resources>
 <AvailableResources>
 <BRAM_18K>40</BRAM_18K>
@@ -201,7 +201,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -245,7 +245,7 @@
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -289,7 +289,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>19</Bits>
+<Bits>12</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
