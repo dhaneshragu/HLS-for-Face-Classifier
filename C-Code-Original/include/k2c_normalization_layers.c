@@ -24,8 +24,8 @@ https://github.com/f0uriest/keras2c
  * :param beta: tensor of beta (offset) values.
  * :param axis: axis to be normalized.
  */
-void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
-                    const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
+void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
+                    const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis) {
 
     size_t offset = 1;
