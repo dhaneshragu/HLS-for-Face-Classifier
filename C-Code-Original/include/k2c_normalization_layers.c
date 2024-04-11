@@ -27,7 +27,6 @@ https://github.com/f0uriest/keras2c
 void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
                     const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis) {
-#pragma HLS STREAM variable=inputs->array dim=1
 
 
     //size_t offset = 1;
