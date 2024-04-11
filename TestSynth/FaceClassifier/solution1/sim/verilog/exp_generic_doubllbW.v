@@ -9,7 +9,7 @@
 module exp_generic_doubllbW_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 42;
+parameter DWIDTH = 58;
 parameter AWIDTH = 8;
 parameter MEM_SIZE = 256;
 
@@ -47,7 +47,7 @@ module exp_generic_doubllbW(
     ce0,
     q0);
 
-parameter DataWidth = 32'd42;
+parameter DataWidth = 32'd58;
 parameter AddressRange = 32'd256;
 parameter AddressWidth = 32'd8;
 input reset;

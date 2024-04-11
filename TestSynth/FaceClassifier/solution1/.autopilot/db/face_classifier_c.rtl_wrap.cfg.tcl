@@ -4,7 +4,7 @@ set moduleIsExternC "0"
 set rawDecl ""
 set globalVariable ""
 set PortName2 "dropout_3_output"
-set BitWidth2 "9600448"
+set BitWidth2 "84352"
 set ArrayOpt2 ""
 set Const2 "0"
 set Volatile2 "0"
@@ -17,13 +17,13 @@ set Interface2 "wire"
 set NameSpace2 [list ]
 set structMem2 ""
 set PortName20 "array"
-set BitWidth20 "9600000"
+set BitWidth20 "83904"
 set ArrayOpt20 ""
 set Const20 "0"
 set Volatile20 "0"
 set Pointer20 "0"
 set Reference20 "0"
-set Dims20 [list  300000]
+set Dims20 [list  2622]
 set Interface20 "wire"
 set DataType20 "float"
 set Port20 [list $PortName20 $Interface20 $DataType20 $Pointer20 $Dims20 $Const20 $Volatile20 $ArrayOpt20]
@@ -68,11 +68,11 @@ set structParameter2 [list ]
 set structArgument2 [list ]
 set NameSpace2 [list ]
 set structIsPacked2 "0"
-set DataType2 [list "k2c_tensor" "struct k2c_tensor" $structMem2 0 0 $structParameter2 $structArgument2 $NameSpace2 $structIsPacked2]
+set DataType2 [list "k2c_tensor2" "struct k2c_tensor2" $structMem2 0 0 $structParameter2 $structArgument2 $NameSpace2 $structIsPacked2]
 set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2 $Initializer2 $External2 $NameSpace2]
 lappend globalVariable $Port2
 set PortName3 "dropout_2_output"
-set BitWidth3 "9600448"
+set BitWidth3 "84352"
 set ArrayOpt3 ""
 set Const3 "0"
 set Volatile3 "0"
@@ -85,13 +85,13 @@ set Interface3 "wire"
 set NameSpace3 [list ]
 set structMem3 ""
 set PortName30 "array"
-set BitWidth30 "9600000"
+set BitWidth30 "83904"
 set ArrayOpt30 ""
 set Const30 "0"
 set Volatile30 "0"
 set Pointer30 "0"
 set Reference30 "0"
-set Dims30 [list  300000]
+set Dims30 [list  2622]
 set Interface30 "wire"
 set DataType30 "float"
 set Port30 [list $PortName30 $Interface30 $DataType30 $Pointer30 $Dims30 $Const30 $Volatile30 $ArrayOpt30]
@@ -136,11 +136,11 @@ set structParameter3 [list ]
 set structArgument3 [list ]
 set NameSpace3 [list ]
 set structIsPacked3 "0"
-set DataType3 [list "k2c_tensor" "struct k2c_tensor" $structMem3 0 0 $structParameter3 $structArgument3 $NameSpace3 $structIsPacked3]
+set DataType3 [list "k2c_tensor2" "struct k2c_tensor2" $structMem3 0 0 $structParameter3 $structArgument3 $NameSpace3 $structIsPacked3]
 set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3 $Initializer3 $External3 $NameSpace3]
 lappend globalVariable $Port3
 set PortName4 "dense_output"
-set BitWidth4 "9600448"
+set BitWidth4 "84352"
 set ArrayOpt4 ""
 set Const4 "0"
 set Volatile4 "0"
@@ -153,13 +153,13 @@ set Interface4 "wire"
 set NameSpace4 [list ]
 set structMem4 ""
 set PortName40 "array"
-set BitWidth40 "9600000"
+set BitWidth40 "83904"
 set ArrayOpt40 ""
 set Const40 "0"
 set Volatile40 "0"
 set Pointer40 "0"
 set Reference40 "0"
-set Dims40 [list  300000]
+set Dims40 [list  2622]
 set Interface40 "wire"
 set DataType40 "float"
 set Port40 [list $PortName40 $Interface40 $DataType40 $Pointer40 $Dims40 $Const40 $Volatile40 $ArrayOpt40]
@@ -204,11 +204,11 @@ set structParameter4 [list ]
 set structArgument4 [list ]
 set NameSpace4 [list ]
 set structIsPacked4 "0"
-set DataType4 [list "k2c_tensor" "struct k2c_tensor" $structMem4 0 0 $structParameter4 $structArgument4 $NameSpace4 $structIsPacked4]
+set DataType4 [list "k2c_tensor2" "struct k2c_tensor2" $structMem4 0 0 $structParameter4 $structArgument4 $NameSpace4 $structIsPacked4]
 set Port4 [list $PortName4 $Interface4 $DataType4 $Pointer4 $Dims4 $Const4 $Volatile4 $ArrayOpt4 $Initializer4 $External4 $NameSpace4]
 lappend globalVariable $Port4
 set PortName5 "dense_kernel"
-set BitWidth5 "9600448"
+set BitWidth5 "8390848"
 set ArrayOpt5 ""
 set Const5 "0"
 set Volatile5 "0"
@@ -221,13 +221,13 @@ set Interface5 "wire"
 set NameSpace5 [list ]
 set structMem5 ""
 set PortName50 "array"
-set BitWidth50 "9600000"
+set BitWidth50 "8390400"
 set ArrayOpt50 ""
 set Const50 "0"
 set Volatile50 "0"
 set Pointer50 "0"
 set Reference50 "0"
-set Dims50 [list  300000]
+set Dims50 [list  262200]
 set Interface50 "wire"
 set DataType50 "float"
 set Port50 [list $PortName50 $Interface50 $DataType50 $Pointer50 $Dims50 $Const50 $Volatile50 $ArrayOpt50]
@@ -276,7 +276,7 @@ set DataType5 [list "k2c_tensor" "struct k2c_tensor" $structMem5 0 0 $structPara
 set Port5 [list $PortName5 $Interface5 $DataType5 $Pointer5 $Dims5 $Const5 $Volatile5 $ArrayOpt5 $Initializer5 $External5 $NameSpace5]
 lappend globalVariable $Port5
 set PortName6 "dense_bias"
-set BitWidth6 "9600448"
+set BitWidth6 "84352"
 set ArrayOpt6 ""
 set Const6 "0"
 set Volatile6 "0"
@@ -289,13 +289,13 @@ set Interface6 "wire"
 set NameSpace6 [list ]
 set structMem6 ""
 set PortName60 "array"
-set BitWidth60 "9600000"
+set BitWidth60 "83904"
 set ArrayOpt60 ""
 set Const60 "0"
 set Volatile60 "0"
 set Pointer60 "0"
 set Reference60 "0"
-set Dims60 [list  300000]
+set Dims60 [list  2622]
 set Interface60 "wire"
 set DataType60 "float"
 set Port60 [list $PortName60 $Interface60 $DataType60 $Pointer60 $Dims60 $Const60 $Volatile60 $ArrayOpt60]
@@ -340,11 +340,11 @@ set structParameter6 [list ]
 set structArgument6 [list ]
 set NameSpace6 [list ]
 set structIsPacked6 "0"
-set DataType6 [list "k2c_tensor" "struct k2c_tensor" $structMem6 0 0 $structParameter6 $structArgument6 $NameSpace6 $structIsPacked6]
+set DataType6 [list "k2c_tensor2" "struct k2c_tensor2" $structMem6 0 0 $structParameter6 $structArgument6 $NameSpace6 $structIsPacked6]
 set Port6 [list $PortName6 $Interface6 $DataType6 $Pointer6 $Dims6 $Const6 $Volatile6 $ArrayOpt6 $Initializer6 $External6 $NameSpace6]
 lappend globalVariable $Port6
 set PortName7 "dense_2_output"
-set BitWidth7 "9600448"
+set BitWidth7 "84352"
 set ArrayOpt7 ""
 set Const7 "0"
 set Volatile7 "0"
@@ -357,13 +357,13 @@ set Interface7 "wire"
 set NameSpace7 [list ]
 set structMem7 ""
 set PortName70 "array"
-set BitWidth70 "9600000"
+set BitWidth70 "83904"
 set ArrayOpt70 ""
 set Const70 "0"
 set Volatile70 "0"
 set Pointer70 "0"
 set Reference70 "0"
-set Dims70 [list  300000]
+set Dims70 [list  2622]
 set Interface70 "wire"
 set DataType70 "float"
 set Port70 [list $PortName70 $Interface70 $DataType70 $Pointer70 $Dims70 $Const70 $Volatile70 $ArrayOpt70]
@@ -408,11 +408,11 @@ set structParameter7 [list ]
 set structArgument7 [list ]
 set NameSpace7 [list ]
 set structIsPacked7 "0"
-set DataType7 [list "k2c_tensor" "struct k2c_tensor" $structMem7 0 0 $structParameter7 $structArgument7 $NameSpace7 $structIsPacked7]
+set DataType7 [list "k2c_tensor2" "struct k2c_tensor2" $structMem7 0 0 $structParameter7 $structArgument7 $NameSpace7 $structIsPacked7]
 set Port7 [list $PortName7 $Interface7 $DataType7 $Pointer7 $Dims7 $Const7 $Volatile7 $ArrayOpt7 $Initializer7 $External7 $NameSpace7]
 lappend globalVariable $Port7
 set PortName8 "dense_2_kernel"
-set BitWidth8 "9600448"
+set BitWidth8 "84352"
 set ArrayOpt8 ""
 set Const8 "0"
 set Volatile8 "0"
@@ -425,13 +425,13 @@ set Interface8 "wire"
 set NameSpace8 [list ]
 set structMem8 ""
 set PortName80 "array"
-set BitWidth80 "9600000"
+set BitWidth80 "83904"
 set ArrayOpt80 ""
 set Const80 "0"
 set Volatile80 "0"
 set Pointer80 "0"
 set Reference80 "0"
-set Dims80 [list  300000]
+set Dims80 [list  2622]
 set Interface80 "wire"
 set DataType80 "float"
 set Port80 [list $PortName80 $Interface80 $DataType80 $Pointer80 $Dims80 $Const80 $Volatile80 $ArrayOpt80]
@@ -476,11 +476,11 @@ set structParameter8 [list ]
 set structArgument8 [list ]
 set NameSpace8 [list ]
 set structIsPacked8 "0"
-set DataType8 [list "k2c_tensor" "struct k2c_tensor" $structMem8 0 0 $structParameter8 $structArgument8 $NameSpace8 $structIsPacked8]
+set DataType8 [list "k2c_tensor2" "struct k2c_tensor2" $structMem8 0 0 $structParameter8 $structArgument8 $NameSpace8 $structIsPacked8]
 set Port8 [list $PortName8 $Interface8 $DataType8 $Pointer8 $Dims8 $Const8 $Volatile8 $ArrayOpt8 $Initializer8 $External8 $NameSpace8]
 lappend globalVariable $Port8
 set PortName9 "dense_2_bias"
-set BitWidth9 "9600448"
+set BitWidth9 "84352"
 set ArrayOpt9 ""
 set Const9 "0"
 set Volatile9 "0"
@@ -493,13 +493,13 @@ set Interface9 "wire"
 set NameSpace9 [list ]
 set structMem9 ""
 set PortName90 "array"
-set BitWidth90 "9600000"
+set BitWidth90 "83904"
 set ArrayOpt90 ""
 set Const90 "0"
 set Volatile90 "0"
 set Pointer90 "0"
 set Reference90 "0"
-set Dims90 [list  300000]
+set Dims90 [list  2622]
 set Interface90 "wire"
 set DataType90 "float"
 set Port90 [list $PortName90 $Interface90 $DataType90 $Pointer90 $Dims90 $Const90 $Volatile90 $ArrayOpt90]
@@ -544,11 +544,11 @@ set structParameter9 [list ]
 set structArgument9 [list ]
 set NameSpace9 [list ]
 set structIsPacked9 "0"
-set DataType9 [list "k2c_tensor" "struct k2c_tensor" $structMem9 0 0 $structParameter9 $structArgument9 $NameSpace9 $structIsPacked9]
+set DataType9 [list "k2c_tensor2" "struct k2c_tensor2" $structMem9 0 0 $structParameter9 $structArgument9 $NameSpace9 $structIsPacked9]
 set Port9 [list $PortName9 $Interface9 $DataType9 $Pointer9 $Dims9 $Const9 $Volatile9 $ArrayOpt9 $Initializer9 $External9 $NameSpace9]
 lappend globalVariable $Port9
 set PortName10 "dense_1_output"
-set BitWidth10 "9600448"
+set BitWidth10 "84352"
 set ArrayOpt10 ""
 set Const10 "0"
 set Volatile10 "0"
@@ -561,13 +561,13 @@ set Interface10 "wire"
 set NameSpace10 [list ]
 set structMem10 ""
 set PortName100 "array"
-set BitWidth100 "9600000"
+set BitWidth100 "83904"
 set ArrayOpt100 ""
 set Const100 "0"
 set Volatile100 "0"
 set Pointer100 "0"
 set Reference100 "0"
-set Dims100 [list  300000]
+set Dims100 [list  2622]
 set Interface100 "wire"
 set DataType100 "float"
 set Port100 [list $PortName100 $Interface100 $DataType100 $Pointer100 $Dims100 $Const100 $Volatile100 $ArrayOpt100]
@@ -612,11 +612,11 @@ set structParameter10 [list ]
 set structArgument10 [list ]
 set NameSpace10 [list ]
 set structIsPacked10 "0"
-set DataType10 [list "k2c_tensor" "struct k2c_tensor" $structMem10 0 0 $structParameter10 $structArgument10 $NameSpace10 $structIsPacked10]
+set DataType10 [list "k2c_tensor2" "struct k2c_tensor2" $structMem10 0 0 $structParameter10 $structArgument10 $NameSpace10 $structIsPacked10]
 set Port10 [list $PortName10 $Interface10 $DataType10 $Pointer10 $Dims10 $Const10 $Volatile10 $ArrayOpt10 $Initializer10 $External10 $NameSpace10]
 lappend globalVariable $Port10
 set PortName11 "dense_1_kernel"
-set BitWidth11 "9600448"
+set BitWidth11 "8390848"
 set ArrayOpt11 ""
 set Const11 "0"
 set Volatile11 "0"
@@ -629,13 +629,13 @@ set Interface11 "wire"
 set NameSpace11 [list ]
 set structMem11 ""
 set PortName110 "array"
-set BitWidth110 "9600000"
+set BitWidth110 "8390400"
 set ArrayOpt110 ""
 set Const110 "0"
 set Volatile110 "0"
 set Pointer110 "0"
 set Reference110 "0"
-set Dims110 [list  300000]
+set Dims110 [list  262200]
 set Interface110 "wire"
 set DataType110 "float"
 set Port110 [list $PortName110 $Interface110 $DataType110 $Pointer110 $Dims110 $Const110 $Volatile110 $ArrayOpt110]
@@ -684,7 +684,7 @@ set DataType11 [list "k2c_tensor" "struct k2c_tensor" $structMem11 0 0 $structPa
 set Port11 [list $PortName11 $Interface11 $DataType11 $Pointer11 $Dims11 $Const11 $Volatile11 $ArrayOpt11 $Initializer11 $External11 $NameSpace11]
 lappend globalVariable $Port11
 set PortName12 "dense_1_bias"
-set BitWidth12 "9600448"
+set BitWidth12 "84352"
 set ArrayOpt12 ""
 set Const12 "0"
 set Volatile12 "0"
@@ -697,13 +697,13 @@ set Interface12 "wire"
 set NameSpace12 [list ]
 set structMem12 ""
 set PortName120 "array"
-set BitWidth120 "9600000"
+set BitWidth120 "83904"
 set ArrayOpt120 ""
 set Const120 "0"
 set Volatile120 "0"
 set Pointer120 "0"
 set Reference120 "0"
-set Dims120 [list  300000]
+set Dims120 [list  2622]
 set Interface120 "wire"
 set DataType120 "float"
 set Port120 [list $PortName120 $Interface120 $DataType120 $Pointer120 $Dims120 $Const120 $Volatile120 $ArrayOpt120]
@@ -748,11 +748,11 @@ set structParameter12 [list ]
 set structArgument12 [list ]
 set NameSpace12 [list ]
 set structIsPacked12 "0"
-set DataType12 [list "k2c_tensor" "struct k2c_tensor" $structMem12 0 0 $structParameter12 $structArgument12 $NameSpace12 $structIsPacked12]
+set DataType12 [list "k2c_tensor2" "struct k2c_tensor2" $structMem12 0 0 $structParameter12 $structArgument12 $NameSpace12 $structIsPacked12]
 set Port12 [list $PortName12 $Interface12 $DataType12 $Pointer12 $Dims12 $Const12 $Volatile12 $ArrayOpt12 $Initializer12 $External12 $NameSpace12]
 lappend globalVariable $Port12
 set PortName13 "batch_normalization_stdev"
-set BitWidth13 "9600448"
+set BitWidth13 "84352"
 set ArrayOpt13 ""
 set Const13 "0"
 set Volatile13 "0"
@@ -765,13 +765,13 @@ set Interface13 "wire"
 set NameSpace13 [list ]
 set structMem13 ""
 set PortName130 "array"
-set BitWidth130 "9600000"
+set BitWidth130 "83904"
 set ArrayOpt130 ""
 set Const130 "0"
 set Volatile130 "0"
 set Pointer130 "0"
 set Reference130 "0"
-set Dims130 [list  300000]
+set Dims130 [list  2622]
 set Interface130 "wire"
 set DataType130 "float"
 set Port130 [list $PortName130 $Interface130 $DataType130 $Pointer130 $Dims130 $Const130 $Volatile130 $ArrayOpt130]
@@ -816,11 +816,11 @@ set structParameter13 [list ]
 set structArgument13 [list ]
 set NameSpace13 [list ]
 set structIsPacked13 "0"
-set DataType13 [list "k2c_tensor" "struct k2c_tensor" $structMem13 0 0 $structParameter13 $structArgument13 $NameSpace13 $structIsPacked13]
+set DataType13 [list "k2c_tensor2" "struct k2c_tensor2" $structMem13 0 0 $structParameter13 $structArgument13 $NameSpace13 $structIsPacked13]
 set Port13 [list $PortName13 $Interface13 $DataType13 $Pointer13 $Dims13 $Const13 $Volatile13 $ArrayOpt13 $Initializer13 $External13 $NameSpace13]
 lappend globalVariable $Port13
 set PortName14 "batch_normalization_output"
-set BitWidth14 "9600448"
+set BitWidth14 "84352"
 set ArrayOpt14 ""
 set Const14 "0"
 set Volatile14 "0"
@@ -833,13 +833,13 @@ set Interface14 "wire"
 set NameSpace14 [list ]
 set structMem14 ""
 set PortName140 "array"
-set BitWidth140 "9600000"
+set BitWidth140 "83904"
 set ArrayOpt140 ""
 set Const140 "0"
 set Volatile140 "0"
 set Pointer140 "0"
 set Reference140 "0"
-set Dims140 [list  300000]
+set Dims140 [list  2622]
 set Interface140 "wire"
 set DataType140 "float"
 set Port140 [list $PortName140 $Interface140 $DataType140 $Pointer140 $Dims140 $Const140 $Volatile140 $ArrayOpt140]
@@ -884,11 +884,11 @@ set structParameter14 [list ]
 set structArgument14 [list ]
 set NameSpace14 [list ]
 set structIsPacked14 "0"
-set DataType14 [list "k2c_tensor" "struct k2c_tensor" $structMem14 0 0 $structParameter14 $structArgument14 $NameSpace14 $structIsPacked14]
+set DataType14 [list "k2c_tensor2" "struct k2c_tensor2" $structMem14 0 0 $structParameter14 $structArgument14 $NameSpace14 $structIsPacked14]
 set Port14 [list $PortName14 $Interface14 $DataType14 $Pointer14 $Dims14 $Const14 $Volatile14 $ArrayOpt14 $Initializer14 $External14 $NameSpace14]
 lappend globalVariable $Port14
 set PortName15 "batch_normalization_mean"
-set BitWidth15 "9600448"
+set BitWidth15 "84352"
 set ArrayOpt15 ""
 set Const15 "0"
 set Volatile15 "0"
@@ -901,13 +901,13 @@ set Interface15 "wire"
 set NameSpace15 [list ]
 set structMem15 ""
 set PortName150 "array"
-set BitWidth150 "9600000"
+set BitWidth150 "83904"
 set ArrayOpt150 ""
 set Const150 "0"
 set Volatile150 "0"
 set Pointer150 "0"
 set Reference150 "0"
-set Dims150 [list  300000]
+set Dims150 [list  2622]
 set Interface150 "wire"
 set DataType150 "float"
 set Port150 [list $PortName150 $Interface150 $DataType150 $Pointer150 $Dims150 $Const150 $Volatile150 $ArrayOpt150]
@@ -952,11 +952,11 @@ set structParameter15 [list ]
 set structArgument15 [list ]
 set NameSpace15 [list ]
 set structIsPacked15 "0"
-set DataType15 [list "k2c_tensor" "struct k2c_tensor" $structMem15 0 0 $structParameter15 $structArgument15 $NameSpace15 $structIsPacked15]
+set DataType15 [list "k2c_tensor2" "struct k2c_tensor2" $structMem15 0 0 $structParameter15 $structArgument15 $NameSpace15 $structIsPacked15]
 set Port15 [list $PortName15 $Interface15 $DataType15 $Pointer15 $Dims15 $Const15 $Volatile15 $ArrayOpt15 $Initializer15 $External15 $NameSpace15]
 lappend globalVariable $Port15
 set PortName16 "batch_normalization_gamma"
-set BitWidth16 "9600448"
+set BitWidth16 "84352"
 set ArrayOpt16 ""
 set Const16 "0"
 set Volatile16 "0"
@@ -969,13 +969,13 @@ set Interface16 "wire"
 set NameSpace16 [list ]
 set structMem16 ""
 set PortName160 "array"
-set BitWidth160 "9600000"
+set BitWidth160 "83904"
 set ArrayOpt160 ""
 set Const160 "0"
 set Volatile160 "0"
 set Pointer160 "0"
 set Reference160 "0"
-set Dims160 [list  300000]
+set Dims160 [list  2622]
 set Interface160 "wire"
 set DataType160 "float"
 set Port160 [list $PortName160 $Interface160 $DataType160 $Pointer160 $Dims160 $Const160 $Volatile160 $ArrayOpt160]
@@ -1020,11 +1020,11 @@ set structParameter16 [list ]
 set structArgument16 [list ]
 set NameSpace16 [list ]
 set structIsPacked16 "0"
-set DataType16 [list "k2c_tensor" "struct k2c_tensor" $structMem16 0 0 $structParameter16 $structArgument16 $NameSpace16 $structIsPacked16]
+set DataType16 [list "k2c_tensor2" "struct k2c_tensor2" $structMem16 0 0 $structParameter16 $structArgument16 $NameSpace16 $structIsPacked16]
 set Port16 [list $PortName16 $Interface16 $DataType16 $Pointer16 $Dims16 $Const16 $Volatile16 $ArrayOpt16 $Initializer16 $External16 $NameSpace16]
 lappend globalVariable $Port16
 set PortName17 "batch_normalization_beta"
-set BitWidth17 "9600448"
+set BitWidth17 "84352"
 set ArrayOpt17 ""
 set Const17 "0"
 set Volatile17 "0"
@@ -1037,13 +1037,13 @@ set Interface17 "wire"
 set NameSpace17 [list ]
 set structMem17 ""
 set PortName170 "array"
-set BitWidth170 "9600000"
+set BitWidth170 "83904"
 set ArrayOpt170 ""
 set Const170 "0"
 set Volatile170 "0"
 set Pointer170 "0"
 set Reference170 "0"
-set Dims170 [list  300000]
+set Dims170 [list  2622]
 set Interface170 "wire"
 set DataType170 "float"
 set Port170 [list $PortName170 $Interface170 $DataType170 $Pointer170 $Dims170 $Const170 $Volatile170 $ArrayOpt170]
@@ -1088,11 +1088,11 @@ set structParameter17 [list ]
 set structArgument17 [list ]
 set NameSpace17 [list ]
 set structIsPacked17 "0"
-set DataType17 [list "k2c_tensor" "struct k2c_tensor" $structMem17 0 0 $structParameter17 $structArgument17 $NameSpace17 $structIsPacked17]
+set DataType17 [list "k2c_tensor2" "struct k2c_tensor2" $structMem17 0 0 $structParameter17 $structArgument17 $NameSpace17 $structIsPacked17]
 set Port17 [list $PortName17 $Interface17 $DataType17 $Pointer17 $Dims17 $Const17 $Volatile17 $ArrayOpt17 $Initializer17 $External17 $NameSpace17]
 lappend globalVariable $Port17
 set PortName18 "batch_normalization_1_stdev"
-set BitWidth18 "9600448"
+set BitWidth18 "84352"
 set ArrayOpt18 ""
 set Const18 "0"
 set Volatile18 "0"
@@ -1105,13 +1105,13 @@ set Interface18 "wire"
 set NameSpace18 [list ]
 set structMem18 ""
 set PortName180 "array"
-set BitWidth180 "9600000"
+set BitWidth180 "83904"
 set ArrayOpt180 ""
 set Const180 "0"
 set Volatile180 "0"
 set Pointer180 "0"
 set Reference180 "0"
-set Dims180 [list  300000]
+set Dims180 [list  2622]
 set Interface180 "wire"
 set DataType180 "float"
 set Port180 [list $PortName180 $Interface180 $DataType180 $Pointer180 $Dims180 $Const180 $Volatile180 $ArrayOpt180]
@@ -1156,11 +1156,11 @@ set structParameter18 [list ]
 set structArgument18 [list ]
 set NameSpace18 [list ]
 set structIsPacked18 "0"
-set DataType18 [list "k2c_tensor" "struct k2c_tensor" $structMem18 0 0 $structParameter18 $structArgument18 $NameSpace18 $structIsPacked18]
+set DataType18 [list "k2c_tensor2" "struct k2c_tensor2" $structMem18 0 0 $structParameter18 $structArgument18 $NameSpace18 $structIsPacked18]
 set Port18 [list $PortName18 $Interface18 $DataType18 $Pointer18 $Dims18 $Const18 $Volatile18 $ArrayOpt18 $Initializer18 $External18 $NameSpace18]
 lappend globalVariable $Port18
 set PortName19 "batch_normalization_1_output"
-set BitWidth19 "9600448"
+set BitWidth19 "84352"
 set ArrayOpt19 ""
 set Const19 "0"
 set Volatile19 "0"
@@ -1173,13 +1173,13 @@ set Interface19 "wire"
 set NameSpace19 [list ]
 set structMem19 ""
 set PortName190 "array"
-set BitWidth190 "9600000"
+set BitWidth190 "83904"
 set ArrayOpt190 ""
 set Const190 "0"
 set Volatile190 "0"
 set Pointer190 "0"
 set Reference190 "0"
-set Dims190 [list  300000]
+set Dims190 [list  2622]
 set Interface190 "wire"
 set DataType190 "float"
 set Port190 [list $PortName190 $Interface190 $DataType190 $Pointer190 $Dims190 $Const190 $Volatile190 $ArrayOpt190]
@@ -1224,11 +1224,11 @@ set structParameter19 [list ]
 set structArgument19 [list ]
 set NameSpace19 [list ]
 set structIsPacked19 "0"
-set DataType19 [list "k2c_tensor" "struct k2c_tensor" $structMem19 0 0 $structParameter19 $structArgument19 $NameSpace19 $structIsPacked19]
+set DataType19 [list "k2c_tensor2" "struct k2c_tensor2" $structMem19 0 0 $structParameter19 $structArgument19 $NameSpace19 $structIsPacked19]
 set Port19 [list $PortName19 $Interface19 $DataType19 $Pointer19 $Dims19 $Const19 $Volatile19 $ArrayOpt19 $Initializer19 $External19 $NameSpace19]
 lappend globalVariable $Port19
 set PortName20 "batch_normalization_1_mean"
-set BitWidth20 "9600448"
+set BitWidth20 "84352"
 set ArrayOpt20 ""
 set Const20 "0"
 set Volatile20 "0"
@@ -1241,13 +1241,13 @@ set Interface20 "wire"
 set NameSpace20 [list ]
 set structMem20 ""
 set PortName200 "array"
-set BitWidth200 "9600000"
+set BitWidth200 "83904"
 set ArrayOpt200 ""
 set Const200 "0"
 set Volatile200 "0"
 set Pointer200 "0"
 set Reference200 "0"
-set Dims200 [list  300000]
+set Dims200 [list  2622]
 set Interface200 "wire"
 set DataType200 "float"
 set Port200 [list $PortName200 $Interface200 $DataType200 $Pointer200 $Dims200 $Const200 $Volatile200 $ArrayOpt200]
@@ -1292,11 +1292,11 @@ set structParameter20 [list ]
 set structArgument20 [list ]
 set NameSpace20 [list ]
 set structIsPacked20 "0"
-set DataType20 [list "k2c_tensor" "struct k2c_tensor" $structMem20 0 0 $structParameter20 $structArgument20 $NameSpace20 $structIsPacked20]
+set DataType20 [list "k2c_tensor2" "struct k2c_tensor2" $structMem20 0 0 $structParameter20 $structArgument20 $NameSpace20 $structIsPacked20]
 set Port20 [list $PortName20 $Interface20 $DataType20 $Pointer20 $Dims20 $Const20 $Volatile20 $ArrayOpt20 $Initializer20 $External20 $NameSpace20]
 lappend globalVariable $Port20
 set PortName21 "batch_normalization_1_gamma"
-set BitWidth21 "9600448"
+set BitWidth21 "84352"
 set ArrayOpt21 ""
 set Const21 "0"
 set Volatile21 "0"
@@ -1309,13 +1309,13 @@ set Interface21 "wire"
 set NameSpace21 [list ]
 set structMem21 ""
 set PortName210 "array"
-set BitWidth210 "9600000"
+set BitWidth210 "83904"
 set ArrayOpt210 ""
 set Const210 "0"
 set Volatile210 "0"
 set Pointer210 "0"
 set Reference210 "0"
-set Dims210 [list  300000]
+set Dims210 [list  2622]
 set Interface210 "wire"
 set DataType210 "float"
 set Port210 [list $PortName210 $Interface210 $DataType210 $Pointer210 $Dims210 $Const210 $Volatile210 $ArrayOpt210]
@@ -1360,11 +1360,11 @@ set structParameter21 [list ]
 set structArgument21 [list ]
 set NameSpace21 [list ]
 set structIsPacked21 "0"
-set DataType21 [list "k2c_tensor" "struct k2c_tensor" $structMem21 0 0 $structParameter21 $structArgument21 $NameSpace21 $structIsPacked21]
+set DataType21 [list "k2c_tensor2" "struct k2c_tensor2" $structMem21 0 0 $structParameter21 $structArgument21 $NameSpace21 $structIsPacked21]
 set Port21 [list $PortName21 $Interface21 $DataType21 $Pointer21 $Dims21 $Const21 $Volatile21 $ArrayOpt21 $Initializer21 $External21 $NameSpace21]
 lappend globalVariable $Port21
 set PortName22 "batch_normalization_1_beta"
-set BitWidth22 "9600448"
+set BitWidth22 "84352"
 set ArrayOpt22 ""
 set Const22 "0"
 set Volatile22 "0"
@@ -1377,13 +1377,13 @@ set Interface22 "wire"
 set NameSpace22 [list ]
 set structMem22 ""
 set PortName220 "array"
-set BitWidth220 "9600000"
+set BitWidth220 "83904"
 set ArrayOpt220 ""
 set Const220 "0"
 set Volatile220 "0"
 set Pointer220 "0"
 set Reference220 "0"
-set Dims220 [list  300000]
+set Dims220 [list  2622]
 set Interface220 "wire"
 set DataType220 "float"
 set Port220 [list $PortName220 $Interface220 $DataType220 $Pointer220 $Dims220 $Const220 $Volatile220 $ArrayOpt220]
@@ -1428,11 +1428,11 @@ set structParameter22 [list ]
 set structArgument22 [list ]
 set NameSpace22 [list ]
 set structIsPacked22 "0"
-set DataType22 [list "k2c_tensor" "struct k2c_tensor" $structMem22 0 0 $structParameter22 $structArgument22 $NameSpace22 $structIsPacked22]
+set DataType22 [list "k2c_tensor2" "struct k2c_tensor2" $structMem22 0 0 $structParameter22 $structArgument22 $NameSpace22 $structIsPacked22]
 set Port22 [list $PortName22 $Interface22 $DataType22 $Pointer22 $Dims22 $Const22 $Volatile22 $ArrayOpt22 $Initializer22 $External22 $NameSpace22]
 lappend globalVariable $Port22
 set PortName23 "activation_2_output"
-set BitWidth23 "9600448"
+set BitWidth23 "84352"
 set ArrayOpt23 ""
 set Const23 "0"
 set Volatile23 "0"
@@ -1445,13 +1445,13 @@ set Interface23 "wire"
 set NameSpace23 [list ]
 set structMem23 ""
 set PortName230 "array"
-set BitWidth230 "9600000"
+set BitWidth230 "83904"
 set ArrayOpt230 ""
 set Const230 "0"
 set Volatile230 "0"
 set Pointer230 "0"
 set Reference230 "0"
-set Dims230 [list  300000]
+set Dims230 [list  2622]
 set Interface230 "wire"
 set DataType230 "float"
 set Port230 [list $PortName230 $Interface230 $DataType230 $Pointer230 $Dims230 $Const230 $Volatile230 $ArrayOpt230]
@@ -1496,11 +1496,11 @@ set structParameter23 [list ]
 set structArgument23 [list ]
 set NameSpace23 [list ]
 set structIsPacked23 "0"
-set DataType23 [list "k2c_tensor" "struct k2c_tensor" $structMem23 0 0 $structParameter23 $structArgument23 $NameSpace23 $structIsPacked23]
+set DataType23 [list "k2c_tensor2" "struct k2c_tensor2" $structMem23 0 0 $structParameter23 $structArgument23 $NameSpace23 $structIsPacked23]
 set Port23 [list $PortName23 $Interface23 $DataType23 $Pointer23 $Dims23 $Const23 $Volatile23 $ArrayOpt23 $Initializer23 $External23 $NameSpace23]
 lappend globalVariable $Port23
 set PortName24 "activation_1_output"
-set BitWidth24 "9600448"
+set BitWidth24 "84352"
 set ArrayOpt24 ""
 set Const24 "0"
 set Volatile24 "0"
@@ -1513,13 +1513,13 @@ set Interface24 "wire"
 set NameSpace24 [list ]
 set structMem24 ""
 set PortName240 "array"
-set BitWidth240 "9600000"
+set BitWidth240 "83904"
 set ArrayOpt240 ""
 set Const240 "0"
 set Volatile240 "0"
 set Pointer240 "0"
 set Reference240 "0"
-set Dims240 [list  300000]
+set Dims240 [list  2622]
 set Interface240 "wire"
 set DataType240 "float"
 set Port240 [list $PortName240 $Interface240 $DataType240 $Pointer240 $Dims240 $Const240 $Volatile240 $ArrayOpt240]
@@ -1564,12 +1564,12 @@ set structParameter24 [list ]
 set structArgument24 [list ]
 set NameSpace24 [list ]
 set structIsPacked24 "0"
-set DataType24 [list "k2c_tensor" "struct k2c_tensor" $structMem24 0 0 $structParameter24 $structArgument24 $NameSpace24 $structIsPacked24]
+set DataType24 [list "k2c_tensor2" "struct k2c_tensor2" $structMem24 0 0 $structParameter24 $structArgument24 $NameSpace24 $structIsPacked24]
 set Port24 [list $PortName24 $Interface24 $DataType24 $Pointer24 $Dims24 $Const24 $Volatile24 $ArrayOpt24 $Initializer24 $External24 $NameSpace24]
 lappend globalVariable $Port24
 set PortList ""
 set PortName0 "dense_input_input"
-set BitWidth0 "9600448"
+set BitWidth0 "84352"
 set ArrayOpt0 ""
 set Const0 "1"
 set Volatile0 "0"
@@ -1579,13 +1579,13 @@ set Dims0 [list 0]
 set Interface0 "wire"
 set structMem0 ""
 set PortName00 "array"
-set BitWidth00 "9600000"
+set BitWidth00 "83904"
 set ArrayOpt00 ""
 set Const00 "0"
 set Volatile00 "0"
 set Pointer00 "0"
 set Reference00 "0"
-set Dims00 [list  300000]
+set Dims00 [list  2622]
 set Interface00 "wire"
 set DataType00 "float"
 set Port00 [list $PortName00 $Interface00 $DataType00 $Pointer00 $Dims00 $Const00 $Volatile00 $ArrayOpt00]
@@ -1630,7 +1630,7 @@ set structParameter0 [list ]
 set structArgument0 [list ]
 set NameSpace0 [list ]
 set structIsPacked0 "0"
-set DataType0 [list "k2c_tensor" "struct k2c_tensor" $structMem0 0 0 $structParameter0 $structArgument0 $NameSpace0 $structIsPacked0]
+set DataType0 [list "k2c_tensor2" "struct k2c_tensor2" $structMem0 0 0 $structParameter0 $structArgument0 $NameSpace0 $structIsPacked0]
 set Port0 [list $PortName0 $Interface0 $DataType0 $Pointer0 $Dims0 $Const0 $Volatile0 $ArrayOpt0]
 lappend PortList $Port0
 set PortName1 "activation_3_output"
@@ -1644,13 +1644,13 @@ set Dims1 [list 0]
 set Interface1 "wire"
 set structMem1 ""
 set PortName10 "array"
-set BitWidth10 "9600000"
+set BitWidth10 "83904"
 set ArrayOpt10 ""
 set Const10 "0"
 set Volatile10 "0"
 set Pointer10 "0"
 set Reference10 "0"
-set Dims10 [list  300000]
+set Dims10 [list  2622]
 set Interface10 "wire"
 set DataType10 "float"
 set Port10 [list $PortName10 $Interface10 $DataType10 $Pointer10 $Dims10 $Const10 $Volatile10 $ArrayOpt10]
@@ -1695,7 +1695,7 @@ set structParameter1 [list ]
 set structArgument1 [list ]
 set NameSpace1 [list ]
 set structIsPacked1 "0"
-set DataType1 [list "k2c_tensor" "struct k2c_tensor" $structMem1 0 0 $structParameter1 $structArgument1 $NameSpace1 $structIsPacked1]
+set DataType1 [list "k2c_tensor2" "struct k2c_tensor2" $structMem1 0 0 $structParameter1 $structArgument1 $NameSpace1 $structIsPacked1]
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
 set globalAPint "" 

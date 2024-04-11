@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'k2c_dot_1'" level="0">
-<item name = "Date">Wed Apr 10 13:49:41 2024
+<item name = "Date">Thu Apr 11 22:30:49 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -36,18 +36,18 @@
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">?, ?, 1, -, -, ?, no</column>
-<column name="- Loop 2">?, ?, 1, -, -, ?, no</column>
+<column name="- Loop 2">2, 2, 1, -, -, 2, no</column>
 <column name="- Loop 3">?, ?, 2, -, -, ?, no</column>
 <column name="- Loop 4">?, ?, 1, -, -, ?, no</column>
-<column name="- Loop 5">?, ?, 2, -, -, ?, no</column>
+<column name="- Loop 5">2, 2, 2, -, -, 1, no</column>
 <column name="- Loop 6">?, ?, 3, -, -, ?, no</column>
-<column name="- Loop 7">?, ?, 3, -, -, ?, no</column>
+<column name="- Loop 7">6, 6, 3, -, -, 2, no</column>
 <column name="- Loop 8">?, ?, ?, -, -, ?, no</column>
 <column name=" + Loop 8.1">?, ?, 69, -, -, ?, no</column>
 <column name=" + Loop 8.2">?, ?, 3, -, -, ?, no</column>
-<column name="- Loop 9">?, ?, ?, -, -, ?, no</column>
-<column name=" + Loop 9.1">?, ?, 69, -, -, ?, no</column>
-<column name=" + Loop 9.2">?, ?, 3, -, -, ?, no</column>
+<column name="- Loop 9">?, ?, ?, -, -, 262200, no</column>
+<column name=" + Loop 9.1">138, 138, 69, -, -, 2, no</column>
+<column name=" + Loop 9.2">6, 6, 3, -, -, 2, no</column>
 <column name="- Loop 10">?, ?, ?, -, -, ?, no</column>
 <column name=" + Loop 10.1">?, ?, ?, -, -, ?, no</column>
 <column name="  ++ Loop 10.1.1">?, ?, 2, -, -, ?, no</column>

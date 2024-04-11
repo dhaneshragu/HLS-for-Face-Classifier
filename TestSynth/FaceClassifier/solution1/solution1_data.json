@@ -12,9 +12,7 @@
     "Package": "csg325",
     "Speed": "-1q"
   },
-  "HlsSolution": {
-    
-  },
+  "HlsSolution": {"Directives": ["pipeline k2c_dense\/k2c_dense_label0 {} {}"]},
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "100",
@@ -36,59 +34,63 @@
   },
   "Files": {
     "CSource": [
-      "..\/..\/..\/C-Code-Original\/face_classifier_c.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_activations.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_convolution_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_core_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_embedding_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_helper_functions.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_merge_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_normalization_layers.c",
+      "..\/..\/..\/C-Code-Original\/include\/k2c_recurrent_layers.c",
       "..\/..\/..\/C-Code-Original\/include\/k2c_pooling_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_recurrent_layers.c"
+      "..\/..\/..\/C-Code-Original\/include\/k2c_normalization_layers.c",
+      "..\/..\/..\/C-Code-Original\/include\/k2c_merge_layers.c",
+      "..\/..\/..\/C-Code-Original\/include\/k2c_helper_functions.c",
+      "..\/..\/..\/C-Code-Original\/include\/k2c_embedding_layers.c",
+      "..\/..\/..\/C-Code-Original\/include\/k2c_core_layers.c",
+      "..\/..\/..\/C-Code-Original\/include\/k2c_convolution_layers.c",
+      "..\/..\/..\/C-Code-Original\/include\/k2c_activations.c",
+      "..\/..\/..\/C-Code-Original\/face_classifier_c.c"
     ],
     "Vhdl": [
       "impl\/vhdl\/exp_generic_double_s.vhd",
-      "impl\/vhdl\/exp_generic_doubljbC.vhd",
-      "impl\/vhdl\/exp_generic_doublkbM.vhd",
       "impl\/vhdl\/exp_generic_doubllbW.vhd",
-      "impl\/vhdl\/face_classifier_c1iI.vhd",
+      "impl\/vhdl\/exp_generic_doublmb6.vhd",
+      "impl\/vhdl\/exp_generic_doublncg.vhd",
+      "impl\/vhdl\/face_classifier_c0iy.vhd",
       "impl\/vhdl\/face_classifier_c3i2.vhd",
-      "impl\/vhdl\/face_classifier_c4jc.vhd",
       "impl\/vhdl\/face_classifier_c5jm.vhd",
-      "impl\/vhdl\/face_classifier_c6jw.vhd",
+      "impl\/vhdl\/face_classifier_c7jG.vhd",
       "impl\/vhdl\/face_classifier_c8jQ.vhd",
+      "impl\/vhdl\/face_classifier_c9j0.vhd",
+      "impl\/vhdl\/face_classifier_cAem.vhd",
+      "impl\/vhdl\/face_classifier_cbak.vhd",
       "impl\/vhdl\/face_classifier_cbck.vhd",
-      "impl\/vhdl\/face_classifier_cbdk.vhd",
       "impl\/vhdl\/face_classifier_cBew.vhd",
-      "impl\/vhdl\/face_classifier_cbil.vhd",
-      "impl\/vhdl\/face_classifier_cbjl.vhd",
+      "impl\/vhdl\/face_classifier_cbgk.vhd",
+      "impl\/vhdl\/face_classifier_cbhl.vhd",
       "impl\/vhdl\/face_classifier_cbkb.vhd",
-      "impl\/vhdl\/face_classifier_cbkl.vhd",
-      "impl\/vhdl\/face_classifier_cbll.vhd",
       "impl\/vhdl\/face_classifier_cbml.vhd",
+      "impl\/vhdl\/face_classifier_cbnm.vhd",
+      "impl\/vhdl\/face_classifier_cbom.vhd",
+      "impl\/vhdl\/face_classifier_cbpm.vhd",
+      "impl\/vhdl\/face_classifier_cbqm.vhd",
       "impl\/vhdl\/face_classifier_cCeG.vhd",
       "impl\/vhdl\/face_classifier_ccud.vhd",
       "impl\/vhdl\/face_classifier_cdEe.vhd",
-      "impl\/vhdl\/face_classifier_cEe0.vhd",
+      "impl\/vhdl\/face_classifier_cDeQ.vhd",
       "impl\/vhdl\/face_classifier_ceOg.vhd",
+      "impl\/vhdl\/face_classifier_cFfa.vhd",
       "impl\/vhdl\/face_classifier_cfYi.vhd",
       "impl\/vhdl\/face_classifier_cg8j.vhd",
       "impl\/vhdl\/face_classifier_cGfk.vhd",
       "impl\/vhdl\/face_classifier_chbi.vhd",
       "impl\/vhdl\/face_classifier_cibs.vhd",
       "impl\/vhdl\/face_classifier_cIfE.vhd",
-      "impl\/vhdl\/face_classifier_cLf8.vhd",
-      "impl\/vhdl\/face_classifier_cmb6.vhd",
-      "impl\/vhdl\/face_classifier_cncg.vhd",
-      "impl\/vhdl\/face_classifier_cNgs.vhd",
+      "impl\/vhdl\/face_classifier_cjbC.vhd",
+      "impl\/vhdl\/face_classifier_ckbM.vhd",
+      "impl\/vhdl\/face_classifier_cKfY.vhd",
+      "impl\/vhdl\/face_classifier_cMgi.vhd",
       "impl\/vhdl\/face_classifier_cocq.vhd",
       "impl\/vhdl\/face_classifier_cpcA.vhd",
+      "impl\/vhdl\/face_classifier_cPgM.vhd",
       "impl\/vhdl\/face_classifier_cqcK.vhd",
-      "impl\/vhdl\/face_classifier_cQgW.vhd",
       "impl\/vhdl\/face_classifier_crcU.vhd",
+      "impl\/vhdl\/face_classifier_cRg6.vhd",
       "impl\/vhdl\/face_classifier_csc4.vhd",
-      "impl\/vhdl\/face_classifier_cShg.vhd",
       "impl\/vhdl\/face_classifier_ctde.vhd",
       "impl\/vhdl\/face_classifier_cudo.vhd",
       "impl\/vhdl\/face_classifier_cUhA.vhd",
@@ -97,61 +99,68 @@
       "impl\/vhdl\/face_classifier_cWhU.vhd",
       "impl\/vhdl\/face_classifier_cxdS.vhd",
       "impl\/vhdl\/face_classifier_cyd2.vhd",
+      "impl\/vhdl\/face_classifier_cYie.vhd",
       "impl\/vhdl\/face_classifier_czec.vhd",
-      "impl\/vhdl\/face_classifier_cZio.vhd",
       "impl\/vhdl\/generic_tanh_float_s.vhd",
       "impl\/vhdl\/k2c_batch_norm.vhd",
       "impl\/vhdl\/k2c_dense.vhd",
+      "impl\/vhdl\/k2c_dense2.vhd",
       "impl\/vhdl\/k2c_dense_1.vhd",
-      "impl\/vhdl\/k2c_dense_2.vhd",
       "impl\/vhdl\/k2c_dot.vhd",
+      "impl\/vhdl\/k2c_dot2.vhd",
       "impl\/vhdl\/k2c_dot_1.vhd",
-      "impl\/vhdl\/k2c_dot_2.vhd",
-      "impl\/vhdl\/k2c_dot_2_permA.vhd",
-      "impl\/vhdl\/k2c_dot_2_permB.vhd",
+      "impl\/vhdl\/k2c_dot_1_permA.vhd",
+      "impl\/vhdl\/k2c_dot_1_permB.vhd",
       "impl\/vhdl\/k2c_sub2idx.vhd",
       "impl\/vhdl\/face_classifier_c.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/exp_generic_double_s.v",
-      "impl\/verilog\/exp_generic_doubljbC.v",
-      "impl\/verilog\/exp_generic_doubljbC_rom.dat",
-      "impl\/verilog\/exp_generic_doublkbM.v",
-      "impl\/verilog\/exp_generic_doublkbM_rom.dat",
       "impl\/verilog\/exp_generic_doubllbW.v",
       "impl\/verilog\/exp_generic_doubllbW_rom.dat",
-      "impl\/verilog\/face_classifier_c1iI.v",
-      "impl\/verilog\/face_classifier_c1iI_rom.dat",
+      "impl\/verilog\/exp_generic_doublmb6.v",
+      "impl\/verilog\/exp_generic_doublmb6_rom.dat",
+      "impl\/verilog\/exp_generic_doublncg.v",
+      "impl\/verilog\/exp_generic_doublncg_rom.dat",
+      "impl\/verilog\/face_classifier_c0iy.v",
+      "impl\/verilog\/face_classifier_c0iy_rom.dat",
       "impl\/verilog\/face_classifier_c3i2.v",
-      "impl\/verilog\/face_classifier_c3i2_ram.dat",
-      "impl\/verilog\/face_classifier_c4jc.v",
-      "impl\/verilog\/face_classifier_c4jc_ram.dat",
+      "impl\/verilog\/face_classifier_c3i2_rom.dat",
       "impl\/verilog\/face_classifier_c5jm.v",
-      "impl\/verilog\/face_classifier_c5jm_ram.dat",
-      "impl\/verilog\/face_classifier_c6jw.v",
-      "impl\/verilog\/face_classifier_c6jw_ram.dat",
+      "impl\/verilog\/face_classifier_c5jm_rom.dat",
+      "impl\/verilog\/face_classifier_c7jG.v",
+      "impl\/verilog\/face_classifier_c7jG_ram.dat",
       "impl\/verilog\/face_classifier_c8jQ.v",
       "impl\/verilog\/face_classifier_c8jQ_ram.dat",
+      "impl\/verilog\/face_classifier_c9j0.v",
+      "impl\/verilog\/face_classifier_c9j0_ram.dat",
+      "impl\/verilog\/face_classifier_cAem.v",
+      "impl\/verilog\/face_classifier_cAem_ram.dat",
+      "impl\/verilog\/face_classifier_cbak.v",
+      "impl\/verilog\/face_classifier_cbak_ram.dat",
       "impl\/verilog\/face_classifier_cbck.v",
       "impl\/verilog\/face_classifier_cbck_ram.dat",
-      "impl\/verilog\/face_classifier_cbdk.v",
-      "impl\/verilog\/face_classifier_cbdk_ram.dat",
       "impl\/verilog\/face_classifier_cBew.v",
-      "impl\/verilog\/face_classifier_cBew_ram.dat",
-      "impl\/verilog\/face_classifier_cbil.v",
-      "impl\/verilog\/face_classifier_cbil_ram.dat",
-      "impl\/verilog\/face_classifier_cbjl.v",
+      "impl\/verilog\/face_classifier_cBew_rom.dat",
+      "impl\/verilog\/face_classifier_cbgk.v",
+      "impl\/verilog\/face_classifier_cbgk_ram.dat",
+      "impl\/verilog\/face_classifier_cbhl.v",
+      "impl\/verilog\/face_classifier_cbhl_ram.dat",
       "impl\/verilog\/face_classifier_cbkb.v",
-      "impl\/verilog\/face_classifier_cbkl.v",
-      "impl\/verilog\/face_classifier_cbll.v",
       "impl\/verilog\/face_classifier_cbml.v",
+      "impl\/verilog\/face_classifier_cbml_ram.dat",
+      "impl\/verilog\/face_classifier_cbnm.v",
+      "impl\/verilog\/face_classifier_cbom.v",
+      "impl\/verilog\/face_classifier_cbpm.v",
+      "impl\/verilog\/face_classifier_cbqm.v",
       "impl\/verilog\/face_classifier_cCeG.v",
-      "impl\/verilog\/face_classifier_cCeG_rom.dat",
       "impl\/verilog\/face_classifier_ccud.v",
       "impl\/verilog\/face_classifier_cdEe.v",
-      "impl\/verilog\/face_classifier_cEe0.v",
-      "impl\/verilog\/face_classifier_cEe0_rom.dat",
+      "impl\/verilog\/face_classifier_cDeQ.v",
+      "impl\/verilog\/face_classifier_cDeQ_rom.dat",
       "impl\/verilog\/face_classifier_ceOg.v",
+      "impl\/verilog\/face_classifier_cFfa.v",
+      "impl\/verilog\/face_classifier_cFfa_ram.dat",
       "impl\/verilog\/face_classifier_cfYi.v",
       "impl\/verilog\/face_classifier_cg8j.v",
       "impl\/verilog\/face_classifier_cGfk.v",
@@ -160,47 +169,44 @@
       "impl\/verilog\/face_classifier_cibs.v",
       "impl\/verilog\/face_classifier_cIfE.v",
       "impl\/verilog\/face_classifier_cIfE_rom.dat",
-      "impl\/verilog\/face_classifier_cLf8.v",
-      "impl\/verilog\/face_classifier_cLf8_rom.dat",
-      "impl\/verilog\/face_classifier_cmb6.v",
-      "impl\/verilog\/face_classifier_cncg.v",
-      "impl\/verilog\/face_classifier_cNgs.v",
-      "impl\/verilog\/face_classifier_cNgs_rom.dat",
+      "impl\/verilog\/face_classifier_cjbC.v",
+      "impl\/verilog\/face_classifier_ckbM.v",
+      "impl\/verilog\/face_classifier_cKfY.v",
+      "impl\/verilog\/face_classifier_cKfY_rom.dat",
+      "impl\/verilog\/face_classifier_cMgi.v",
+      "impl\/verilog\/face_classifier_cMgi_rom.dat",
       "impl\/verilog\/face_classifier_cocq.v",
       "impl\/verilog\/face_classifier_cpcA.v",
+      "impl\/verilog\/face_classifier_cPgM.v",
+      "impl\/verilog\/face_classifier_cPgM_rom.dat",
       "impl\/verilog\/face_classifier_cqcK.v",
-      "impl\/verilog\/face_classifier_cQgW.v",
-      "impl\/verilog\/face_classifier_cQgW_rom.dat",
       "impl\/verilog\/face_classifier_crcU.v",
+      "impl\/verilog\/face_classifier_cRg6.v",
+      "impl\/verilog\/face_classifier_cRg6_rom.dat",
       "impl\/verilog\/face_classifier_csc4.v",
-      "impl\/verilog\/face_classifier_cShg.v",
-      "impl\/verilog\/face_classifier_cShg_rom.dat",
       "impl\/verilog\/face_classifier_ctde.v",
       "impl\/verilog\/face_classifier_cudo.v",
       "impl\/verilog\/face_classifier_cUhA.v",
       "impl\/verilog\/face_classifier_cUhA_rom.dat",
       "impl\/verilog\/face_classifier_cvdy.v",
       "impl\/verilog\/face_classifier_cwdI.v",
-      "impl\/verilog\/face_classifier_cwdI_ram.dat",
       "impl\/verilog\/face_classifier_cWhU.v",
       "impl\/verilog\/face_classifier_cWhU_rom.dat",
       "impl\/verilog\/face_classifier_cxdS.v",
-      "impl\/verilog\/face_classifier_cxdS_rom.dat",
       "impl\/verilog\/face_classifier_cyd2.v",
+      "impl\/verilog\/face_classifier_cYie.v",
+      "impl\/verilog\/face_classifier_cYie_rom.dat",
       "impl\/verilog\/face_classifier_czec.v",
-      "impl\/verilog\/face_classifier_czec_rom.dat",
-      "impl\/verilog\/face_classifier_cZio.v",
-      "impl\/verilog\/face_classifier_cZio_rom.dat",
       "impl\/verilog\/generic_tanh_float_s.v",
       "impl\/verilog\/k2c_batch_norm.v",
       "impl\/verilog\/k2c_dense.v",
+      "impl\/verilog\/k2c_dense2.v",
       "impl\/verilog\/k2c_dense_1.v",
-      "impl\/verilog\/k2c_dense_2.v",
       "impl\/verilog\/k2c_dot.v",
+      "impl\/verilog\/k2c_dot2.v",
       "impl\/verilog\/k2c_dot_1.v",
-      "impl\/verilog\/k2c_dot_2.v",
-      "impl\/verilog\/k2c_dot_2_permA.v",
-      "impl\/verilog\/k2c_dot_2_permB.v",
+      "impl\/verilog\/k2c_dot_1_permA.v",
+      "impl\/verilog\/k2c_dot_1_permB.v",
       "impl\/verilog\/k2c_sub2idx.v",
       "impl\/verilog\/face_classifier_c.v"
     ],
@@ -278,10 +284,10 @@
     "activation_3_output_array_address0": {
       "type": "data",
       "dir": "out",
-      "width": "19",
+      "width": "12",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "19"
+          "Width": "12"
         }}
     },
     "activation_3_output_array_d0": {
@@ -352,10 +358,10 @@
     "dense_input_input_array_address0": {
       "type": "data",
       "dir": "out",
-      "width": "19",
+      "width": "12",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "19"
+          "Width": "12"
         }}
     },
     "dense_input_input_array_q0": {
@@ -431,7 +437,7 @@
     },
     "dense_input_input_array_address0": {
       "dir": "out",
-      "width": "19"
+      "width": "12"
     },
     "dense_input_input_array_ce0": {
       "dir": "out",
@@ -463,7 +469,7 @@
     },
     "activation_3_output_array_address0": {
       "dir": "out",
-      "width": "19"
+      "width": "12"
     },
     "activation_3_output_array_ce0": {
       "dir": "out",
@@ -520,7 +526,7 @@
       "dir": "in",
       "dataWidth": "32",
       "busTypeRef": "ap_memory",
-      "arraySize": "300000",
+      "arraySize": "2622",
       "handshakeRef": "ap_none"
     },
     "dense_input_input_ndim": {
@@ -548,7 +554,7 @@
       "dir": "out",
       "dataWidth": "32",
       "busTypeRef": "ap_memory",
-      "arraySize": "300000",
+      "arraySize": "2622",
       "handshakeRef": "ap_none"
     },
     "activation_3_output_ndim": {
@@ -580,10 +586,10 @@
       "Instances": [
         {
           "ModuleName": "k2c_dense_1",
-          "InstanceName": "grp_k2c_dense_1_fu_1840",
+          "InstanceName": "grp_k2c_dense_1_fu_1850",
           "Instances": [{
-              "ModuleName": "k2c_dot_1",
-              "InstanceName": "grp_k2c_dot_1_fu_259",
+              "ModuleName": "k2c_dot",
+              "InstanceName": "grp_k2c_dot_fu_289",
               "Instances": [{
                   "ModuleName": "k2c_sub2idx",
                   "InstanceName": "grp_k2c_sub2idx_fu_676"
@@ -591,23 +597,23 @@
             }]
         },
         {
-          "ModuleName": "k2c_dense_2",
-          "InstanceName": "grp_k2c_dense_2_fu_1863",
+          "ModuleName": "k2c_dense2",
+          "InstanceName": "grp_k2c_dense2_fu_1873",
           "Instances": [{
-              "ModuleName": "k2c_dot",
-              "InstanceName": "grp_k2c_dot_fu_259",
+              "ModuleName": "k2c_dot2",
+              "InstanceName": "grp_k2c_dot2_fu_203",
               "Instances": [{
                   "ModuleName": "k2c_sub2idx",
-                  "InstanceName": "grp_k2c_sub2idx_fu_676"
+                  "InstanceName": "grp_k2c_sub2idx_fu_643"
                 }]
             }]
         },
         {
           "ModuleName": "k2c_dense",
-          "InstanceName": "grp_k2c_dense_fu_1886",
+          "InstanceName": "grp_k2c_dense_fu_1902",
           "Instances": [{
-              "ModuleName": "k2c_dot_2",
-              "InstanceName": "grp_k2c_dot_2_fu_240",
+              "ModuleName": "k2c_dot_1",
+              "InstanceName": "grp_k2c_dot_1_fu_270",
               "Instances": [{
                   "ModuleName": "k2c_sub2idx",
                   "InstanceName": "grp_k2c_sub2idx_fu_679"
@@ -616,7 +622,7 @@
         },
         {
           "ModuleName": "generic_tanh_float_s",
-          "InstanceName": "grp_generic_tanh_float_s_fu_1905",
+          "InstanceName": "grp_generic_tanh_float_s_fu_1921",
           "Instances": [{
               "ModuleName": "exp_generic_double_s",
               "InstanceName": "grp_exp_generic_double_s_fu_89"
@@ -624,7 +630,7 @@
         },
         {
           "ModuleName": "k2c_batch_norm",
-          "InstanceName": "grp_k2c_batch_norm_fu_1920"
+          "InstanceName": "grp_k2c_batch_norm_fu_1936"
         }
       ]
     },
@@ -664,7 +670,7 @@
           "BRAM_18K": "0"
         }
       },
-      "k2c_dot_2": {
+      "k2c_dot_1": {
         "Latency": {
           "LatencyBest": "",
           "LatencyAvg": "",
@@ -799,8 +805,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "18",
-          "FF": "7863",
-          "LUT": "6741"
+          "FF": "7862",
+          "LUT": "6722"
         }
       },
       "k2c_dense": {
@@ -825,18 +831,11 @@
             "PipelineII": "",
             "PipelineDepth": "",
             "Loops": [{
-                "Name": "Loop 1.1",
+                "Name": "k2c_dense_label0",
                 "TripCount": "",
                 "Latency": "",
-                "PipelineII": "",
-                "PipelineDepth": "",
-                "Loops": [{
-                    "Name": "Loop 1.1.1",
-                    "TripCount": "",
-                    "Latency": "",
-                    "PipelineII": "",
-                    "PipelineDepth": "2"
-                  }]
+                "PipelineII": "1",
+                "PipelineDepth": "2"
               }]
           },
           {
@@ -856,9 +855,9 @@
         ],
         "Area": {
           "BRAM_18K": "0",
-          "DSP48E": "26",
-          "FF": "9007",
-          "LUT": "8470"
+          "DSP48E": "36",
+          "FF": "9236",
+          "LUT": "8760"
         }
       },
       "k2c_batch_norm": {
@@ -888,13 +887,13 @@
             "TripCount": "",
             "Latency": "",
             "PipelineII": "",
-            "PipelineDepth": "94"
+            "PipelineDepth": "87"
           }
         ],
         "Area": {
           "DSP48E": "15",
-          "FF": "2530",
-          "LUT": "3315",
+          "FF": "2502",
+          "LUT": "3272",
           "BRAM_18K": "0"
         }
       },
@@ -1075,11 +1074,11 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "18",
-          "FF": "8399",
-          "LUT": "6948"
+          "FF": "8338",
+          "LUT": "6917"
         }
       },
-      "k2c_dense_2": {
+      "k2c_dense_1": {
         "Latency": {
           "LatencyBest": "",
           "LatencyAvg": "",
@@ -1101,18 +1100,11 @@
             "PipelineII": "",
             "PipelineDepth": "",
             "Loops": [{
-                "Name": "Loop 1.1",
+                "Name": "k2c_dense_label0",
                 "TripCount": "",
                 "Latency": "",
-                "PipelineII": "",
-                "PipelineDepth": "",
-                "Loops": [{
-                    "Name": "Loop 1.1.1",
-                    "TripCount": "",
-                    "Latency": "",
-                    "PipelineII": "",
-                    "PipelineDepth": "2"
-                  }]
+                "PipelineII": "1",
+                "PipelineDepth": "2"
               }]
           },
           {
@@ -1132,12 +1124,12 @@
         ],
         "Area": {
           "BRAM_18K": "0",
-          "DSP48E": "26",
-          "FF": "9738",
-          "LUT": "8837"
+          "DSP48E": "36",
+          "FF": "9893",
+          "LUT": "9108"
         }
       },
-      "k2c_dot_1": {
+      "k2c_dot2": {
         "Latency": {
           "LatencyBest": "",
           "LatencyAvg": "",
@@ -1272,11 +1264,11 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "17",
-          "FF": "8379",
-          "LUT": "6978"
+          "FF": "8483",
+          "LUT": "6795"
         }
       },
-      "k2c_dense_1": {
+      "k2c_dense2": {
         "Latency": {
           "LatencyBest": "",
           "LatencyAvg": "",
@@ -1330,8 +1322,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "25",
-          "FF": "9718",
-          "LUT": "8867"
+          "FF": "9754",
+          "LUT": "8600"
         }
       },
       "face_classifier_c": {
@@ -1528,8 +1520,8 @@
             "Name": "Loop 26",
             "TripCount": "",
             "LatencyMin": "0",
-            "LatencyMax": "524287",
-            "Latency": "0 ~ 524287",
+            "LatencyMax": "4095",
+            "Latency": "0 ~ 4095",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
@@ -1544,15 +1536,15 @@
             "Name": "Loop 28",
             "TripCount": "",
             "LatencyMin": "0",
-            "LatencyMax": "524287",
-            "Latency": "0 ~ 524287",
+            "LatencyMax": "4095",
+            "Latency": "0 ~ 4095",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "Loop 29",
-            "TripCount": "",
-            "Latency": "",
+            "TripCount": "10",
+            "Latency": "16",
             "PipelineII": "1",
             "PipelineDepth": "8"
           },
@@ -1565,10 +1557,8 @@
           },
           {
             "Name": "Loop 31",
-            "TripCount": "",
-            "LatencyMin": "0",
-            "LatencyMax": "524287",
-            "Latency": "0 ~ 524287",
+            "TripCount": "10",
+            "Latency": "10",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
@@ -1581,10 +1571,8 @@
           },
           {
             "Name": "Loop 33",
-            "TripCount": "",
-            "LatencyMin": "0",
-            "LatencyMax": "524287",
-            "Latency": "0 ~ 524287",
+            "TripCount": "10",
+            "Latency": "10",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
@@ -1625,10 +1613,10 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "25642",
-          "DSP48E": "152",
-          "FF": "36242",
-          "LUT": "45448"
+          "BRAM_18K": "4306",
+          "DSP48E": "172",
+          "FF": "36501",
+          "LUT": "45579"
         }
       }
     }
@@ -1640,7 +1628,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2024-04-10 13:50:25 +0530",
+    "Time": "2024-04-11 22:32:26 +0530",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

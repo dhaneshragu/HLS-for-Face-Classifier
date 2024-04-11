@@ -5,45 +5,91 @@
 -- 
 -- ==============================================================
 
---
 library ieee; 
 use ieee.std_logic_1164.all; 
 use ieee.std_logic_unsigned.all;
 
-entity face_classifier_c3i2_ram is 
+entity face_classifier_c3i2_rom is 
     generic(
-            MEM_TYPE    : string := "block"; 
-            DWIDTH     : integer := 64; 
-            AWIDTH     : integer := 3; 
-            MEM_SIZE    : integer := 5
+             DWIDTH     : integer := 32; 
+             AWIDTH     : integer := 6; 
+             MEM_SIZE    : integer := 60
     ); 
     port (
-          addr0     : in std_logic_vector(AWIDTH-1 downto 0); 
+          addr0      : in std_logic_vector(AWIDTH-1 downto 0); 
           ce0       : in std_logic; 
-          d0        : in std_logic_vector(DWIDTH-1 downto 0); 
-          we0       : in std_logic; 
-          q0        : out std_logic_vector(DWIDTH-1 downto 0);
-          addr1     : in std_logic_vector(AWIDTH-1 downto 0); 
-          ce1       : in std_logic; 
-          d1        : in std_logic_vector(DWIDTH-1 downto 0); 
-          we1       : in std_logic; 
-          q1        : out std_logic_vector(DWIDTH-1 downto 0);
-          clk        : in std_logic 
+          q0         : out std_logic_vector(DWIDTH-1 downto 0);
+          clk       : in std_logic
     ); 
 end entity; 
 
 
-architecture rtl of face_classifier_c3i2_ram is 
+architecture rtl of face_classifier_c3i2_rom is 
 
 signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
-signal addr1_tmp : std_logic_vector(AWIDTH-1 downto 0); 
 type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
-shared variable ram : mem_array := (others=>(others=>'0'));
+signal mem : mem_array := (
+    0 => "10111100111100000100111000101011", 
+    1 => "00111111010110000101111011101101", 
+    2 => "10111111010100011110111010000111", 
+    3 => "10111110000010101000001011000001", 
+    4 => "10111110000110110001100100111101", 
+    5 => "10111111010100101110101001000001", 
+    6 => "10111111001100010001011100010110", 
+    7 => "00111101101110110100010000011111", 
+    8 => "10111111001100100001110110100000", 
+    9 => "10111101100100000001100110001110", 
+    10 => "10111111000110011110011111011111", 
+    11 => "00111110110010110111111110011000", 
+    12 => "00111111001100101100001100111011", 
+    13 => "10111110010010110001100010000100", 
+    14 => "10111111000101100101000011111010", 
+    15 => "10111110001110100100101111100011", 
+    16 => "00111111001111101000110010001110", 
+    17 => "00111111010111100101001101101010", 
+    18 => "10111110001110110101110001010111", 
+    19 => "10111111010011010010110000100111", 
+    20 => "00111110111110111010110001111110", 
+    21 => "00111111001000011110110110000000", 
+    22 => "00111111010110011011001110000011", 
+    23 => "10111110000100011111001100010100", 
+    24 => "10111111011001111100011101010101", 
+    25 => "10111111010000101001000001010000", 
+    26 => "10111111001011100100100110001010", 
+    27 => "00111111010100101000100001110111", 
+    28 => "00111101111110011010010010111101", 
+    29 => "10111110100110010101100100011001", 
+    30 => "10111111010110000011101100001011", 
+    31 => "10111111000110001000101110011110", 
+    32 => "00111110111000010011101011000001", 
+    33 => "10111111011010000010000111101100", 
+    34 => "10111101001001000010011110111101", 
+    35 => "10111111000100001110010110111000", 
+    36 => "00111110111000001000110000010000", 
+    37 => "00111101011110110000000000001100", 
+    38 => "10111110101111000101000111110100", 
+    39 => "00111101000111100011110111010011", 
+    40 => "10111110101000000111100000001111", 
+    41 => "00111110101010000101101010011011", 
+    42 => "00111110001011000001111110100001", 
+    43 => "00111111010111010010000100100110", 
+    44 => "00111110100111001100000000010001", 
+    45 => "10111110110100101001010110100011", 
+    46 => "00111111010101110011010001010010", 
+    47 => "10111111001000010011111001111101", 
+    48 => "10111111001110101110100010010101", 
+    49 => "10111110010011000111100000011111", 
+    50 => "00111111000011110111010000110000", 
+    51 => "00111111010010001000101110000111", 
+    52 => "10111111010000000101001111010011", 
+    53 => "00111110000001000110111100111000", 
+    54 => "10111111000001001010111001100111", 
+    55 => "00111101110011010111001101110100", 
+    56 => "00111110100011001011101011101010", 
+    57 => "10111110111000101010010001001011", 
+    58 => "10111110110101110111010100110001", 
+    59 => "00111111010110100100000101100101" );
 
-attribute syn_ramstyle : string; 
-attribute syn_ramstyle of ram : variable is "block_ram";
-attribute ram_style : string;
-attribute ram_style of ram : variable is MEM_TYPE;
 
 begin 
 
@@ -60,42 +106,14 @@ begin
 --synthesis translate_on
 end process;
 
-p_memory_access_0: process (clk)  
+p_rom_access: process (clk)  
 begin 
     if (clk'event and clk = '1') then
         if (ce0 = '1') then 
-            if (we0 = '1') then 
-                ram(CONV_INTEGER(addr0_tmp)) := d0; 
-            end if;
-            q0 <= ram(CONV_INTEGER(addr0_tmp)); 
+            q0 <= mem(CONV_INTEGER(addr0_tmp)); 
         end if;
     end if;
 end process;
-
-memory_access_guard_1: process (addr1) 
-begin
-      addr1_tmp <= addr1;
---synthesis translate_off
-      if (CONV_INTEGER(addr1) > mem_size-1) then
-           addr1_tmp <= (others => '0');
-      else 
-           addr1_tmp <= addr1;
-      end if;
---synthesis translate_on
-end process;
-
-p_memory_access_1: process (clk)  
-begin 
-    if (clk'event and clk = '1') then
-        if (ce1 = '1') then 
-            if (we1 = '1') then 
-                ram(CONV_INTEGER(addr1_tmp)) := d1; 
-            end if;
-            q1 <= ram(CONV_INTEGER(addr1_tmp)); 
-        end if;
-    end if;
-end process;
-
 
 end rtl;
 
@@ -105,56 +123,35 @@ use IEEE.std_logic_1164.all;
 
 entity face_classifier_c3i2 is
     generic (
-        DataWidth : INTEGER := 64;
-        AddressRange : INTEGER := 5;
-        AddressWidth : INTEGER := 3);
+        DataWidth : INTEGER := 32;
+        AddressRange : INTEGER := 60;
+        AddressWidth : INTEGER := 6);
     port (
         reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;
         address0 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
         ce0 : IN STD_LOGIC;
-        we0 : IN STD_LOGIC;
-        d0 : IN STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address1 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce1 : IN STD_LOGIC;
-        we1 : IN STD_LOGIC;
-        d1 : IN STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        q1 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
+        q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
 end entity;
 
 architecture arch of face_classifier_c3i2 is
-    component face_classifier_c3i2_ram is
+    component face_classifier_c3i2_rom is
         port (
             clk : IN STD_LOGIC;
             addr0 : IN STD_LOGIC_VECTOR;
             ce0 : IN STD_LOGIC;
-            we0 : IN STD_LOGIC;
-            d0 : IN STD_LOGIC_VECTOR;
-            q0 : OUT STD_LOGIC_VECTOR;
-            addr1 : IN STD_LOGIC_VECTOR;
-            ce1 : IN STD_LOGIC;
-            we1 : IN STD_LOGIC;
-            d1 : IN STD_LOGIC_VECTOR;
-            q1 : OUT STD_LOGIC_VECTOR);
+            q0 : OUT STD_LOGIC_VECTOR);
     end component;
 
 
 
 begin
-    face_classifier_c3i2_ram_U :  component face_classifier_c3i2_ram
+    face_classifier_c3i2_rom_U :  component face_classifier_c3i2_rom
     port map (
         clk => clk,
         addr0 => address0,
         ce0 => ce0,
-        we0 => we0,
-        d0 => d0,
-        q0 => q0,
-        addr1 => address1,
-        ce1 => ce1,
-        we1 => we1,
-        d1 => d1,
-        q1 => q1);
+        q0 => q0);
 
 end architecture;
 

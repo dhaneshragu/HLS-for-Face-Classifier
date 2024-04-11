@@ -620,7 +620,7 @@
 					<Obj>
 						<type>0</type>
 						<id>16</id>
-						<name>tmp_30</name>
+						<name>tmp_54</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>69</lineNumber>
@@ -713,7 +713,7 @@
 					<Obj>
 						<type>0</type>
 						<id>19</id>
-						<name>tmp_31</name>
+						<name>tmp_55</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>70</lineNumber>
@@ -759,7 +759,7 @@
 					<Obj>
 						<type>0</type>
 						<id>20</id>
-						<name>tmp_32</name>
+						<name>tmp_56</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>70</lineNumber>
@@ -898,7 +898,7 @@
 					<Obj>
 						<type>0</type>
 						<id>24</id>
-						<name>tmp_17</name>
+						<name>tmp_18</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>75</lineNumber>
@@ -991,7 +991,7 @@
 					<Obj>
 						<type>0</type>
 						<id>27</id>
-						<name>tmp_34</name>
+						<name>tmp_58</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>78</lineNumber>
@@ -1037,7 +1037,7 @@
 					<Obj>
 						<type>0</type>
 						<id>28</id>
-						<name>tmp_92_neg</name>
+						<name>tmp_117_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>79</lineNumber>
@@ -1083,7 +1083,7 @@
 					<Obj>
 						<type>0</type>
 						<id>29</id>
-						<name>tmp_35</name>
+						<name>tmp_59</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>79</lineNumber>
@@ -1509,7 +1509,7 @@
 					<Obj>
 						<type>0</type>
 						<id>38</id>
-						<name>tmp_i_43</name>
+						<name>tmp_i_44</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>9</lineNumber>
@@ -1668,7 +1668,7 @@
 					<Obj>
 						<type>0</type>
 						<id>42</id>
-						<name>tmp_98_i</name>
+						<name>tmp_121_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1724,7 +1724,7 @@
 					<Obj>
 						<type>0</type>
 						<id>43</id>
-						<name>tmp_99_i</name>
+						<name>tmp_122_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1777,7 +1777,7 @@
 					<Obj>
 						<type>0</type>
 						<id>44</id>
-						<name>tmp_100_i</name>
+						<name>tmp_123_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1964,7 +1964,7 @@
 					<Obj>
 						<type>0</type>
 						<id>50</id>
-						<name>tmp_38</name>
+						<name>tmp_62</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>95</lineNumber>
@@ -2010,7 +2010,7 @@
 					<Obj>
 						<type>0</type>
 						<id>51</id>
-						<name>tmp_39</name>
+						<name>tmp_63</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>95</lineNumber>
@@ -2133,7 +2133,7 @@
 					<Obj>
 						<type>0</type>
 						<id>55</id>
-						<name>tmp_93_to_int</name>
+						<name>tmp_118_to_int</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2178,7 +2178,7 @@
 					<Obj>
 						<type>0</type>
 						<id>56</id>
-						<name>tmp_93_neg</name>
+						<name>tmp_118_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2224,7 +2224,7 @@
 					<Obj>
 						<type>0</type>
 						<id>57</id>
-						<name>tmp_36</name>
+						<name>tmp_60</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2269,7 +2269,7 @@
 					<Obj>
 						<type>0</type>
 						<id>58</id>
-						<name>tmp_37</name>
+						<name>tmp_61</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2406,7 +2406,7 @@
 					<Obj>
 						<type>0</type>
 						<id>62</id>
-						<name>tmp_33</name>
+						<name>tmp_57</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>73</lineNumber>
@@ -2543,7 +2543,7 @@
 					<Obj>
 						<type>0</type>
 						<id>66</id>
-						<name>tmp_29</name>
+						<name>tmp_53</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>62</lineNumber>
@@ -2721,7 +2721,7 @@
 					<Obj>
 						<type>0</type>
 						<id>71</id>
-						<name>tmp_97_to_int</name>
+						<name>tmp_122_to_int</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>
@@ -2766,7 +2766,7 @@
 					<Obj>
 						<type>0</type>
 						<id>72</id>
-						<name>tmp_97_neg</name>
+						<name>tmp_122_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>
@@ -2812,7 +2812,7 @@
 					<Obj>
 						<type>0</type>
 						<id>73</id>
-						<name>tmp_40</name>
+						<name>tmp_64</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>

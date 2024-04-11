@@ -21,8 +21,8 @@ using namespace sc_dt;
 
 struct face_classifier_c5jm_ram : public sc_core::sc_module {
 
-  static const unsigned DataWidth = 9;
-  static const unsigned AddressRange = 5;
+  static const unsigned DataWidth = 32;
+  static const unsigned AddressRange = 6;
   static const unsigned AddressWidth = 3;
 
 //latency = 1
@@ -30,13 +30,7 @@ struct face_classifier_c5jm_ram : public sc_core::sc_module {
 //output_reg = 0
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in <sc_logic> ce0;
-sc_core::sc_in<sc_logic> we0;
-sc_core::sc_in<sc_lv<DataWidth> > d0;
-sc_core::sc_in <sc_lv<AddressWidth> > address1;
-sc_core::sc_in <sc_logic> ce1;
-sc_core::sc_out <sc_lv<DataWidth> > q1;
-sc_core::sc_in<sc_logic> we1;
-sc_core::sc_in<sc_lv<DataWidth> > d1;
+sc_core::sc_out <sc_lv<DataWidth> > q0;
 sc_core::sc_in<sc_logic> reset;
 sc_core::sc_in<bool> clk;
 
@@ -45,16 +39,15 @@ sc_lv<DataWidth> ram[AddressRange];
 
 
    SC_CTOR(face_classifier_c5jm_ram) {
-        for (unsigned i = 0; i < 5; i = i + 1) {
-            ram[i] = 0;
-        }
+        ram[0] = "0b00111101011001111111010011011111";
+        ram[1] = "0b10111100010111010001110101111111";
+        ram[2] = "0b10111101000000010111000010001110";
+        ram[3] = "0b10111011010000100100001101011111";
+        ram[4] = "0b00111100110110011100101110111001";
+        ram[5] = "0b10111100111110100101011101110111";
 
 
 SC_METHOD(prc_write_0);
-  sensitive<<clk.pos();
-
-
-SC_METHOD(prc_write_1);
   sensitive<<clk.pos();
    }
 
@@ -63,37 +56,10 @@ void prc_write_0()
 {
     if (ce0.read() == sc_dt::Log_1) 
     {
-        if (we0.read() == sc_dt::Log_1) 
-        {
-           if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
-           {
-              ram[address0.read().to_uint()] = d0.read(); 
-           }
-        }
-    }
-}
-
-
-void prc_write_1()
-{
-    if (ce1.read() == sc_dt::Log_1) 
-    {
-        if (we1.read() == sc_dt::Log_1) 
-        {
-           if(address1.read().is_01() && address1.read().to_uint()<AddressRange)
-           {
-              ram[address1.read().to_uint()] = d1.read(); 
-              q1 = d1.read();
-           }
-           else
-              q1 = sc_lv<DataWidth>();
-        }
-        else {
-            if(address1.read().is_01() && address1.read().to_uint()<AddressRange)
-              q1 = ram[address1.read().to_uint()];
+            if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
+              q0 = ram[address0.read().to_uint()];
             else
-              q1 = sc_lv<DataWidth>();
-        }
+              q0 = sc_lv<DataWidth>();
     }
 }
 
@@ -104,19 +70,13 @@ void prc_write_1()
 SC_MODULE(face_classifier_c5jm) {
 
 
-static const unsigned DataWidth = 9;
-static const unsigned AddressRange = 5;
+static const unsigned DataWidth = 32;
+static const unsigned AddressRange = 6;
 static const unsigned AddressWidth = 3;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;
-sc_core::sc_in<sc_logic> we0;
-sc_core::sc_in<sc_lv<DataWidth> > d0;
-sc_core::sc_in <sc_lv<AddressWidth> > address1;
-sc_core::sc_in<sc_logic> ce1;
-sc_core::sc_out <sc_lv<DataWidth> > q1;
-sc_core::sc_in<sc_logic> we1;
-sc_core::sc_in<sc_lv<DataWidth> > d1;
+sc_core::sc_out <sc_lv<DataWidth> > q0;
 sc_core::sc_in<sc_logic> reset;
 sc_core::sc_in<bool> clk;
 
@@ -128,14 +88,7 @@ SC_CTOR(face_classifier_c5jm) {
 meminst = new face_classifier_c5jm_ram("face_classifier_c5jm_ram");
 meminst->address0(address0);
 meminst->ce0(ce0);
-meminst->we0(we0);
-meminst->d0(d0);
-
-meminst->address1(address1);
-meminst->ce1(ce1);
-meminst->q1(q1);
-meminst->we1(we1);
-meminst->d1(d1);
+meminst->q0(q0);
 
 meminst->reset(reset);
 meminst->clk(clk);

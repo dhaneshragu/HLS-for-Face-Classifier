@@ -32,7 +32,7 @@
 				</Value>
 				<direction>1</direction>
 				<if_type>1</if_type>
-				<array_size>300000</array_size>
+				<array_size>2622</array_size>
 				<bit_vecs class_id="7" tracking_level="0" version="0">
 					<count>0</count>
 					<item_version>0</item_version>
@@ -60,7 +60,7 @@
 				</Value>
 				<direction>0</direction>
 				<if_type>1</if_type>
-				<array_size>300000</array_size>
+				<array_size>2622</array_size>
 				<bit_vecs>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -172,7 +172,7 @@
 				</Value>
 				<direction>0</direction>
 				<if_type>1</if_type>
-				<array_size>300000</array_size>
+				<array_size>2622</array_size>
 				<bit_vecs>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -200,7 +200,7 @@
 				</Value>
 				<direction>0</direction>
 				<if_type>1</if_type>
-				<array_size>300000</array_size>
+				<array_size>2622</array_size>
 				<bit_vecs>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -228,7 +228,7 @@
 				</Value>
 				<direction>0</direction>
 				<if_type>1</if_type>
-				<array_size>300000</array_size>
+				<array_size>2622</array_size>
 				<bit_vecs>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -256,7 +256,7 @@
 				</Value>
 				<direction>0</direction>
 				<if_type>1</if_type>
-				<array_size>300000</array_size>
+				<array_size>2622</array_size>
 				<bit_vecs>
 					<count>0</count>
 					<item_version>0</item_version>
@@ -934,7 +934,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -1046,7 +1046,7 @@
 					<Obj>
 						<type>0</type>
 						<id>32</id>
-						<name>i_38</name>
+						<name>i_42</name>
 						<fileName>../C-Code-Original/include/k2c_normalization_layers.c</fileName>
 						<fileDirectory>C:\Users\ketan\Desktop\college\CS-577-Course-Project\TestSynth</fileDirectory>
 						<lineNumber>38</lineNumber>
@@ -1073,7 +1073,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -1085,7 +1085,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.25</m_delay>
+				<m_delay>2.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_29">
 				<Value>
@@ -1258,7 +1258,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -1350,7 +1350,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -1415,7 +1415,7 @@
 					<Obj>
 						<type>0</type>
 						<id>41</id>
-						<name>tmp_25</name>
+						<name>tmp_49</name>
 						<fileName>../C-Code-Original/include/k2c_normalization_layers.c</fileName>
 						<fileDirectory>C:\Users\ketan\Desktop\college\CS-577-Course-Project\TestSynth</fileDirectory>
 						<lineNumber>40</lineNumber>
@@ -1488,7 +1488,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -1553,7 +1553,7 @@
 					<Obj>
 						<type>0</type>
 						<id>44</id>
-						<name>tmp_26</name>
+						<name>tmp_50</name>
 						<fileName>../C-Code-Original/include/k2c_normalization_layers.c</fileName>
 						<fileDirectory>C:\Users\ketan\Desktop\college\CS-577-Course-Project\TestSynth</fileDirectory>
 						<lineNumber>40</lineNumber>
@@ -1626,7 +1626,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -1691,7 +1691,7 @@
 					<Obj>
 						<type>0</type>
 						<id>47</id>
-						<name>tmp_27</name>
+						<name>tmp_51</name>
 						<fileName>../C-Code-Original/include/k2c_normalization_layers.c</fileName>
 						<fileDirectory>C:\Users\ketan\Desktop\college\CS-577-Course-Project\TestSynth</fileDirectory>
 						<lineNumber>40</lineNumber>
@@ -1764,7 +1764,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -1829,7 +1829,7 @@
 					<Obj>
 						<type>0</type>
 						<id>50</id>
-						<name>tmp_28</name>
+						<name>tmp_52</name>
 						<fileName>../C-Code-Original/include/k2c_normalization_layers.c</fileName>
 						<fileDirectory>C:\Users\ketan\Desktop\college\CS-577-Course-Project\TestSynth</fileDirectory>
 						<lineNumber>40</lineNumber>
@@ -1902,7 +1902,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -2120,7 +2120,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>0</content>
@@ -2143,7 +2143,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>19</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>1</content>
@@ -3259,132 +3259,132 @@
 			<first>35</first>
 			<second>
 				<first>4</first>
-				<second>22</second>
+				<second>15</second>
 			</second>
 		</item>
 		<item>
 			<first>36</first>
 			<second>
-				<first>26</first>
+				<first>19</first>
 				<second>67</second>
 			</second>
 		</item>
 		<item>
 			<first>37</first>
 			<second>
-				<first>93</first>
+				<first>86</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>38</first>
 			<second>
-				<first>93</first>
+				<first>86</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>39</first>
 			<second>
-				<first>93</first>
+				<first>86</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>40</first>
 			<second>
-				<first>93</first>
+				<first>86</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>41</first>
 			<second>
-				<first>94</first>
+				<first>87</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>42</first>
 			<second>
-				<first>94</first>
+				<first>87</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>43</first>
 			<second>
-				<first>94</first>
+				<first>87</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>44</first>
 			<second>
-				<first>95</first>
+				<first>88</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>45</first>
 			<second>
-				<first>96</first>
+				<first>89</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>46</first>
 			<second>
-				<first>96</first>
+				<first>89</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>47</first>
 			<second>
-				<first>97</first>
+				<first>90</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>48</first>
 			<second>
-				<first>96</first>
+				<first>89</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>49</first>
 			<second>
-				<first>96</first>
+				<first>89</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>50</first>
 			<second>
-				<first>97</first>
+				<first>90</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>51</first>
 			<second>
-				<first>97</first>
+				<first>90</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>52</first>
 			<second>
-				<first>97</first>
+				<first>90</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>53</first>
 			<second>
-				<first>97</first>
+				<first>90</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3438,7 +3438,7 @@
 			<first>54</first>
 			<second>
 				<first>3</first>
-				<second>96</second>
+				<second>89</second>
 			</second>
 		</item>
 		<item>

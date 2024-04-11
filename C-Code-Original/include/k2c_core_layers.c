@@ -45,7 +45,8 @@ void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* 
         const size_t inneridx = i*innerdim;
         for (size_t j = 0;  j < outcols; ++j) {
             output->array[outrowidx+j] = bias->array[j];
-            for (size_t k = 0; k < innerdim; ++k) {
+            k2c_dense_label0:for (size_t k = 0; k < innerdim; ++k) {
+#pragma HLS PIPELINE
                 output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
             }
         }

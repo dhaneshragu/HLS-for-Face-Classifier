@@ -127,11 +127,11 @@ typedef union {
   double Double;
 } llvmBitCastUnion;
 /* Structure forward decls */
-typedef struct l_struct_OC_k2c_tensor l_struct_OC_k2c_tensor;
+typedef struct l_struct_OC_k2c_tensor2 l_struct_OC_k2c_tensor2;
 
 /* Structure contents */
-struct l_struct_OC_k2c_tensor {
-  float field0[300000];
+struct l_struct_OC_k2c_tensor2 {
+  float field0[2622];
   unsigned long long field1;
   unsigned long long field2;
   signed long long field3[5];
@@ -142,7 +142,7 @@ struct l_struct_OC_k2c_tensor {
 double fmod(double, double);
 float fmodf(float, float);
 long double fmodl(long double, long double);
-void k2c_batch_norm(l_struct_OC_k2c_tensor *llvm_cbe_outputs, l_struct_OC_k2c_tensor *llvm_cbe_inputs, l_struct_OC_k2c_tensor *llvm_cbe_mean, l_struct_OC_k2c_tensor *llvm_cbe_stdev, l_struct_OC_k2c_tensor *llvm_cbe_gamma, l_struct_OC_k2c_tensor *llvm_cbe_beta, signed long long llvm_cbe_axis);
+void k2c_batch_norm(l_struct_OC_k2c_tensor2 *llvm_cbe_outputs, l_struct_OC_k2c_tensor2 *llvm_cbe_inputs, l_struct_OC_k2c_tensor2 *llvm_cbe_mean, l_struct_OC_k2c_tensor2 *llvm_cbe_stdev, l_struct_OC_k2c_tensor2 *llvm_cbe_gamma, l_struct_OC_k2c_tensor2 *llvm_cbe_beta, signed long long llvm_cbe_axis);
 
 
 /* Function Bodies */
@@ -161,7 +161,7 @@ static inline int llvm_fcmp_ogt(double X, double Y) { return X >  Y ; }
 static inline int llvm_fcmp_ole(double X, double Y) { return X <= Y ; }
 static inline int llvm_fcmp_oge(double X, double Y) { return X >= Y ; }
 
-void k2c_batch_norm(l_struct_OC_k2c_tensor *llvm_cbe_outputs, l_struct_OC_k2c_tensor *llvm_cbe_inputs, l_struct_OC_k2c_tensor *llvm_cbe_mean, l_struct_OC_k2c_tensor *llvm_cbe_stdev, l_struct_OC_k2c_tensor *llvm_cbe_gamma, l_struct_OC_k2c_tensor *llvm_cbe_beta, signed long long llvm_cbe_axis) {
+void k2c_batch_norm(l_struct_OC_k2c_tensor2 *llvm_cbe_outputs, l_struct_OC_k2c_tensor2 *llvm_cbe_inputs, l_struct_OC_k2c_tensor2 *llvm_cbe_mean, l_struct_OC_k2c_tensor2 *llvm_cbe_stdev, l_struct_OC_k2c_tensor2 *llvm_cbe_gamma, l_struct_OC_k2c_tensor2 *llvm_cbe_beta, signed long long llvm_cbe_axis) {
   static  unsigned long long aesl_llvm_cbe_1_count = 0;
   static  unsigned long long aesl_llvm_cbe_2_count = 0;
   static  unsigned long long aesl_llvm_cbe_3_count = 0;
@@ -322,7 +322,7 @@ printf("\n  %%storemerge3 = add i64 %%axis, 1, !dbg !5 for 0x%I64xth hint within
 if (AESL_DEBUG_TRACE)
 printf("\nstoremerge3 = 0x%I64X\n", ((unsigned long long )(llvm_cbe_storemerge3&18446744073709551615ull)));
 if (AESL_DEBUG_TRACE)
-printf("\n  %%1 = getelementptr inbounds %%struct.k2c_tensor* %%inputs, i64 0, i32 1, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_32_count);
+printf("\n  %%1 = getelementptr inbounds %%struct.k2c_tensor2* %%inputs, i64 0, i32 1, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_32_count);
   llvm_cbe_tmp__1 = (signed long long *)(&llvm_cbe_inputs->field1);
 if (AESL_DEBUG_TRACE) {
 }
@@ -359,7 +359,7 @@ printf("\n = 0x%I64X",llvm_cbe_tmp__6);
 printf("\n = 0x%I64X",1ull);
 }
 if (AESL_DEBUG_TRACE)
-printf("\n  %%5 = getelementptr inbounds %%struct.k2c_tensor* %%inputs, i64 0, i32 3, i64 %%storemerge4, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_37_count);
+printf("\n  %%5 = getelementptr inbounds %%struct.k2c_tensor2* %%inputs, i64 0, i32 3, i64 %%storemerge4, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_37_count);
   llvm_cbe_tmp__4 = (signed long long *)(&llvm_cbe_inputs->field3[(((signed long long )llvm_cbe_storemerge4))]);
 if (AESL_DEBUG_TRACE) {
 printf("\nstoremerge4 = 0x%I64X",((signed long long )llvm_cbe_storemerge4));
@@ -399,7 +399,7 @@ printf("\n = 0x%I64X",1ull);
 printf("\n = 0x%I64X",llvm_cbe_tmp__6);
 }
 if (AESL_DEBUG_TRACE)
-printf("\n  %%9 = getelementptr inbounds %%struct.k2c_tensor* %%inputs, i64 0, i32 3, i64 %%axis, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_54_count);
+printf("\n  %%9 = getelementptr inbounds %%struct.k2c_tensor2* %%inputs, i64 0, i32 3, i64 %%axis, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_54_count);
   llvm_cbe_tmp__7 = (signed long long *)(&llvm_cbe_inputs->field3[(((signed long long )llvm_cbe_axis))]);
 if (AESL_DEBUG_TRACE) {
 printf("\naxis = 0x%I64X",((signed long long )llvm_cbe_axis));
@@ -410,7 +410,7 @@ printf("\n  %%10 = load i64* %%9, align 8, !dbg !5 for 0x%I64xth hint within @k2
 if (AESL_DEBUG_TRACE)
 printf("\n = 0x%I64X\n", llvm_cbe_tmp__8);
 if (AESL_DEBUG_TRACE)
-printf("\n  %%11 = getelementptr inbounds %%struct.k2c_tensor* %%inputs, i64 0, i32 2, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_67_count);
+printf("\n  %%11 = getelementptr inbounds %%struct.k2c_tensor2* %%inputs, i64 0, i32 2, !dbg !5 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_67_count);
   llvm_cbe_tmp__9 = (signed long long *)(&llvm_cbe_inputs->field2);
 if (AESL_DEBUG_TRACE) {
 }
@@ -447,7 +447,7 @@ printf("\n  %%15 = urem i64 %%14, %%10, !dbg !7 for 0x%I64xth hint within @k2c_b
 if (AESL_DEBUG_TRACE)
 printf("\n = 0x%I64X\n", ((unsigned long long )(llvm_cbe_tmp__12&18446744073709551615ull)));
 if (AESL_DEBUG_TRACE)
-printf("\n  %%16 = getelementptr inbounds %%struct.k2c_tensor* %%inputs, i64 0, i32 0, i64 %%storemerge12, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_78_count);
+printf("\n  %%16 = getelementptr inbounds %%struct.k2c_tensor2* %%inputs, i64 0, i32 0, i64 %%storemerge12, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_78_count);
   llvm_cbe_tmp__13 = (float *)(&llvm_cbe_inputs->field0[(((signed long long )llvm_cbe_storemerge12))]);
 if (AESL_DEBUG_TRACE) {
 printf("\nstoremerge12 = 0x%I64X",((signed long long )llvm_cbe_storemerge12));
@@ -458,7 +458,7 @@ printf("\n  %%17 = load float* %%16, align 4, !dbg !4 for 0x%I64xth hint within 
 if (AESL_DEBUG_TRACE)
 printf("\n = %f,  0x%x\n", llvm_cbe_tmp__14, *(int*)(&llvm_cbe_tmp__14));
 if (AESL_DEBUG_TRACE)
-printf("\n  %%18 = getelementptr inbounds %%struct.k2c_tensor* %%mean, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_80_count);
+printf("\n  %%18 = getelementptr inbounds %%struct.k2c_tensor2* %%mean, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_80_count);
   llvm_cbe_tmp__15 = (float *)(&llvm_cbe_mean->field0[(((signed long long )llvm_cbe_tmp__12))]);
 if (AESL_DEBUG_TRACE) {
 printf("\n = 0x%I64X",((signed long long )llvm_cbe_tmp__12));
@@ -474,7 +474,7 @@ printf("\n  %%20 = fsub float %%17, %%19, !dbg !4 for 0x%I64xth hint within @k2c
 if (AESL_DEBUG_TRACE)
 printf("\n = %f,  0x%x\n", llvm_cbe_tmp__17, *(int*)(&llvm_cbe_tmp__17));
 if (AESL_DEBUG_TRACE)
-printf("\n  %%21 = getelementptr inbounds %%struct.k2c_tensor* %%stdev, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_83_count);
+printf("\n  %%21 = getelementptr inbounds %%struct.k2c_tensor2* %%stdev, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_83_count);
   llvm_cbe_tmp__18 = (float *)(&llvm_cbe_stdev->field0[(((signed long long )llvm_cbe_tmp__12))]);
 if (AESL_DEBUG_TRACE) {
 printf("\n = 0x%I64X",((signed long long )llvm_cbe_tmp__12));
@@ -490,7 +490,7 @@ printf("\n  %%23 = fdiv float %%20, %%22, !dbg !4 for 0x%I64xth hint within @k2c
 if (AESL_DEBUG_TRACE)
 printf("\n = %f,  0x%x\n", llvm_cbe_tmp__20, *(int*)(&llvm_cbe_tmp__20));
 if (AESL_DEBUG_TRACE)
-printf("\n  %%24 = getelementptr inbounds %%struct.k2c_tensor* %%gamma, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_86_count);
+printf("\n  %%24 = getelementptr inbounds %%struct.k2c_tensor2* %%gamma, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_86_count);
   llvm_cbe_tmp__21 = (float *)(&llvm_cbe_gamma->field0[(((signed long long )llvm_cbe_tmp__12))]);
 if (AESL_DEBUG_TRACE) {
 printf("\n = 0x%I64X",((signed long long )llvm_cbe_tmp__12));
@@ -506,7 +506,7 @@ printf("\n  %%26 = fmul float %%23, %%25, !dbg !4 for 0x%I64xth hint within @k2c
 if (AESL_DEBUG_TRACE)
 printf("\n = %f,  0x%x\n", llvm_cbe_tmp__23, *(int*)(&llvm_cbe_tmp__23));
 if (AESL_DEBUG_TRACE)
-printf("\n  %%27 = getelementptr inbounds %%struct.k2c_tensor* %%beta, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_89_count);
+printf("\n  %%27 = getelementptr inbounds %%struct.k2c_tensor2* %%beta, i64 0, i32 0, i64 %%15, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_89_count);
   llvm_cbe_tmp__24 = (float *)(&llvm_cbe_beta->field0[(((signed long long )llvm_cbe_tmp__12))]);
 if (AESL_DEBUG_TRACE) {
 printf("\n = 0x%I64X",((signed long long )llvm_cbe_tmp__12));
@@ -522,7 +522,7 @@ printf("\n  %%29 = fadd float %%26, %%28, !dbg !4 for 0x%I64xth hint within @k2c
 if (AESL_DEBUG_TRACE)
 printf("\n = %f,  0x%x\n", llvm_cbe_tmp__26, *(int*)(&llvm_cbe_tmp__26));
 if (AESL_DEBUG_TRACE)
-printf("\n  %%30 = getelementptr inbounds %%struct.k2c_tensor* %%outputs, i64 0, i32 0, i64 %%storemerge12, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_92_count);
+printf("\n  %%30 = getelementptr inbounds %%struct.k2c_tensor2* %%outputs, i64 0, i32 0, i64 %%storemerge12, !dbg !4 for 0x%I64xth hint within @k2c_batch_norm  --> \n", ++aesl_llvm_cbe_92_count);
   llvm_cbe_tmp__27 = (float *)(&llvm_cbe_outputs->field0[(((signed long long )llvm_cbe_storemerge12))]);
 if (AESL_DEBUG_TRACE) {
 printf("\nstoremerge12 = 0x%I64X",((signed long long )llvm_cbe_storemerge12));

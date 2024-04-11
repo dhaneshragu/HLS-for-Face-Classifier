@@ -30,8 +30,8 @@ localparam
     TV_OUT = "../tv/rtldatafile/rtl.face_classifier_c.autotvout_activation_3_output_array.dat"; 
 //------------------------Local signal-------------------
 parameter DATA_WIDTH = 32'd 32;
-parameter ADDR_WIDTH = 32'd 19;
-parameter DEPTH = 32'd 300000;
+parameter ADDR_WIDTH = 32'd 12;
+parameter DEPTH = 32'd 2622;
 parameter DLY = 0.1;
 
 // Input and Output

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_batch_norm'
 ================================================================
-* Date:           Wed Apr 10 13:49:38 2024
+* Date:           Thu Apr 11 22:30:52 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -42,7 +42,7 @@
         | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
         +----------+-----+-----+----------+-----------+-----------+------+----------+
         |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
-        |- Loop 2  |    ?|    ?|        94|          -|          -|     ?|    no    |
+        |- Loop 2  |    ?|    ?|        87|          -|          -|     ?|    no    |
         +----------+-----+-----+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -71,7 +71,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 98
+* Number of FSM states : 91
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -258,356 +258,321 @@ IsGatedGlobalClock: 0
 90 --> 
 	91  / true
 91 --> 
-	92  / true
-92 --> 
-	93  / true
-93 --> 
-	94  / true
-94 --> 
-	95  / true
-95 --> 
-	96  / true
-96 --> 
-	97  / true
-97 --> 
-	98  / true
-98 --> 
 	5  / true
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.66>
-ST_1 : Operation 99 [1/1] (0.00ns)   --->   "%inputs_numel_read_1 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %inputs_numel_read)"   --->   Operation 99 'read' 'inputs_numel_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 100 [1/1] (0.00ns)   --->   "%inputs_ndim_read_1 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %inputs_ndim_read)"   --->   Operation 100 'read' 'inputs_ndim_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 101 [1/1] (1.66ns)   --->   "br label %1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 101 'br' <Predicate = true> <Delay = 1.66>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%inputs_numel_read_1 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %inputs_numel_read)"   --->   Operation 92 'read' 'inputs_numel_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 93 [1/1] (0.00ns)   --->   "%inputs_ndim_read_1 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %inputs_ndim_read)"   --->   Operation 93 'read' 'inputs_ndim_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 94 [1/1] (1.66ns)   --->   "br label %1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 94 'br' <Predicate = true> <Delay = 1.66>
 
 State 2 <SV = 1> <Delay = 3.56>
-ST_2 : Operation 102 [1/1] (0.00ns)   --->   "%offset = phi i64 [ 1, %0 ], [ %offset_1, %2 ]"   --->   Operation 102 'phi' 'offset' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 103 [1/1] (0.00ns)   --->   "%i = phi i64 [ 1, %0 ], [ %phitmp, %2 ]" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 103 'phi' 'i' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 104 [1/1] (2.83ns)   --->   "%tmp = icmp ult i64 %i, %inputs_ndim_read_1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 104 'icmp' 'tmp' <Predicate = true> <Delay = 2.83> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 105 [1/1] (0.00ns)   --->   "br i1 %tmp, label %2, label %3" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 105 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%inputs_shape_addr = getelementptr [5 x i64]* %inputs_shape, i64 0, i64 %i" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 106 'getelementptr' 'inputs_shape_addr' <Predicate = (tmp)> <Delay = 0.00>
-ST_2 : Operation 107 [2/2] (2.15ns)   --->   "%inputs_shape_load = load i64* %inputs_shape_addr, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 107 'load' 'inputs_shape_load' <Predicate = (tmp)> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_2 : Operation 108 [1/1] (3.56ns)   --->   "%phitmp = add i64 %i, 1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 108 'add' 'phitmp' <Predicate = (tmp)> <Delay = 3.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.25> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%inputs_shape_addr_1 = getelementptr [5 x i64]* %inputs_shape, i64 0, i64 0" [../C-Code-Original/include/k2c_normalization_layers.c:36]   --->   Operation 109 'getelementptr' 'inputs_shape_addr_1' <Predicate = (!tmp)> <Delay = 0.00>
-ST_2 : Operation 110 [2/2] (2.15ns)   --->   "%step = load i64* %inputs_shape_addr_1, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:36]   --->   Operation 110 'load' 'step' <Predicate = (!tmp)> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%offset = phi i64 [ 1, %0 ], [ %offset_1, %2 ]"   --->   Operation 95 'phi' 'offset' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (0.00ns)   --->   "%i = phi i64 [ 1, %0 ], [ %phitmp, %2 ]" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 96 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 97 [1/1] (2.83ns)   --->   "%tmp = icmp ult i64 %i, %inputs_ndim_read_1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 97 'icmp' 'tmp' <Predicate = true> <Delay = 2.83> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 98 [1/1] (0.00ns)   --->   "br i1 %tmp, label %2, label %3" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 98 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 99 [1/1] (0.00ns)   --->   "%inputs_shape_addr = getelementptr [5 x i64]* %inputs_shape, i64 0, i64 %i" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 99 'getelementptr' 'inputs_shape_addr' <Predicate = (tmp)> <Delay = 0.00>
+ST_2 : Operation 100 [2/2] (2.15ns)   --->   "%inputs_shape_load = load i64* %inputs_shape_addr, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 100 'load' 'inputs_shape_load' <Predicate = (tmp)> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_2 : Operation 101 [1/1] (3.56ns)   --->   "%phitmp = add i64 %i, 1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 101 'add' 'phitmp' <Predicate = (tmp)> <Delay = 3.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.13> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 102 [1/1] (0.00ns)   --->   "%inputs_shape_addr_1 = getelementptr [5 x i64]* %inputs_shape, i64 0, i64 0" [../C-Code-Original/include/k2c_normalization_layers.c:36]   --->   Operation 102 'getelementptr' 'inputs_shape_addr_1' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 103 [2/2] (2.15ns)   --->   "%step = load i64* %inputs_shape_addr_1, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:36]   --->   Operation 103 'load' 'step' <Predicate = (!tmp)> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
 
 State 3 <SV = 2> <Delay = 14.5>
-ST_3 : Operation 111 [1/2] (2.15ns)   --->   "%inputs_shape_load = load i64* %inputs_shape_addr, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 111 'load' 'inputs_shape_load' <Predicate = true> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_3 : Operation 112 [1/1] (12.3ns)   --->   "%offset_1 = mul i64 %inputs_shape_load, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 112 'mul' 'offset_1' <Predicate = true> <Delay = 12.3> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 12.3> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 113 [1/1] (0.00ns)   --->   "br label %1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 113 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 104 [1/2] (2.15ns)   --->   "%inputs_shape_load = load i64* %inputs_shape_addr, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 104 'load' 'inputs_shape_load' <Predicate = true> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_3 : Operation 105 [1/1] (12.3ns)   --->   "%offset_1 = mul i64 %inputs_shape_load, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:34]   --->   Operation 105 'mul' 'offset_1' <Predicate = true> <Delay = 12.3> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 12.3> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [1/1] (0.00ns)   --->   "br label %1" [../C-Code-Original/include/k2c_normalization_layers.c:33]   --->   Operation 106 'br' <Predicate = true> <Delay = 0.00>
 
 State 4 <SV = 2> <Delay = 2.15>
-ST_4 : Operation 114 [1/2] (2.15ns)   --->   "%step = load i64* %inputs_shape_addr_1, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:36]   --->   Operation 114 'load' 'step' <Predicate = true> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_4 : Operation 115 [1/1] (1.66ns)   --->   "br label %4" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 115 'br' <Predicate = true> <Delay = 1.66>
+ST_4 : Operation 107 [1/2] (2.15ns)   --->   "%step = load i64* %inputs_shape_addr_1, align 8" [../C-Code-Original/include/k2c_normalization_layers.c:36]   --->   Operation 107 'load' 'step' <Predicate = true> <Delay = 2.15> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_4 : Operation 108 [1/1] (1.66ns)   --->   "br label %4" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 108 'br' <Predicate = true> <Delay = 1.66>
 
 State 5 <SV = 3> <Delay = 5.08>
-ST_5 : Operation 116 [1/1] (0.00ns)   --->   "%i_1 = phi i19 [ 0, %3 ], [ %i_38, %5 ]"   --->   Operation 116 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 117 [1/1] (0.00ns)   --->   "%i_1_cast = zext i19 %i_1 to i64" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 117 'zext' 'i_1_cast' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 118 [1/1] (2.83ns)   --->   "%exitcond = icmp eq i64 %i_1_cast, %inputs_numel_read_1" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 118 'icmp' 'exitcond' <Predicate = true> <Delay = 2.83> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 119 [1/1] (2.25ns)   --->   "%i_38 = add i19 %i_1, 1" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 119 'add' 'i_38' <Predicate = true> <Delay = 2.25> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.25> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 120 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %6, label %5" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 120 'br' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 121 [23/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 121 'udiv' 'tmp_s' <Predicate = (!exitcond)> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 122 [1/1] (0.00ns)   --->   "ret void" [../C-Code-Original/include/k2c_normalization_layers.c:45]   --->   Operation 122 'ret' <Predicate = (exitcond)> <Delay = 0.00>
+ST_5 : Operation 109 [1/1] (0.00ns)   --->   "%i_1 = phi i12 [ 0, %3 ], [ %i_42, %5 ]"   --->   Operation 109 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 110 [1/1] (0.00ns)   --->   "%i_1_cast = zext i12 %i_1 to i64" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 110 'zext' 'i_1_cast' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 111 [1/1] (2.83ns)   --->   "%exitcond = icmp eq i64 %i_1_cast, %inputs_numel_read_1" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 111 'icmp' 'exitcond' <Predicate = true> <Delay = 2.83> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 112 [1/1] (2.13ns)   --->   "%i_42 = add i12 %i_1, 1" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 112 'add' 'i_42' <Predicate = true> <Delay = 2.13> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.13> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 113 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %6, label %5" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 113 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 114 [16/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 114 'udiv' 'tmp_s' <Predicate = (!exitcond)> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 115 [1/1] (0.00ns)   --->   "ret void" [../C-Code-Original/include/k2c_normalization_layers.c:45]   --->   Operation 115 'ret' <Predicate = (exitcond)> <Delay = 0.00>
 
 State 6 <SV = 4> <Delay = 5.08>
-ST_6 : Operation 123 [22/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 123 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 116 [15/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 116 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 7 <SV = 5> <Delay = 5.08>
-ST_7 : Operation 124 [21/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 124 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 117 [14/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 117 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 8 <SV = 6> <Delay = 5.08>
-ST_8 : Operation 125 [20/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 125 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 118 [13/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 118 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 9 <SV = 7> <Delay = 5.08>
-ST_9 : Operation 126 [19/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 126 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 119 [12/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 119 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 10 <SV = 8> <Delay = 5.08>
-ST_10 : Operation 127 [18/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 127 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 120 [11/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 120 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 11 <SV = 9> <Delay = 5.08>
-ST_11 : Operation 128 [17/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 128 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 121 [10/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 121 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 12 <SV = 10> <Delay = 5.08>
-ST_12 : Operation 129 [16/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 129 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 122 [9/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 122 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 13 <SV = 11> <Delay = 5.08>
-ST_13 : Operation 130 [15/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 130 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 123 [8/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 123 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 14 <SV = 12> <Delay = 5.08>
-ST_14 : Operation 131 [14/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 131 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 124 [7/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 124 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 15 <SV = 13> <Delay = 5.08>
-ST_15 : Operation 132 [13/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 132 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 125 [6/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 125 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 16 <SV = 14> <Delay = 5.08>
-ST_16 : Operation 133 [12/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 133 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 126 [5/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 126 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 17 <SV = 15> <Delay = 5.08>
-ST_17 : Operation 134 [11/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 134 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 127 [4/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 127 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 18 <SV = 16> <Delay = 5.08>
-ST_18 : Operation 135 [10/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 135 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 128 [3/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 128 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 19 <SV = 17> <Delay = 5.08>
-ST_19 : Operation 136 [9/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 136 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 129 [2/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 129 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
-State 20 <SV = 18> <Delay = 5.08>
-ST_20 : Operation 137 [8/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 137 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+State 20 <SV = 18> <Delay = 10.1>
+ST_20 : Operation 130 [1/16] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 130 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 131 [68/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 131 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 21 <SV = 19> <Delay = 5.08>
-ST_21 : Operation 138 [7/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 138 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 132 [67/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 132 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 22 <SV = 20> <Delay = 5.08>
-ST_22 : Operation 139 [6/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 139 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 133 [66/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 133 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 23 <SV = 21> <Delay = 5.08>
-ST_23 : Operation 140 [5/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 140 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 134 [65/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 134 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 24 <SV = 22> <Delay = 5.08>
-ST_24 : Operation 141 [4/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 141 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 135 [64/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 135 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 25 <SV = 23> <Delay = 5.08>
-ST_25 : Operation 142 [3/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 142 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 136 [63/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 136 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 26 <SV = 24> <Delay = 5.08>
-ST_26 : Operation 143 [2/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 143 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 137 [62/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 137 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
-State 27 <SV = 25> <Delay = 10.1>
-ST_27 : Operation 144 [1/23] (5.08ns)   --->   "%tmp_s = udiv i64 %i_1_cast, %offset" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 144 'udiv' 'tmp_s' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
-ST_27 : Operation 145 [68/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 145 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+State 27 <SV = 25> <Delay = 5.08>
+ST_27 : Operation 138 [61/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 138 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 28 <SV = 26> <Delay = 5.08>
-ST_28 : Operation 146 [67/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 146 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 139 [60/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 139 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 29 <SV = 27> <Delay = 5.08>
-ST_29 : Operation 147 [66/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 147 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 140 [59/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 140 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 30 <SV = 28> <Delay = 5.08>
-ST_30 : Operation 148 [65/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 148 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 141 [58/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 141 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 31 <SV = 29> <Delay = 5.08>
-ST_31 : Operation 149 [64/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 149 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 142 [57/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 142 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 32 <SV = 30> <Delay = 5.08>
-ST_32 : Operation 150 [63/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 150 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 143 [56/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 143 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 33 <SV = 31> <Delay = 5.08>
-ST_33 : Operation 151 [62/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 151 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 144 [55/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 144 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 34 <SV = 32> <Delay = 5.08>
-ST_34 : Operation 152 [61/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 152 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 145 [54/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 145 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 35 <SV = 33> <Delay = 5.08>
-ST_35 : Operation 153 [60/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 153 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 146 [53/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 146 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 36 <SV = 34> <Delay = 5.08>
-ST_36 : Operation 154 [59/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 154 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 147 [52/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 147 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 37 <SV = 35> <Delay = 5.08>
-ST_37 : Operation 155 [58/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 155 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 148 [51/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 148 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 38 <SV = 36> <Delay = 5.08>
-ST_38 : Operation 156 [57/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 156 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 149 [50/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 149 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 39 <SV = 37> <Delay = 5.08>
-ST_39 : Operation 157 [56/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 157 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 150 [49/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 150 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 40 <SV = 38> <Delay = 5.08>
-ST_40 : Operation 158 [55/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 158 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 151 [48/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 151 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 41 <SV = 39> <Delay = 5.08>
-ST_41 : Operation 159 [54/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 159 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_41 : Operation 152 [47/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 152 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 42 <SV = 40> <Delay = 5.08>
-ST_42 : Operation 160 [53/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 160 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_42 : Operation 153 [46/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 153 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 43 <SV = 41> <Delay = 5.08>
-ST_43 : Operation 161 [52/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 161 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_43 : Operation 154 [45/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 154 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 44 <SV = 42> <Delay = 5.08>
-ST_44 : Operation 162 [51/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 162 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_44 : Operation 155 [44/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 155 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 45 <SV = 43> <Delay = 5.08>
-ST_45 : Operation 163 [50/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 163 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_45 : Operation 156 [43/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 156 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 46 <SV = 44> <Delay = 5.08>
-ST_46 : Operation 164 [49/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 164 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_46 : Operation 157 [42/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 157 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 47 <SV = 45> <Delay = 5.08>
-ST_47 : Operation 165 [48/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 165 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_47 : Operation 158 [41/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 158 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 48 <SV = 46> <Delay = 5.08>
-ST_48 : Operation 166 [47/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 166 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_48 : Operation 159 [40/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 159 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 49 <SV = 47> <Delay = 5.08>
-ST_49 : Operation 167 [46/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 167 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 160 [39/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 160 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 50 <SV = 48> <Delay = 5.08>
-ST_50 : Operation 168 [45/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 168 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_50 : Operation 161 [38/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 161 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 51 <SV = 49> <Delay = 5.08>
-ST_51 : Operation 169 [44/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 169 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_51 : Operation 162 [37/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 162 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 52 <SV = 50> <Delay = 5.08>
-ST_52 : Operation 170 [43/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 170 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_52 : Operation 163 [36/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 163 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 53 <SV = 51> <Delay = 5.08>
-ST_53 : Operation 171 [42/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 171 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_53 : Operation 164 [35/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 164 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 54 <SV = 52> <Delay = 5.08>
-ST_54 : Operation 172 [41/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 172 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_54 : Operation 165 [34/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 165 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 55 <SV = 53> <Delay = 5.08>
-ST_55 : Operation 173 [40/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 173 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_55 : Operation 166 [33/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 166 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 56 <SV = 54> <Delay = 5.08>
-ST_56 : Operation 174 [39/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 174 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_56 : Operation 167 [32/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 167 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 57 <SV = 55> <Delay = 5.08>
-ST_57 : Operation 175 [38/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 175 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 168 [31/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 168 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 58 <SV = 56> <Delay = 5.08>
-ST_58 : Operation 176 [37/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 176 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_58 : Operation 169 [30/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 169 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 59 <SV = 57> <Delay = 5.08>
-ST_59 : Operation 177 [36/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 177 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_59 : Operation 170 [29/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 170 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 60 <SV = 58> <Delay = 5.08>
-ST_60 : Operation 178 [35/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 178 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_60 : Operation 171 [28/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 171 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 61 <SV = 59> <Delay = 5.08>
-ST_61 : Operation 179 [34/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 179 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_61 : Operation 172 [27/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 172 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 62 <SV = 60> <Delay = 5.08>
-ST_62 : Operation 180 [33/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 180 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_62 : Operation 173 [26/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 173 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 63 <SV = 61> <Delay = 5.08>
-ST_63 : Operation 181 [32/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 181 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_63 : Operation 174 [25/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 174 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 64 <SV = 62> <Delay = 5.08>
-ST_64 : Operation 182 [31/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 182 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 175 [24/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 175 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 65 <SV = 63> <Delay = 5.08>
-ST_65 : Operation 183 [30/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 183 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_65 : Operation 176 [23/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 176 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 66 <SV = 64> <Delay = 5.08>
-ST_66 : Operation 184 [29/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 184 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_66 : Operation 177 [22/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 177 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 67 <SV = 65> <Delay = 5.08>
-ST_67 : Operation 185 [28/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 185 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_67 : Operation 178 [21/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 178 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 68 <SV = 66> <Delay = 5.08>
-ST_68 : Operation 186 [27/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 186 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_68 : Operation 179 [20/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 179 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 69 <SV = 67> <Delay = 5.08>
-ST_69 : Operation 187 [26/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 187 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_69 : Operation 180 [19/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 180 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 70 <SV = 68> <Delay = 5.08>
-ST_70 : Operation 188 [25/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 188 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_70 : Operation 181 [18/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 181 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 71 <SV = 69> <Delay = 5.08>
-ST_71 : Operation 189 [24/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 189 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_71 : Operation 182 [17/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 182 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 72 <SV = 70> <Delay = 5.08>
-ST_72 : Operation 190 [23/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 190 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_72 : Operation 183 [16/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 183 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 73 <SV = 71> <Delay = 5.08>
-ST_73 : Operation 191 [22/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 191 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_73 : Operation 184 [15/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 184 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 74 <SV = 72> <Delay = 5.08>
-ST_74 : Operation 192 [21/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 192 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_74 : Operation 185 [14/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 185 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 75 <SV = 73> <Delay = 5.08>
-ST_75 : Operation 193 [20/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 193 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 186 [13/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 186 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 76 <SV = 74> <Delay = 5.08>
-ST_76 : Operation 194 [19/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 194 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 187 [12/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 187 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 77 <SV = 75> <Delay = 5.08>
-ST_77 : Operation 195 [18/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 195 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 188 [11/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 188 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 78 <SV = 76> <Delay = 5.08>
-ST_78 : Operation 196 [17/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 196 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_78 : Operation 189 [10/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 189 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 79 <SV = 77> <Delay = 5.08>
-ST_79 : Operation 197 [16/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 197 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_79 : Operation 190 [9/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 190 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 80 <SV = 78> <Delay = 5.08>
-ST_80 : Operation 198 [15/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 198 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_80 : Operation 191 [8/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 191 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 81 <SV = 79> <Delay = 5.08>
-ST_81 : Operation 199 [14/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 199 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_81 : Operation 192 [7/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 192 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 82 <SV = 80> <Delay = 5.08>
-ST_82 : Operation 200 [13/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 200 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_82 : Operation 193 [6/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 193 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 83 <SV = 81> <Delay = 5.08>
-ST_83 : Operation 201 [12/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 201 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_83 : Operation 194 [5/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 194 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 84 <SV = 82> <Delay = 5.08>
-ST_84 : Operation 202 [11/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 202 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_84 : Operation 195 [4/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 195 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 85 <SV = 83> <Delay = 5.08>
-ST_85 : Operation 203 [10/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 203 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_85 : Operation 196 [3/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 196 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
 State 86 <SV = 84> <Delay = 5.08>
-ST_86 : Operation 204 [9/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 204 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_86 : Operation 197 [2/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 197 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
 
-State 87 <SV = 85> <Delay = 5.08>
-ST_87 : Operation 205 [8/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 205 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+State 87 <SV = 85> <Delay = 8.34>
+ST_87 : Operation 198 [1/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 198 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_87 : Operation 199 [1/1] (0.00ns)   --->   "%inputs_array_addr = getelementptr [2622 x float]* %inputs_array, i64 0, i64 %i_1_cast" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 199 'getelementptr' 'inputs_array_addr' <Predicate = true> <Delay = 0.00>
+ST_87 : Operation 200 [2/2] (3.25ns)   --->   "%inputs_array_load = load float* %inputs_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 200 'load' 'inputs_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_87 : Operation 201 [1/1] (0.00ns)   --->   "%mean_array_addr = getelementptr [2622 x float]* %mean_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 201 'getelementptr' 'mean_array_addr' <Predicate = true> <Delay = 0.00>
+ST_87 : Operation 202 [2/2] (3.25ns)   --->   "%mean_array_load = load float* %mean_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 202 'load' 'mean_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
 
-State 88 <SV = 86> <Delay = 5.08>
-ST_88 : Operation 206 [7/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 206 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+State 88 <SV = 86> <Delay = 29.8>
+ST_88 : Operation 203 [1/2] (3.25ns)   --->   "%inputs_array_load = load float* %inputs_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 203 'load' 'inputs_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_88 : Operation 204 [1/2] (3.25ns)   --->   "%mean_array_load = load float* %mean_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 204 'load' 'mean_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_88 : Operation 205 [1/1] (26.5ns)   --->   "%tmp_49 = fsub float %inputs_array_load, %mean_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 205 'fsub' 'tmp_49' <Predicate = true> <Delay = 26.5> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_88 : Operation 206 [1/1] (0.00ns)   --->   "%stdev_array_addr = getelementptr [2622 x float]* %stdev_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 206 'getelementptr' 'stdev_array_addr' <Predicate = true> <Delay = 0.00>
+ST_88 : Operation 207 [2/2] (3.25ns)   --->   "%stdev_array_load = load float* %stdev_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 207 'load' 'stdev_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
 
-State 89 <SV = 87> <Delay = 5.08>
-ST_89 : Operation 207 [6/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 207 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+State 89 <SV = 87> <Delay = 84.6>
+ST_89 : Operation 208 [1/2] (3.25ns)   --->   "%stdev_array_load = load float* %stdev_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 208 'load' 'stdev_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_89 : Operation 209 [2/2] (81.3ns)   --->   "%tmp_50 = fdiv float %tmp_49, %stdev_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 209 'fdiv' 'tmp_50' <Predicate = true> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
 
-State 90 <SV = 88> <Delay = 5.08>
-ST_90 : Operation 208 [5/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 208 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+State 90 <SV = 88> <Delay = 81.3>
+ST_90 : Operation 210 [1/2] (81.3ns)   --->   "%tmp_50 = fdiv float %tmp_49, %stdev_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 210 'fdiv' 'tmp_50' <Predicate = true> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_90 : Operation 211 [1/1] (0.00ns)   --->   "%gamma_array_addr = getelementptr [2622 x float]* %gamma_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 211 'getelementptr' 'gamma_array_addr' <Predicate = true> <Delay = 0.00>
+ST_90 : Operation 212 [2/2] (3.25ns)   --->   "%gamma_array_load = load float* %gamma_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 212 'load' 'gamma_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_90 : Operation 213 [1/1] (0.00ns)   --->   "%beta_array_addr = getelementptr [2622 x float]* %beta_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 213 'getelementptr' 'beta_array_addr' <Predicate = true> <Delay = 0.00>
+ST_90 : Operation 214 [2/2] (3.25ns)   --->   "%beta_array_load = load float* %beta_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 214 'load' 'beta_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
 
-State 91 <SV = 89> <Delay = 5.08>
-ST_91 : Operation 209 [4/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 209 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
-
-State 92 <SV = 90> <Delay = 5.08>
-ST_92 : Operation 210 [3/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 210 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
-
-State 93 <SV = 91> <Delay = 5.08>
-ST_93 : Operation 211 [2/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 211 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
-
-State 94 <SV = 92> <Delay = 8.34>
-ST_94 : Operation 212 [1/68] (5.08ns)   --->   "%idx = urem i64 %tmp_s, %step" [../C-Code-Original/include/k2c_normalization_layers.c:39]   --->   Operation 212 'urem' 'idx' <Predicate = true> <Delay = 5.08> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.08> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
-ST_94 : Operation 213 [1/1] (0.00ns)   --->   "%inputs_array_addr = getelementptr [300000 x float]* %inputs_array, i64 0, i64 %i_1_cast" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 213 'getelementptr' 'inputs_array_addr' <Predicate = true> <Delay = 0.00>
-ST_94 : Operation 214 [2/2] (3.25ns)   --->   "%inputs_array_load = load float* %inputs_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 214 'load' 'inputs_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_94 : Operation 215 [1/1] (0.00ns)   --->   "%mean_array_addr = getelementptr [300000 x float]* %mean_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 215 'getelementptr' 'mean_array_addr' <Predicate = true> <Delay = 0.00>
-ST_94 : Operation 216 [2/2] (3.25ns)   --->   "%mean_array_load = load float* %mean_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 216 'load' 'mean_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-
-State 95 <SV = 93> <Delay = 29.8>
-ST_95 : Operation 217 [1/2] (3.25ns)   --->   "%inputs_array_load = load float* %inputs_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 217 'load' 'inputs_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_95 : Operation 218 [1/2] (3.25ns)   --->   "%mean_array_load = load float* %mean_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 218 'load' 'mean_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_95 : Operation 219 [1/1] (26.5ns)   --->   "%tmp_25 = fsub float %inputs_array_load, %mean_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 219 'fsub' 'tmp_25' <Predicate = true> <Delay = 26.5> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_95 : Operation 220 [1/1] (0.00ns)   --->   "%stdev_array_addr = getelementptr [300000 x float]* %stdev_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 220 'getelementptr' 'stdev_array_addr' <Predicate = true> <Delay = 0.00>
-ST_95 : Operation 221 [2/2] (3.25ns)   --->   "%stdev_array_load = load float* %stdev_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 221 'load' 'stdev_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-
-State 96 <SV = 94> <Delay = 84.6>
-ST_96 : Operation 222 [1/2] (3.25ns)   --->   "%stdev_array_load = load float* %stdev_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 222 'load' 'stdev_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_96 : Operation 223 [2/2] (81.3ns)   --->   "%tmp_26 = fdiv float %tmp_25, %stdev_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 223 'fdiv' 'tmp_26' <Predicate = true> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
-
-State 97 <SV = 95> <Delay = 81.3>
-ST_97 : Operation 224 [1/2] (81.3ns)   --->   "%tmp_26 = fdiv float %tmp_25, %stdev_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 224 'fdiv' 'tmp_26' <Predicate = true> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
-ST_97 : Operation 225 [1/1] (0.00ns)   --->   "%gamma_array_addr = getelementptr [300000 x float]* %gamma_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 225 'getelementptr' 'gamma_array_addr' <Predicate = true> <Delay = 0.00>
-ST_97 : Operation 226 [2/2] (3.25ns)   --->   "%gamma_array_load = load float* %gamma_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 226 'load' 'gamma_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_97 : Operation 227 [1/1] (0.00ns)   --->   "%beta_array_addr = getelementptr [300000 x float]* %beta_array, i64 0, i64 %idx" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 227 'getelementptr' 'beta_array_addr' <Predicate = true> <Delay = 0.00>
-ST_97 : Operation 228 [2/2] (3.25ns)   --->   "%beta_array_load = load float* %beta_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 228 'load' 'beta_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-
-State 98 <SV = 96> <Delay = 33.0>
-ST_98 : Operation 229 [1/2] (3.25ns)   --->   "%gamma_array_load = load float* %gamma_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 229 'load' 'gamma_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_98 : Operation 230 [1/1] (0.00ns) (grouped into LUT with out node tmp_28)   --->   "%tmp_27 = fmul float %tmp_26, %gamma_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 230 'fmul' 'tmp_27' <Predicate = true> <Delay = 0.00> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 0> <II = 1> <Delay = 15.4> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
-ST_98 : Operation 231 [1/2] (3.25ns)   --->   "%beta_array_load = load float* %beta_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 231 'load' 'beta_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_98 : Operation 232 [1/1] (26.5ns) (out node of the LUT)   --->   "%tmp_28 = fadd float %tmp_27, %beta_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 232 'fadd' 'tmp_28' <Predicate = true> <Delay = 26.5> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_98 : Operation 233 [1/1] (0.00ns)   --->   "%outputs_array_addr = getelementptr [300000 x float]* %outputs_array, i64 0, i64 %i_1_cast" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 233 'getelementptr' 'outputs_array_addr' <Predicate = true> <Delay = 0.00>
-ST_98 : Operation 234 [1/1] (3.25ns)   --->   "store float %tmp_28, float* %outputs_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 234 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 300000> <RAM>
-ST_98 : Operation 235 [1/1] (0.00ns)   --->   "br label %4" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 235 'br' <Predicate = true> <Delay = 0.00>
+State 91 <SV = 89> <Delay = 33.0>
+ST_91 : Operation 215 [1/2] (3.25ns)   --->   "%gamma_array_load = load float* %gamma_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 215 'load' 'gamma_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_91 : Operation 216 [1/1] (0.00ns) (grouped into LUT with out node tmp_52)   --->   "%tmp_51 = fmul float %tmp_50, %gamma_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 216 'fmul' 'tmp_51' <Predicate = true> <Delay = 0.00> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 0> <II = 1> <Delay = 15.4> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_91 : Operation 217 [1/2] (3.25ns)   --->   "%beta_array_load = load float* %beta_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 217 'load' 'beta_array_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_91 : Operation 218 [1/1] (26.5ns) (out node of the LUT)   --->   "%tmp_52 = fadd float %tmp_51, %beta_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 218 'fadd' 'tmp_52' <Predicate = true> <Delay = 26.5> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_91 : Operation 219 [1/1] (0.00ns)   --->   "%outputs_array_addr = getelementptr [2622 x float]* %outputs_array, i64 0, i64 %i_1_cast" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 219 'getelementptr' 'outputs_array_addr' <Predicate = true> <Delay = 0.00>
+ST_91 : Operation 220 [1/1] (3.25ns)   --->   "store float %tmp_52, float* %outputs_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:40]   --->   Operation 220 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_91 : Operation 221 [1/1] (0.00ns)   --->   "br label %4" [../C-Code-Original/include/k2c_normalization_layers.c:38]   --->   Operation 221 'br' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -636,46 +601,46 @@ Port [ beta_array]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0;
 
 <LifeTime>
 <method=bitvector/>
-inputs_numel_read_1 (read         ) [ 001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
-inputs_ndim_read_1  (read         ) [ 001100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-StgValue_101        (br           ) [ 011100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-offset              (phi          ) [ 001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
-i                   (phi          ) [ 001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-tmp                 (icmp         ) [ 001100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-StgValue_105        (br           ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-inputs_shape_addr   (getelementptr) [ 000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-phitmp              (add          ) [ 011100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-inputs_shape_addr_1 (getelementptr) [ 000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-inputs_shape_load   (load         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-offset_1            (mul          ) [ 011100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-StgValue_113        (br           ) [ 011100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-step                (load         ) [ 000001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
-StgValue_115        (br           ) [ 000011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
-i_1                 (phi          ) [ 000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-i_1_cast            (zext         ) [ 000000111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
-exitcond            (icmp         ) [ 000001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
-i_38                (add          ) [ 000011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
-StgValue_120        (br           ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-StgValue_122        (ret          ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-tmp_s               (udiv         ) [ 000000000000000000000000000011111111111111111111111111111111111111111111111111111111111111111110000]
-idx                 (urem         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001110]
-inputs_array_addr   (getelementptr) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000]
-mean_array_addr     (getelementptr) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000]
-inputs_array_load   (load         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-mean_array_load     (load         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-tmp_25              (fsub         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110]
-stdev_array_addr    (getelementptr) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100]
-stdev_array_load    (load         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010]
-tmp_26              (fdiv         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001]
-gamma_array_addr    (getelementptr) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001]
-beta_array_addr     (getelementptr) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001]
-gamma_array_load    (load         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-tmp_27              (fmul         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-beta_array_load     (load         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-tmp_28              (fadd         ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-outputs_array_addr  (getelementptr) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-StgValue_234        (store        ) [ 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
-StgValue_235        (br           ) [ 000011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+inputs_numel_read_1 (read         ) [ 00111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+inputs_ndim_read_1  (read         ) [ 00110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+StgValue_94         (br           ) [ 01110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+offset              (phi          ) [ 00111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+i                   (phi          ) [ 00100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+tmp                 (icmp         ) [ 00110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+StgValue_98         (br           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+inputs_shape_addr   (getelementptr) [ 00010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+phitmp              (add          ) [ 01110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+inputs_shape_addr_1 (getelementptr) [ 00001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+inputs_shape_load   (load         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+offset_1            (mul          ) [ 01110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+StgValue_106        (br           ) [ 01110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+step                (load         ) [ 00000111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+StgValue_108        (br           ) [ 00001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+i_1                 (phi          ) [ 00000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+i_1_cast            (zext         ) [ 00000011111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+exitcond            (icmp         ) [ 00000111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+i_42                (add          ) [ 00001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
+StgValue_113        (br           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+StgValue_115        (ret          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+tmp_s               (udiv         ) [ 00000000000000000000011111111111111111111111111111111111111111111111111111111111111111110000]
+idx                 (urem         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000001110]
+inputs_array_addr   (getelementptr) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000]
+mean_array_addr     (getelementptr) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000]
+inputs_array_load   (load         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+mean_array_load     (load         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+tmp_49              (fsub         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110]
+stdev_array_addr    (getelementptr) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100]
+stdev_array_load    (load         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010]
+tmp_50              (fdiv         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001]
+gamma_array_addr    (getelementptr) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001]
+beta_array_addr     (getelementptr) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001]
+gamma_array_load    (load         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+tmp_51              (fmul         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+beta_array_load     (load         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+tmp_52              (fadd         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+outputs_array_addr  (getelementptr) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+StgValue_220        (store        ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]
+StgValue_221        (br           ) [ 00001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111]
 </LifeTime>
 
 <model>
@@ -881,25 +846,25 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <pin_list>
 <pin id="63" dir="0" index="0" bw="32" slack="0"/>
 <pin id="64" dir="0" index="1" bw="1" slack="0"/>
-<pin id="65" dir="0" index="2" bw="19" slack="89"/>
-<pin id="66" dir="1" index="3" bw="19" slack="0"/>
+<pin id="65" dir="0" index="2" bw="12" slack="82"/>
+<pin id="66" dir="1" index="3" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="inputs_array_addr/94 "/>
+<opset="inputs_array_addr/87 "/>
 </bind>
 </comp>
 
 <comp id="69" class="1004" name="grp_access_fu_69">
 <pin_list>
-<pin id="70" dir="0" index="0" bw="19" slack="0"/>
+<pin id="70" dir="0" index="0" bw="12" slack="0"/>
 <pin id="71" dir="0" index="1" bw="32" slack="2147483647"/>
 <pin id="72" dir="0" index="2" bw="0" slack="2147483647"/>
 <pin id="73" dir="1" index="3" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
-<opset="inputs_array_load/94 "/>
+<opset="inputs_array_load/87 "/>
 </bind>
 </comp>
 
@@ -908,24 +873,24 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <pin id="76" dir="0" index="0" bw="32" slack="0"/>
 <pin id="77" dir="0" index="1" bw="1" slack="0"/>
 <pin id="78" dir="0" index="2" bw="64" slack="0"/>
-<pin id="79" dir="1" index="3" bw="19" slack="0"/>
+<pin id="79" dir="1" index="3" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="mean_array_addr/94 "/>
+<opset="mean_array_addr/87 "/>
 </bind>
 </comp>
 
 <comp id="82" class="1004" name="grp_access_fu_82">
 <pin_list>
-<pin id="83" dir="0" index="0" bw="19" slack="0"/>
+<pin id="83" dir="0" index="0" bw="12" slack="0"/>
 <pin id="84" dir="0" index="1" bw="32" slack="2147483647"/>
 <pin id="85" dir="0" index="2" bw="0" slack="2147483647"/>
 <pin id="86" dir="1" index="3" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
-<opset="mean_array_load/94 "/>
+<opset="mean_array_load/87 "/>
 </bind>
 </comp>
 
@@ -934,24 +899,24 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <pin id="89" dir="0" index="0" bw="32" slack="0"/>
 <pin id="90" dir="0" index="1" bw="1" slack="0"/>
 <pin id="91" dir="0" index="2" bw="64" slack="1"/>
-<pin id="92" dir="1" index="3" bw="19" slack="0"/>
+<pin id="92" dir="1" index="3" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="stdev_array_addr/95 "/>
+<opset="stdev_array_addr/88 "/>
 </bind>
 </comp>
 
 <comp id="95" class="1004" name="grp_access_fu_95">
 <pin_list>
-<pin id="96" dir="0" index="0" bw="19" slack="0"/>
+<pin id="96" dir="0" index="0" bw="12" slack="0"/>
 <pin id="97" dir="0" index="1" bw="32" slack="2147483647"/>
 <pin id="98" dir="0" index="2" bw="0" slack="2147483647"/>
 <pin id="99" dir="1" index="3" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
-<opset="stdev_array_load/95 "/>
+<opset="stdev_array_load/88 "/>
 </bind>
 </comp>
 
@@ -960,24 +925,24 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <pin id="102" dir="0" index="0" bw="32" slack="0"/>
 <pin id="103" dir="0" index="1" bw="1" slack="0"/>
 <pin id="104" dir="0" index="2" bw="64" slack="3"/>
-<pin id="105" dir="1" index="3" bw="19" slack="0"/>
+<pin id="105" dir="1" index="3" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="gamma_array_addr/97 "/>
+<opset="gamma_array_addr/90 "/>
 </bind>
 </comp>
 
 <comp id="108" class="1004" name="grp_access_fu_108">
 <pin_list>
-<pin id="109" dir="0" index="0" bw="19" slack="0"/>
+<pin id="109" dir="0" index="0" bw="12" slack="0"/>
 <pin id="110" dir="0" index="1" bw="32" slack="2147483647"/>
 <pin id="111" dir="0" index="2" bw="0" slack="2147483647"/>
 <pin id="112" dir="1" index="3" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
-<opset="gamma_array_load/97 "/>
+<opset="gamma_array_load/90 "/>
 </bind>
 </comp>
 
@@ -986,24 +951,24 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <pin id="115" dir="0" index="0" bw="32" slack="0"/>
 <pin id="116" dir="0" index="1" bw="1" slack="0"/>
 <pin id="117" dir="0" index="2" bw="64" slack="3"/>
-<pin id="118" dir="1" index="3" bw="19" slack="0"/>
+<pin id="118" dir="1" index="3" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="beta_array_addr/97 "/>
+<opset="beta_array_addr/90 "/>
 </bind>
 </comp>
 
 <comp id="121" class="1004" name="grp_access_fu_121">
 <pin_list>
-<pin id="122" dir="0" index="0" bw="19" slack="0"/>
+<pin id="122" dir="0" index="0" bw="12" slack="0"/>
 <pin id="123" dir="0" index="1" bw="32" slack="2147483647"/>
 <pin id="124" dir="0" index="2" bw="0" slack="2147483647"/>
 <pin id="125" dir="1" index="3" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
-<opset="beta_array_load/97 "/>
+<opset="beta_array_load/90 "/>
 </bind>
 </comp>
 
@@ -1011,25 +976,25 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <pin_list>
 <pin id="128" dir="0" index="0" bw="32" slack="0"/>
 <pin id="129" dir="0" index="1" bw="1" slack="0"/>
-<pin id="130" dir="0" index="2" bw="19" slack="93"/>
-<pin id="131" dir="1" index="3" bw="19" slack="0"/>
+<pin id="130" dir="0" index="2" bw="12" slack="86"/>
+<pin id="131" dir="1" index="3" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="outputs_array_addr/98 "/>
+<opset="outputs_array_addr/91 "/>
 </bind>
 </comp>
 
-<comp id="134" class="1004" name="StgValue_234_access_fu_134">
+<comp id="134" class="1004" name="StgValue_220_access_fu_134">
 <pin_list>
-<pin id="135" dir="0" index="0" bw="19" slack="0"/>
+<pin id="135" dir="0" index="0" bw="12" slack="0"/>
 <pin id="136" dir="0" index="1" bw="32" slack="0"/>
 <pin id="137" dir="0" index="2" bw="0" slack="2147483647"/>
 <pin id="138" dir="1" index="3" bw="32" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="StgValue_234/98 "/>
+<opset="StgValue_220/91 "/>
 </bind>
 </comp>
 
@@ -1083,8 +1048,8 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 <comp id="164" class="1005" name="i_1_reg_164">
 <pin_list>
-<pin id="165" dir="0" index="0" bw="19" slack="1"/>
-<pin id="166" dir="1" index="1" bw="19" slack="1"/>
+<pin id="165" dir="0" index="0" bw="12" slack="1"/>
+<pin id="166" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="i_1 (phireg) "/>
@@ -1095,9 +1060,9 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <pin_list>
 <pin id="169" dir="0" index="0" bw="1" slack="1"/>
 <pin id="170" dir="0" index="1" bw="0" slack="2147483647"/>
-<pin id="171" dir="0" index="2" bw="19" slack="0"/>
+<pin id="171" dir="0" index="2" bw="12" slack="0"/>
 <pin id="172" dir="0" index="3" bw="0" slack="2147483647"/>
-<pin id="173" dir="1" index="4" bw="19" slack="0"/>
+<pin id="173" dir="1" index="4" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
@@ -1113,11 +1078,11 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 </pin_list>
 <bind>
 <opcode="fadd(9) fsub(11) " fcode="fadd"/>
-<opset="tmp_25/95 tmp_28/98 "/>
+<opset="tmp_49/88 tmp_52/91 "/>
 </bind>
 </comp>
 
-<comp id="183" class="1004" name="tmp_27_fu_183">
+<comp id="183" class="1004" name="tmp_51_fu_183">
 <pin_list>
 <pin id="184" dir="0" index="0" bw="32" slack="1"/>
 <pin id="185" dir="0" index="1" bw="32" slack="0"/>
@@ -1125,7 +1090,7 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 </pin_list>
 <bind>
 <opcode="fmul(13) " fcode="fmul"/>
-<opset="tmp_27/98 "/>
+<opset="tmp_51/91 "/>
 </bind>
 </comp>
 
@@ -1137,7 +1102,7 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 </pin_list>
 <bind>
 <opcode="fdiv(16) " fcode="fdiv"/>
-<opset="tmp_26/96 "/>
+<opset="tmp_50/89 "/>
 </bind>
 </comp>
 
@@ -1179,7 +1144,7 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 <comp id="211" class="1004" name="i_1_cast_fu_211">
 <pin_list>
-<pin id="212" dir="0" index="0" bw="19" slack="0"/>
+<pin id="212" dir="0" index="0" bw="12" slack="0"/>
 <pin id="213" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
@@ -1190,7 +1155,7 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 <comp id="215" class="1004" name="exitcond_fu_215">
 <pin_list>
-<pin id="216" dir="0" index="0" bw="19" slack="0"/>
+<pin id="216" dir="0" index="0" bw="12" slack="0"/>
 <pin id="217" dir="0" index="1" bw="64" slack="3"/>
 <pin id="218" dir="1" index="2" bw="1" slack="2147483647"/>
 </pin_list>
@@ -1200,21 +1165,21 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 </bind>
 </comp>
 
-<comp id="220" class="1004" name="i_38_fu_220">
+<comp id="220" class="1004" name="i_42_fu_220">
 <pin_list>
-<pin id="221" dir="0" index="0" bw="19" slack="0"/>
+<pin id="221" dir="0" index="0" bw="12" slack="0"/>
 <pin id="222" dir="0" index="1" bw="1" slack="0"/>
-<pin id="223" dir="1" index="2" bw="19" slack="0"/>
+<pin id="223" dir="1" index="2" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_38/5 "/>
+<opset="i_42/5 "/>
 </bind>
 </comp>
 
 <comp id="226" class="1004" name="grp_fu_226">
 <pin_list>
-<pin id="227" dir="0" index="0" bw="19" slack="0"/>
+<pin id="227" dir="0" index="0" bw="12" slack="0"/>
 <pin id="228" dir="0" index="1" bw="64" slack="2"/>
 <pin id="229" dir="1" index="2" bw="64" slack="0"/>
 </pin_list>
@@ -1227,12 +1192,12 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 <comp id="232" class="1004" name="grp_fu_232">
 <pin_list>
 <pin id="233" dir="0" index="0" bw="64" slack="0"/>
-<pin id="234" dir="0" index="1" bw="64" slack="23"/>
+<pin id="234" dir="0" index="1" bw="64" slack="16"/>
 <pin id="235" dir="1" index="2" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="urem(17) " fcode="urem"/>
-<opset="idx/27 "/>
+<opset="idx/20 "/>
 </bind>
 </comp>
 
@@ -1298,8 +1263,8 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 <comp id="271" class="1005" name="step_reg_271">
 <pin_list>
-<pin id="272" dir="0" index="0" bw="64" slack="23"/>
-<pin id="273" dir="1" index="1" bw="64" slack="23"/>
+<pin id="272" dir="0" index="0" bw="64" slack="16"/>
+<pin id="273" dir="1" index="1" bw="64" slack="16"/>
 </pin_list>
 <bind>
 <opset="step "/>
@@ -1316,13 +1281,13 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 </bind>
 </comp>
 
-<comp id="286" class="1005" name="i_38_reg_286">
+<comp id="286" class="1005" name="i_42_reg_286">
 <pin_list>
-<pin id="287" dir="0" index="0" bw="19" slack="0"/>
-<pin id="288" dir="1" index="1" bw="19" slack="0"/>
+<pin id="287" dir="0" index="0" bw="12" slack="0"/>
+<pin id="288" dir="1" index="1" bw="12" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_38 "/>
+<opset="i_42 "/>
 </bind>
 </comp>
 
@@ -1348,8 +1313,8 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 <comp id="303" class="1005" name="inputs_array_addr_reg_303">
 <pin_list>
-<pin id="304" dir="0" index="0" bw="19" slack="1"/>
-<pin id="305" dir="1" index="1" bw="19" slack="1"/>
+<pin id="304" dir="0" index="0" bw="12" slack="1"/>
+<pin id="305" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="inputs_array_addr "/>
@@ -1358,28 +1323,28 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 <comp id="308" class="1005" name="mean_array_addr_reg_308">
 <pin_list>
-<pin id="309" dir="0" index="0" bw="19" slack="1"/>
-<pin id="310" dir="1" index="1" bw="19" slack="1"/>
+<pin id="309" dir="0" index="0" bw="12" slack="1"/>
+<pin id="310" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="mean_array_addr "/>
 </bind>
 </comp>
 
-<comp id="313" class="1005" name="tmp_25_reg_313">
+<comp id="313" class="1005" name="tmp_49_reg_313">
 <pin_list>
 <pin id="314" dir="0" index="0" bw="32" slack="1"/>
 <pin id="315" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_25 "/>
+<opset="tmp_49 "/>
 </bind>
 </comp>
 
 <comp id="318" class="1005" name="stdev_array_addr_reg_318">
 <pin_list>
-<pin id="319" dir="0" index="0" bw="19" slack="1"/>
-<pin id="320" dir="1" index="1" bw="19" slack="1"/>
+<pin id="319" dir="0" index="0" bw="12" slack="1"/>
+<pin id="320" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="stdev_array_addr "/>
@@ -1396,20 +1361,20 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 </bind>
 </comp>
 
-<comp id="328" class="1005" name="tmp_26_reg_328">
+<comp id="328" class="1005" name="tmp_50_reg_328">
 <pin_list>
 <pin id="329" dir="0" index="0" bw="32" slack="1"/>
 <pin id="330" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_26 "/>
+<opset="tmp_50 "/>
 </bind>
 </comp>
 
 <comp id="333" class="1005" name="gamma_array_addr_reg_333">
 <pin_list>
-<pin id="334" dir="0" index="0" bw="19" slack="1"/>
-<pin id="335" dir="1" index="1" bw="19" slack="1"/>
+<pin id="334" dir="0" index="0" bw="12" slack="1"/>
+<pin id="335" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="gamma_array_addr "/>
@@ -1418,8 +1383,8 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 <comp id="338" class="1005" name="beta_array_addr_reg_338">
 <pin_list>
-<pin id="339" dir="0" index="0" bw="19" slack="1"/>
-<pin id="340" dir="1" index="1" bw="19" slack="1"/>
+<pin id="339" dir="0" index="0" bw="12" slack="1"/>
+<pin id="340" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="beta_array_addr "/>
@@ -1634,21 +1599,21 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 
 * FSMD analyzer results:
   - Output states:
-	Port: outputs_array | {98 }
+	Port: outputs_array | {91 }
  - Input state : 
-	Port: k2c_batch_norm : inputs_array | {94 95 }
+	Port: k2c_batch_norm : inputs_array | {87 88 }
 	Port: k2c_batch_norm : inputs_ndim_read | {1 }
 	Port: k2c_batch_norm : inputs_numel_read | {1 }
 	Port: k2c_batch_norm : inputs_shape | {2 3 4 }
-	Port: k2c_batch_norm : mean_array | {94 95 }
-	Port: k2c_batch_norm : stdev_array | {95 96 }
-	Port: k2c_batch_norm : gamma_array | {97 98 }
-	Port: k2c_batch_norm : beta_array | {97 98 }
+	Port: k2c_batch_norm : mean_array | {87 88 }
+	Port: k2c_batch_norm : stdev_array | {88 89 }
+	Port: k2c_batch_norm : gamma_array | {90 91 }
+	Port: k2c_batch_norm : beta_array | {90 91 }
   - Chain level:
 	State 1
 	State 2
 		tmp : 1
-		StgValue_105 : 2
+		StgValue_98 : 2
 		inputs_shape_addr : 1
 		inputs_shape_load : 2
 		phitmp : 1
@@ -1659,8 +1624,8 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 	State 5
 		i_1_cast : 1
 		exitcond : 2
-		i_38 : 1
-		StgValue_120 : 3
+		i_42 : 1
+		StgValue_113 : 3
 		tmp_s : 2
 	State 6
 	State 7
@@ -1677,6 +1642,7 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 	State 18
 	State 19
 	State 20
+		idx : 1
 	State 21
 	State 22
 	State 23
@@ -1684,7 +1650,6 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 	State 25
 	State 26
 	State 27
-		idx : 1
 	State 28
 	State 29
 	State 30
@@ -1745,28 +1710,21 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 	State 85
 	State 86
 	State 87
-	State 88
-	State 89
-	State 90
-	State 91
-	State 92
-	State 93
-	State 94
 		inputs_array_load : 1
 		mean_array_addr : 1
 		mean_array_load : 2
-	State 95
-		tmp_25 : 1
+	State 88
+		tmp_49 : 1
 		stdev_array_load : 1
-	State 96
-		tmp_26 : 1
-	State 97
+	State 89
+		tmp_50 : 1
+	State 90
 		gamma_array_load : 1
 		beta_array_load : 1
-	State 98
-		tmp_27 : 1
-		tmp_28 : 2
-		StgValue_234 : 3
+	State 91
+		tmp_51 : 1
+		tmp_52 : 2
+		StgValue_220 : 3
 
 
 ============================================================
@@ -1785,10 +1743,10 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 |----------|--------------------------------|---------|---------|---------|
 |   fadd   |           grp_fu_175           |    2    |   177   |   385   |
 |----------|--------------------------------|---------|---------|---------|
-|   fmul   |          tmp_27_fu_183         |    3    |   128   |   320   |
+|   fmul   |          tmp_51_fu_183         |    3    |   128   |   320   |
 |----------|--------------------------------|---------|---------|---------|
 |    add   |          phitmp_fu_199         |    0    |    0    |    71   |
-|          |           i_38_fu_220          |    0    |    0    |    26   |
+|          |           i_42_fu_220          |    0    |    0    |    19   |
 |----------|--------------------------------|---------|---------|---------|
 |   icmp   |           tmp_fu_194           |    0    |    0    |    29   |
 |          |         exitcond_fu_215        |    0    |    0    |    29   |
@@ -1800,7 +1758,7 @@ StgValue_235        (br           ) [ 000011111111111111111111111111111111111111
 |----------|--------------------------------|---------|---------|---------|
 |   zext   |         i_1_cast_fu_211        |    0    |    0    |    0    |
 |----------|--------------------------------|---------|---------|---------|
-|   Total  |                                |    15   |   1991  |   2791  |
+|   Total  |                                |    15   |   1991  |   2784  |
 |----------|--------------------------------|---------|---------|---------|
 
 Memories:
@@ -1810,30 +1768,30 @@ N/A
 +---------------------------+--------+
 |                           |   FF   |
 +---------------------------+--------+
-|  beta_array_addr_reg_338  |   19   |
-|  gamma_array_addr_reg_333 |   19   |
+|  beta_array_addr_reg_338  |   12   |
+|  gamma_array_addr_reg_333 |   12   |
 |      i_1_cast_reg_276     |   64   |
-|        i_1_reg_164        |   19   |
-|        i_38_reg_286       |   19   |
+|        i_1_reg_164        |   12   |
+|        i_42_reg_286       |   12   |
 |         i_reg_152         |   64   |
 |        idx_reg_296        |   64   |
-| inputs_array_addr_reg_303 |   19   |
+| inputs_array_addr_reg_303 |   12   |
 | inputs_ndim_read_1_reg_243|   64   |
 |inputs_numel_read_1_reg_238|   64   |
 |inputs_shape_addr_1_reg_261|    3   |
 | inputs_shape_addr_reg_251 |    3   |
-|  mean_array_addr_reg_308  |   19   |
+|  mean_array_addr_reg_308  |   12   |
 |      offset_1_reg_266     |   64   |
 |       offset_reg_140      |   64   |
 |       phitmp_reg_256      |   64   |
-|  stdev_array_addr_reg_318 |   19   |
+|  stdev_array_addr_reg_318 |   12   |
 |  stdev_array_load_reg_323 |   32   |
 |        step_reg_271       |   64   |
-|       tmp_25_reg_313      |   32   |
-|       tmp_26_reg_328      |   32   |
+|       tmp_49_reg_313      |   32   |
+|       tmp_50_reg_328      |   32   |
 |       tmp_s_reg_291       |   64   |
 +---------------------------+--------+
-|           Total           |   875  |
+|           Total           |   826  |
 +---------------------------+--------+
 
 * Multiplexer (MUX) list: 
@@ -1841,19 +1799,19 @@ N/A
 |        Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |-------------------|------|------|------|--------||---------||---------|
 |  grp_access_fu_47 |  p0  |   4  |   3  |   12   ||    21   |
-|  grp_access_fu_69 |  p0  |   2  |  19  |   38   ||    9    |
-|  grp_access_fu_82 |  p0  |   2  |  19  |   38   ||    9    |
-|  grp_access_fu_95 |  p0  |   2  |  19  |   38   ||    9    |
-| grp_access_fu_108 |  p0  |   2  |  19  |   38   ||    9    |
-| grp_access_fu_121 |  p0  |   2  |  19  |   38   ||    9    |
+|  grp_access_fu_69 |  p0  |   2  |  12  |   24   ||    9    |
+|  grp_access_fu_82 |  p0  |   2  |  12  |   24   ||    9    |
+|  grp_access_fu_95 |  p0  |   2  |  12  |   24   ||    9    |
+| grp_access_fu_108 |  p0  |   2  |  12  |   24   ||    9    |
+| grp_access_fu_121 |  p0  |   2  |  12  |   24   ||    9    |
 |   offset_reg_140  |  p0  |   2  |  64  |   128  ||    9    |
 |     grp_fu_175    |  p0  |   2  |  32  |   64   ||    9    |
 |     grp_fu_175    |  p1  |   2  |  32  |   64   ||    9    |
 |     grp_fu_189    |  p1  |   2  |  32  |   64   ||    9    |
-|     grp_fu_226    |  p0  |   2  |  19  |   38   ||    9    |
+|     grp_fu_226    |  p0  |   2  |  12  |   24   ||    9    |
 |     grp_fu_232    |  p0  |   2  |  64  |   128  ||    9    |
 |-------------------|------|------|------|--------||---------||---------|
-|       Total       |      |      |      |   688  || 20.0575 ||   120   |
+|       Total       |      |      |      |   604  || 20.0575 ||   120   |
 |-------------------|------|------|------|--------||---------||---------|
 
 
@@ -1862,10 +1820,10 @@ N/A
 +-----------+--------+--------+--------+--------+
 |           | DSP48E |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |   15   |    -   |  1991  |  2791  |
+|  Function |   15   |    -   |  1991  |  2784  |
 |   Memory  |    -   |    -   |    -   |    -   |
 |Multiplexer|    -   |   20   |    -   |   120  |
-|  Register |    -   |    -   |   875  |    -   |
+|  Register |    -   |    -   |   826  |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |   15   |   20   |  2866  |  2911  |
+|   Total   |   15   |   20   |  2817  |  2904  |
 +-----------+--------+--------+--------+--------+

@@ -1657,7 +1657,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 struct k2c_tensor
 {
 #pragma empty_line
-    float array[300000];
+    float array[262200];
 #pragma empty_line
 #pragma empty_line
     size_t ndim;
@@ -1670,6 +1670,23 @@ struct k2c_tensor
 };
 #pragma empty_line
 typedef struct k2c_tensor k2c_tensor;
+#pragma empty_line
+struct k2c_tensor2
+{
+#pragma empty_line
+    float array[2622];
+#pragma empty_line
+#pragma empty_line
+    size_t ndim;
+#pragma empty_line
+#pragma empty_line
+    size_t numel;
+#pragma empty_line
+#pragma empty_line
+    size_t shape[5];
+};
+#pragma empty_line
+typedef struct k2c_tensor2 k2c_tensor2;
 #pragma line 12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h" 2
 #pragma empty_line
 #pragma empty_line
@@ -1695,16 +1712,26 @@ extern k2c_activationType * k2c_softmax;
 extern k2c_activationType * k2c_softplus;
 extern k2c_activationType * k2c_softsign;
 #pragma line 68 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
-void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-               const k2c_tensor* bias, float * fwork);
-#pragma line 102 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
-void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
-                    const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
+void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* kernel,
+               const k2c_tensor2* bias, float * fwork);
+void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2* kernel,
+               const k2c_tensor2* bias, float * fwork);
+#pragma line 85 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
+size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
+void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+#pragma line 106 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
+void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
+                    const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis);
 #pragma line 12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c" 2
 #pragma line 27 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c"
-void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
-                    const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
+void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
+                    const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis) {
 #pragma empty_line
     size_t offset = 1;

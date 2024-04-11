@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'face_classifier_c'" level="0">
-<item name = "Date">Wed Apr 10 13:49:45 2024
+<item name = "Date">Thu Apr 11 22:31:08 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -31,11 +31,11 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_k2c_dense_1_fu_1840">k2c_dense_1, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_dense_2_fu_1863">k2c_dense_2, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_dense_fu_1886">k2c_dense, ?, ?, ?, ?, none</column>
-<column name="grp_generic_tanh_float_s_fu_1905">generic_tanh_float_s, 6, 6, 1, 1, function</column>
-<column name="grp_k2c_batch_norm_fu_1920">k2c_batch_norm, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense_1_fu_1850">k2c_dense_1, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense2_fu_1873">k2c_dense2, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense_fu_1902">k2c_dense, ?, ?, ?, ?, none</column>
+<column name="grp_generic_tanh_float_s_fu_1921">generic_tanh_float_s, 6, 6, 1, 1, function</column>
+<column name="grp_k2c_batch_norm_fu_1936">k2c_batch_norm, ?, ?, ?, ?, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -65,14 +65,14 @@
 <column name="- memset_dense_2_fwork">69, 69, 1, -, -, 70, no</column>
 <column name="- Loop 24">?, ?, 8, 1, 1, ?, yes</column>
 <column name="- Loop 25">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 26">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
+<column name="- Loop 26">0, 4095, 2, 1, 1, 0 ~ 4095, yes</column>
 <column name="- Loop 27">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 28">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
-<column name="- Loop 29">?, ?, 8, 1, 1, ?, yes</column>
+<column name="- Loop 28">0, 4095, 2, 1, 1, 0 ~ 4095, yes</column>
+<column name="- Loop 29">16, 16, 8, 1, 1, 10, yes</column>
 <column name="- Loop 30">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 31">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
+<column name="- Loop 31">10, 10, 2, 1, 1, 10, yes</column>
 <column name="- Loop 32">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 33">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
+<column name="- Loop 33">10, 10, 2, 1, 1, 10, yes</column>
 <column name="- Loop 34">10, 10, 2, -, -, 5, no</column>
 <column name="- Loop 35">18, 18, 3, -, -, 6, no</column>
 <column name="- Loop 36">12, 12, 2, -, -, 6, no</column>

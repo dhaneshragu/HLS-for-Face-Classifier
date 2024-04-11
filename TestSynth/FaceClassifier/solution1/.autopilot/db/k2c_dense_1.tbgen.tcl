@@ -12,19 +12,19 @@ set isEnableWaveformDebug 1
 set C_modelName {k2c_dense.1}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ output_array float 32 regular {array 300000 { 2 3 } 1 1 }  }
+	{ output_array float 32 regular {array 2622 { 2 3 } 1 1 }  }
 	{ output_numel_read int 64 regular  }
-	{ input_array float 32 regular {array 300000 { 1 3 } 1 1 }  }
+	{ input_array float 32 regular {array 2622 { 1 3 } 1 1 }  }
 	{ input_ndim_read int 64 regular  }
 	{ input_numel_read int 64 regular  }
 	{ input_shape int 64 regular {array 5 { 1 3 } 1 1 }  }
-	{ kernel_array float 32 regular {array 300000 { 1 3 } 1 1 }  }
+	{ kernel_array float 32 regular {array 262200 { 1 3 } 1 1 }  }
 	{ kernel_ndim_read int 64 regular  }
 	{ kernel_numel_read int 64 regular  }
 	{ kernel_shape int 64 regular {array 5 { 1 1 } 1 1 }  }
-	{ bias_array float 32 regular {array 300000 { 1 3 } 1 1 }  }
+	{ bias_array float 32 regular {array 2622 { 1 3 } 1 1 }  }
 	{ bias_numel_read int 64 regular  }
-	{ fwork float 32 regular {array 70 { 2 1 } 1 1 }  }
+	{ fwork float 32 regular {array 1100 { 2 1 } 1 1 }  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "output_array", "interface" : "memory", "bitwidth" : 32, "direction" : "READWRITE"} , 
@@ -49,13 +49,13 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ output_array_address0 sc_out sc_lv 19 signal 0 } 
+	{ output_array_address0 sc_out sc_lv 12 signal 0 } 
 	{ output_array_ce0 sc_out sc_logic 1 signal 0 } 
 	{ output_array_we0 sc_out sc_logic 1 signal 0 } 
 	{ output_array_d0 sc_out sc_lv 32 signal 0 } 
 	{ output_array_q0 sc_in sc_lv 32 signal 0 } 
 	{ output_numel_read sc_in sc_lv 64 signal 1 } 
-	{ input_array_address0 sc_out sc_lv 19 signal 2 } 
+	{ input_array_address0 sc_out sc_lv 12 signal 2 } 
 	{ input_array_ce0 sc_out sc_logic 1 signal 2 } 
 	{ input_array_q0 sc_in sc_lv 32 signal 2 } 
 	{ input_ndim_read sc_in sc_lv 64 signal 3 } 
@@ -74,16 +74,16 @@ set portList {
 	{ kernel_shape_address1 sc_out sc_lv 3 signal 9 } 
 	{ kernel_shape_ce1 sc_out sc_logic 1 signal 9 } 
 	{ kernel_shape_q1 sc_in sc_lv 64 signal 9 } 
-	{ bias_array_address0 sc_out sc_lv 19 signal 10 } 
+	{ bias_array_address0 sc_out sc_lv 12 signal 10 } 
 	{ bias_array_ce0 sc_out sc_logic 1 signal 10 } 
 	{ bias_array_q0 sc_in sc_lv 32 signal 10 } 
 	{ bias_numel_read sc_in sc_lv 64 signal 11 } 
-	{ fwork_address0 sc_out sc_lv 7 signal 12 } 
+	{ fwork_address0 sc_out sc_lv 11 signal 12 } 
 	{ fwork_ce0 sc_out sc_logic 1 signal 12 } 
 	{ fwork_we0 sc_out sc_logic 1 signal 12 } 
 	{ fwork_d0 sc_out sc_lv 32 signal 12 } 
 	{ fwork_q0 sc_in sc_lv 32 signal 12 } 
-	{ fwork_address1 sc_out sc_lv 7 signal 12 } 
+	{ fwork_address1 sc_out sc_lv 11 signal 12 } 
 	{ fwork_ce1 sc_out sc_logic 1 signal 12 } 
 	{ fwork_q1 sc_in sc_lv 32 signal 12 } 
 }
@@ -94,13 +94,13 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "output_array_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":19, "type": "signal", "bundle":{"name": "output_array", "role": "address0" }} , 
+ 	{ "name": "output_array_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "output_array", "role": "address0" }} , 
  	{ "name": "output_array_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "output_array", "role": "ce0" }} , 
  	{ "name": "output_array_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "output_array", "role": "we0" }} , 
  	{ "name": "output_array_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "output_array", "role": "d0" }} , 
  	{ "name": "output_array_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "output_array", "role": "q0" }} , 
  	{ "name": "output_numel_read", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "output_numel_read", "role": "default" }} , 
- 	{ "name": "input_array_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":19, "type": "signal", "bundle":{"name": "input_array", "role": "address0" }} , 
+ 	{ "name": "input_array_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "input_array", "role": "address0" }} , 
  	{ "name": "input_array_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "input_array", "role": "ce0" }} , 
  	{ "name": "input_array_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "input_array", "role": "q0" }} , 
  	{ "name": "input_ndim_read", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "input_ndim_read", "role": "default" }} , 
@@ -119,21 +119,21 @@ set NewPortList {[
  	{ "name": "kernel_shape_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "kernel_shape", "role": "address1" }} , 
  	{ "name": "kernel_shape_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "kernel_shape", "role": "ce1" }} , 
  	{ "name": "kernel_shape_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "kernel_shape", "role": "q1" }} , 
- 	{ "name": "bias_array_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":19, "type": "signal", "bundle":{"name": "bias_array", "role": "address0" }} , 
+ 	{ "name": "bias_array_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "bias_array", "role": "address0" }} , 
  	{ "name": "bias_array_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "bias_array", "role": "ce0" }} , 
  	{ "name": "bias_array_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "bias_array", "role": "q0" }} , 
  	{ "name": "bias_numel_read", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "bias_numel_read", "role": "default" }} , 
- 	{ "name": "fwork_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "fwork", "role": "address0" }} , 
+ 	{ "name": "fwork_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":11, "type": "signal", "bundle":{"name": "fwork", "role": "address0" }} , 
  	{ "name": "fwork_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fwork", "role": "ce0" }} , 
  	{ "name": "fwork_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fwork", "role": "we0" }} , 
  	{ "name": "fwork_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "fwork", "role": "d0" }} , 
  	{ "name": "fwork_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "fwork", "role": "q0" }} , 
- 	{ "name": "fwork_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "fwork", "role": "address1" }} , 
+ 	{ "name": "fwork_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":11, "type": "signal", "bundle":{"name": "fwork", "role": "address1" }} , 
  	{ "name": "fwork_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fwork", "role": "ce1" }} , 
  	{ "name": "fwork_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "fwork", "role": "q1" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "20", "21"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "22", "23", "24", "25"],
 		"CDFG" : "k2c_dense_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -147,35 +147,35 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_dot_1_fu_259"}],
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_dot_fu_289"}],
 		"Port" : [
 			{"Name" : "output_array", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_1_fu_259", "Port" : "C_array"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "C_array"}]},
 			{"Name" : "output_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_array", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_1_fu_259", "Port" : "Ar_array"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "Ar_array"}]},
 			{"Name" : "input_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_shape", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_1_fu_259", "Port" : "Ar_shape"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "Ar_shape"}]},
 			{"Name" : "kernel_array", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_1_fu_259", "Port" : "B_array"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "B_array"}]},
 			{"Name" : "kernel_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "kernel_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "kernel_shape", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_1_fu_259", "Port" : "B_shape"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "B_shape"}]},
 			{"Name" : "bias_array", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "bias_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "fwork", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_1_fu_259", "Port" : "fwork"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],
-		"CDFG" : "k2c_dot_1",
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "fwork"}]}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"],
+		"CDFG" : "k2c_dot",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -200,17 +200,17 @@ set RtlHierarchyInfo {[
 			{"Name" : "B_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "B_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "B_shape", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "p_read4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "axesA_0_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "fwork", "Type" : "Memory", "Direction" : "IO"}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.permA_U", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.permB_U", "Parent" : "1"},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.freeA_U", "Parent" : "1"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.freeB_U", "Parent" : "1"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.newshpA_U", "Parent" : "1"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.newshpB_U", "Parent" : "1"},
-	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.Asub_U", "Parent" : "1"},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.Bsub_U", "Parent" : "1"},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.grp_k2c_sub2idx_fu_676", "Parent" : "1",
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.permA_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.permB_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.freeA_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.freeB_U", "Parent" : "1"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.newshpA_U", "Parent" : "1"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.newshpB_U", "Parent" : "1"},
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.Asub_U", "Parent" : "1"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.Bsub_U", "Parent" : "1"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.grp_k2c_sub2idx_fu_676", "Parent" : "1",
 		"CDFG" : "k2c_sub2idx",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -227,22 +227,26 @@ set RtlHierarchyInfo {[
 			{"Name" : "sub", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "shape", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "ndim", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_cbkb_U117", "Parent" : "1"},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_ccud_U118", "Parent" : "1"},
-	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_cdEe_U119", "Parent" : "1"},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_csc4_U120", "Parent" : "1"},
-	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_cfYi_U121", "Parent" : "1"},
-	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_cdEe_U122", "Parent" : "1"},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_cfYi_U123", "Parent" : "1"},
-	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_cdEe_U124", "Parent" : "1"},
-	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_1_fu_259.face_classifier_cvdy_U125", "Parent" : "1"},
-	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cbkb_U138", "Parent" : "0"},
-	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ccud_U139", "Parent" : "0"}]}
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cbkb_U83", "Parent" : "1"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_ccud_U84", "Parent" : "1"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cdEe_U85", "Parent" : "1"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cudo_U86", "Parent" : "1"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cfYi_U87", "Parent" : "1"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cdEe_U88", "Parent" : "1"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cfYi_U89", "Parent" : "1"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cdEe_U90", "Parent" : "1"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cg8j_U91", "Parent" : "1"},
+	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cvdy_U92", "Parent" : "1"},
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cwdI_U93", "Parent" : "1"},
+	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cbkb_U108", "Parent" : "0"},
+	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ccud_U109", "Parent" : "0"},
+	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_chbi_U110", "Parent" : "0"},
+	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cg8j_U111", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	k2c_dense_1 {
-		output_array {Type IO LastRead 3 FirstWrite 4}
+		output_array {Type IO LastRead 3 FirstWrite 3}
 		output_numel_read {Type I LastRead 0 FirstWrite -1}
 		input_array {Type I LastRead 78 FirstWrite -1}
 		input_ndim_read {Type I LastRead 0 FirstWrite -1}
@@ -252,10 +256,10 @@ set ArgLastReadFirstWriteLatency {
 		kernel_ndim_read {Type I LastRead 0 FirstWrite -1}
 		kernel_numel_read {Type I LastRead 0 FirstWrite -1}
 		kernel_shape {Type I LastRead 78 FirstWrite -1}
-		bias_array {Type I LastRead 4 FirstWrite -1}
+		bias_array {Type I LastRead 3 FirstWrite -1}
 		bias_numel_read {Type I LastRead 0 FirstWrite -1}
 		fwork {Type IO LastRead 81 FirstWrite 79}}
-	k2c_dot_1 {
+	k2c_dot {
 		C_array {Type O LastRead -1 FirstWrite 80}
 		Ar_array {Type I LastRead 78 FirstWrite -1}
 		Ar_ndim_read {Type I LastRead 0 FirstWrite -1}
@@ -265,7 +269,7 @@ set ArgLastReadFirstWriteLatency {
 		B_ndim_read {Type I LastRead 0 FirstWrite -1}
 		B_numel_read {Type I LastRead 0 FirstWrite -1}
 		B_shape {Type I LastRead 78 FirstWrite -1}
-		p_read4 {Type I LastRead 0 FirstWrite -1}
+		axesA_0_read {Type I LastRead 0 FirstWrite -1}
 		fwork {Type IO LastRead 81 FirstWrite 79}}
 	k2c_sub2idx {
 		sub {Type I LastRead 1 FirstWrite -1}
@@ -280,12 +284,13 @@ set PerformanceInfo {[
 ]}
 
 set PipelineEnableSignalInfo {[
+	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 
-	output_array { ap_memory {  { output_array_address0 mem_address 1 19 }  { output_array_ce0 mem_ce 1 1 }  { output_array_we0 mem_we 1 1 }  { output_array_d0 mem_din 1 32 }  { output_array_q0 mem_dout 0 32 } } }
+	output_array { ap_memory {  { output_array_address0 mem_address 1 12 }  { output_array_ce0 mem_ce 1 1 }  { output_array_we0 mem_we 1 1 }  { output_array_d0 mem_din 1 32 }  { output_array_q0 mem_dout 0 32 } } }
 	output_numel_read { ap_none {  { output_numel_read in_data 0 64 } } }
-	input_array { ap_memory {  { input_array_address0 mem_address 1 19 }  { input_array_ce0 mem_ce 1 1 }  { input_array_q0 mem_dout 0 32 } } }
+	input_array { ap_memory {  { input_array_address0 mem_address 1 12 }  { input_array_ce0 mem_ce 1 1 }  { input_array_q0 mem_dout 0 32 } } }
 	input_ndim_read { ap_none {  { input_ndim_read in_data 0 64 } } }
 	input_numel_read { ap_none {  { input_numel_read in_data 0 64 } } }
 	input_shape { ap_memory {  { input_shape_address0 mem_address 1 3 }  { input_shape_ce0 mem_ce 1 1 }  { input_shape_q0 mem_dout 0 64 } } }
@@ -293,7 +298,7 @@ set Spec2ImplPortList {
 	kernel_ndim_read { ap_none {  { kernel_ndim_read in_data 0 64 } } }
 	kernel_numel_read { ap_none {  { kernel_numel_read in_data 0 64 } } }
 	kernel_shape { ap_memory {  { kernel_shape_address0 mem_address 1 3 }  { kernel_shape_ce0 mem_ce 1 1 }  { kernel_shape_q0 mem_dout 0 64 }  { kernel_shape_address1 mem_address 1 3 }  { kernel_shape_ce1 mem_ce 1 1 }  { kernel_shape_q1 mem_dout 0 64 } } }
-	bias_array { ap_memory {  { bias_array_address0 mem_address 1 19 }  { bias_array_ce0 mem_ce 1 1 }  { bias_array_q0 mem_dout 0 32 } } }
+	bias_array { ap_memory {  { bias_array_address0 mem_address 1 12 }  { bias_array_ce0 mem_ce 1 1 }  { bias_array_q0 mem_dout 0 32 } } }
 	bias_numel_read { ap_none {  { bias_numel_read in_data 0 64 } } }
-	fwork { ap_memory {  { fwork_address0 mem_address 1 7 }  { fwork_ce0 mem_ce 1 1 }  { fwork_we0 mem_we 1 1 }  { fwork_d0 mem_din 1 32 }  { fwork_q0 mem_dout 0 32 }  { fwork_address1 mem_address 1 7 }  { fwork_ce1 mem_ce 1 1 }  { fwork_q1 mem_dout 0 32 } } }
+	fwork { ap_memory {  { fwork_address0 mem_address 1 11 }  { fwork_ce0 mem_ce 1 1 }  { fwork_we0 mem_we 1 1 }  { fwork_d0 mem_din 1 32 }  { fwork_q0 mem_dout 0 32 }  { fwork_address1 mem_address 1 11 }  { fwork_ce1 mem_ce 1 1 }  { fwork_q1 mem_dout 0 32 } } }
 }

@@ -41,8 +41,8 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xa7a12t:csg325:-1q"
-set SourceFiles {sc {} c {../../../C-Code-Original/face_classifier_c.c ../../../C-Code-Original/include/k2c_activations.c ../../../C-Code-Original/include/k2c_convolution_layers.c ../../../C-Code-Original/include/k2c_core_layers.c ../../../C-Code-Original/include/k2c_embedding_layers.c ../../../C-Code-Original/include/k2c_helper_functions.c ../../../C-Code-Original/include/k2c_merge_layers.c ../../../C-Code-Original/include/k2c_normalization_layers.c ../../../C-Code-Original/include/k2c_pooling_layers.c ../../../C-Code-Original/include/k2c_recurrent_layers.c}}
-set SourceFlags {sc {} c {{-Wuninitialized -Wall} {-Wuninitialized -Wall} {} {} {} {-Wuninitialized -Wall} {} {} {} {}}}
+set SourceFiles {sc {} c {../../../C-Code-Original/include/k2c_recurrent_layers.c ../../../C-Code-Original/include/k2c_pooling_layers.c ../../../C-Code-Original/include/k2c_normalization_layers.c ../../../C-Code-Original/include/k2c_merge_layers.c ../../../C-Code-Original/include/k2c_helper_functions.c ../../../C-Code-Original/include/k2c_embedding_layers.c ../../../C-Code-Original/include/k2c_core_layers.c ../../../C-Code-Original/include/k2c_convolution_layers.c ../../../C-Code-Original/include/k2c_activations.c ../../../C-Code-Original/face_classifier_c.c}}
+set SourceFlags {sc {} c {{} {} {} {} {-Wuninitialized -Wall} {} {} {} {-Wuninitialized -Wall} {-Wuninitialized -Wall}}}
 set DirectiveFile {C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.directive}
 set TBFiles {verilog ../../../C-Code-Original/face_classifier_c_test_suite.c bc ../../../C-Code-Original/face_classifier_c_test_suite.c vhdl ../../../C-Code-Original/face_classifier_c_test_suite.c sc ../../../C-Code-Original/face_classifier_c_test_suite.c cas ../../../C-Code-Original/face_classifier_c_test_suite.c c {}}
 set SpecLanguage "C"

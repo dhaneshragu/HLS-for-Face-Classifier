@@ -10,46 +10,38 @@ use ieee.std_logic_1164.all;
 
 entity face_classifier_crcU is
     generic (
-        ID         : integer := 71;
+        ID         : integer := 74;
         NUM_STAGE  : integer := 1;
-        din0_WIDTH : integer := 64;
-        din1_WIDTH : integer := 64;
+        din0_WIDTH : integer := 32;
         dout_WIDTH : integer := 64
     );
     port (
         din0 : in  std_logic_vector(din0_WIDTH-1 downto 0);
-        din1 : in  std_logic_vector(din1_WIDTH-1 downto 0);
         dout : out std_logic_vector(dout_WIDTH-1 downto 0)
     );
 end entity;
 
 architecture arch of face_classifier_crcU is
     --------------------- Component ---------------------
-    component face_classifier_c_ap_dadd_0_full_dsp_64 is
+    component face_classifier_c_ap_fpext_0_no_dsp_32 is
         port (
             s_axis_a_tvalid      : in  std_logic;
-            s_axis_a_tdata       : in  std_logic_vector(63 downto 0);
-            s_axis_b_tvalid      : in  std_logic;
-            s_axis_b_tdata       : in  std_logic_vector(63 downto 0);
+            s_axis_a_tdata       : in  std_logic_vector(31 downto 0);
             m_axis_result_tvalid : out std_logic;
             m_axis_result_tdata  : out std_logic_vector(63 downto 0)
         );
     end component;
     --------------------- Local signal ------------------
     signal a_tvalid : std_logic;
-    signal a_tdata  : std_logic_vector(63 downto 0);
-    signal b_tvalid : std_logic;
-    signal b_tdata  : std_logic_vector(63 downto 0);
+    signal a_tdata  : std_logic_vector(31 downto 0);
     signal r_tvalid : std_logic;
     signal r_tdata  : std_logic_vector(63 downto 0);
 begin
     --------------------- Instantiation -----------------
-    face_classifier_c_ap_dadd_0_full_dsp_64_u : component face_classifier_c_ap_dadd_0_full_dsp_64
+    face_classifier_c_ap_fpext_0_no_dsp_32_u : component face_classifier_c_ap_fpext_0_no_dsp_32
     port map (
         s_axis_a_tvalid      => a_tvalid,
         s_axis_a_tdata       => a_tdata,
-        s_axis_b_tvalid      => b_tvalid,
-        s_axis_b_tdata       => b_tdata,
         m_axis_result_tvalid => r_tvalid,
         m_axis_result_tdata  => r_tdata
     );
@@ -57,8 +49,6 @@ begin
     --------------------- Assignment --------------------
     a_tvalid <= '1';
     a_tdata  <= din0;
-    b_tvalid <= '1';
-    b_tdata  <= din1;
     dout     <= r_tdata;
 
 end architecture;
