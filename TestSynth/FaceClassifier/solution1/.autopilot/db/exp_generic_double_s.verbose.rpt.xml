@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'exp_generic_double_s'" level="0">
-<item name = "Date">Mon Apr  8 17:34:52 2024
+<item name = "Date">Wed Apr 10 13:49:48 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -97,7 +97,7 @@
 <column name="tmp_20_fu_506_p2">+, 0, 0, 20, 1, 13</column>
 <column name="tmp_fu_743_p2">+, 0, 0, 43, 36, 36</column>
 <column name="p_Val2_7_fu_580_p2">-, 0, 0, 80, 73, 73</column>
-<column name="p_Val2_s_113_fu_333_p2">-, 0, 0, 61, 1, 54</column>
+<column name="p_Val2_s_116_fu_333_p2">-, 0, 0, 61, 1, 54</column>
 <column name="tmp_s_fu_367_p2">-, 0, 0, 18, 10, 11</column>
 <column name="ap_block_pp0_stage0_11001">and, 0, 0, 8, 1, 1</column>
 <column name="not_demorgan_fu_297_p2">and, 0, 0, 8, 1, 1</column>
@@ -116,15 +116,15 @@
 <column name="tmp_32_i_fu_309_p2">and, 0, 0, 8, 1, 1</column>
 <column name="tmp_39_fu_1175_p2">and, 0, 0, 8, 1, 1</column>
 <column name="x_is_ninf_fu_675_p2">and, 0, 0, 8, 1, 1</column>
-<column name="tmp_93_fu_397_p2">ashr, 0, 0, 176, 61, 61</column>
-<column name="tmp_98_fu_441_p2">ashr, 0, 0, 182, 64, 64</column>
+<column name="tmp_100_fu_441_p2">ashr, 0, 0, 182, 64, 64</column>
+<column name="tmp_95_fu_397_p2">ashr, 0, 0, 176, 61, 61</column>
 <column name="icmp_fu_929_p2">icmp, 0, 0, 9, 3, 1</column>
-<column name="tmp_101_fu_500_p2">icmp, 0, 0, 18, 18, 1</column>
-<column name="tmp_109_fu_650_p2">icmp, 0, 0, 13, 12, 1</column>
-<column name="tmp_110_fu_656_p2">icmp, 0, 0, 50, 71, 71</column>
-<column name="tmp_111_fu_940_p2">icmp, 0, 0, 13, 13, 11</column>
+<column name="tmp_103_fu_500_p2">icmp, 0, 0, 18, 18, 1</column>
+<column name="tmp_111_fu_650_p2">icmp, 0, 0, 13, 12, 1</column>
+<column name="tmp_112_fu_656_p2">icmp, 0, 0, 50, 71, 71</column>
+<column name="tmp_113_fu_940_p2">icmp, 0, 0, 13, 13, 11</column>
 <column name="tmp_i1_fu_303_p2">icmp, 0, 0, 29, 52, 1</column>
-<column name="tmp_i_112_fu_291_p2">icmp, 0, 0, 29, 52, 1</column>
+<column name="tmp_i_115_fu_291_p2">icmp, 0, 0, 29, 52, 1</column>
 <column name="tmp_i_fu_285_p2">icmp, 0, 0, 13, 11, 2</column>
 <column name="ap_block_pp0_stage0_subdone">or, 0, 0, 8, 1, 1</column>
 <column name="or_cond_fu_935_p2">or, 0, 0, 8, 1, 1</column>
@@ -148,8 +148,8 @@
 <column name="tmp_35_fu_1139_p3">select, 0, 0, 64, 1, 64</column>
 <column name="tmp_36_fu_1147_p3">select, 0, 0, 63, 1, 63</column>
 <column name="tmp_38_fu_1161_p3">select, 0, 0, 64, 1, 64</column>
-<column name="tmp_94_fu_407_p2">shl, 0, 0, 211, 71, 71</column>
-<column name="tmp_97_fu_435_p2">shl, 0, 0, 182, 64, 64</column>
+<column name="tmp_96_fu_407_p2">shl, 0, 0, 211, 71, 71</column>
+<column name="tmp_99_fu_435_p2">shl, 0, 0, 182, 64, 64</column>
 <column name="ap_enable_pp0">xor, 0, 0, 8, 1, 2</column>
 <column name="not_Result_i4_fu_670_p2">xor, 0, 0, 8, 1, 2</column>
 <column name="sel_tmp12_fu_1088_p2">xor, 0, 0, 8, 1, 2</column>
@@ -175,9 +175,9 @@
 <column name="p_Val2_17_reg_1237">8, 0, 8, 0</column>
 <column name="p_Val2_22_reg_1231">8, 0, 8, 0</column>
 <column name="r_exp_V_3_reg_1220">13, 0, 13, 0</column>
-<column name="tmp_109_reg_1262">1, 0, 1, 0</column>
-<column name="tmp_110_reg_1270">1, 0, 1, 0</column>
-<column name="tmp_121_reg_1275">1, 0, 1, 0</column>
+<column name="tmp_111_reg_1262">1, 0, 1, 0</column>
+<column name="tmp_112_reg_1270">1, 0, 1, 0</column>
+<column name="tmp_123_reg_1275">1, 0, 1, 0</column>
 <column name="tmp_32_i_reg_1213">1, 0, 1, 0</column>
 </table>
 </item>

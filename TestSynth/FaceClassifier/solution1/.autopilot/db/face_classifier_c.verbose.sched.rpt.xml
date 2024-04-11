@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'face_classifier_c'" level="0">
-<item name = "Date">Mon Apr  8 17:34:45 2024
+<item name = "Date">Wed Apr 10 13:49:43 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -36,42 +36,43 @@
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">100, 100, 1, 1, 1, 100, yes</column>
-<column name="- Loop 2">262200, 262200, 1, 1, 1, 262200, yes</column>
-<column name="- Loop 3">100, 100, 2, 1, 1, 100, yes</column>
+<column name="- memcpy_dense_kernel_array">524399, 524399, 2, -, -, 262200, no</column>
+<column name="- Loop 3">262200, 262200, 2, 1, 1, 262200, yes</column>
+<column name="- Loop 4">100, 100, 2, 1, 1, 100, yes</column>
 <column name="- memset_dense_fwork">264821, 264821, 1, -, -, 264822, no</column>
-<column name="- Loop 5">100, 100, 1, 1, 1, 100, yes</column>
-<column name="- Loop 6">100, 100, 2, 1, 1, 100, yes</column>
+<column name="- Loop 6">100, 100, 1, 1, 1, 100, yes</column>
 <column name="- Loop 7">100, 100, 2, 1, 1, 100, yes</column>
 <column name="- Loop 8">100, 100, 2, 1, 1, 100, yes</column>
 <column name="- Loop 9">100, 100, 2, 1, 1, 100, yes</column>
-<column name="- Loop 10">10, 10, 1, 1, 1, 10, yes</column>
-<column name="- Loop 11">1000, 1000, 2, 1, 1, 1000, yes</column>
-<column name="- Loop 12">10, 10, 2, 1, 1, 10, yes</column>
+<column name="- Loop 10">100, 100, 2, 1, 1, 100, yes</column>
+<column name="- Loop 11">10, 10, 1, 1, 1, 10, yes</column>
+<column name="- Loop 12">1000, 1000, 2, 1, 1, 1000, yes</column>
+<column name="- Loop 13">10, 10, 2, 1, 1, 10, yes</column>
 <column name="- memset_dense_1_fwork">1099, 1099, 1, -, -, 1100, no</column>
-<column name="- Loop 14">10, 10, 1, 1, 1, 10, yes</column>
-<column name="- Loop 15">10, 10, 2, 1, 1, 10, yes</column>
+<column name="- Loop 15">10, 10, 1, 1, 1, 10, yes</column>
 <column name="- Loop 16">10, 10, 2, 1, 1, 10, yes</column>
 <column name="- Loop 17">10, 10, 2, 1, 1, 10, yes</column>
 <column name="- Loop 18">10, 10, 2, 1, 1, 10, yes</column>
-<column name="- Loop 19">6, 6, 1, 1, 1, 6, yes</column>
-<column name="- Loop 20">60, 60, 2, 1, 1, 60, yes</column>
-<column name="- Loop 21">6, 6, 2, 1, 1, 6, yes</column>
+<column name="- Loop 19">10, 10, 2, 1, 1, 10, yes</column>
+<column name="- Loop 20">6, 6, 1, 1, 1, 6, yes</column>
+<column name="- Loop 21">60, 60, 2, 1, 1, 60, yes</column>
+<column name="- Loop 22">6, 6, 2, 1, 1, 6, yes</column>
 <column name="- memset_dense_2_fwork">69, 69, 1, -, -, 70, no</column>
-<column name="- Loop 23">?, ?, 8, 1, 1, ?, yes</column>
-<column name="- Loop 24">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 25">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
-<column name="- Loop 26">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 27">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
-<column name="- Loop 28">?, ?, 8, 1, 1, ?, yes</column>
-<column name="- Loop 29">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 30">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
-<column name="- Loop 31">5, 5, 2, 1, 1, 5, yes</column>
-<column name="- Loop 32">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
-<column name="- Loop 33">10, 10, 2, -, -, 5, no</column>
-<column name="- Loop 34">18, 18, 3, -, -, 6, no</column>
-<column name="- Loop 35">12, 12, 2, -, -, 6, no</column>
-<column name="- Loop 36">10, 10, 2, -, -, 5, no</column>
-<column name="- Loop 37">?, ?, 2, -, -, ?, no</column>
+<column name="- Loop 24">?, ?, 8, 1, 1, ?, yes</column>
+<column name="- Loop 25">5, 5, 2, 1, 1, 5, yes</column>
+<column name="- Loop 26">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
+<column name="- Loop 27">5, 5, 2, 1, 1, 5, yes</column>
+<column name="- Loop 28">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
+<column name="- Loop 29">?, ?, 8, 1, 1, ?, yes</column>
+<column name="- Loop 30">5, 5, 2, 1, 1, 5, yes</column>
+<column name="- Loop 31">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
+<column name="- Loop 32">5, 5, 2, 1, 1, 5, yes</column>
+<column name="- Loop 33">0, 524287, 2, 1, 1, 0 ~ 524287, yes</column>
+<column name="- Loop 34">10, 10, 2, -, -, 5, no</column>
+<column name="- Loop 35">18, 18, 3, -, -, 6, no</column>
+<column name="- Loop 36">12, 12, 2, -, -, 6, no</column>
+<column name="- Loop 37">10, 10, 2, -, -, 5, no</column>
+<column name="- Loop 38">?, ?, 2, -, -, ?, no</column>
 </table>
 </item>
 </section>

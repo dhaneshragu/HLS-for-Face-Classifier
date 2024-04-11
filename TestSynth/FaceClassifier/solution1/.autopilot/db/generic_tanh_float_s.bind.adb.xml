@@ -364,10 +364,10 @@ _ifconv:0  %tmp_34 = icmp ult i8 %loc_V, 127
 
 <Node id="28" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-_ifconv:1  %tmp_90_neg = xor i32 %p_Result_9, -2147483648
+_ifconv:1  %tmp_92_neg = xor i32 %p_Result_9, -2147483648
 
 ]]></Node>
-<StgValue><ssdm name="tmp_90_neg"/></StgValue>
+<StgValue><ssdm name="tmp_92_neg"/></StgValue>
 </operation>
 
 <operation id="28" st_id="1" stage="1" lat="1">
@@ -383,7 +383,7 @@ _ifconv:1  %tmp_90_neg = xor i32 %p_Result_9, -2147483648
 
 <Node id="29" bw="32" op_0_bw="32">
 <![CDATA[
-_ifconv:2  %tmp_35 = bitcast i32 %tmp_90_neg to float
+_ifconv:2  %tmp_35 = bitcast i32 %tmp_92_neg to float
 
 ]]></Node>
 <StgValue><ssdm name="tmp_35"/></StgValue>
@@ -674,10 +674,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="42" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-:1  %tmp_96_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
+:1  %tmp_98_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="tmp_96_i"/></StgValue>
+<StgValue><ssdm name="tmp_98_i"/></StgValue>
 </operation>
 </state>
 
@@ -698,10 +698,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="42" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-:1  %tmp_96_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
+:1  %tmp_98_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="tmp_96_i"/></StgValue>
+<StgValue><ssdm name="tmp_98_i"/></StgValue>
 </operation>
 </state>
 
@@ -722,10 +722,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="43" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-:2  %tmp_97_i = fadd double %tmp_96_i, -1.000000e+00
+:2  %tmp_99_i = fadd double %tmp_98_i, -1.000000e+00
 
 ]]></Node>
-<StgValue><ssdm name="tmp_97_i"/></StgValue>
+<StgValue><ssdm name="tmp_99_i"/></StgValue>
 </operation>
 
 <operation id="46" st_id="4" stage="1" lat="1">
@@ -743,10 +743,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="44" bw="32" op_0_bw="64">
 <![CDATA[
-:3  %tmp_98_i = fptrunc double %tmp_97_i to float
+:3  %tmp_100_i = fptrunc double %tmp_99_i to float
 
 ]]></Node>
-<StgValue><ssdm name="tmp_98_i"/></StgValue>
+<StgValue><ssdm name="tmp_100_i"/></StgValue>
 </operation>
 
 <operation id="47" st_id="4" stage="1" lat="1">
@@ -783,7 +783,7 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="47" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
-expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [ %x_2, %4 ]
+expm1.exit:0  %expx = phi float [ %tmp_100_i, %5 ], [ 0.000000e+00, %_ifconv ], [ %x_2, %4 ]
 
 ]]></Node>
 <StgValue><ssdm name="expx"/></StgValue>
@@ -866,10 +866,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="55" bw="32" op_0_bw="32">
 <![CDATA[
-:0  %tmp_91_to_int = bitcast float %expx to i32
+:0  %tmp_93_to_int = bitcast float %expx to i32
 
 ]]></Node>
-<StgValue><ssdm name="tmp_91_to_int"/></StgValue>
+<StgValue><ssdm name="tmp_93_to_int"/></StgValue>
 </operation>
 
 <operation id="53" st_id="5" stage="1" lat="1">
@@ -886,10 +886,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="56" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-:1  %tmp_91_neg = xor i32 %tmp_91_to_int, -2147483648
+:1  %tmp_93_neg = xor i32 %tmp_93_to_int, -2147483648
 
 ]]></Node>
-<StgValue><ssdm name="tmp_91_neg"/></StgValue>
+<StgValue><ssdm name="tmp_93_neg"/></StgValue>
 </operation>
 
 <operation id="54" st_id="5" stage="1" lat="1">
@@ -906,7 +906,7 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="57" bw="32" op_0_bw="32">
 <![CDATA[
-:2  %tmp_36 = bitcast i32 %tmp_91_neg to float
+:2  %tmp_36 = bitcast i32 %tmp_93_neg to float
 
 ]]></Node>
 <StgValue><ssdm name="tmp_36"/></StgValue>
@@ -1114,10 +1114,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="71" bw="32" op_0_bw="32">
 <![CDATA[
-._crit_edge_ifconv:1  %tmp_95_to_int = bitcast float %resultf_4 to i32
+._crit_edge_ifconv:1  %tmp_97_to_int = bitcast float %resultf_4 to i32
 
 ]]></Node>
-<StgValue><ssdm name="tmp_95_to_int"/></StgValue>
+<StgValue><ssdm name="tmp_97_to_int"/></StgValue>
 </operation>
 
 <operation id="66" st_id="7" stage="1" lat="1">
@@ -1130,10 +1130,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="72" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge_ifconv:2  %tmp_95_neg = xor i32 %tmp_95_to_int, -2147483648
+._crit_edge_ifconv:2  %tmp_97_neg = xor i32 %tmp_97_to_int, -2147483648
 
 ]]></Node>
-<StgValue><ssdm name="tmp_95_neg"/></StgValue>
+<StgValue><ssdm name="tmp_97_neg"/></StgValue>
 </operation>
 
 <operation id="67" st_id="7" stage="1" lat="1">
@@ -1146,7 +1146,7 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="73" bw="32" op_0_bw="32">
 <![CDATA[
-._crit_edge_ifconv:3  %tmp_40 = bitcast i32 %tmp_95_neg to float
+._crit_edge_ifconv:3  %tmp_40 = bitcast i32 %tmp_97_neg to float
 
 ]]></Node>
 <StgValue><ssdm name="tmp_40"/></StgValue>
@@ -1273,11 +1273,11 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 </dataflow>
 <dataflow id="163" from="StgValue_162" to="tmp_34" fromId="162" toId="26">
 </dataflow>
-<dataflow id="164" from="p_Result_9" to="tmp_90_neg" fromId="14" toId="27">
+<dataflow id="164" from="p_Result_9" to="tmp_92_neg" fromId="14" toId="27">
 </dataflow>
-<dataflow id="166" from="StgValue_165" to="tmp_90_neg" fromId="165" toId="27">
+<dataflow id="166" from="StgValue_165" to="tmp_92_neg" fromId="165" toId="27">
 </dataflow>
-<dataflow id="167" from="tmp_90_neg" to="tmp_35" fromId="27" toId="28">
+<dataflow id="167" from="tmp_92_neg" to="tmp_35" fromId="27" toId="28">
 </dataflow>
 <dataflow id="168" from="tmp_35" to="x" fromId="28" toId="29">
 </dataflow>
@@ -1331,33 +1331,33 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 </dataflow>
 <dataflow id="196" from="x_2" to="xd" fromId="31" toId="42">
 </dataflow>
-<dataflow id="198" from="exp_generic<double>" to="tmp_96_i" fromId="197" toId="43">
+<dataflow id="198" from="exp_generic<double>" to="tmp_98_i" fromId="197" toId="43">
 </dataflow>
-<dataflow id="199" from="xd" to="tmp_96_i" fromId="42" toId="43">
+<dataflow id="199" from="xd" to="tmp_98_i" fromId="42" toId="43">
 </dataflow>
-<dataflow id="200" from="table_exp_Z1_array_s" to="tmp_96_i" fromId="114" toId="43">
+<dataflow id="200" from="table_exp_Z1_array_s" to="tmp_98_i" fromId="114" toId="43">
 </dataflow>
-<dataflow id="201" from="table_f_Z3_array_V" to="tmp_96_i" fromId="115" toId="43">
+<dataflow id="201" from="table_f_Z3_array_V" to="tmp_98_i" fromId="115" toId="43">
 </dataflow>
-<dataflow id="202" from="table_f_Z2_array_V" to="tmp_96_i" fromId="116" toId="43">
+<dataflow id="202" from="table_f_Z2_array_V" to="tmp_98_i" fromId="116" toId="43">
 </dataflow>
-<dataflow id="203" from="exp_generic<double>" to="tmp_96_i" fromId="197" toId="44">
+<dataflow id="203" from="exp_generic<double>" to="tmp_98_i" fromId="197" toId="44">
 </dataflow>
-<dataflow id="204" from="xd" to="tmp_96_i" fromId="42" toId="44">
+<dataflow id="204" from="xd" to="tmp_98_i" fromId="42" toId="44">
 </dataflow>
-<dataflow id="205" from="table_exp_Z1_array_s" to="tmp_96_i" fromId="114" toId="44">
+<dataflow id="205" from="table_exp_Z1_array_s" to="tmp_98_i" fromId="114" toId="44">
 </dataflow>
-<dataflow id="206" from="table_f_Z3_array_V" to="tmp_96_i" fromId="115" toId="44">
+<dataflow id="206" from="table_f_Z3_array_V" to="tmp_98_i" fromId="115" toId="44">
 </dataflow>
-<dataflow id="207" from="table_f_Z2_array_V" to="tmp_96_i" fromId="116" toId="44">
+<dataflow id="207" from="table_f_Z2_array_V" to="tmp_98_i" fromId="116" toId="44">
 </dataflow>
-<dataflow id="208" from="tmp_96_i" to="tmp_97_i" fromId="44" toId="45">
+<dataflow id="208" from="tmp_98_i" to="tmp_99_i" fromId="44" toId="45">
 </dataflow>
-<dataflow id="210" from="StgValue_209" to="tmp_97_i" fromId="209" toId="45">
+<dataflow id="210" from="StgValue_209" to="tmp_99_i" fromId="209" toId="45">
 </dataflow>
-<dataflow id="211" from="tmp_97_i" to="tmp_98_i" fromId="45" toId="46">
+<dataflow id="211" from="tmp_99_i" to="tmp_100_i" fromId="45" toId="46">
 </dataflow>
-<dataflow id="212" from="tmp_98_i" to="expx" fromId="46" toId="48">
+<dataflow id="212" from="tmp_100_i" to="expx" fromId="46" toId="48">
 <condition id="130">
 <or_exp><and_exp><literal name="tmp_s" val="0"/>
 <literal name="tmp_30" val="0"/>
@@ -1407,13 +1407,13 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 </dataflow>
 <dataflow id="225" from="tmp_38" to="tmp_39" fromId="49" toId="51">
 </dataflow>
-<dataflow id="226" from="expx" to="tmp_91_to_int" fromId="48" toId="52">
+<dataflow id="226" from="expx" to="tmp_93_to_int" fromId="48" toId="52">
 </dataflow>
-<dataflow id="227" from="tmp_91_to_int" to="tmp_91_neg" fromId="52" toId="53">
+<dataflow id="227" from="tmp_93_to_int" to="tmp_93_neg" fromId="52" toId="53">
 </dataflow>
-<dataflow id="228" from="StgValue_165" to="tmp_91_neg" fromId="165" toId="53">
+<dataflow id="228" from="StgValue_165" to="tmp_93_neg" fromId="165" toId="53">
 </dataflow>
-<dataflow id="229" from="tmp_91_neg" to="tmp_36" fromId="53" toId="54">
+<dataflow id="229" from="tmp_93_neg" to="tmp_36" fromId="53" toId="54">
 </dataflow>
 <dataflow id="230" from="tmp_36" to="resultf_1" fromId="54" toId="55">
 </dataflow>
@@ -1491,13 +1491,13 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 </dataflow>
 <dataflow id="251" from="StgValue_61" to="resultf_4" fromId="61" toId="64">
 </dataflow>
-<dataflow id="252" from="resultf_4" to="tmp_95_to_int" fromId="64" toId="65">
+<dataflow id="252" from="resultf_4" to="tmp_97_to_int" fromId="64" toId="65">
 </dataflow>
-<dataflow id="253" from="tmp_95_to_int" to="tmp_95_neg" fromId="65" toId="66">
+<dataflow id="253" from="tmp_97_to_int" to="tmp_97_neg" fromId="65" toId="66">
 </dataflow>
-<dataflow id="254" from="StgValue_165" to="tmp_95_neg" fromId="165" toId="66">
+<dataflow id="254" from="StgValue_165" to="tmp_97_neg" fromId="165" toId="66">
 </dataflow>
-<dataflow id="255" from="tmp_95_neg" to="tmp_40" fromId="66" toId="67">
+<dataflow id="255" from="tmp_97_neg" to="tmp_40" fromId="66" toId="67">
 </dataflow>
 <dataflow id="256" from="p_Result_s" to="p_s" fromId="10" toId="68">
 </dataflow>

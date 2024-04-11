@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"face_classifier_c": {
+			"proto_instances": {
+			}
+		}
+	}
+}

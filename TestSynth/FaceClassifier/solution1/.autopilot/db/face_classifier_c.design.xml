@@ -5,9 +5,9 @@
 <ModuleName>face_classifier_c</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>grp_k2c_dense_1_fu_1786</InstName>
+<InstName>grp_k2c_dense_1_fu_1840</InstName>
 <ModuleName>k2c_dense_1</ModuleName>
-<ID>1786</ID>
+<ID>1840</ID>
 <InstancesList>
 <Instance>
 <InstName>grp_k2c_dot_1_fu_259</InstName>
@@ -24,9 +24,9 @@
 </InstancesList>
 </Instance>
 <Instance>
-<InstName>grp_k2c_dense_2_fu_1809</InstName>
+<InstName>grp_k2c_dense_2_fu_1863</InstName>
 <ModuleName>k2c_dense_2</ModuleName>
-<ID>1809</ID>
+<ID>1863</ID>
 <InstancesList>
 <Instance>
 <InstName>grp_k2c_dot_fu_259</InstName>
@@ -43,9 +43,9 @@
 </InstancesList>
 </Instance>
 <Instance>
-<InstName>grp_k2c_dense_fu_1832</InstName>
+<InstName>grp_k2c_dense_fu_1886</InstName>
 <ModuleName>k2c_dense</ModuleName>
-<ID>1832</ID>
+<ID>1886</ID>
 <InstancesList>
 <Instance>
 <InstName>grp_k2c_dot_2_fu_240</InstName>
@@ -62,9 +62,9 @@
 </InstancesList>
 </Instance>
 <Instance>
-<InstName>grp_generic_tanh_float_s_fu_1851</InstName>
+<InstName>grp_generic_tanh_float_s_fu_1905</InstName>
 <ModuleName>generic_tanh_float_s</ModuleName>
-<ID>1851</ID>
+<ID>1905</ID>
 <InstancesList>
 <Instance>
 <InstName>grp_exp_generic_double_s_fu_89</InstName>
@@ -74,9 +74,9 @@
 </InstancesList>
 </Instance>
 <Instance>
-<InstName>grp_k2c_batch_norm_fu_1866</InstName>
+<InstName>grp_k2c_batch_norm_fu_1920</InstName>
 <ModuleName>k2c_batch_norm</ModuleName>
-<ID>1866</ID>
+<ID>1920</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -4055,20 +4055,27 @@
 <PipelineII>1</PipelineII>
 <PipelineDepth>1</PipelineDepth>
 </Loop1>
-<Loop2>
-<Name>Loop 2</Name>
+<memcpy_dense_kernel_array>
+<Name>memcpy_dense_kernel_array</Name>
+<TripCount>262200</TripCount>
+<Latency>524399</Latency>
+<IterationLatency>2</IterationLatency>
+<PipelineDepth>2</PipelineDepth>
+</memcpy_dense_kernel_array>
+<Loop3>
+<Name>Loop 3</Name>
 <TripCount>262200</TripCount>
 <Latency>262200</Latency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>1</PipelineDepth>
-</Loop2>
-<Loop3>
-<Name>Loop 3</Name>
+<PipelineDepth>2</PipelineDepth>
+</Loop3>
+<Loop4>
+<Name>Loop 4</Name>
 <TripCount>100</TripCount>
 <Latency>100</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
-</Loop3>
+</Loop4>
 <memset_dense_fwork>
 <Name>memset_dense_fwork</Name>
 <TripCount>264822</TripCount>
@@ -4076,19 +4083,12 @@
 <IterationLatency>1</IterationLatency>
 <PipelineDepth>1</PipelineDepth>
 </memset_dense_fwork>
-<Loop5>
-<Name>Loop 5</Name>
-<TripCount>100</TripCount>
-<Latency>100</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>1</PipelineDepth>
-</Loop5>
 <Loop6>
 <Name>Loop 6</Name>
 <TripCount>100</TripCount>
 <Latency>100</Latency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
+<PipelineDepth>1</PipelineDepth>
 </Loop6>
 <Loop7>
 <Name>Loop 7</Name>
@@ -4113,25 +4113,32 @@
 </Loop9>
 <Loop10>
 <Name>Loop 10</Name>
+<TripCount>100</TripCount>
+<Latency>100</Latency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>2</PipelineDepth>
+</Loop10>
+<Loop11>
+<Name>Loop 11</Name>
 <TripCount>10</TripCount>
 <Latency>10</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>1</PipelineDepth>
-</Loop10>
-<Loop11>
-<Name>Loop 11</Name>
+</Loop11>
+<Loop12>
+<Name>Loop 12</Name>
 <TripCount>1000</TripCount>
 <Latency>1000</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
-</Loop11>
-<Loop12>
-<Name>Loop 12</Name>
+</Loop12>
+<Loop13>
+<Name>Loop 13</Name>
 <TripCount>10</TripCount>
 <Latency>10</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
-</Loop12>
+</Loop13>
 <memset_dense_1_fwork>
 <Name>memset_dense_1_fwork</Name>
 <TripCount>1100</TripCount>
@@ -4139,19 +4146,12 @@
 <IterationLatency>1</IterationLatency>
 <PipelineDepth>1</PipelineDepth>
 </memset_dense_1_fwork>
-<Loop14>
-<Name>Loop 14</Name>
-<TripCount>10</TripCount>
-<Latency>10</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>1</PipelineDepth>
-</Loop14>
 <Loop15>
 <Name>Loop 15</Name>
 <TripCount>10</TripCount>
 <Latency>10</Latency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
+<PipelineDepth>1</PipelineDepth>
 </Loop15>
 <Loop16>
 <Name>Loop 16</Name>
@@ -4176,25 +4176,32 @@
 </Loop18>
 <Loop19>
 <Name>Loop 19</Name>
+<TripCount>10</TripCount>
+<Latency>10</Latency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>2</PipelineDepth>
+</Loop19>
+<Loop20>
+<Name>Loop 20</Name>
 <TripCount>6</TripCount>
 <Latency>6</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>1</PipelineDepth>
-</Loop19>
-<Loop20>
-<Name>Loop 20</Name>
+</Loop20>
+<Loop21>
+<Name>Loop 21</Name>
 <TripCount>60</TripCount>
 <Latency>60</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
-</Loop20>
-<Loop21>
-<Name>Loop 21</Name>
+</Loop21>
+<Loop22>
+<Name>Loop 22</Name>
 <TripCount>6</TripCount>
 <Latency>6</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
-</Loop21>
+</Loop22>
 <memset_dense_2_fwork>
 <Name>memset_dense_2_fwork</Name>
 <TripCount>70</TripCount>
@@ -4202,67 +4209,41 @@
 <IterationLatency>1</IterationLatency>
 <PipelineDepth>1</PipelineDepth>
 </memset_dense_2_fwork>
-<Loop23>
-<Name>Loop 23</Name>
+<Loop24>
+<Name>Loop 24</Name>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>8</PipelineDepth>
-</Loop23>
-<Loop24>
-<Name>Loop 24</Name>
-<TripCount>5</TripCount>
-<Latency>5</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
 </Loop24>
 <Loop25>
 <Name>Loop 25</Name>
-<TripCount>
-<range>
-<min>0</min>
-<max>524287</max>
-</range>
-</TripCount>
-<Latency>0 ~ 524287</Latency>
+<TripCount>5</TripCount>
+<Latency>5</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 </Loop25>
 <Loop26>
 <Name>Loop 26</Name>
-<TripCount>5</TripCount>
-<Latency>5</Latency>
+<TripCount>
+<range>
+<min>0</min>
+<max>524287</max>
+</range>
+</TripCount>
+<Latency>0 ~ 524287</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 </Loop26>
 <Loop27>
 <Name>Loop 27</Name>
-<TripCount>
-<range>
-<min>0</min>
-<max>524287</max>
-</range>
-</TripCount>
-<Latency>0 ~ 524287</Latency>
+<TripCount>5</TripCount>
+<Latency>5</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 </Loop27>
 <Loop28>
 <Name>Loop 28</Name>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>8</PipelineDepth>
-</Loop28>
-<Loop29>
-<Name>Loop 29</Name>
-<TripCount>5</TripCount>
-<Latency>5</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
-</Loop29>
-<Loop30>
-<Name>Loop 30</Name>
 <TripCount>
 <range>
 <min>0</min>
@@ -4270,18 +4251,25 @@
 </range>
 </TripCount>
 <Latency>0 ~ 524287</Latency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>2</PipelineDepth>
+</Loop28>
+<Loop29>
+<Name>Loop 29</Name>
+<TripCount>undef</TripCount>
+<Latency>undef</Latency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>8</PipelineDepth>
+</Loop29>
+<Loop30>
+<Name>Loop 30</Name>
+<TripCount>5</TripCount>
+<Latency>5</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 </Loop30>
 <Loop31>
 <Name>Loop 31</Name>
-<TripCount>5</TripCount>
-<Latency>5</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
-</Loop31>
-<Loop32>
-<Name>Loop 32</Name>
 <TripCount>
 <range>
 <min>0</min>
@@ -4291,50 +4279,69 @@
 <Latency>0 ~ 524287</Latency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
+</Loop31>
+<Loop32>
+<Name>Loop 32</Name>
+<TripCount>5</TripCount>
+<Latency>5</Latency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>2</PipelineDepth>
 </Loop32>
 <Loop33>
 <Name>Loop 33</Name>
-<TripCount>5</TripCount>
-<Latency>10</Latency>
-<IterationLatency>2</IterationLatency>
+<TripCount>
+<range>
+<min>0</min>
+<max>524287</max>
+</range>
+</TripCount>
+<Latency>0 ~ 524287</Latency>
+<PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 </Loop33>
 <Loop34>
 <Name>Loop 34</Name>
-<TripCount>6</TripCount>
-<Latency>18</Latency>
-<IterationLatency>3</IterationLatency>
-<PipelineDepth>3</PipelineDepth>
+<TripCount>5</TripCount>
+<Latency>10</Latency>
+<IterationLatency>2</IterationLatency>
+<PipelineDepth>2</PipelineDepth>
 </Loop34>
 <Loop35>
 <Name>Loop 35</Name>
 <TripCount>6</TripCount>
-<Latency>12</Latency>
-<IterationLatency>2</IterationLatency>
-<PipelineDepth>2</PipelineDepth>
+<Latency>18</Latency>
+<IterationLatency>3</IterationLatency>
+<PipelineDepth>3</PipelineDepth>
 </Loop35>
 <Loop36>
 <Name>Loop 36</Name>
-<TripCount>5</TripCount>
-<Latency>10</Latency>
+<TripCount>6</TripCount>
+<Latency>12</Latency>
 <IterationLatency>2</IterationLatency>
 <PipelineDepth>2</PipelineDepth>
 </Loop36>
 <Loop37>
 <Name>Loop 37</Name>
+<TripCount>5</TripCount>
+<Latency>10</Latency>
+<IterationLatency>2</IterationLatency>
+<PipelineDepth>2</PipelineDepth>
+</Loop37>
+<Loop38>
+<Name>Loop 38</Name>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <IterationLatency>2</IterationLatency>
 <PipelineDepth>2</PipelineDepth>
-</Loop37>
+</Loop38>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<BRAM_18K>24618</BRAM_18K>
+<BRAM_18K>25642</BRAM_18K>
 <DSP48E>152</DSP48E>
-<FF>36160</FF>
-<LUT>45329</LUT>
+<FF>36242</FF>
+<LUT>45448</LUT>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>

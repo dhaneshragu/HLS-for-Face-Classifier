@@ -5,33 +5,136 @@
 // 
 // ==============================================================
 
-#ifndef __face_classifier_cbll__HH__
-#define __face_classifier_cbll__HH__
-#include "ACMP_fexp_comb.h"
+#ifndef __face_classifier_cbll_H__
+#define __face_classifier_cbll_H__
+
+
 #include <systemc>
-
-template<
-    int ID,
-    int NUM_STAGE,
-    int din0_WIDTH,
-    int din1_WIDTH,
-    int dout_WIDTH>
-SC_MODULE(face_classifier_cbll) {
-    sc_core::sc_in< sc_dt::sc_lv<din0_WIDTH> >   din0;
-    sc_core::sc_in< sc_dt::sc_lv<din1_WIDTH> >   din1;
-    sc_core::sc_out< sc_dt::sc_lv<dout_WIDTH> >   dout;
+using namespace sc_core;
+using namespace sc_dt;
 
 
 
-    ACMP_fexp_comb<ID, 1, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_fexp_comb_U;
 
-    SC_CTOR(face_classifier_cbll):  ACMP_fexp_comb_U ("ACMP_fexp_comb_U") {
-        ACMP_fexp_comb_U.din0(din0);
-        ACMP_fexp_comb_U.din1(din1);
-        ACMP_fexp_comb_U.dout(dout);
+#include <iostream>
+#include <fstream>
 
+struct face_classifier_cbll_ram : public sc_core::sc_module {
+
+  static const unsigned DataWidth = 32;
+  static const unsigned AddressRange = 70;
+  static const unsigned AddressWidth = 7;
+
+//latency = 1
+//input_reg = 1
+//output_reg = 0
+sc_core::sc_in <sc_lv<AddressWidth> > address0;
+sc_core::sc_in <sc_logic> ce0;
+sc_core::sc_out <sc_lv<DataWidth> > q0;
+sc_core::sc_in<sc_logic> we0;
+sc_core::sc_in<sc_lv<DataWidth> > d0;
+sc_core::sc_in <sc_lv<AddressWidth> > address1;
+sc_core::sc_in <sc_logic> ce1;
+sc_core::sc_out <sc_lv<DataWidth> > q1;
+sc_core::sc_in<sc_logic> reset;
+sc_core::sc_in<bool> clk;
+
+
+sc_lv<DataWidth> ram[AddressRange];
+
+
+   SC_CTOR(face_classifier_cbll_ram) {
+
+
+SC_METHOD(prc_write_0);
+  sensitive<<clk.pos();
+
+
+SC_METHOD(prc_write_1);
+  sensitive<<clk.pos();
+   }
+
+
+void prc_write_0()
+{
+    if (ce0.read() == sc_dt::Log_1) 
+    {
+        if (we0.read() == sc_dt::Log_1) 
+        {
+           if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
+           {
+              ram[address0.read().to_uint()] = d0.read(); 
+              q0 = d0.read();
+           }
+           else
+              q0 = sc_lv<DataWidth>();
+        }
+        else {
+            if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
+              q0 = ram[address0.read().to_uint()];
+            else
+              q0 = sc_lv<DataWidth>();
+        }
     }
+}
 
-};
 
-#endif //
+void prc_write_1()
+{
+    if (ce1.read() == sc_dt::Log_1) 
+    {
+            if(address1.read().is_01() && address1.read().to_uint()<AddressRange)
+              q1 = ram[address1.read().to_uint()];
+            else
+              q1 = sc_lv<DataWidth>();
+    }
+}
+
+
+}; //endmodule
+
+
+SC_MODULE(face_classifier_cbll) {
+
+
+static const unsigned DataWidth = 32;
+static const unsigned AddressRange = 70;
+static const unsigned AddressWidth = 7;
+
+sc_core::sc_in <sc_lv<AddressWidth> > address0;
+sc_core::sc_in<sc_logic> ce0;
+sc_core::sc_out <sc_lv<DataWidth> > q0;
+sc_core::sc_in<sc_logic> we0;
+sc_core::sc_in<sc_lv<DataWidth> > d0;
+sc_core::sc_in <sc_lv<AddressWidth> > address1;
+sc_core::sc_in<sc_logic> ce1;
+sc_core::sc_out <sc_lv<DataWidth> > q1;
+sc_core::sc_in<sc_logic> reset;
+sc_core::sc_in<bool> clk;
+
+
+face_classifier_cbll_ram* meminst;
+
+
+SC_CTOR(face_classifier_cbll) {
+meminst = new face_classifier_cbll_ram("face_classifier_cbll_ram");
+meminst->address0(address0);
+meminst->ce0(ce0);
+meminst->q0(q0);
+meminst->we0(we0);
+meminst->d0(d0);
+
+meminst->address1(address1);
+meminst->ce1(ce1);
+meminst->q1(q1);
+
+meminst->reset(reset);
+meminst->clk(clk);
+}
+~face_classifier_cbll() {
+    delete meminst;
+}
+
+
+};//endmodule
+#endif

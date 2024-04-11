@@ -22,8 +22,8 @@ using namespace sc_dt;
 struct face_classifier_cBew_ram : public sc_core::sc_module {
 
   static const unsigned DataWidth = 32;
-  static const unsigned AddressRange = 100;
-  static const unsigned AddressWidth = 7;
+  static const unsigned AddressRange = 300000;
+  static const unsigned AddressWidth = 19;
 
 //latency = 1
 //input_reg = 1
@@ -31,6 +31,13 @@ struct face_classifier_cBew_ram : public sc_core::sc_module {
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in <sc_logic> ce0;
 sc_core::sc_out <sc_lv<DataWidth> > q0;
+sc_core::sc_in<sc_logic> we0;
+sc_core::sc_in<sc_lv<DataWidth> > d0;
+sc_core::sc_in <sc_lv<AddressWidth> > address1;
+sc_core::sc_in <sc_logic> ce1;
+sc_core::sc_out <sc_lv<DataWidth> > q1;
+sc_core::sc_in<sc_logic> we1;
+sc_core::sc_in<sc_lv<DataWidth> > d1;
 sc_core::sc_in<sc_logic> reset;
 sc_core::sc_in<bool> clk;
 
@@ -39,109 +46,16 @@ sc_lv<DataWidth> ram[AddressRange];
 
 
    SC_CTOR(face_classifier_cBew_ram) {
-        ram[0] = "0b01000000001011011001111100001011";
-        ram[1] = "0b10111111110101010110101110000101";
-        ram[2] = "0b10111111110110111100000101011011";
-        ram[3] = "0b10111111000100111101110011111011";
-        ram[4] = "0b11000000011010010000010010001000";
-        ram[5] = "0b10111100101101000000100111001010";
-        ram[6] = "0b01000000010100100101110010011001";
-        ram[7] = "0b00111111010010101000100000010001";
-        ram[8] = "0b00111111101011010101001100101010";
-        ram[9] = "0b00111111101000000110110010110110";
-        ram[10] = "0b11000000000001101101011010010100";
-        ram[11] = "0b01000000100000100110001110010101";
-        ram[12] = "0b01000000000000110011001010001000";
-        ram[13] = "0b01000000011100010001000100111101";
-        ram[14] = "0b00111111100110011110100111111001";
-        ram[15] = "0b00111110110011000101010111010111";
-        ram[16] = "0b10111100100101001010101110001110";
-        ram[17] = "0b11000000001000111101110111110000";
-        ram[18] = "0b01000000010011010000110001010110";
-        ram[19] = "0b11000000000100001101000101110011";
-        ram[20] = "0b11000000100011100100100010010001";
-        ram[21] = "0b00111110100010000100000010001111";
-        ram[22] = "0b00111110110101001111011000010101";
-        ram[23] = "0b01000000111111000000100100001111";
-        ram[24] = "0b00111111110010101101001100100110";
-        ram[25] = "0b01000000001000101011010000101000";
-        ram[26] = "0b11000000001000101111000001111110";
-        ram[27] = "0b00111111111011000101000100001110";
-        ram[28] = "0b10111111100000001100101110101010";
-        ram[29] = "0b00111111010101001110011111001110";
-        ram[30] = "0b11000000011000011000010100001011";
-        ram[31] = "0b00111111100000010000101111100110";
-        ram[32] = "0b01000000001111101011101111001000";
-        ram[33] = "0b10111111100111110101111000101000";
-        ram[34] = "0b00111111101001000010000011001000";
-        ram[35] = "0b11000000001011000111010111110001";
-        ram[36] = "0b10111111101000110110111001101010";
-        ram[37] = "0b10111111111100111000011111101010";
-        ram[38] = "0b11000000110010111100111110111011";
-        ram[39] = "0b11000000101101101101010110110101";
-        ram[40] = "0b11000000011011010101011100000011";
-        ram[41] = "0b01000000001001010011011000111100";
-        ram[42] = "0b10111111011110110010111101110111";
-        ram[43] = "0b00111110101010011001110011100011";
-        ram[44] = "0b01000000000000010101101000011111";
-        ram[45] = "0b00111111000000100111101000101010";
-        ram[46] = "0b01000000000101111010111110011011";
-        ram[47] = "0b00111011111110110111111100001111";
-        ram[48] = "0b01000000001111110011111001111010";
-        ram[49] = "0b01000000000010001101011101110111";
-        ram[50] = "0b01000000010001001111010011110111";
-        ram[51] = "0b10111111010111110000101100111010";
-        ram[52] = "0b10111110000011110001101111001001";
-        ram[53] = "0b10111110100100010100101000101110";
-        ram[54] = "0b01000000000110010011011110010111";
-        ram[55] = "0b10111110101011001101010110011010";
-        ram[56] = "0b00111111100101111111000100011010";
-        ram[57] = "0b00111111100110101100110001111110";
-        ram[58] = "0b01000000000001110001011001011100";
-        ram[59] = "0b10111110100001101010011110011010";
-        ram[60] = "0b01000000010100110000100010000010";
-        ram[61] = "0b00111111100010000010101101001100";
-        ram[62] = "0b01000000010010101100011010000101";
-        ram[63] = "0b10111111001110111001001111001011";
-        ram[64] = "0b11000000000000011110011101010110";
-        ram[65] = "0b11000000000001011001010000111100";
-        ram[66] = "0b11000000010001111110010101101111";
-        ram[67] = "0b10111111100000011111110110101101";
-        ram[68] = "0b00111111101001100101000001000100";
-        ram[69] = "0b01000000001010000111101011110101";
-        ram[70] = "0b00111111001011011110001000110111";
-        ram[71] = "0b10111111111010011011000110010001";
-        ram[72] = "0b11000000010000100101111110010110";
-        ram[73] = "0b01000000010100001101100101001110";
-        ram[74] = "0b11000000000001001101000100000111";
-        ram[75] = "0b10111111111011101101111011110101";
-        ram[76] = "0b01000000010010010001001110011100";
-        ram[77] = "0b10111111111101010001010010001011";
-        ram[78] = "0b00111111100010001110010110111101";
-        ram[79] = "0b10111101110000010001010100010011";
-        ram[80] = "0b10111110011111101101110011001100";
-        ram[81] = "0b01000000000110010111101101100110";
-        ram[82] = "0b10111110111000110101111110101111";
-        ram[83] = "0b01000000001011100111111111011010";
-        ram[84] = "0b10111100101111101101111101000001";
-        ram[85] = "0b10111111110110000110111001111000";
-        ram[86] = "0b10111111100101010010011001000011";
-        ram[87] = "0b00111101111111110101010010000011";
-        ram[88] = "0b00111111001001011000101011011100";
-        ram[89] = "0b10111111100011111111111010110111";
-        ram[90] = "0b00111110010101001011000000010101";
-        ram[91] = "0b00111111100100010110101010111011";
-        ram[92] = "0b00111111010111111100111010010000";
-        ram[93] = "0b10111111101001100000111111100001";
-        ram[94] = "0b10111101011001100110101111000011";
-        ram[95] = "0b11000000000011011010110001000010";
-        ram[96] = "0b10111110000010010100111010110111";
-        ram[97] = "0b10111111010010011010110000010001";
-        ram[98] = "0b11000000000010000101100010011001";
-        ram[99] = "0b00111111001000110110010111110010";
+        for (unsigned i = 0; i < 300000; i = i + 1) {
+            ram[i] = 0;
+        }
 
 
 SC_METHOD(prc_write_0);
+  sensitive<<clk.pos();
+
+
+SC_METHOD(prc_write_1);
   sensitive<<clk.pos();
    }
 
@@ -150,10 +64,46 @@ void prc_write_0()
 {
     if (ce0.read() == sc_dt::Log_1) 
     {
+        if (we0.read() == sc_dt::Log_1) 
+        {
+           if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
+           {
+              ram[address0.read().to_uint()] = d0.read(); 
+              q0 = d0.read();
+           }
+           else
+              q0 = sc_lv<DataWidth>();
+        }
+        else {
             if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
               q0 = ram[address0.read().to_uint()];
             else
               q0 = sc_lv<DataWidth>();
+        }
+    }
+}
+
+
+void prc_write_1()
+{
+    if (ce1.read() == sc_dt::Log_1) 
+    {
+        if (we1.read() == sc_dt::Log_1) 
+        {
+           if(address1.read().is_01() && address1.read().to_uint()<AddressRange)
+           {
+              ram[address1.read().to_uint()] = d1.read(); 
+              q1 = d1.read();
+           }
+           else
+              q1 = sc_lv<DataWidth>();
+        }
+        else {
+            if(address1.read().is_01() && address1.read().to_uint()<AddressRange)
+              q1 = ram[address1.read().to_uint()];
+            else
+              q1 = sc_lv<DataWidth>();
+        }
     }
 }
 
@@ -165,12 +115,19 @@ SC_MODULE(face_classifier_cBew) {
 
 
 static const unsigned DataWidth = 32;
-static const unsigned AddressRange = 100;
-static const unsigned AddressWidth = 7;
+static const unsigned AddressRange = 300000;
+static const unsigned AddressWidth = 19;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;
 sc_core::sc_out <sc_lv<DataWidth> > q0;
+sc_core::sc_in<sc_logic> we0;
+sc_core::sc_in<sc_lv<DataWidth> > d0;
+sc_core::sc_in <sc_lv<AddressWidth> > address1;
+sc_core::sc_in<sc_logic> ce1;
+sc_core::sc_out <sc_lv<DataWidth> > q1;
+sc_core::sc_in<sc_logic> we1;
+sc_core::sc_in<sc_lv<DataWidth> > d1;
 sc_core::sc_in<sc_logic> reset;
 sc_core::sc_in<bool> clk;
 
@@ -183,6 +140,14 @@ meminst = new face_classifier_cBew_ram("face_classifier_cBew_ram");
 meminst->address0(address0);
 meminst->ce0(ce0);
 meminst->q0(q0);
+meminst->we0(we0);
+meminst->d0(d0);
+
+meminst->address1(address1);
+meminst->ce1(ce1);
+meminst->q1(q1);
+meminst->we1(we1);
+meminst->d1(d1);
 
 meminst->reset(reset);
 meminst->clk(clk);

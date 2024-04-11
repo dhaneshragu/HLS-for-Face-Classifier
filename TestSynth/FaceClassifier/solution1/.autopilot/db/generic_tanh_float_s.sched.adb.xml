@@ -364,10 +364,10 @@ _ifconv:0  %tmp_34 = icmp ult i8 %loc_V, 127
 
 <Node id="28" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-_ifconv:1  %tmp_90_neg = xor i32 %p_Result_9, -2147483648
+_ifconv:1  %tmp_92_neg = xor i32 %p_Result_9, -2147483648
 
 ]]></Node>
-<StgValue><ssdm name="tmp_90_neg"/></StgValue>
+<StgValue><ssdm name="tmp_92_neg"/></StgValue>
 </operation>
 
 <operation id="28" st_id="1" stage="1" lat="1">
@@ -383,7 +383,7 @@ _ifconv:1  %tmp_90_neg = xor i32 %p_Result_9, -2147483648
 
 <Node id="29" bw="32" op_0_bw="32">
 <![CDATA[
-_ifconv:2  %tmp_35 = bitcast i32 %tmp_90_neg to float
+_ifconv:2  %tmp_35 = bitcast i32 %tmp_92_neg to float
 
 ]]></Node>
 <StgValue><ssdm name="tmp_35"/></StgValue>
@@ -674,10 +674,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="42" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-:1  %tmp_96_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
+:1  %tmp_98_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="tmp_96_i"/></StgValue>
+<StgValue><ssdm name="tmp_98_i"/></StgValue>
 </operation>
 </state>
 
@@ -698,10 +698,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="42" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-:1  %tmp_96_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
+:1  %tmp_98_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="tmp_96_i"/></StgValue>
+<StgValue><ssdm name="tmp_98_i"/></StgValue>
 </operation>
 </state>
 
@@ -722,10 +722,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="43" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-:2  %tmp_97_i = fadd double %tmp_96_i, -1.000000e+00
+:2  %tmp_99_i = fadd double %tmp_98_i, -1.000000e+00
 
 ]]></Node>
-<StgValue><ssdm name="tmp_97_i"/></StgValue>
+<StgValue><ssdm name="tmp_99_i"/></StgValue>
 </operation>
 
 <operation id="46" st_id="4" stage="1" lat="1">
@@ -743,10 +743,10 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="44" bw="32" op_0_bw="64">
 <![CDATA[
-:3  %tmp_98_i = fptrunc double %tmp_97_i to float
+:3  %tmp_100_i = fptrunc double %tmp_99_i to float
 
 ]]></Node>
-<StgValue><ssdm name="tmp_98_i"/></StgValue>
+<StgValue><ssdm name="tmp_100_i"/></StgValue>
 </operation>
 
 <operation id="47" st_id="4" stage="1" lat="1">
@@ -783,7 +783,7 @@ expm1.exit:1  br i1 %tmp_34, label %6, label %7
 
 <Node id="47" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
-expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [ %x_2, %4 ]
+expm1.exit:0  %expx = phi float [ %tmp_100_i, %5 ], [ 0.000000e+00, %_ifconv ], [ %x_2, %4 ]
 
 ]]></Node>
 <StgValue><ssdm name="expx"/></StgValue>
@@ -866,10 +866,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="55" bw="32" op_0_bw="32">
 <![CDATA[
-:0  %tmp_91_to_int = bitcast float %expx to i32
+:0  %tmp_93_to_int = bitcast float %expx to i32
 
 ]]></Node>
-<StgValue><ssdm name="tmp_91_to_int"/></StgValue>
+<StgValue><ssdm name="tmp_93_to_int"/></StgValue>
 </operation>
 
 <operation id="53" st_id="5" stage="1" lat="1">
@@ -886,10 +886,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="56" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-:1  %tmp_91_neg = xor i32 %tmp_91_to_int, -2147483648
+:1  %tmp_93_neg = xor i32 %tmp_93_to_int, -2147483648
 
 ]]></Node>
-<StgValue><ssdm name="tmp_91_neg"/></StgValue>
+<StgValue><ssdm name="tmp_93_neg"/></StgValue>
 </operation>
 
 <operation id="54" st_id="5" stage="1" lat="1">
@@ -906,7 +906,7 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="57" bw="32" op_0_bw="32">
 <![CDATA[
-:2  %tmp_36 = bitcast i32 %tmp_91_neg to float
+:2  %tmp_36 = bitcast i32 %tmp_93_neg to float
 
 ]]></Node>
 <StgValue><ssdm name="tmp_36"/></StgValue>
@@ -1114,10 +1114,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="71" bw="32" op_0_bw="32">
 <![CDATA[
-._crit_edge_ifconv:1  %tmp_95_to_int = bitcast float %resultf_4 to i32
+._crit_edge_ifconv:1  %tmp_97_to_int = bitcast float %resultf_4 to i32
 
 ]]></Node>
-<StgValue><ssdm name="tmp_95_to_int"/></StgValue>
+<StgValue><ssdm name="tmp_97_to_int"/></StgValue>
 </operation>
 
 <operation id="66" st_id="7" stage="1" lat="1">
@@ -1130,10 +1130,10 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="72" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge_ifconv:2  %tmp_95_neg = xor i32 %tmp_95_to_int, -2147483648
+._crit_edge_ifconv:2  %tmp_97_neg = xor i32 %tmp_97_to_int, -2147483648
 
 ]]></Node>
-<StgValue><ssdm name="tmp_95_neg"/></StgValue>
+<StgValue><ssdm name="tmp_97_neg"/></StgValue>
 </operation>
 
 <operation id="67" st_id="7" stage="1" lat="1">
@@ -1146,7 +1146,7 @@ expm1.exit:0  %expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [
 
 <Node id="73" bw="32" op_0_bw="32">
 <![CDATA[
-._crit_edge_ifconv:3  %tmp_40 = bitcast i32 %tmp_95_neg to float
+._crit_edge_ifconv:3  %tmp_40 = bitcast i32 %tmp_97_neg to float
 
 ]]></Node>
 <StgValue><ssdm name="tmp_40"/></StgValue>

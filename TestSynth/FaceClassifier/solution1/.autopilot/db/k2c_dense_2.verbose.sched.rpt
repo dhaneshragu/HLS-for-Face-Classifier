@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_dense_2'
 ================================================================
-* Date:           Mon Apr  8 17:34:42 2024
+* Date:           Wed Apr 10 13:49:40 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -234,7 +234,6 @@ Target clock period: 100ns, clock uncertainty: 12.5ns.
 The critical path consists of the following:
 	wire read on port 'input_ndim_read' [18]  (0 ns)
 	'add' operation ('tmp_s', ../C-Code-Original/include/k2c_core_layers.c:56) [23]  (3.56 ns)
-	'call' operation (../C-Code-Original/include/k2c_core_layers.c:61) to 'k2c_dot' [25]  (0 ns)
 
  <State 2>: 1.66ns
 The critical path consists of the following:
