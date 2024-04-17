@@ -227,8 +227,8 @@ architecture arch of face_classifier_cfYi is
         port (
             dividend : IN STD_LOGIC_VECTOR;
             divisor : IN STD_LOGIC_VECTOR;
-            remd : OUT STD_LOGIC_VECTOR;
             quot : OUT STD_LOGIC_VECTOR;
+            remd : OUT STD_LOGIC_VECTOR;
             clk : IN STD_LOGIC;
             ce : IN STD_LOGIC;
             reset : IN STD_LOGIC;
@@ -249,8 +249,8 @@ begin
     port map (
         dividend => din0,
         divisor => din1,
-        remd => dout,
-        quot => sig_quot,
+        quot => dout,
+        remd => sig_remd,
         clk => clk,
         ce => ce,
         reset => reset,

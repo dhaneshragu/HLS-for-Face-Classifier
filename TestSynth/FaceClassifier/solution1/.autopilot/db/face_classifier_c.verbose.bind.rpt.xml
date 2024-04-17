@@ -1,13 +1,13 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'face_classifier_c'" level="0">
-<item name = "Date">Thu Apr 11 22:31:08 2024
+<item name = "Date">Wed Apr 17 23:19:34 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
 <item name = "Solution">solution1</item>
-<item name = "Product family">aartix7</item>
-<item name = "Target device">xa7a12tcsg325-1q</item>
+<item name = "Product family">virtexu</item>
+<item name = "Target device">xcvu160-flgc2104-2-e</item>
 </section>
 
 <section name = "Performance Estimates" level="0">
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">100.00, 84.609, 12.50</column>
+<column name="ap_clk">10.00, 8.750, 1.25</column>
 </table>
 </item>
 </section>
@@ -31,11 +31,11 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_k2c_dense_1_fu_1850">k2c_dense_1, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_dense2_fu_1873">k2c_dense2, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_dense_fu_1902">k2c_dense, ?, ?, ?, ?, none</column>
-<column name="grp_generic_tanh_float_s_fu_1921">generic_tanh_float_s, 6, 6, 1, 1, function</column>
-<column name="grp_k2c_batch_norm_fu_1936">k2c_batch_norm, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense_1_fu_1846">k2c_dense_1, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense_fu_1869">k2c_dense, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense2_fu_1888">k2c_dense2, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_batch_norm_fu_1917">k2c_batch_norm, 45, 135, 45, 135, none</column>
+<column name="grp_generic_tanh_float_s_fu_1943">generic_tanh_float_s, 32, 32, 1, 1, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -63,19 +63,19 @@
 <column name="- Loop 21">60, 60, 2, 1, 1, 60, yes</column>
 <column name="- Loop 22">6, 6, 2, 1, 1, 6, yes</column>
 <column name="- memset_dense_2_fwork">69, 69, 1, -, -, 70, no</column>
-<column name="- Loop 24">?, ?, 8, 1, 1, ?, yes</column>
+<column name="- Loop 24">?, ?, 35, 1, 1, ?, yes</column>
 <column name="- Loop 25">5, 5, 2, 1, 1, 5, yes</column>
 <column name="- Loop 26">0, 4095, 2, 1, 1, 0 ~ 4095, yes</column>
 <column name="- Loop 27">5, 5, 2, 1, 1, 5, yes</column>
 <column name="- Loop 28">0, 4095, 2, 1, 1, 0 ~ 4095, yes</column>
-<column name="- Loop 29">16, 16, 8, 1, 1, 10, yes</column>
+<column name="- Loop 29">43, 43, 35, 1, 1, 10, yes</column>
 <column name="- Loop 30">5, 5, 2, 1, 1, 5, yes</column>
 <column name="- Loop 31">10, 10, 2, 1, 1, 10, yes</column>
 <column name="- Loop 32">5, 5, 2, 1, 1, 5, yes</column>
 <column name="- Loop 33">10, 10, 2, 1, 1, 10, yes</column>
 <column name="- Loop 34">10, 10, 2, -, -, 5, no</column>
-<column name="- Loop 35">18, 18, 3, -, -, 6, no</column>
-<column name="- Loop 36">12, 12, 2, -, -, 6, no</column>
+<column name="- Loop 35">90, 90, 15, -, -, 6, no</column>
+<column name="- Loop 36">30, 30, 5, -, -, 6, no</column>
 <column name="- Loop 37">10, 10, 2, -, -, 5, no</column>
 <column name="- Loop 38">?, ?, 2, -, -, ?, no</column>
 </table>

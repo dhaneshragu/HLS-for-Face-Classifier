@@ -6,18 +6,18 @@
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>aartix7</ProductFamily>
-<Part>xa7a12tcsg325-1q</Part>
+<ProductFamily>virtexu</ProductFamily>
+<Part>xcvu160-flgc2104-2-e</Part>
 <TopModelName>k2c_dense_1</TopModelName>
-<TargetClockPeriod>100.00</TargetClockPeriod>
-<ClockUncertainty>12.50</ClockUncertainty>
+<TargetClockPeriod>10.00</TargetClockPeriod>
+<ClockUncertainty>1.25</ClockUncertainty>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>33.093</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.539</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -31,39 +31,29 @@
 <Loop1>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
-<IterationLatency>undef</IterationLatency>
+<IterationLatency>4</IterationLatency>
 <k2c_dense_label0>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
+<TripCount>0</TripCount>
+<Latency>0</Latency>
+<PipelineII>4</PipelineII>
+<PipelineDepth>8</PipelineDepth>
 </k2c_dense_label0>
 </Loop1>
-<Loop2>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<IterationLatency>undef</IterationLatency>
-<Loop2.1>
-<TripCount>undef</TripCount>
-<Latency>undef</Latency>
-<IterationLatency>2</IterationLatency>
-</Loop2.1>
-</Loop2>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <BRAM_18K>0</BRAM_18K>
-<DSP48E>36</DSP48E>
-<FF>9893</FF>
-<LUT>9108</LUT>
+<DSP48E>48</DSP48E>
+<FF>24728</FF>
+<LUT>20303</LUT>
 </Resources>
 <AvailableResources>
-<BRAM_18K>40</BRAM_18K>
-<DSP48E>40</DSP48E>
-<FF>16000</FF>
-<LUT>8000</LUT>
+<BRAM_18K>6552</BRAM_18K>
+<DSP48E>1560</DSP48E>
+<FF>1852800</FF>
+<LUT>926400</LUT>
 </AvailableResources>
 </AreaEstimates>
 

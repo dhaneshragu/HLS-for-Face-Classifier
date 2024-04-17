@@ -1,13 +1,13 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'k2c_batch_norm'" level="0">
-<item name = "Date">Thu Apr 11 22:30:52 2024
+<item name = "Date">Wed Apr 17 23:19:26 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
 <item name = "Solution">solution1</item>
-<item name = "Product family">aartix7</item>
-<item name = "Target device">xa7a12tcsg325-1q</item>
+<item name = "Product family">virtexu</item>
+<item name = "Target device">xcvu160-flgc2104-2-e</item>
 </section>
 
 <section name = "Performance Estimates" level="0">
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">100.00, 84.609, 12.50</column>
+<column name="ap_clk">10.00, 8.733, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, none</column>
+<column name="">45, 135, 45, 135, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, 2, -, -, ?, no</column>
-<column name="- Loop 2">?, ?, 87, -, -, ?, no</column>
+<column name="- Loop 1">42, 132, 34, 1, 1, 10 ~ 100, yes</column>
 </table>
 </item>
 </section>

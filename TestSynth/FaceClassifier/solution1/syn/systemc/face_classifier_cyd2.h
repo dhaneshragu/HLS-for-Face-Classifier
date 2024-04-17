@@ -28,7 +28,7 @@ SC_MODULE(face_classifier_cyd2) {
 
 
 
-    ACMP_udiv_seq<ID, 11, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_udiv_seq_U;
+    ACMP_udiv_seq<ID, 13, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_udiv_seq_U;
 
     SC_CTOR(face_classifier_cyd2):  ACMP_udiv_seq_U ("ACMP_udiv_seq_U") {
         ACMP_udiv_seq_U.clk(clk);

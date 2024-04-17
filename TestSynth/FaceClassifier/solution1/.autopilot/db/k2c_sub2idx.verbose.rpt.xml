@@ -1,13 +1,13 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'k2c_sub2idx'" level="0">
-<item name = "Date">Thu Apr 11 22:31:10 2024
+<item name = "Date">Wed Apr 17 23:19:35 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
 <item name = "Solution">solution1</item>
-<item name = "Product family">aartix7</item>
-<item name = "Target device">xa7a12tcsg325-1q</item>
+<item name = "Product family">virtexu</item>
+<item name = "Target device">xcvu160-flgc2104-2-e</item>
 </section>
 
 <section name = "Performance Estimates" level="0">
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">100.00, 14.522, 12.50</column>
+<column name="ap_clk">10.00, 7.476, 1.25</column>
 </table>
 </item>
 </section>
@@ -49,14 +49,16 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, 10, 0, 238</column>
+<column name="Expression">-, 10, 0, 236</column>
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">-, -, -, -</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, 78</column>
 <column name="Register">-, -, 338, -</column>
-<specialColumn name="Available">40, 40, 16000, 8000</specialColumn>
-<specialColumn name="Utilization (%)">0, 25, 2, 3</specialColumn>
+<specialColumn name="Available SLR">2184, 520, 617600, 308800</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 1, ~0, ~0</specialColumn>
+<specialColumn name="Available">6552, 1560, 1852800, 926400</specialColumn>
+<specialColumn name="Utilization (%)">0, ~0, ~0, ~0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -79,36 +81,36 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="temp_1_fu_132_p2">*, 10, 0, 46, 64, 64</column>
-<column name="i_1_fu_108_p2">+, 0, 0, 12, 3, 1</column>
-<column name="idx_1_fu_126_p2">+, 0, 0, 71, 64, 64</column>
-<column name="j_fu_114_p2">+, 0, 0, 71, 64, 2</column>
-<column name="exitcond_fu_103_p2">icmp, 0, 0, 9, 4, 4</column>
-<column name="tmp_fu_121_p2">icmp, 0, 0, 29, 64, 64</column>
+<column name="temp_1_fu_148_p2">*, 10, 0, 45, 64, 64</column>
+<column name="i_1_fu_119_p2">+, 0, 0, 11, 3, 1</column>
+<column name="idx_1_fu_142_p2">+, 0, 0, 71, 64, 64</column>
+<column name="j_fu_130_p2">+, 0, 0, 71, 64, 2</column>
+<column name="exitcond_fu_114_p2">icmp, 0, 0, 9, 4, 4</column>
+<column name="tmp_fu_137_p2">icmp, 0, 0, 29, 64, 64</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">33, 6, 1, 6</column>
 <column name="ap_return">9, 2, 64, 128</column>
-<column name="i_reg_60">9, 2, 3, 6</column>
-<column name="idx_reg_48">9, 2, 64, 128</column>
-<column name="j_0_in_reg_81">9, 2, 64, 128</column>
-<column name="temp1_reg_71">9, 2, 64, 128</column>
+<column name="i_reg_76">9, 2, 3, 6</column>
+<column name="idx_reg_64">9, 2, 64, 128</column>
+<column name="j_0_in_reg_97">9, 2, 64, 128</column>
+<column name="temp1_reg_87">9, 2, 64, 128</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">5, 0, 5, 0</column>
 <column name="ap_return_preg">64, 0, 64, 0</column>
-<column name="i_1_reg_156">3, 0, 3, 0</column>
-<column name="i_cast1_reg_148">3, 0, 64, 61</column>
-<column name="i_reg_60">3, 0, 3, 0</column>
-<column name="idx_reg_48">64, 0, 64, 0</column>
-<column name="j_0_in_reg_81">64, 0, 64, 0</column>
-<column name="j_reg_171">64, 0, 64, 0</column>
-<column name="temp1_reg_71">64, 0, 64, 0</column>
-<column name="tmp_1_reg_143">4, 0, 4, 0</column>
+<column name="i_1_reg_167">3, 0, 3, 0</column>
+<column name="i_cast1_reg_172">3, 0, 64, 61</column>
+<column name="i_reg_76">3, 0, 3, 0</column>
+<column name="idx_reg_64">64, 0, 64, 0</column>
+<column name="j_0_in_reg_97">64, 0, 64, 0</column>
+<column name="j_reg_187">64, 0, 64, 0</column>
+<column name="temp1_reg_87">64, 0, 64, 0</column>
+<column name="tmp_2_reg_159">4, 0, 4, 0</column>
 </table>
 </item>
 </section>

@@ -1,22 +1,30 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 70
-set name face_classifier_cpcA
-set corename simcore_fsub
-set op fsub
-set stage_num 1
+set id 74
+set name face_classifier_cqcK
+set corename simcore_faddfsub
+set op faddfsub
+set stage_num 4
 set max_latency -1
 set registered_input 1
 set impl_style full_dsp
 set Futype4reduceCEFanout 1
+set clk_width 1
+set clk_signed 0
+set reset_width 1
+set reset_signed 0
 set in0_width 32
 set in0_signed 0
 set in1_width 32
 set in1_signed 0
+set opcode_width 2
+set opcode_signed 0
+set ce_width 1
+set ce_signed 0
 set out_width 32
 if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_fsub] == "ap_gen_simcore_fsub"} {
-eval "ap_gen_simcore_fsub { \
+if {[info proc ap_gen_simcore_faddfsub] == "ap_gen_simcore_faddfsub"} {
+eval "ap_gen_simcore_faddfsub { \
     id ${id} \
     name ${name} \
     corename ${corename} \
@@ -28,14 +36,22 @@ eval "ap_gen_simcore_fsub { \
     registered_input ${registered_input} \
     style ${impl_style} \
     Futype4reduceCEFanout ${Futype4reduceCEFanout} \
+    clk_width ${clk_width} \
+    clk_signed ${clk_signed} \
+    reset_width ${reset_width} \
+    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
     in1_signed ${in1_signed} \
+    opcode_width ${opcode_width} \
+    opcode_signed ${opcode_signed} \
+    ce_width ${ce_width} \
+    ce_signed ${ce_signed} \
     out_width ${out_width} \
 }"
 } else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_fsub, check your AutoPilot builtin lib"
+puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_faddfsub, check your AutoPilot builtin lib"
 }
 }
 
@@ -45,7 +61,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 }
 
 
-set op fsub
+set op faddfsub
 set corename FAddSub
 if {${::AESL::PGuard_autocg_gen} && (${::AESL::PGuard_autocg_fpip} || ${::AESL::PGuard_autocg_fpv6en} || ${::AESL::PGuard_autocg_hpen})} {
 if {[info proc ::AESL_LIB_XILINX_FPV6::fpv6_gen] == "::AESL_LIB_XILINX_FPV6::fpv6_gen"} {
@@ -61,10 +77,18 @@ eval "::AESL_LIB_XILINX_FPV6::fpv6_gen { \
     registered_input ${registered_input} \
     style ${impl_style} \
     Futype4reduceCEFanout ${Futype4reduceCEFanout} \
+    clk_width ${clk_width} \
+    clk_signed ${clk_signed} \
+    reset_width ${reset_width} \
+    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
     in1_signed ${in1_signed} \
+    opcode_width ${opcode_width} \
+    opcode_signed ${opcode_signed} \
+    ce_width ${ce_width} \
+    ce_signed ${ce_signed} \
     out_width ${out_width} \
 }"
 } else {
@@ -73,8 +97,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 73
-set name face_classifier_cqcK
+set id 80
+set name face_classifier_crcU
 set corename simcore_fptrunc
 set op fptrunc
 set stage_num 1
@@ -137,8 +161,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 74
-set name face_classifier_crcU
+set id 81
+set name face_classifier_csc4
 set corename simcore_fpext
 set op fpext
 set stage_num 1
@@ -201,8 +225,8 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 75
-set name face_classifier_csc4
+set id 82
+set name face_classifier_ctde
 set corename simcore_fcmp
 set op fcmp
 set stage_num 1
@@ -277,19 +301,25 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 76
-set name face_classifier_ctde
+set id 83
+set name face_classifier_cudo
 set corename simcore_dadd
 set op dadd
-set stage_num 1
+set stage_num 4
 set max_latency -1
 set registered_input 1
 set impl_style full_dsp
 set Futype4reduceCEFanout 1
+set clk_width 1
+set clk_signed 0
+set reset_width 1
+set reset_signed 0
 set in0_width 64
 set in0_signed 0
 set in1_width 64
 set in1_signed 0
+set ce_width 1
+set ce_signed 0
 set out_width 64
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_dadd] == "ap_gen_simcore_dadd"} {
@@ -305,10 +335,16 @@ eval "ap_gen_simcore_dadd { \
     registered_input ${registered_input} \
     style ${impl_style} \
     Futype4reduceCEFanout ${Futype4reduceCEFanout} \
+    clk_width ${clk_width} \
+    clk_signed ${clk_signed} \
+    reset_width ${reset_width} \
+    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
     in1_signed ${in1_signed} \
+    ce_width ${ce_width} \
+    ce_signed ${ce_signed} \
     out_width ${out_width} \
 }"
 } else {
@@ -338,10 +374,16 @@ eval "::AESL_LIB_XILINX_FPV6::fpv6_gen { \
     registered_input ${registered_input} \
     style ${impl_style} \
     Futype4reduceCEFanout ${Futype4reduceCEFanout} \
+    clk_width ${clk_width} \
+    clk_signed ${clk_signed} \
+    reset_width ${reset_width} \
+    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
     in1_signed ${in1_signed} \
+    ce_width ${ce_width} \
+    ce_signed ${ce_signed} \
     out_width ${out_width} \
 }"
 } else {
@@ -360,7 +402,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 82 \
+    id 89 \
     name t_in \
     type other \
     dir I \

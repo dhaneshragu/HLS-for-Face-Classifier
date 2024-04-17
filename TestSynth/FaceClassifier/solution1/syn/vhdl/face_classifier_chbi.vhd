@@ -9,7 +9,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity face_classifier_chbi_DSP48_1 is
+entity face_classifier_chbi_DSP48_0 is
 port (
     in0:  in  std_logic_vector(13 - 1 downto 0);
     in1:  in  std_logic_vector(13 - 1 downto 0);
@@ -18,14 +18,14 @@ port (
 
 end entity;
 
-architecture behav of face_classifier_chbi_DSP48_1 is
-    signal a       : signed(25-1 downto 0);
+architecture behav of face_classifier_chbi_DSP48_0 is
+    signal a       : signed(27-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
-    signal m       : signed(43-1 downto 0);
+    signal m       : signed(45-1 downto 0);
     signal p       : signed(48-1 downto 0);
 begin
-a  <= signed(resize(signed(in0), 25));
+a  <= signed(resize(signed(in0), 27));
 b  <= signed(resize(signed(in1), 18));
 c  <= signed(resize(unsigned(in2), 48));
 
@@ -55,7 +55,7 @@ entity face_classifier_chbi is
 end entity;
 
 architecture arch of face_classifier_chbi is
-    component face_classifier_chbi_DSP48_1 is
+    component face_classifier_chbi_DSP48_0 is
         port (
             in0 : IN STD_LOGIC_VECTOR;
             in1 : IN STD_LOGIC_VECTOR;
@@ -66,7 +66,7 @@ architecture arch of face_classifier_chbi is
 
 
 begin
-    face_classifier_chbi_DSP48_1_U :  component face_classifier_chbi_DSP48_1
+    face_classifier_chbi_DSP48_0_U :  component face_classifier_chbi_DSP48_0
     port map (
         in0 => din0,
         in1 => din1,

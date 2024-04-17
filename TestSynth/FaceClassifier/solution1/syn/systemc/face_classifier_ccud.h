@@ -7,7 +7,7 @@
 
 #ifndef __face_classifier_ccud__HH__
 #define __face_classifier_ccud__HH__
-#include "ACMP_fmul_comb.h"
+#include "ACMP_udiv.h"
 #include <systemc>
 
 template<
@@ -17,18 +17,24 @@ template<
     int din1_WIDTH,
     int dout_WIDTH>
 SC_MODULE(face_classifier_ccud) {
+    sc_core::sc_in_clk clk;
+    sc_core::sc_in<sc_dt::sc_logic> reset;
+    sc_core::sc_in<sc_dt::sc_logic> ce;
     sc_core::sc_in< sc_dt::sc_lv<din0_WIDTH> >   din0;
     sc_core::sc_in< sc_dt::sc_lv<din1_WIDTH> >   din1;
     sc_core::sc_out< sc_dt::sc_lv<dout_WIDTH> >   dout;
 
 
 
-    ACMP_fmul_comb<ID, 1, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_fmul_comb_U;
+    ACMP_udiv<ID, 68, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_udiv_U;
 
-    SC_CTOR(face_classifier_ccud):  ACMP_fmul_comb_U ("ACMP_fmul_comb_U") {
-        ACMP_fmul_comb_U.din0(din0);
-        ACMP_fmul_comb_U.din1(din1);
-        ACMP_fmul_comb_U.dout(dout);
+    SC_CTOR(face_classifier_ccud):  ACMP_udiv_U ("ACMP_udiv_U") {
+        ACMP_udiv_U.clk(clk);
+        ACMP_udiv_U.reset(reset);
+        ACMP_udiv_U.ce(ce);
+        ACMP_udiv_U.din0(din0);
+        ACMP_udiv_U.din1(din1);
+        ACMP_udiv_U.dout(dout);
 
     }
 

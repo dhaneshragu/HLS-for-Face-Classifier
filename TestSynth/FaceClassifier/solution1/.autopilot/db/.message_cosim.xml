@@ -3,57 +3,57 @@
 	<Message severity="INFO" prefix="[COSIM 212-47]" key="COSIM_TCL_47_1115" tag="" content="Using XSIM for RTL simulation."/>
 	<Message severity="INFO" prefix="[COSIM 212-14]" key="COSIM_TCL_14_1084" tag="" content="Instrumenting C test bench ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:49 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:02 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:54 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:07 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:58 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:11 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:02 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:16 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:06 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:20 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:10 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:24 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:13 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:28 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:22 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:37 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:26 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:41 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:31 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:46 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:35 +0530 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;ketan&apos; on host &apos;laptop-0aqmlcn3&apos; (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:51 +0530 2024"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc&apos;"/>
 	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
 	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>

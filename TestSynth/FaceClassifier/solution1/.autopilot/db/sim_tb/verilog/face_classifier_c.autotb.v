@@ -15,7 +15,7 @@
 `define AUTOTB_PER_RESULT_TRANS_FILE "face_classifier_c.performance.result.transaction.xml"
 `define AUTOTB_TOP_INST AESL_inst_apatb_face_classifier_c_top
 `define AUTOTB_MAX_ALLOW_LATENCY  15000000
-`define AUTOTB_CLOCK_PERIOD_DIV2 50.00
+`define AUTOTB_CLOCK_PERIOD_DIV2 5.00
 
 `define AESL_MEM_dense_input_input_array AESL_automem_dense_input_input_array
 `define AESL_MEM_INST_dense_input_input_array mem_inst_dense_input_input_array

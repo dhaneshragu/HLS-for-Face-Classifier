@@ -1750,9 +1750,12 @@ void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* 
         const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t j = 0; j < outcols; ++j) {
-            output->array[outrowidx+j] = bias->array[j];
+#pragma HLS LOOP_TRIPCOUNT
+ output->array[outrowidx+j] = bias->array[j];
             k2c_dense_label0:for (size_t k = 0; k < innerdim; ++k) {
-                output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
+#pragma HLS LOOP_TRIPCOUNT
+#pragma HLS PIPELINE
+ output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
             }
         }
         }
@@ -1812,7 +1815,7 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
         k2c_linear_func(output->array, output->numel);
     }
 }
-#pragma line 119 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#pragma line 122 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
 #pragma empty_line
     memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
@@ -1823,7 +1826,7 @@ void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
     output->numel = input->numel;
     output->ndim = 1;
 }
-#pragma line 139 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#pragma line 142 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * newshp,
                  const size_t newndim) {
 #pragma empty_line
@@ -1834,7 +1837,7 @@ void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * new
     output->ndim = newndim;
     output->numel = input->numel;
 }
-#pragma line 159 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#pragma line 162 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
                       const size_t * permute) {
 #pragma empty_line
@@ -1861,7 +1864,7 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
         output->array[bidx] = input->array[i];
     }
 }
-#pragma line 195 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#pragma line 198 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n) {
 #pragma empty_line
     const size_t in_width = input->shape[0];

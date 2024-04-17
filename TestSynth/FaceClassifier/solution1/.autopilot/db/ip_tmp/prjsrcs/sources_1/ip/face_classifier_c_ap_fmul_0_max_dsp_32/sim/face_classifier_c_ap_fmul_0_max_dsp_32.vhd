@@ -188,7 +188,7 @@ ARCHITECTURE face_classifier_c_ap_fmul_0_max_dsp_32_arch OF face_classifier_c_ap
 BEGIN
   U0 : floating_point_v7_1_6
     GENERIC MAP (
-      C_XDEVICEFAMILY => "aartix7",
+      C_XDEVICEFAMILY => "virtexu",
       C_HAS_ADD => 0,
       C_HAS_SUBTRACT => 0,
       C_HAS_MULTIPLY => 1,

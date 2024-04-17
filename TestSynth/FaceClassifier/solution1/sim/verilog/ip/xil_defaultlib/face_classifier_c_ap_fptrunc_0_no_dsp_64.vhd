@@ -183,7 +183,7 @@ ARCHITECTURE face_classifier_c_ap_fptrunc_0_no_dsp_64_arch OF face_classifier_c_
 BEGIN
   U0 : floating_point_v7_1_6
     GENERIC MAP (
-      C_XDEVICEFAMILY => "aartix7",
+      C_XDEVICEFAMILY => "virtexu",
       C_HAS_ADD => 0,
       C_HAS_SUBTRACT => 0,
       C_HAS_MULTIPLY => 0,

@@ -2007,25 +2007,31 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
 
     size_t idx = 0;
     size_t temp = 0;
-    for (size_t i=0; i<ndim; ++i) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ for (size_t i=0; i<ndim; ++i)
+    {
         temp = sub[i];
-        for (size_t j=ndim-1; j>i; --j) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ for (size_t j=ndim-1; j>i; --j)
+        {
             temp *= shape[j];
         }
         idx += temp;
     }
     return idx;
 }
-# 106 "../C-Code-Original/include/k2c_helper_functions.c"
+# 110 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim) {
 
     size_t idx2 = idx;
-    for (int i=ndim-1; i>=0; --i) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ for (int i=ndim-1; i>=0; --i)
+    {
         sub[i] = idx2%shape[i];
         idx2 /= shape[i];
     }
 }
-# 128 "../C-Code-Original/include/k2c_helper_functions.c"
+# 279 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const size_t * axesA,
              const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
 
@@ -2049,10 +2055,12 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const s
 
     count=0;
     size_t i,j;
+
     for ( i=0; i<ndimA; ++i) {
         isin = 0;
         for (size_t j=0; j<naxes; ++j) {
-            if (i==axesA[j]) {
+_ssdm_Unroll(0,0,0, "");
+ if (i==axesA[j]) {
                 isin=1;
             }
         }
@@ -2065,7 +2073,8 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const s
     for ( i=0; i<ndimB; ++i) {
         isin = 0;
         for (size_t j=0; j<naxes; ++j) {
-            if (i==axesB[j]) {
+_ssdm_Unroll(0,0,0, "");
+ if (i==axesB[j]) {
                 isin=1;
             }
         }
@@ -2077,51 +2086,71 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const s
 
 
     for ( i=0; i < naxes; ++i) {
-        prod_axesA *= Ar->shape[axesA[i]];
+_ssdm_Unroll(0,0,0, "");
+ prod_axesA *= Ar->shape[axesA[i]];
     }
     for (i=0; i < naxes; ++i) {
-        prod_axesB *= B->shape[axesB[i]];
+_ssdm_Unroll(0,0,0, "");
+ prod_axesB *= B->shape[axesB[i]];
     }
 
     free_axesA = Ar->numel/prod_axesA;
     free_axesB = B->numel/prod_axesB;
 
     for ( i=0; i<ndimA-naxes; ++i) {
-        permA[i] = freeA[i];
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ permA[i] = freeA[i];
     }
     for ( i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
-        permA[i] = axesA[j];
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ permA[i] = axesA[j];
     }
     for ( i=0; i<naxes; ++i) {
-        permB[i] = axesB[i];
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ permB[i] = axesB[i];
     }
     for (i=naxes, j=0; i<ndimB; ++i, ++j) {
-        permB[i] = freeB[j];
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ permB[i] = freeB[j];
     }
 
 
 
     for ( i=0; i<ndimA; ++i) {
-        newshpA[i] = Ar->shape[permA[i]];
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ newshpA[i] = Ar->shape[permA[i]];
     }
     for ( i=0; i<ndimB; ++i) {
-        newshpB[i] = B->shape[permB[i]];
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ newshpB[i] = B->shape[permB[i]];
     }
 
 
     for ( i=0; i<Ar->numel; ++i) {
+
         k2c_idx2sub(i,Asub,Ar->shape,ndimA);
         for (size_t j=0; j<ndimA; ++j) {
-            Bsub[j] = Asub[permA[j]];
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ Bsub[j] = Asub[permA[j]];
         }
         size_t bidx = k2c_sub2idx(Bsub,newshpA,ndimA);
         reshapeA[bidx] = Ar->array[i];
     }
 
     for ( i=0; i<B->numel; ++i) {
+
         k2c_idx2sub(i,Bsub,B->shape,ndimB);
         for (size_t j=0; j<ndimB; ++j) {
-            Asub[j] = Bsub[permB[j]];
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ Asub[j] = Bsub[permB[j]];
         }
         size_t bidx = k2c_sub2idx(Asub,newshpB,ndimB);
         reshapeB[bidx] = B->array[i];
@@ -2134,25 +2163,35 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const s
         float inorm;
         size_t i;
         for ( i=0; i<free_axesA; ++i) {
+
             sum = 0;
             size_t j;
             for ( j=0; j<prod_axesA; ++j) {
-                sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
             }
             inorm = 1.0f/sqrtf(sum);
             for ( j=0; j<prod_axesA; ++j) {
-                reshapeA[i*prod_axesA + j] *= inorm;
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ reshapeA[i*prod_axesA + j] *= inorm;
             }
         }
         for ( i=0; i<free_axesB; ++i) {
+
             sum = 0;
             size_t j;
             for ( j=0; j<prod_axesB; ++j) {
-                sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
             }
             inorm = 1.0f/sqrtf(sum);
             for ( j=0; j<prod_axesB; ++j) {
-                reshapeB[i + free_axesB*j] *= inorm;
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ reshapeB[i + free_axesB*j] *= inorm;
             }
         }
     }
@@ -2160,15 +2199,17 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const s
 
 
         for (i = 0 ; i < free_axesA; ++i) {
+
             for (size_t j = 0; j < free_axesB; ++j) {
                 C->array[i*free_axesB + j] = 0;
                 for (size_t k = 0; k < prod_axesA; ++k) {
-                    C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+
+ C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
                 }
             }
         }
 }
-
 
 void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const size_t * axesA,
              const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
@@ -2312,16 +2353,20 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const
             }
         }
 }
-# 423 "../C-Code-Original/include/k2c_helper_functions.c"
+# 609 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b) {
 
-    for (size_t i=0; i<A->numel; i+=b->numel) {
-        for (size_t j=0; j<b->numel; ++j) {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ for (size_t i=0; i<A->numel; i+=b->numel)
+    {
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ for (size_t j=0; j<b->numel; ++j)
+        {
             A->array[i+j] += b->array[j];
         }
     }
 }
-# 441 "../C-Code-Original/include/k2c_helper_functions.c"
+# 631 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_flip(k2c_tensor *A, const size_t axis) {
     const size_t ndim = A->ndim;
     const size_t * shape = A->shape;
@@ -2354,7 +2399,7 @@ void k2c_flip(k2c_tensor *A, const size_t axis) {
         }
     }
 }
-# 483 "../C-Code-Original/include/k2c_helper_functions.c"
+# 673 "../C-Code-Original/include/k2c_helper_functions.c"
 float* k2c_read_array(const char* filename, const size_t array_size) {
     float* ptr = (float*) malloc(array_size * sizeof(float));
     if (!ptr) {

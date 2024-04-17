@@ -133,7 +133,7 @@ set NewPortList {[
  	{ "name": "fwork_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "fwork", "role": "q1" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "22", "23", "24", "25"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "21", "23", "24", "25", "26"],
 		"CDFG" : "k2c_dense_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -147,34 +147,38 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_dot_fu_289"}],
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_dot_fu_255"},
+			{"State" : "ap_ST_fsm_state4", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_bias_add_fu_279"}],
 		"Port" : [
 			{"Name" : "output_array", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "C_array"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_255", "Port" : "C_array"},
+					{"ID" : "21", "SubInstance" : "grp_k2c_bias_add_fu_279", "Port" : "A_array"}]},
 			{"Name" : "output_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_array", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "Ar_array"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_255", "Port" : "Ar_array"}]},
 			{"Name" : "input_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_shape", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "Ar_shape"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_255", "Port" : "Ar_shape"}]},
 			{"Name" : "kernel_array", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "B_array"}]},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_255", "Port" : "B_array"}]},
 			{"Name" : "kernel_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "kernel_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "kernel_shape", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "B_shape"}]},
-			{"Name" : "bias_array", "Type" : "Memory", "Direction" : "I"},
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_255", "Port" : "B_shape"}]},
+			{"Name" : "bias_array", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "21", "SubInstance" : "grp_k2c_bias_add_fu_279", "Port" : "b_array"}]},
 			{"Name" : "bias_numel_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "fwork", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_289", "Port" : "fwork"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"],
+					{"ID" : "1", "SubInstance" : "grp_k2c_dot_fu_255", "Port" : "fwork"}]}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "13", "14", "15", "16", "17", "18", "19", "20"],
 		"CDFG" : "k2c_dot",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -188,29 +192,55 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state156", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_676"},
-			{"State" : "ap_ST_fsm_state230", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_676"}],
+			{"State" : "ap_ST_fsm_state89", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_idx2sub_fu_647"},
+			{"State" : "ap_ST_fsm_state96", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_idx2sub_fu_647"},
+			{"State" : "ap_ST_fsm_state94", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_658"},
+			{"State" : "ap_ST_fsm_state101", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_658"}],
 		"Port" : [
 			{"Name" : "C_array", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "Ar_array", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "Ar_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "Ar_numel_read", "Type" : "None", "Direction" : "I"},
-			{"Name" : "Ar_shape", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Ar_shape", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "10", "SubInstance" : "grp_k2c_idx2sub_fu_647", "Port" : "shape"}]},
 			{"Name" : "B_array", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "B_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "B_numel_read", "Type" : "None", "Direction" : "I"},
-			{"Name" : "B_shape", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "B_shape", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "10", "SubInstance" : "grp_k2c_idx2sub_fu_647", "Port" : "shape"}]},
 			{"Name" : "axesA_0_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "fwork", "Type" : "Memory", "Direction" : "IO"}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.permA_U", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.permB_U", "Parent" : "1"},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.freeA_U", "Parent" : "1"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.freeB_U", "Parent" : "1"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.newshpA_U", "Parent" : "1"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.newshpB_U", "Parent" : "1"},
-	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.Asub_U", "Parent" : "1"},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.Bsub_U", "Parent" : "1"},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.grp_k2c_sub2idx_fu_676", "Parent" : "1",
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.permA_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.permB_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.freeA_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.freeB_U", "Parent" : "1"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.newshpA_U", "Parent" : "1"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.newshpB_U", "Parent" : "1"},
+	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.Asub_U", "Parent" : "1"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.Bsub_U", "Parent" : "1"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.grp_k2c_idx2sub_fu_647", "Parent" : "1", "Child" : ["11", "12"],
+		"CDFG" : "k2c_idx2sub",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sub", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "shape", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "ndim", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "11", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.grp_k2c_idx2sub_fu_647.face_classifier_cbkb_U1", "Parent" : "10"},
+	{"ID" : "12", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.grp_k2c_idx2sub_fu_647.face_classifier_ccud_U2", "Parent" : "10"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.grp_k2c_sub2idx_fu_658", "Parent" : "1",
 		"CDFG" : "k2c_sub2idx",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -227,54 +257,79 @@ set RtlHierarchyInfo {[
 			{"Name" : "sub", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "shape", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "ndim", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cbkb_U83", "Parent" : "1"},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_ccud_U84", "Parent" : "1"},
-	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cdEe_U85", "Parent" : "1"},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cudo_U86", "Parent" : "1"},
-	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cfYi_U87", "Parent" : "1"},
-	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cdEe_U88", "Parent" : "1"},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cfYi_U89", "Parent" : "1"},
-	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cdEe_U90", "Parent" : "1"},
-	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cg8j_U91", "Parent" : "1"},
-	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cvdy_U92", "Parent" : "1"},
-	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_289.face_classifier_cwdI_U93", "Parent" : "1"},
-	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cbkb_U108", "Parent" : "0"},
-	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ccud_U109", "Parent" : "0"},
-	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_chbi_U110", "Parent" : "0"},
-	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cg8j_U111", "Parent" : "0"}]}
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.face_classifier_cdEe_U90", "Parent" : "1"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.face_classifier_ceOg_U91", "Parent" : "1"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.face_classifier_cfYi_U92", "Parent" : "1"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.face_classifier_cvdy_U93", "Parent" : "1"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.face_classifier_chbi_U94", "Parent" : "1"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.face_classifier_cwdI_U95", "Parent" : "1"},
+	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_dot_fu_255.face_classifier_cxdS_U96", "Parent" : "1"},
+	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_bias_add_fu_279", "Parent" : "0", "Child" : ["22"],
+		"CDFG" : "k2c_bias_add",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "A_array", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "A_numel_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b_array", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "b_numel_read", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_bias_add_fu_279.face_classifier_cdEe_U33", "Parent" : "21"},
+	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cdEe_U111", "Parent" : "0"},
+	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ceOg_U112", "Parent" : "0"},
+	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_chbi_U113", "Parent" : "0"},
+	{"ID" : "26", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cibs_U114", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	k2c_dense_1 {
-		output_array {Type IO LastRead 3 FirstWrite 3}
+		output_array {Type IO LastRead 2 FirstWrite 3}
 		output_numel_read {Type I LastRead 0 FirstWrite -1}
-		input_array {Type I LastRead 78 FirstWrite -1}
+		input_array {Type I LastRead 84 FirstWrite -1}
 		input_ndim_read {Type I LastRead 0 FirstWrite -1}
 		input_numel_read {Type I LastRead 0 FirstWrite -1}
-		input_shape {Type I LastRead 77 FirstWrite -1}
-		kernel_array {Type I LastRead 79 FirstWrite -1}
+		input_shape {Type I LastRead 78 FirstWrite -1}
+		kernel_array {Type I LastRead 85 FirstWrite -1}
 		kernel_ndim_read {Type I LastRead 0 FirstWrite -1}
 		kernel_numel_read {Type I LastRead 0 FirstWrite -1}
-		kernel_shape {Type I LastRead 78 FirstWrite -1}
-		bias_array {Type I LastRead 3 FirstWrite -1}
+		kernel_shape {Type I LastRead 80 FirstWrite -1}
+		bias_array {Type I LastRead 2 FirstWrite -1}
 		bias_numel_read {Type I LastRead 0 FirstWrite -1}
-		fwork {Type IO LastRead 81 FirstWrite 79}}
+		fwork {Type IO LastRead 85 FirstWrite 85}}
 	k2c_dot {
-		C_array {Type O LastRead -1 FirstWrite 80}
-		Ar_array {Type I LastRead 78 FirstWrite -1}
+		C_array {Type O LastRead -1 FirstWrite 83}
+		Ar_array {Type I LastRead 84 FirstWrite -1}
 		Ar_ndim_read {Type I LastRead 0 FirstWrite -1}
 		Ar_numel_read {Type I LastRead 0 FirstWrite -1}
-		Ar_shape {Type I LastRead 77 FirstWrite -1}
-		B_array {Type I LastRead 79 FirstWrite -1}
+		Ar_shape {Type I LastRead 78 FirstWrite -1}
+		B_array {Type I LastRead 85 FirstWrite -1}
 		B_ndim_read {Type I LastRead 0 FirstWrite -1}
 		B_numel_read {Type I LastRead 0 FirstWrite -1}
-		B_shape {Type I LastRead 78 FirstWrite -1}
+		B_shape {Type I LastRead 80 FirstWrite -1}
 		axesA_0_read {Type I LastRead 0 FirstWrite -1}
-		fwork {Type IO LastRead 81 FirstWrite 79}}
+		fwork {Type IO LastRead 85 FirstWrite 85}}
+	k2c_idx2sub {
+		idx {Type I LastRead 0 FirstWrite -1}
+		sub {Type O LastRead -1 FirstWrite 69}
+		shape {Type I LastRead 1 FirstWrite -1}
+		ndim {Type I LastRead 0 FirstWrite -1}}
 	k2c_sub2idx {
 		sub {Type I LastRead 1 FirstWrite -1}
 		shape {Type I LastRead 3 FirstWrite -1}
-		ndim {Type I LastRead 0 FirstWrite -1}}}
+		ndim {Type I LastRead 0 FirstWrite -1}}
+	k2c_bias_add {
+		A_array {Type IO LastRead 2 FirstWrite 6}
+		A_numel_read {Type I LastRead 0 FirstWrite -1}
+		b_array {Type I LastRead 2 FirstWrite -1}
+		b_numel_read {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

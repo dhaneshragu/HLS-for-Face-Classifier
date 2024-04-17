@@ -105,7 +105,7 @@ set NewPortList {[
  	{ "name": "fwork_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "fwork", "role": "q1" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "12", "13", "14", "15", "16", "17"],
 		"CDFG" : "k2c_dot_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -119,16 +119,22 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state156", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_679"},
-			{"State" : "ap_ST_fsm_state230", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_679"}],
+			{"State" : "ap_ST_fsm_state89", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_idx2sub_fu_644"},
+			{"State" : "ap_ST_fsm_state96", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_idx2sub_fu_644"},
+			{"State" : "ap_ST_fsm_state94", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_656"},
+			{"State" : "ap_ST_fsm_state101", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_k2c_sub2idx_fu_656"}],
 		"Port" : [
 			{"Name" : "C_array", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "Ar_array", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "Ar_ndim_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "Ar_numel_read", "Type" : "None", "Direction" : "I"},
-			{"Name" : "Ar_shape", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Ar_shape", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "9", "SubInstance" : "grp_k2c_idx2sub_fu_644", "Port" : "shape"}]},
 			{"Name" : "B_array", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "B_shape", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "B_shape", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "9", "SubInstance" : "grp_k2c_idx2sub_fu_644", "Port" : "shape"}]},
 			{"Name" : "p_read4", "Type" : "None", "Direction" : "I"},
 			{"Name" : "fwork", "Type" : "Memory", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.permA_U", "Parent" : "0"},
@@ -139,7 +145,27 @@ set RtlHierarchyInfo {[
 	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.newshpB_U", "Parent" : "0"},
 	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Asub_U", "Parent" : "0"},
 	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Bsub_U", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_sub2idx_fu_679", "Parent" : "0",
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_idx2sub_fu_644", "Parent" : "0", "Child" : ["10", "11"],
+		"CDFG" : "k2c_idx2sub",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sub", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "shape", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "ndim", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_idx2sub_fu_644.face_classifier_cbkb_U1", "Parent" : "9"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_k2c_idx2sub_fu_644.face_classifier_ccud_U2", "Parent" : "9"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_k2c_sub2idx_fu_656", "Parent" : "0",
 		"CDFG" : "k2c_sub2idx",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -156,28 +182,29 @@ set RtlHierarchyInfo {[
 			{"Name" : "sub", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "shape", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "ndim", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cbkb_U4", "Parent" : "0"},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ccud_U5", "Parent" : "0"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cdEe_U6", "Parent" : "0"},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ceOg_U7", "Parent" : "0"},
-	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cfYi_U8", "Parent" : "0"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cdEe_U9", "Parent" : "0"},
-	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cfYi_U10", "Parent" : "0"},
-	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cdEe_U11", "Parent" : "0"},
-	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cg8j_U12", "Parent" : "0"}]}
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cdEe_U12", "Parent" : "0"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ceOg_U13", "Parent" : "0"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cfYi_U14", "Parent" : "0"},
+	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cg8j_U15", "Parent" : "0"},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_chbi_U16", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	k2c_dot_1 {
-		C_array {Type O LastRead -1 FirstWrite 80}
-		Ar_array {Type I LastRead 78 FirstWrite -1}
+		C_array {Type O LastRead -1 FirstWrite 83}
+		Ar_array {Type I LastRead 84 FirstWrite -1}
 		Ar_ndim_read {Type I LastRead 0 FirstWrite -1}
 		Ar_numel_read {Type I LastRead 0 FirstWrite -1}
-		Ar_shape {Type I LastRead 77 FirstWrite -1}
-		B_array {Type I LastRead 79 FirstWrite -1}
-		B_shape {Type I LastRead 78 FirstWrite -1}
+		Ar_shape {Type I LastRead 78 FirstWrite -1}
+		B_array {Type I LastRead 87 FirstWrite -1}
+		B_shape {Type I LastRead 80 FirstWrite -1}
 		p_read4 {Type I LastRead 0 FirstWrite -1}
-		fwork {Type IO LastRead 81 FirstWrite 79}}
+		fwork {Type IO LastRead 85 FirstWrite 85}}
+	k2c_idx2sub {
+		idx {Type I LastRead 0 FirstWrite -1}
+		sub {Type O LastRead -1 FirstWrite 69}
+		shape {Type I LastRead 1 FirstWrite -1}
+		ndim {Type I LastRead 0 FirstWrite -1}}
 	k2c_sub2idx {
 		sub {Type I LastRead 1 FirstWrite -1}
 		shape {Type I LastRead 3 FirstWrite -1}
@@ -191,6 +218,12 @@ set PerformanceInfo {[
 ]}
 
 set PipelineEnableSignalInfo {[
+	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
+	{"Pipeline" : "2", "EnableSignal" : "ap_enable_pp2"}
+	{"Pipeline" : "3", "EnableSignal" : "ap_enable_pp3"}
+	{"Pipeline" : "4", "EnableSignal" : "ap_enable_pp4"}
+	{"Pipeline" : "5", "EnableSignal" : "ap_enable_pp5"}
+	{"Pipeline" : "6", "EnableSignal" : "ap_enable_pp6"}
 ]}
 
 set Spec2ImplPortList { 

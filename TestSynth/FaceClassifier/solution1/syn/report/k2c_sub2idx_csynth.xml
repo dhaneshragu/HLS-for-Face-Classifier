@@ -6,18 +6,19 @@
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>aartix7</ProductFamily>
-<Part>xa7a12tcsg325-1q</Part>
+<ProductFamily>virtexu</ProductFamily>
+<Part>xcvu160-flgc2104-2-e</Part>
 <TopModelName>k2c_sub2idx</TopModelName>
-<TargetClockPeriod>100.00</TargetClockPeriod>
-<ClockUncertainty>12.50</ClockUncertainty>
+<TargetClockPeriod>10.00</TargetClockPeriod>
+<ClockUncertainty>1.25</ClockUncertainty>
+<TargetInitiationInterval>4294967295</TargetInitiationInterval>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>14.522</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.476</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -45,14 +46,14 @@
 <Resources>
 <DSP48E>10</DSP48E>
 <FF>338</FF>
-<LUT>316</LUT>
+<LUT>314</LUT>
 <BRAM_18K>0</BRAM_18K>
 </Resources>
 <AvailableResources>
-<BRAM_18K>40</BRAM_18K>
-<DSP48E>40</DSP48E>
-<FF>16000</FF>
-<LUT>8000</LUT>
+<BRAM_18K>6552</BRAM_18K>
+<DSP48E>1560</DSP48E>
+<FF>1852800</FF>
+<LUT>926400</LUT>
 </AvailableResources>
 </AreaEstimates>
 

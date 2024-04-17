@@ -1,17 +1,17 @@
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:24 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:20:34 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth'
 INFO: [HLS 200-10] Opening project 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier'.
 INFO: [HLS 200-10] Opening solution 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1'.
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 100ns.
-INFO: [HLS 200-10] Setting target device to 'xa7a12tcsg325-1q'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu160-flgc2104-2-e'
 INFO: [COSIM 212-47] Using XSIM for RTL simulation.
 INFO: [COSIM 212-14] Instrumenting C test bench ...
    Build using "C:/Xilinx/Vivado/2018.2/msys64/mingw64/bin/g++"
    Compiling apatb_face_classifier_c.cpp
    Compiling (apcc) face_classifier_c_test_suite.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:49 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:02 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -19,12 +19,12 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_core_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:54 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:07 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
 In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:1:
-C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:48:13: warning: unused label 'k2c_dense_label0' [-Wunused-label]
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c:49:13: warning: unused label 'k2c_dense_label0' [-Wunused-label]
             k2c_dense_label0:for (size_t k = 0; k < innerdim; ++k) {
             ^~~~~~~~~~~~~~~~~
 1 warning generated.
@@ -32,7 +32,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_recurrent_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:44:58 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:11 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -45,7 +45,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_activations.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:02 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:16 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -53,7 +53,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_merge_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:06 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:20 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -61,7 +61,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_normalization_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:10 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:24 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -69,7 +69,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) face_classifier_c.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:13 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:28 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -77,7 +77,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_convolution_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:22 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:37 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -131,7 +131,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_helper_functions.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:26 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:41 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -139,7 +139,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_pooling_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:31 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:46 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -147,7 +147,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_embedding_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Thu Apr 11 22:45:35 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Wed Apr 17 23:21:51 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -155,7 +155,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Generating cosim.tv.exe
 INFO: [COSIM 212-302] Starting C TB testing ... 
-Average time over 2 tests: 3.200000e-003 s 
+Average time over 2 tests: 3.400000e-003 s 
 Max absolute error for 2 tests: 3.725290e-008 
 INFO: [COSIM 212-333] Generating C post check test bench ...
 INFO: [COSIM 212-12] Generating RTL test bench ...
@@ -183,31 +183,28 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/colleg
 INFO: [VRFC 10-311] analyzing module AESL_automem_dense_input_input_shape
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/exp_generic_double_s.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module exp_generic_double_s
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/exp_generic_doubllbW.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module exp_generic_doubllbW_rom
-INFO: [VRFC 10-311] analyzing module exp_generic_doubllbW
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/exp_generic_doublmb6.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module exp_generic_doublmb6_rom
 INFO: [VRFC 10-311] analyzing module exp_generic_doublmb6
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/exp_generic_doublncg.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module exp_generic_doublncg_rom
 INFO: [VRFC 10-311] analyzing module exp_generic_doublncg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/exp_generic_doublocq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module exp_generic_doublocq_rom
+INFO: [VRFC 10-311] analyzing module exp_generic_doublocq
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.autotb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module apatb_face_classifier_c_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_c
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c0iy.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_c0iy_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_c0iy
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c3i2.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_c3i2_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_c3i2
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c5jm.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_c5jm_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_c5jm
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c7jG.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_c7jG_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_c7jG
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c1iI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_c1iI_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_c1iI
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c4jc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_c4jc_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_c4jc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c6jw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_c6jw_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_c6jw
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c8jQ.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_c8jQ_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_c8jQ
@@ -215,28 +212,30 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/colleg
 INFO: [VRFC 10-311] analyzing module face_classifier_c9j0_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_c9j0
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cAem.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cAem_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cAem_DSP48_5
 INFO: [VRFC 10-311] analyzing module face_classifier_cAem
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbak.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cbak_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbak
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbck.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbck_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_cbck
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbbk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbbk_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cbbk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbdk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbdk_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cbdk
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cBew.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cBew_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cBew_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cBew
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbgk.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbgk_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_cbgk
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbhl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cbhl_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbhl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbil.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbil_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cbil
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbkb_div_u
+INFO: [VRFC 10-311] analyzing module face_classifier_cbkb_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cbkb
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbml.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbml_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_cbml
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbnm.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cbnm_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbnm
@@ -247,109 +246,116 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/colleg
 INFO: [VRFC 10-311] analyzing module face_classifier_cbpm_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbpm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbqm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbqm_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbqm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbrm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbrm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cCeG.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cCeG_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cCeG_rom
 INFO: [VRFC 10-311] analyzing module face_classifier_cCeG
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_ccud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_ccud_div_u
+INFO: [VRFC 10-311] analyzing module face_classifier_ccud_div
 INFO: [VRFC 10-311] analyzing module face_classifier_ccud
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cdEe.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cdEe_div_u
-INFO: [VRFC 10-311] analyzing module face_classifier_cdEe_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cdEe
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cDeQ.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cDeQ_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cDeQ_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cDeQ
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cEe0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cEe0_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cEe0
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_ceOg.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_ceOg_div_u
-INFO: [VRFC 10-311] analyzing module face_classifier_ceOg_div
 INFO: [VRFC 10-311] analyzing module face_classifier_ceOg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cFfa.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cFfa_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_cFfa
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cfYi.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cfYi_div_u
 INFO: [VRFC 10-311] analyzing module face_classifier_cfYi_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cfYi
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cg8j.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cg8j_DSP48_0
+INFO: [VRFC 10-311] analyzing module face_classifier_cg8j_div_u
+INFO: [VRFC 10-311] analyzing module face_classifier_cg8j_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cg8j
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cGfk.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cGfk_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cGfk_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cGfk
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_chbi.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_chbi_DSP48_1
+INFO: [VRFC 10-311] analyzing module face_classifier_chbi_DSP48_0
 INFO: [VRFC 10-311] analyzing module face_classifier_chbi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cHfu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cHfu_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cHfu
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cibs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cibs_DSP48_1
 INFO: [VRFC 10-311] analyzing module face_classifier_cibs
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cIfE.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cIfE_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cIfE
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cjbC.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cjbC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cJfO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cJfO_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cJfO
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_ckbM.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_ckbM_div_u
-INFO: [VRFC 10-311] analyzing module face_classifier_ckbM_div
 INFO: [VRFC 10-311] analyzing module face_classifier_ckbM
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cKfY.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cKfY_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cKfY
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cMgi.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cMgi_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cMgi
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cocq.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cocq_DSP48_2
-INFO: [VRFC 10-311] analyzing module face_classifier_cocq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_clbW.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_clbW_div_u
+INFO: [VRFC 10-311] analyzing module face_classifier_clbW_div
+INFO: [VRFC 10-311] analyzing module face_classifier_clbW
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cLf8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cLf8_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cLf8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cNgs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cNgs_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cNgs
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cpcA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cpcA_DSP48_2
 INFO: [VRFC 10-311] analyzing module face_classifier_cpcA
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cPgM.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cPgM_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cPgM
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cqcK.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cqcK
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cQgW.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cQgW_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cQgW
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_crcU.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_crcU
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cRg6.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cRg6_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cRg6
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_csc4.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_csc4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cShg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cShg_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cShg
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_ctde.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_ctde
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cudo.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cudo_div_u
-INFO: [VRFC 10-311] analyzing module face_classifier_cudo_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cudo
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cUhA.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cUhA_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cUhA
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cvdy.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cvdy_DSP48_3
+INFO: [VRFC 10-311] analyzing module face_classifier_cvdy_div_u
+INFO: [VRFC 10-311] analyzing module face_classifier_cvdy_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cvdy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cVhK.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cVhK_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cVhK
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cwdI.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cwdI_DSP48_4
+INFO: [VRFC 10-311] analyzing module face_classifier_cwdI_DSP48_3
 INFO: [VRFC 10-311] analyzing module face_classifier_cwdI
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cWhU.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cWhU_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cWhU
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cxdS.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cxdS_div_u
-INFO: [VRFC 10-311] analyzing module face_classifier_cxdS_div
+INFO: [VRFC 10-311] analyzing module face_classifier_cxdS_DSP48_4
 INFO: [VRFC 10-311] analyzing module face_classifier_cxdS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cXh4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cXh4_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cXh4
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cyd2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cyd2_div_u
 INFO: [VRFC 10-311] analyzing module face_classifier_cyd2_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cyd2
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cYie.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cYie_rom
-INFO: [VRFC 10-311] analyzing module face_classifier_cYie
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_czec.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_czec_DSP48_5
+INFO: [VRFC 10-311] analyzing module face_classifier_czec_div_u
+INFO: [VRFC 10-311] analyzing module face_classifier_czec_div
 INFO: [VRFC 10-311] analyzing module face_classifier_czec
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cZio.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cZio_rom
+INFO: [VRFC 10-311] analyzing module face_classifier_cZio
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/generic_tanh_float_s.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module generic_tanh_float_s
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/k2c_batch_norm.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module k2c_batch_norm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/k2c_bias_add.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module k2c_bias_add
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/k2c_dense.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module k2c_dense
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/k2c_dense2.v" into library xil_defaultlib
@@ -368,40 +374,51 @@ INFO: [VRFC 10-311] analyzing module k2c_dot_1_permA
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/k2c_dot_1_permB.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module k2c_dot_1_permB_ram
 INFO: [VRFC 10-311] analyzing module k2c_dot_1_permB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/k2c_idx2sub.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module k2c_idx2sub
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/k2c_sub2idx.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module k2c_sub2idx
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_dadd_0_full_dsp_64.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_dadd_0_full_dsp_64
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_faddfsub_0_full_dsp_32.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_faddfsub_0_full_dsp_32
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fadd_0_full_dsp_32.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fadd_0_full_dsp_32
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_dadd_2_full_dsp_64.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_dadd_2_full_dsp_64
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_faddfsub_2_full_dsp_32.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_faddfsub_2_full_dsp_32
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fadd_2_full_dsp_32.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fadd_2_full_dsp_32
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fcmp_0_no_dsp_32.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fcmp_0_no_dsp_32
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fdiv_0_no_dsp_32.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fdiv_0_no_dsp_32
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fexp_0_full_dsp_32.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fexp_0_full_dsp_32
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fdiv_6_no_dsp_32.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fdiv_6_no_dsp_32
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fexp_4_full_dsp_32.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fexp_4_full_dsp_32
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fmul_0_max_dsp_32.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fmul_0_max_dsp_32
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fpext_0_no_dsp_32.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fpext_0_no_dsp_32
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fptrunc_0_no_dsp_64.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fptrunc_0_no_dsp_64
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fsub_0_full_dsp_32.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fsub_0_full_dsp_32
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fsub_2_full_dsp_32.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity face_classifier_c_ap_fsub_2_full_dsp_32
 Starting static elaboration
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/mult_gen_v12_0/hdl/mult_gen_v12_0_vh_rfs.vhd:2255]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/mult_gen_v12_0/hdl/mult_gen_v12_0_vh_rfs.vhd:2240]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fadd_0_full_dsp_32.vhd:189]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fadd_2_full_dsp_32.vhd:195]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
@@ -413,23 +430,25 @@ WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fmul_0_max_dsp_32.vhd:189]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fmul_0_max_dsp_32.vhd:189]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_faddfsub_0_full_dsp_32.vhd:194]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fsub_2_full_dsp_32.vhd:195]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fsub_0_full_dsp_32.vhd:189]
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fdiv_0_no_dsp_32.vhd:189]
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fptrunc_0_no_dsp_64.vhd:184]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fdiv_6_no_dsp_32.vhd:195]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_faddfsub_2_full_dsp_32.vhd:200]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fptrunc_0_no_dsp_64.vhd:184]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
@@ -437,11 +456,12 @@ WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fpext_0_no_dsp_32.vhd:184]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fpext_0_no_dsp_32.vhd:184]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fcmp_0_no_dsp_32.vhd:194]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fcmp_0_no_dsp_32.vhd:194]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:30530]
@@ -450,9 +470,15 @@ WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:30530]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_dadd_0_full_dsp_64.vhd:189]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_dadd_2_full_dsp_64.vhd:195]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:14216]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
@@ -470,8 +496,9 @@ WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:77294]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:78210]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:14403]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fexp_0_full_dsp_32.vhd:184]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fexp_4_full_dsp_32.vhd:190]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -496,72 +523,79 @@ Compiling package unisim.vcomponents
 Compiling package ieee.vital_timing
 Compiling package ieee.vital_primitives
 Compiling package unisim.vpkg
-Compiling module xil_defaultlib.face_classifier_cAem_ram
-Compiling module xil_defaultlib.face_classifier_cAem(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cBew_rom
+Compiling module xil_defaultlib.face_classifier_cBew_ram
 Compiling module xil_defaultlib.face_classifier_cBew(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cCeG_ram
+Compiling module xil_defaultlib.face_classifier_cCeG_rom
 Compiling module xil_defaultlib.face_classifier_cCeG(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cDeQ_rom
+Compiling module xil_defaultlib.face_classifier_cDeQ_ram
 Compiling module xil_defaultlib.face_classifier_cDeQ(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cFfa_ram
-Compiling module xil_defaultlib.face_classifier_cFfa(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cGfk_rom
+Compiling module xil_defaultlib.face_classifier_cEe0_rom
+Compiling module xil_defaultlib.face_classifier_cEe0(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cGfk_ram
 Compiling module xil_defaultlib.face_classifier_cGfk(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cIfE_rom
-Compiling module xil_defaultlib.face_classifier_cIfE(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cKfY_rom
-Compiling module xil_defaultlib.face_classifier_cKfY(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cMgi_rom
-Compiling module xil_defaultlib.face_classifier_cMgi(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cPgM_rom
-Compiling module xil_defaultlib.face_classifier_cPgM(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cRg6_rom
-Compiling module xil_defaultlib.face_classifier_cRg6(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cUhA_rom
-Compiling module xil_defaultlib.face_classifier_cUhA(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cWhU_rom
-Compiling module xil_defaultlib.face_classifier_cWhU(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cYie_rom
-Compiling module xil_defaultlib.face_classifier_cYie(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_c0iy_rom
-Compiling module xil_defaultlib.face_classifier_c0iy(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_c3i2_rom
-Compiling module xil_defaultlib.face_classifier_c3i2(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_c5jm_rom
-Compiling module xil_defaultlib.face_classifier_c5jm(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_c7jG_ram
-Compiling module xil_defaultlib.face_classifier_c7jG(DataWidth=6...
+Compiling module xil_defaultlib.face_classifier_cHfu_rom
+Compiling module xil_defaultlib.face_classifier_cHfu(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cJfO_rom
+Compiling module xil_defaultlib.face_classifier_cJfO(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cLf8_rom
+Compiling module xil_defaultlib.face_classifier_cLf8(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cNgs_rom
+Compiling module xil_defaultlib.face_classifier_cNgs(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cQgW_rom
+Compiling module xil_defaultlib.face_classifier_cQgW(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cShg_rom
+Compiling module xil_defaultlib.face_classifier_cShg(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cVhK_rom
+Compiling module xil_defaultlib.face_classifier_cVhK(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cXh4_rom
+Compiling module xil_defaultlib.face_classifier_cXh4(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cZio_rom
+Compiling module xil_defaultlib.face_classifier_cZio(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_c1iI_rom
+Compiling module xil_defaultlib.face_classifier_c1iI(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_c4jc_rom
+Compiling module xil_defaultlib.face_classifier_c4jc(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_c6jw_rom
+Compiling module xil_defaultlib.face_classifier_c6jw(DataWidth=3...
 Compiling module xil_defaultlib.face_classifier_c8jQ_ram
 Compiling module xil_defaultlib.face_classifier_c8jQ(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_c9j0_ram
-Compiling module xil_defaultlib.face_classifier_c9j0(DataWidth=9...
+Compiling module xil_defaultlib.face_classifier_c9j0(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_cbak_ram
 Compiling module xil_defaultlib.face_classifier_cbak(DataWidth=9...
-Compiling module xil_defaultlib.face_classifier_cbck_ram
-Compiling module xil_defaultlib.face_classifier_cbck(DataWidth=6...
-Compiling module xil_defaultlib.face_classifier_cbgk_ram
-Compiling module xil_defaultlib.face_classifier_cbgk(DataWidth=6...
+Compiling module xil_defaultlib.face_classifier_cbbk_ram
+Compiling module xil_defaultlib.face_classifier_cbbk(DataWidth=9...
+Compiling module xil_defaultlib.face_classifier_cbdk_ram
+Compiling module xil_defaultlib.face_classifier_cbdk(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_cbhl_ram
 Compiling module xil_defaultlib.face_classifier_cbhl(DataWidth=6...
-Compiling module xil_defaultlib.face_classifier_cbml_ram
-Compiling module xil_defaultlib.face_classifier_cbml(DataWidth=5...
+Compiling module xil_defaultlib.face_classifier_cbil_ram
+Compiling module xil_defaultlib.face_classifier_cbil(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_cbnm_ram
-Compiling module xil_defaultlib.face_classifier_cbnm(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cbnm(DataWidth=5...
 Compiling module xil_defaultlib.face_classifier_cbom_ram
 Compiling module xil_defaultlib.face_classifier_cbom(DataWidth=3...
 Compiling module xil_defaultlib.face_classifier_cbpm_ram
 Compiling module xil_defaultlib.face_classifier_cbpm(DataWidth=3...
+Compiling module xil_defaultlib.face_classifier_cbqm_ram
+Compiling module xil_defaultlib.face_classifier_cbqm(DataWidth=3...
 Compiling module xil_defaultlib.k2c_dot_1_permA_ram
 Compiling module xil_defaultlib.k2c_dot_1_permA(DataWidth=64,Add...
+Compiling module xil_defaultlib.face_classifier_cbkb_div_u(in0_W...
+Compiling module xil_defaultlib.face_classifier_cbkb_div(in0_WID...
+Compiling module xil_defaultlib.face_classifier_cbkb(ID=1,NUM_ST...
+Compiling module xil_defaultlib.face_classifier_ccud_div_u(in0_W...
+Compiling module xil_defaultlib.face_classifier_ccud_div(in0_WID...
+Compiling module xil_defaultlib.face_classifier_ccud(ID=1,NUM_ST...
+Compiling module xil_defaultlib.k2c_idx2sub
 Compiling module xil_defaultlib.k2c_sub2idx
 Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=7,length=0)\]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
 Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
@@ -581,13 +615,21 @@ Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=1
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=27,length=0)\]
 Compiling architecture synth of entity floating_point_v7_1_6.align_add_dsp48e1_sgl [\align_add_dsp48e1_sgl(c_xdevice...]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fde_v of entity unisim.FDE [fde_default]
 Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000001111...]
 Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000000000...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=27)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [delay_default]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=5,length=0)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.lead_zero_encode_shift [\lead_zero_encode_shift(ab_fw=24...]
-Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
-Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=3,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=4)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=3)\]
 Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111110010101001011...]
 Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00010001010111110000...]
 Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11101110101000001111...]
@@ -602,37 +644,46 @@ Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="100110011001100
 Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11111111000000001111...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=9,length=0)\]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=8,length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=10,length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=4,length=0,fast_inp...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
-Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(length=0,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(fast_input=true)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.special_detect [\special_detect(c_xdevicefamily=...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
-Compiling architecture synth of entity floating_point_v7_1_6.compare_gt [\compare_gt(c_xdevicefamily="aar...]
-Compiling architecture synth of entity floating_point_v7_1_6.compare [\compare(c_xdevicefamily="aartix...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare_gt [\compare_gt(c_xdevicefamily="vir...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare [\compare(c_xdevicefamily="virtex...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=8)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=9)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=2,fast_input=true)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
-Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=8,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(length=0,fast_input=true)...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=2,length=0,fast_inp...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=12,length=0)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_add_exp_sp [\flt_add_exp_sp(c_xdevicefamily=...]
-Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
-Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=23,length=0)\]
-Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="aar...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_add_dsp [\flt_add_dsp(c_xdevicefamily="aa...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="aartix...]
-Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=23)\]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="vir...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_add_dsp [\flt_add_dsp(c_xdevicefamily="vi...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="virtex...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=32,length=0)\]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
-Compiling architecture face_classifier_c_ap_fadd_0_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fadd_0_full_dsp_32 [face_classifier_c_ap_fadd_0_full...]
-Compiling module xil_defaultlib.face_classifier_cbkb(ID=1)
+Compiling architecture face_classifier_c_ap_fadd_2_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fadd_2_full_dsp_32 [face_classifier_c_ap_fadd_2_full...]
+Compiling module xil_defaultlib.face_classifier_cdEe(ID=1)
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=17,length=0)\]
 Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
@@ -640,15 +691,18 @@ Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp
 Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
 Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=24,b_wi...]
 Compiling architecture struct of entity floating_point_v7_1_6.fix_mult_dsp48e1_sgl [\fix_mult_dsp48e1_sgl(registers=...]
-Compiling architecture rtl of entity floating_point_v7_1_6.fix_mult [\fix_mult(c_xdevicefamily="aarti...]
+Compiling architecture rtl of entity floating_point_v7_1_6.fix_mult [\fix_mult(c_xdevicefamily="virte...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=8,length=0,fast_inp...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture rtl of entity floating_point_v7_1_6.special_detect [\special_detect(c_xdevicefamily=...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=3,length=0,fast_inp...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=14,length=0)\]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_mult_exp [\flt_mult_exp(c_xdevicefamily="a...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_mult_exp [\flt_mult_exp(c_xdevicefamily="v...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=30,length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
@@ -658,222 +712,268 @@ Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp
 Compiling architecture struct of entity floating_point_v7_1_6.flt_round_dsp_opt_full [\flt_round_dsp_opt_full(c_xdevic...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_mult_round [\flt_mult_round(c_xdevicefamily=...]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op_lat [\flt_dec_op_lat(c_xdevicefamily=...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_mult [\flt_mult(c_xdevicefamily="aarti...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_mult [\flt_mult(c_xdevicefamily="virte...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
 Compiling architecture face_classifier_c_ap_fmul_0_max_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fmul_0_max_dsp_32 [face_classifier_c_ap_fmul_0_max_...]
-Compiling module xil_defaultlib.face_classifier_ccud(ID=1)
-Compiling module xil_defaultlib.face_classifier_cdEe_div_u(in0_W...
-Compiling module xil_defaultlib.face_classifier_cdEe_div(in0_WID...
-Compiling module xil_defaultlib.face_classifier_cdEe(ID=1,NUM_ST...
-Compiling module xil_defaultlib.face_classifier_cudo_div_u(in0_W...
-Compiling module xil_defaultlib.face_classifier_cudo_div(in0_WID...
-Compiling module xil_defaultlib.face_classifier_cudo(ID=1,NUM_ST...
+Compiling module xil_defaultlib.face_classifier_ceOg(ID=1)
 Compiling module xil_defaultlib.face_classifier_cfYi_div_u(in0_W...
 Compiling module xil_defaultlib.face_classifier_cfYi_div(in0_WID...
 Compiling module xil_defaultlib.face_classifier_cfYi(ID=1,NUM_ST...
-Compiling module xil_defaultlib.face_classifier_cg8j_DSP48_0
-Compiling module xil_defaultlib.face_classifier_cg8j(ID=1,NUM_ST...
-Compiling module xil_defaultlib.face_classifier_cvdy_DSP48_3
+Compiling module xil_defaultlib.face_classifier_cvdy_div_u(in0_W...
+Compiling module xil_defaultlib.face_classifier_cvdy_div(in0_WID...
 Compiling module xil_defaultlib.face_classifier_cvdy(ID=1,NUM_ST...
-Compiling module xil_defaultlib.face_classifier_cwdI_DSP48_4
-Compiling module xil_defaultlib.face_classifier_cwdI(ID=1,NUM_ST...
-Compiling module xil_defaultlib.k2c_dot
-Compiling module xil_defaultlib.face_classifier_chbi_DSP48_1
+Compiling module xil_defaultlib.face_classifier_chbi_DSP48_0
 Compiling module xil_defaultlib.face_classifier_chbi(ID=1,NUM_ST...
-Compiling module xil_defaultlib.k2c_dense_1
-Compiling module xil_defaultlib.face_classifier_cxdS_div_u(in0_W...
-Compiling module xil_defaultlib.face_classifier_cxdS_div(in0_WID...
+Compiling module xil_defaultlib.face_classifier_cwdI_DSP48_3
+Compiling module xil_defaultlib.face_classifier_cwdI(ID=1,NUM_ST...
+Compiling module xil_defaultlib.face_classifier_cxdS_DSP48_4
 Compiling module xil_defaultlib.face_classifier_cxdS(ID=1,NUM_ST...
+Compiling module xil_defaultlib.k2c_dot
+Compiling module xil_defaultlib.k2c_bias_add
+Compiling module xil_defaultlib.face_classifier_cibs_DSP48_1
+Compiling module xil_defaultlib.face_classifier_cibs(ID=1,NUM_ST...
+Compiling module xil_defaultlib.k2c_dense_1
+Compiling module xil_defaultlib.k2c_dot_1_permB_ram
+Compiling module xil_defaultlib.k2c_dot_1_permB(DataWidth=2,Addr...
+Compiling module xil_defaultlib.face_classifier_cg8j_div_u(in0_W...
+Compiling module xil_defaultlib.face_classifier_cg8j_div(in0_WID...
+Compiling module xil_defaultlib.face_classifier_cg8j(ID=1,NUM_ST...
+Compiling module xil_defaultlib.k2c_dot_1
+Compiling module xil_defaultlib.k2c_dense
 Compiling module xil_defaultlib.face_classifier_cyd2_div_u(in0_W...
 Compiling module xil_defaultlib.face_classifier_cyd2_div(in0_WID...
 Compiling module xil_defaultlib.face_classifier_cyd2(ID=1,NUM_ST...
-Compiling module xil_defaultlib.face_classifier_czec_DSP48_5
+Compiling module xil_defaultlib.face_classifier_czec_div_u(in0_W...
+Compiling module xil_defaultlib.face_classifier_czec_div(in0_WID...
 Compiling module xil_defaultlib.face_classifier_czec(ID=1,NUM_ST...
+Compiling module xil_defaultlib.face_classifier_cAem_DSP48_5
+Compiling module xil_defaultlib.face_classifier_cAem(ID=1,NUM_ST...
 Compiling module xil_defaultlib.k2c_dot2
 Compiling module xil_defaultlib.k2c_dense2
-Compiling module xil_defaultlib.k2c_dot_1_permB_ram
-Compiling module xil_defaultlib.k2c_dot_1_permB(DataWidth=2,Addr...
-Compiling module xil_defaultlib.face_classifier_ceOg_div_u(in0_W...
-Compiling module xil_defaultlib.face_classifier_ceOg_div(in0_WID...
-Compiling module xil_defaultlib.face_classifier_ceOg(ID=1,NUM_ST...
-Compiling module xil_defaultlib.k2c_dot_1
-Compiling module xil_defaultlib.k2c_dense
-Compiling module xil_defaultlib.exp_generic_doubllbW_rom
-Compiling module xil_defaultlib.exp_generic_doubllbW(DataWidth=5...
-Compiling module xil_defaultlib.exp_generic_doublmb6_rom
-Compiling module xil_defaultlib.exp_generic_doublmb6(DataWidth=2...
-Compiling module xil_defaultlib.exp_generic_doublncg_rom
-Compiling module xil_defaultlib.exp_generic_doublncg(DataWidth=4...
-Compiling module xil_defaultlib.face_classifier_cocq_DSP48_2
-Compiling module xil_defaultlib.face_classifier_cocq(ID=1,NUM_ST...
-Compiling module xil_defaultlib.exp_generic_double_s
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="aartix...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="virtex...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
-Compiling architecture face_classifier_c_ap_faddfsub_0_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_faddfsub_0_full_dsp_32 [face_classifier_c_ap_faddfsub_0_...]
-Compiling module xil_defaultlib.face_classifier_cibs(ID=1)
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="aartix...]
-Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
-Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
-Compiling architecture face_classifier_c_ap_fsub_0_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fsub_0_full_dsp_32 [face_classifier_c_ap_fsub_0_full...]
-Compiling module xil_defaultlib.face_classifier_cpcA(ID=1)
+Compiling architecture face_classifier_c_ap_fsub_2_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fsub_2_full_dsp_32 [face_classifier_c_ap_fsub_2_full...]
+Compiling module xil_defaultlib.face_classifier_cjbC(ID=1)
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=23,length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=25,length=0,fast_in...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_div_mant_addsub [\flt_div_mant_addsub(c_xdevicefa...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=26,length=0)\]
-Compiling architecture virtex of entity floating_point_v7_1_6.flt_div_mant [\flt_div_mant(c_xdevicefamily="a...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=25,fast_input=true)...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_div_mant_addsub [\flt_div_mant_addsub(c_xdevicefa...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=26)\]
+Compiling architecture virtex of entity floating_point_v7_1_6.flt_div_mant [\flt_div_mant(c_xdevicefamily="v...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=10,length=0,fast_in...]
 Compiling architecture rtl of entity floating_point_v7_1_6.special_detect [\special_detect(c_xdevicefamily=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(length=5,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=8,length=5)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=3,length=5,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=4,length=5,fast_inp...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_div_exp [\flt_div_exp(c_xdevicefamily="no...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=12,length=0,fast_in...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=3,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_round_bit [\flt_round_bit(c_xdevicefamily="...]
 Compiling architecture rtl of entity floating_point_v7_1_6.renorm_and_round_logic [\renorm_and_round_logic(c_xdevic...]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op_lat [\flt_dec_op_lat(c_xdevicefamily=...]
-Compiling architecture virtex of entity floating_point_v7_1_6.flt_div [\flt_div(c_xdevicefamily="aartix...]
+Compiling architecture virtex of entity floating_point_v7_1_6.flt_div [\flt_div(c_xdevicefamily="virtex...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
-Compiling architecture face_classifier_c_ap_fdiv_0_no_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fdiv_0_no_dsp_32 [face_classifier_c_ap_fdiv_0_no_d...]
-Compiling module xil_defaultlib.face_classifier_cjbC(ID=1)
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture face_classifier_c_ap_fdiv_6_no_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fdiv_6_no_dsp_32 [face_classifier_c_ap_fdiv_6_no_d...]
+Compiling module xil_defaultlib.face_classifier_ckbM(ID=1)
+Compiling module xil_defaultlib.face_classifier_clbW_div_u(in0_W...
+Compiling module xil_defaultlib.face_classifier_clbW_div(in0_WID...
+Compiling module xil_defaultlib.face_classifier_clbW(ID=1,NUM_ST...
+Compiling module xil_defaultlib.k2c_batch_norm
+Compiling module xil_defaultlib.exp_generic_doublmb6_rom
+Compiling module xil_defaultlib.exp_generic_doublmb6(DataWidth=5...
+Compiling module xil_defaultlib.exp_generic_doublncg_rom
+Compiling module xil_defaultlib.exp_generic_doublncg(DataWidth=2...
+Compiling module xil_defaultlib.exp_generic_doublocq_rom
+Compiling module xil_defaultlib.exp_generic_doublocq(DataWidth=4...
+Compiling module xil_defaultlib.face_classifier_cpcA_DSP48_2
+Compiling module xil_defaultlib.face_classifier_cpcA(ID=1,NUM_ST...
+Compiling module xil_defaultlib.exp_generic_double_s
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="virtex...]
+Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
+Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
+Compiling architecture face_classifier_c_ap_faddfsub_2_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_faddfsub_2_full_dsp_32 [face_classifier_c_ap_faddfsub_2_...]
+Compiling module xil_defaultlib.face_classifier_cqcK(ID=1)
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_ne_im [\compare_ne_im(c_xdevicefamily="...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_round_bit [\flt_round_bit(c_xdevicefamily="...]
 Compiling architecture rtl of entity floating_point_v7_1_6.renorm_and_round_logic [\renorm_and_round_logic(c_xdevic...]
 Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="ki...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
 Compiling architecture rtl of entity floating_point_v7_1_6.special_detect [\special_detect(a_w=64,a_fw=53,o...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_to_flt_conv_exp [\flt_to_flt_conv_exp(a_w=64,a_ew...]
-Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="aar...]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="vir...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_to_flt_conv [\flt_to_flt_conv(c_xdevicefamily...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
 Compiling architecture face_classifier_c_ap_fptrunc_0_no_dsp_64_arch of entity xil_defaultlib.face_classifier_c_ap_fptrunc_0_no_dsp_64 [face_classifier_c_ap_fptrunc_0_n...]
-Compiling module xil_defaultlib.face_classifier_cqcK(ID=1)
+Compiling module xil_defaultlib.face_classifier_crcU(ID=1)
 Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="ki...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
 Compiling architecture rtl of entity floating_point_v7_1_6.special_detect [\special_detect(a_fw=24,op_delay...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_to_flt_conv_exp [\flt_to_flt_conv_exp(r_w=64,r_ew...]
-Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="aar...]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="vir...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_to_flt_conv [\flt_to_flt_conv(c_xdevicefamily...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=64,length=0)\]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
 Compiling architecture face_classifier_c_ap_fpext_0_no_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fpext_0_no_dsp_32 [face_classifier_c_ap_fpext_0_no_...]
-Compiling module xil_defaultlib.face_classifier_crcU(ID=1)
+Compiling module xil_defaultlib.face_classifier_csc4(ID=1)
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_ne_im [\compare_ne_im(c_xdevicefamily="...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=11,length=0)\]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
-Compiling architecture synth of entity floating_point_v7_1_6.compare_eq [\compare_eq(c_xdevicefamily="aar...]
-Compiling architecture rtl of entity floating_point_v7_1_6.fp_cmp [\fp_cmp(c_xdevicefamily="aartix7...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare_eq [\compare_eq(c_xdevicefamily="vir...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare_gt [\compare_gt(c_xdevicefamily="vir...]
+Compiling architecture rtl of entity floating_point_v7_1_6.fp_cmp [\fp_cmp(c_xdevicefamily="virtexu...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
 Compiling architecture face_classifier_c_ap_fcmp_0_no_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fcmp_0_no_dsp_32 [face_classifier_c_ap_fcmp_0_no_d...]
-Compiling module xil_defaultlib.face_classifier_csc4(ID=1)
-Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
-Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=52,length=0)\]
+Compiling module xil_defaultlib.face_classifier_ctde(ID=1)
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=52)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=54,length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=11,length=0,fast_in...]
 Compiling architecture muxf7_v of entity unisim.MUXF7 [muxf7_default]
 Compiling architecture muxf8_v of entity unisim.MUXF8 [muxf8_default]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
-Compiling architecture rtl of entity floating_point_v7_1_6.zero_det_sel [\zero_det_sel(c_xdevicefamily="a...]
+Compiling architecture rtl of entity floating_point_v7_1_6.zero_det_sel [\zero_det_sel(c_xdevicefamily="v...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=55,length=0)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.shift_msb_first [\shift_msb_first(a_width=54,regi...]
-Compiling architecture rtl of entity floating_point_v7_1_6.alignment [\alignment(c_xdevicefamily="aart...]
+Compiling architecture rtl of entity floating_point_v7_1_6.alignment [\alignment(c_xdevicefamily="virt...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=47,length=0)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=30,b_wi...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=56,length=0)\]
-Compiling architecture synth of entity floating_point_v7_1_6.addsub_dsp [\addsub_dsp(c_xdevicefamily="aar...]
-Compiling architecture rtl of entity floating_point_v7_1_6.addsub [\addsub(c_xdevicefamily="aartix7...]
-Compiling architecture rtl of entity floating_point_v7_1_6.align_add [\align_add(c_xdevicefamily="aart...]
+Compiling architecture synth of entity floating_point_v7_1_6.addsub_dsp [\addsub_dsp(c_xdevicefamily="vir...]
+Compiling architecture rtl of entity floating_point_v7_1_6.addsub [\addsub(c_xdevicefamily="virtexu...]
+Compiling architecture rtl of entity floating_point_v7_1_6.align_add [\align_add(c_xdevicefamily="virt...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=6,length=0,fast_inp...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
-Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="aartix7",...]
-Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="aartix7",...]
-Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="aartix7",...]
-Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="aartix7",...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=8,fast_input=true)\]
+Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="virtexu",...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=4,fast_input=true)\]
+Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="virtexu",...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=2)\]
+Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="virtexu",...]
+Compiling architecture rtl of entity floating_point_v7_1_6.mux4 [\mux4(c_xdevicefamily="virtexu",...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture rtl of entity floating_point_v7_1_6.lead_zero_encode [\lead_zero_encode(c_xdevicefamil...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=56)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.shift_msb_first [\shift_msb_first(a_width=56,resu...]
 Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp48e1_wrapper(b_width=18,c_wi...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=19,length=0)\]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=28,length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=29,length=0)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.renorm_and_round_logic [\renorm_and_round_logic(c_xdevic...]
 Compiling architecture rtl of entity floating_point_v7_1_6.norm_and_round_logic [\norm_and_round_logic(c_xdevicef...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
 Compiling architecture rtl of entity floating_point_v7_1_6.special_detect [\special_detect(c_xdevicefamily=...]
-Compiling architecture synth of entity floating_point_v7_1_6.compare [\compare(c_xdevicefamily="aartix...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_add_exp [\flt_add_exp(c_xdevicefamily="aa...]
-Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="aar...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare_eq [\compare_eq(c_xdevicefamily="vir...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare [\compare(c_xdevicefamily="virtex...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=11)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=12)\]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_add_exp [\flt_add_exp(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_dec_op [\flt_dec_op(c_xdevicefamily="vir...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_add_logic [\flt_add_logic(c_xdevicefamily="...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="aartix...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="virtex...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
-Compiling architecture face_classifier_c_ap_dadd_0_full_dsp_64_arch of entity xil_defaultlib.face_classifier_c_ap_dadd_0_full_dsp_64 [face_classifier_c_ap_dadd_0_full...]
-Compiling module xil_defaultlib.face_classifier_ctde(ID=1)
+Compiling architecture face_classifier_c_ap_dadd_2_full_dsp_64_arch of entity xil_defaultlib.face_classifier_c_ap_dadd_2_full_dsp_64 [face_classifier_c_ap_dadd_2_full...]
+Compiling module xil_defaultlib.face_classifier_cudo(ID=1)
 Compiling module xil_defaultlib.generic_tanh_float_s
-Compiling module xil_defaultlib.face_classifier_ckbM_div_u(in0_W...
-Compiling module xil_defaultlib.face_classifier_ckbM_div(in0_WID...
-Compiling module xil_defaultlib.face_classifier_ckbM(ID=1,NUM_ST...
-Compiling module xil_defaultlib.k2c_batch_norm
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=43,length=0)\]
-Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,alumodereg=0...]
 Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=17,b_wi...]
 Compiling architecture rtl of entity floating_point_v7_1_6.special_detect [\special_detect(c_xdevicefamily=...]
-Compiling architecture synth of entity floating_point_v7_1_6.compare_gt [\compare_gt(c_xdevicefamily="aar...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(length=2)\]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare_gt [\compare_gt(c_xdevicefamily="vir...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=2,length=2,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(length=3)\]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_exp_specialcase [\flt_exp_specialcase(c_xdevicefa...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay_s [\delay_s(width=10,length=0)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay_s [\delay_s(width=9,length=0)\]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=6,length=0)\]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
-Compiling architecture rtl of entity floating_point_v7_1_6.zero_det_sel [\zero_det_sel(c_xdevicefamily="a...]
+Compiling architecture rtl of entity floating_point_v7_1_6.zero_det_sel [\zero_det_sel(c_xdevicefamily="v...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=34,length=0)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.shift_msb_first [\shift_msb_first(a_width=24,resu...]
 Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
 Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=36,length=0)\]
-Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="aa...]
+Compiling architecture struct of entity floating_point_v7_1_6.carry_chain [\carry_chain(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_to_fix_conv [\flt_to_fix_conv(c_xdevicefamily...]
 Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=30,b_wi...]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_log_addsub [\flt_log_addsub(c_xdevicefamily=...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_exp_ccm [\flt_exp_ccm(c_xdevicefamily="aa...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture rtl of entity floating_point_v7_1_6.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=30,b_wi...]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_log_addsub [\flt_log_addsub(c_xdevicefamily=...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_exp_ccm [\flt_exp_ccm(c_xdevicefamily="aa...]
-Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_has_ce=1...]
-Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=33,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_exp_ccm [\flt_exp_ccm(c_xdevicefamily="vi...]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_log_addsub [\flt_log_addsub(c_xdevicefamily=...]
-Compiling architecture rtl of entity floating_point_v7_1_6.flt_exp_e2A [\flt_exp_e2A(c_xdevicefamily="aa...]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_log_addsub [\flt_log_addsub(c_xdevicefamily=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_exp_ccm [\flt_exp_ccm(c_xdevicefamily="vi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=33,length=2)\]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_log_addsub [\flt_log_addsub(c_xdevicefamily=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.flt_exp_e2A [\flt_exp_e2A(c_xdevicefamily="vi...]
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_exp_e2zmzm1 [\flt_exp_e2zmzm1(c_xdevicefamily...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=8,length=2)\]
 Compiling architecture rtl of entity floating_point_v7_1_6.renorm_and_round_logic [\renorm_and_round_logic(c_xdevic...]
 Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1100110010010110")(0...]
 Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="1100110000111100")(0...]
@@ -882,13 +982,16 @@ Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=9
 Compiling architecture synth of entity floating_point_v7_1_6.flt_log_addsub [\flt_log_addsub(c_xdevicefamily=...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
 Compiling architecture synth of entity floating_point_v7_1_6.compare_ne_im [\compare_ne_im(c_xdevicefamily="...]
-Compiling architecture synth of entity floating_point_v7_1_6.compare_gt [\compare_gt(c_xdevicefamily="aar...]
+Compiling architecture synth of entity floating_point_v7_1_6.compare_gt [\compare_gt(c_xdevicefamily="vir...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_6.delay [\delay(width=32)\]
 Compiling architecture synth of entity floating_point_v7_1_6.flt_exp_recomb [\flt_exp_recomb(c_xdevicefamily=...]
-Compiling architecture synth of entity floating_point_v7_1_6.flt_exp [\flt_exp(c_xdevicefamily="aartix...]
+Compiling architecture synth of entity floating_point_v7_1_6.flt_exp [\flt_exp(c_xdevicefamily="virtex...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
-Compiling architecture face_classifier_c_ap_fexp_0_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fexp_0_full_dsp_32 [face_classifier_c_ap_fexp_0_full...]
-Compiling module xil_defaultlib.face_classifier_cbqm(ID=1)
+Compiling architecture face_classifier_c_ap_fexp_4_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fexp_4_full_dsp_32 [face_classifier_c_ap_fexp_4_full...]
+Compiling module xil_defaultlib.face_classifier_cbrm(ID=1)
 Compiling module xil_defaultlib.face_classifier_c
 Compiling module xil_defaultlib.AESL_automem_dense_input_input_a...
 Compiling module xil_defaultlib.AESL_automem_dense_input_input_s...
@@ -904,7 +1007,7 @@ Built simulation snapshot face_classifier_c
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
 source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/xsim.dir/face_classifier_c/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Thu Apr 11 22:46:58 2024...
+INFO: [Common 17-206] Exiting Webtalk at Wed Apr 17 23:23:19 2024...
 
 ****** xsim v2018.2 (64-bit)
   **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
@@ -958,15 +1061,15 @@ Time: 0 ps  Iteration: 0
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 1 [n/a] @ "350000"
-// RTL Simulation : 1 / 1 [n/a] @ "132831450000"
+// RTL Simulation : 0 / 1 [n/a] @ "125000"
+// RTL Simulation : 1 / 1 [n/a] @ "21093705000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 132831850 ns : File "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.autotb.v" Line 615
-run: Time (s): cpu = 00:00:00 ; elapsed = 00:06:12 . Memory (MB): peak = 212.195 ; gain = 0.000
+$finish called at time : 21093745 ns : File "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.autotb.v" Line 615
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:30:30 . Memory (MB): peak = 212.301 ; gain = 0.000
 ## quit
-INFO: [Common 17-206] Exiting xsim at Thu Apr 11 22:53:17 2024...
+INFO: [Common 17-206] Exiting xsim at Wed Apr 17 23:53:57 2024...
 INFO: [COSIM 212-316] Starting C post checking ...
-Average time over 2 tests: 9.000000e-004 s 
+Average time over 2 tests: 1.200000e-003 s 
 Max absolute error for 2 tests: 6.444234e-002 
 INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
 INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

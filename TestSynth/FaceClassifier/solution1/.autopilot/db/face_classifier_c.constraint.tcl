@@ -2,8 +2,8 @@ set clock_constraint { \
     name clk \
     module face_classifier_c \
     port ap_clk \
-    period 100 \
-    uncertainty 12.5 \
+    period 10 \
+    uncertainty 1.25 \
 }
 
 set all_path {}

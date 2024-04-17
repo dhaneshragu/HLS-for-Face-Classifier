@@ -1,9 +1,3 @@
-{"sourceFile": [{
-      "name": "",
-      "directive": [{
-          "functionName": "k2c_dense",
-          "label": "k2c_dense_label0",
-          "functionLabel": "",
-          "pragma": {"name": "PIPELINE"}
-        }]
-    }]}
+{
+  
+}

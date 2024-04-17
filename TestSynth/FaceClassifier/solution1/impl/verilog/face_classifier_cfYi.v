@@ -179,7 +179,7 @@ input[din0_WIDTH - 1:0] din0;
 input[din1_WIDTH - 1:0] din1;
 output[dout_WIDTH - 1:0] dout;
 
-wire[dout_WIDTH - 1:0] sig_quot;
+wire[dout_WIDTH - 1:0] sig_remd;
 
 
 face_classifier_cfYi_div #(
@@ -189,8 +189,8 @@ face_classifier_cfYi_div #(
 face_classifier_cfYi_div_U(
     .dividend( din0 ),
     .divisor( din1 ),
-    .remd( dout ),
-    .quot( sig_quot ),
+    .quot( dout ),
+    .remd( sig_remd ),
     .clk( clk ),
     .ce( ce ),
     .reset( reset ),
