@@ -1,6 +1,6 @@
 
 set TopModule "face_classifier_c"
-set ClockPeriod "100.000000"
+set ClockPeriod "10.000000"
 set ClockList {ap_clk}
 set multiClockList {}
 set PortClockMap {}
@@ -40,9 +40,9 @@ set ExportMCPathFlag "0"
 set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
-set TargetInfo "xa7a12t:csg325:-1q"
+set TargetInfo "xcvu160:-flgc2104:-2-e"
 set SourceFiles {sc {} c {../../../C-Code-Original/face_classifier_c.c ../../../C-Code-Original/include/k2c_activations.c ../../../C-Code-Original/include/k2c_convolution_layers.c ../../../C-Code-Original/include/k2c_core_layers.c ../../../C-Code-Original/include/k2c_embedding_layers.c ../../../C-Code-Original/include/k2c_helper_functions.c ../../../C-Code-Original/include/k2c_merge_layers.c ../../../C-Code-Original/include/k2c_normalization_layers.c ../../../C-Code-Original/include/k2c_pooling_layers.c ../../../C-Code-Original/include/k2c_recurrent_layers.c}}
-set SourceFlags {sc {} c {{} {} {} {} {} {} {} {} {} {}}}
+set SourceFlags {sc {} c {{-Wuninitialized -Wall} {-Wuninitialized -Wall} {} {} {} {-Wuninitialized -Wall} {} {} {} {}}}
 set DirectiveFile {C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.directive}
 set TBFiles {verilog ../../../C-Code-Original/face_classifier_c_test_suite.c bc ../../../C-Code-Original/face_classifier_c_test_suite.c vhdl ../../../C-Code-Original/face_classifier_c_test_suite.c sc ../../../C-Code-Original/face_classifier_c_test_suite.c cas ../../../C-Code-Original/face_classifier_c_test_suite.c c {}}
 set SpecLanguage "C"
@@ -52,7 +52,7 @@ set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
-set PlatformFiles {{DefaultPlatform {xilinx/aartix7/aartix7 xilinx/aartix7/aartix7_fpv6}}}
+set PlatformFiles {{DefaultPlatform {xilinx/virtexu/virtexu xilinx/virtexu/virtexu_fpv7}}}
 set DefaultPlatform "DefaultPlatform"
 set TBTVFileNotFound ""
 set AppFile "../vivado_hls.app"

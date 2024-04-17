@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 56
-set name face_classifier_cmb6
+set id 68
+set name face_classifier_cpcA
 set corename simcore_mac
 set op mac
 set stage_num 1
@@ -83,9 +83,9 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 
 
 # Memory (RAM/ROM)  definition:
-set ID 58
+set ID 70
 set hasByteEnable 0
-set MemName exp_generic_doubljbC
+set MemName exp_generic_doublmb6
 set CoreName ap_simcore_mem
 set PortList { 1 }
 set DataWd 58
@@ -98,8 +98,8 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 3.257
-set ClkPeriod 100
+set DelayBudget 1.768
+set ClkPeriod 10
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
@@ -166,9 +166,9 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 59
+set ID 71
 set hasByteEnable 0
-set MemName exp_generic_doublkbM
+set MemName exp_generic_doublncg
 set CoreName ap_simcore_mem
 set PortList { 1 1 }
 set DataWd 26
@@ -181,8 +181,8 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 3.257
-set ClkPeriod 100
+set DelayBudget 1.768
+set ClkPeriod 10
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
@@ -249,9 +249,9 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 60
+set ID 72
 set hasByteEnable 0
-set MemName exp_generic_doubllbW
+set MemName exp_generic_doublocq
 set CoreName ap_simcore_mem
 set PortList { 1 }
 set DataWd 42
@@ -264,8 +264,8 @@ set HasInitializer 1
 set Initializer $ROMData
 set NumOfStage 2
 set MaxLatency -1
-set DelayBudget 3.257
-set ClkPeriod 100
+set DelayBudget 1.768
+set ClkPeriod 10
 set RegisteredInput 0
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
@@ -341,7 +341,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 61 \
+    id 73 \
     name x \
     type other \
     dir I \

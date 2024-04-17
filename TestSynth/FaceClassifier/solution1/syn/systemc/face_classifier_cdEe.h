@@ -7,7 +7,7 @@
 
 #ifndef __face_classifier_cdEe__HH__
 #define __face_classifier_cdEe__HH__
-#include "ACMP_udiv_seq.h"
+#include "ACMP_fadd.h"
 #include <systemc>
 
 template<
@@ -20,25 +20,21 @@ SC_MODULE(face_classifier_cdEe) {
     sc_core::sc_in_clk clk;
     sc_core::sc_in<sc_dt::sc_logic> reset;
     sc_core::sc_in<sc_dt::sc_logic> ce;
-    sc_core::sc_in< sc_dt::sc_logic >   start;
-    sc_core::sc_out< sc_dt::sc_logic >   done;
     sc_core::sc_in< sc_dt::sc_lv<din0_WIDTH> >   din0;
     sc_core::sc_in< sc_dt::sc_lv<din1_WIDTH> >   din1;
     sc_core::sc_out< sc_dt::sc_lv<dout_WIDTH> >   dout;
 
 
 
-    ACMP_udiv_seq<ID, 68, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_udiv_seq_U;
+    ACMP_fadd<ID, 4, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_fadd_U;
 
-    SC_CTOR(face_classifier_cdEe):  ACMP_udiv_seq_U ("ACMP_udiv_seq_U") {
-        ACMP_udiv_seq_U.clk(clk);
-        ACMP_udiv_seq_U.reset(reset);
-        ACMP_udiv_seq_U.ce(ce);
-        ACMP_udiv_seq_U.din0(din0);
-        ACMP_udiv_seq_U.din1(din1);
-        ACMP_udiv_seq_U.dout(dout);
-        ACMP_udiv_seq_U.start(start);
-        ACMP_udiv_seq_U.done(done);
+    SC_CTOR(face_classifier_cdEe):  ACMP_fadd_U ("ACMP_fadd_U") {
+        ACMP_fadd_U.clk(clk);
+        ACMP_fadd_U.reset(reset);
+        ACMP_fadd_U.ce(ce);
+        ACMP_fadd_U.din0(din0);
+        ACMP_fadd_U.din1(din1);
+        ACMP_fadd_U.dout(dout);
 
     }
 

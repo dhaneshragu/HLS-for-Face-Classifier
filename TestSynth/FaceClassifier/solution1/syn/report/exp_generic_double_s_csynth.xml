@@ -6,11 +6,11 @@
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>aartix7</ProductFamily>
-<Part>xa7a12tcsg325-1q</Part>
+<ProductFamily>virtexu</ProductFamily>
+<Part>xcvu160-flgc2104-2-e</Part>
 <TopModelName>exp_generic_double_s</TopModelName>
-<TargetClockPeriod>100.00</TargetClockPeriod>
-<ClockUncertainty>12.50</ClockUncertainty>
+<TargetClockPeriod>10.00</TargetClockPeriod>
+<ClockUncertainty>1.25</ClockUncertainty>
 <TargetInitiationInterval>4294967295</TargetInitiationInterval>
 </UserAssignments>
 
@@ -18,15 +18,15 @@
 <PipelineType>function</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>61.208</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.685</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>1</Best-caseLatency>
-<Average-caseLatency>1</Average-caseLatency>
-<Worst-caseLatency>1</Worst-caseLatency>
+<Best-caseLatency>6</Best-caseLatency>
+<Average-caseLatency>6</Average-caseLatency>
+<Worst-caseLatency>6</Worst-caseLatency>
 <PipelineInitiationInterval>1</PipelineInitiationInterval>
-<PipelineDepth>2</PipelineDepth>
+<PipelineDepth>7</PipelineDepth>
 <Interval-min>1</Interval-min>
 <Interval-max>1</Interval-max>
 </SummaryOfOverallLatency>
@@ -36,14 +36,14 @@
 <Resources>
 <BRAM_18K>5</BRAM_18K>
 <DSP48E>34</DSP48E>
-<FF>72</FF>
-<LUT>2617</LUT>
+<FF>1244</FF>
+<LUT>2663</LUT>
 </Resources>
 <AvailableResources>
-<BRAM_18K>40</BRAM_18K>
-<DSP48E>40</DSP48E>
-<FF>16000</FF>
-<LUT>8000</LUT>
+<BRAM_18K>6552</BRAM_18K>
+<DSP48E>1560</DSP48E>
+<FF>1852800</FF>
+<LUT>926400</LUT>
 </AvailableResources>
 </AreaEstimates>
 

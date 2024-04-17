@@ -1657,7 +1657,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 struct k2c_tensor
 {
 #pragma empty_line
-    float array[300000];
+    float array[262200];
 #pragma empty_line
 #pragma empty_line
     size_t ndim;
@@ -1670,6 +1670,23 @@ struct k2c_tensor
 };
 #pragma empty_line
 typedef struct k2c_tensor k2c_tensor;
+#pragma empty_line
+struct k2c_tensor2
+{
+#pragma empty_line
+    float array[2622];
+#pragma empty_line
+#pragma empty_line
+    size_t ndim;
+#pragma empty_line
+#pragma empty_line
+    size_t numel;
+#pragma empty_line
+#pragma empty_line
+    size_t shape[5];
+};
+#pragma empty_line
+typedef struct k2c_tensor2 k2c_tensor2;
 #pragma line 12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h" 2
 #pragma empty_line
 #pragma empty_line
@@ -1695,11 +1712,21 @@ extern k2c_activationType * k2c_softmax;
 extern k2c_activationType * k2c_softplus;
 extern k2c_activationType * k2c_softsign;
 #pragma line 68 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
-void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-               const k2c_tensor* bias, float * fwork);
-#pragma line 102 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
-void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
-                    const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
+void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* kernel,
+               const k2c_tensor2* bias, float * fwork);
+void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2* kernel,
+               const k2c_tensor2* bias, float * fwork);
+#pragma line 85 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
+size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
+void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+#pragma line 106 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
+void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
+                    const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis);
 #pragma line 13 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c" 2
 #pragma line 56 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
@@ -1725,26 +1752,211 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
 #pragma empty_line
     size_t idx = 0;
     size_t temp = 0;
-    for (size_t i=0; i<ndim; ++i) {
+#pragma HLS pipeline
+ for (size_t i=0; i<ndim; ++i)
+    {
         temp = sub[i];
-        for (size_t j=ndim-1; j>i; --j) {
+#pragma HLS pipeline
+ for (size_t j=ndim-1; j>i; --j)
+        {
             temp *= shape[j];
         }
         idx += temp;
     }
     return idx;
 }
-#pragma line 106 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+#pragma line 110 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
 void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim) {
 #pragma empty_line
     size_t idx2 = idx;
-    for (int i=ndim-1; i>=0; --i) {
+#pragma HLS pipeline
+ for (int i=ndim-1; i>=0; --i)
+    {
         sub[i] = idx2%shape[i];
         idx2 /= shape[i];
     }
 }
-#pragma line 128 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
-void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const size_t * axesA,
+#pragma line 279 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
+#pragma empty_line
+    size_t permA[5];
+    size_t permB[5];
+    size_t prod_axesA = 1;
+    size_t prod_axesB = 1;
+    size_t free_axesA, free_axesB;
+    size_t freeA[5];
+    size_t freeB[5];
+    size_t count;
+    int isin;
+    size_t newshpA[5];
+    size_t newshpB[5];
+    const size_t ndimA = Ar->ndim;
+    const size_t ndimB = B->ndim;
+    float *reshapeA = &fwork[0];
+    float *reshapeB = &fwork[Ar->numel];
+    size_t Asub[5];
+    size_t Bsub[5];
+#pragma empty_line
+    count=0;
+    size_t i,j;
+#pragma empty_line
+    for ( i=0; i<ndimA; ++i) {
+        isin = 0;
+        for (size_t j=0; j<naxes; ++j) {
+#pragma HLS unroll
+ if (i==axesA[j]) {
+                isin=1;
+            }
+        }
+        if (!isin) {
+            freeA[count] = i;
+            ++count;
+        }
+    }
+    count=0;
+    for ( i=0; i<ndimB; ++i) {
+        isin = 0;
+        for (size_t j=0; j<naxes; ++j) {
+#pragma HLS unroll
+ if (i==axesB[j]) {
+                isin=1;
+            }
+        }
+        if (!isin) {
+            freeB[count] = i;
+            ++count;
+        }
+    }
+#pragma empty_line
+#pragma empty_line
+    for ( i=0; i < naxes; ++i) {
+#pragma HLS unroll
+ prod_axesA *= Ar->shape[axesA[i]];
+    }
+    for (i=0; i < naxes; ++i) {
+#pragma HLS unroll
+ prod_axesB *= B->shape[axesB[i]];
+    }
+#pragma empty_line
+    free_axesA = Ar->numel/prod_axesA;
+    free_axesB = B->numel/prod_axesB;
+#pragma empty_line
+    for ( i=0; i<ndimA-naxes; ++i) {
+#pragma empty_line
+#pragma HLS PIPELINE
+ permA[i] = freeA[i];
+    }
+    for ( i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
+#pragma empty_line
+#pragma HLS PIPELINE
+ permA[i] = axesA[j];
+    }
+    for ( i=0; i<naxes; ++i) {
+#pragma empty_line
+#pragma HLS PIPELINE
+ permB[i] = axesB[i];
+    }
+    for (i=naxes, j=0; i<ndimB; ++i, ++j) {
+#pragma empty_line
+#pragma HLS PIPELINE
+ permB[i] = freeB[j];
+    }
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+    for ( i=0; i<ndimA; ++i) {
+#pragma empty_line
+#pragma HLS PIPELINE
+ newshpA[i] = Ar->shape[permA[i]];
+    }
+    for ( i=0; i<ndimB; ++i) {
+#pragma empty_line
+#pragma HLS PIPELINE
+ newshpB[i] = B->shape[permB[i]];
+    }
+#pragma empty_line
+#pragma empty_line
+    for ( i=0; i<Ar->numel; ++i) {
+#pragma empty_line
+        k2c_idx2sub(i,Asub,Ar->shape,ndimA);
+        for (size_t j=0; j<ndimA; ++j) {
+#pragma HLS PIPELINE
+#pragma empty_line
+ Bsub[j] = Asub[permA[j]];
+        }
+        size_t bidx = k2c_sub2idx(Bsub,newshpA,ndimA);
+        reshapeA[bidx] = Ar->array[i];
+    }
+#pragma empty_line
+    for ( i=0; i<B->numel; ++i) {
+#pragma empty_line
+        k2c_idx2sub(i,Bsub,B->shape,ndimB);
+        for (size_t j=0; j<ndimB; ++j) {
+#pragma HLS PIPELINE
+#pragma empty_line
+ Asub[j] = Bsub[permB[j]];
+        }
+        size_t bidx = k2c_sub2idx(Asub,newshpB,ndimB);
+        reshapeB[bidx] = B->array[i];
+    }
+#pragma empty_line
+#pragma empty_line
+    if (normalize) {
+#pragma empty_line
+        float sum;
+        float inorm;
+        size_t i;
+        for ( i=0; i<free_axesA; ++i) {
+#pragma empty_line
+            sum = 0;
+            size_t j;
+            for ( j=0; j<prod_axesA; ++j) {
+#pragma empty_line
+#pragma HLS PIPELINE
+ sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
+            }
+            inorm = 1.0f/sqrtf(sum);
+            for ( j=0; j<prod_axesA; ++j) {
+#pragma HLS PIPELINE
+#pragma empty_line
+ reshapeA[i*prod_axesA + j] *= inorm;
+            }
+        }
+        for ( i=0; i<free_axesB; ++i) {
+#pragma empty_line
+            sum = 0;
+            size_t j;
+            for ( j=0; j<prod_axesB; ++j) {
+#pragma HLS PIPELINE
+#pragma empty_line
+ sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
+            }
+            inorm = 1.0f/sqrtf(sum);
+            for ( j=0; j<prod_axesB; ++j) {
+#pragma HLS PIPELINE
+#pragma empty_line
+ reshapeB[i + free_axesB*j] *= inorm;
+            }
+        }
+    }
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+        for (i = 0 ; i < free_axesA; ++i) {
+#pragma empty_line
+            for (size_t j = 0; j < free_axesB; ++j) {
+                C->array[i*free_axesB + j] = 0;
+                for (size_t k = 0; k < prod_axesA; ++k) {
+#pragma HLS PIPELINE
+#pragma empty_line
+ C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
+                }
+            }
+        }
+}
+#pragma empty_line
+void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const size_t * axesA,
              const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
 #pragma empty_line
     size_t permA[5];
@@ -1886,16 +2098,20 @@ void k2c_dot(k2c_tensor* C, const k2c_tensor* Ar, const k2c_tensor* B, const siz
             }
         }
 }
-#pragma line 279 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
-void k2c_bias_add(k2c_tensor* A, const k2c_tensor* b) {
+#pragma line 609 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b) {
 #pragma empty_line
-    for (size_t i=0; i<A->numel; i+=b->numel) {
-        for (size_t j=0; j<b->numel; ++j) {
+#pragma HLS pipeline
+ for (size_t i=0; i<A->numel; i+=b->numel)
+    {
+#pragma HLS pipeline
+ for (size_t j=0; j<b->numel; ++j)
+        {
             A->array[i+j] += b->array[j];
         }
     }
 }
-#pragma line 297 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+#pragma line 631 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
 void k2c_flip(k2c_tensor *A, const size_t axis) {
     const size_t ndim = A->ndim;
     const size_t * shape = A->shape;
@@ -1928,7 +2144,7 @@ void k2c_flip(k2c_tensor *A, const size_t axis) {
         }
     }
 }
-#pragma line 339 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+#pragma line 673 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
 float* k2c_read_array(const char* filename, const size_t array_size) {
     float* ptr = (float*) malloc(array_size * sizeof(float));
     if (!ptr) {

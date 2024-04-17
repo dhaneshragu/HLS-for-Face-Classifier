@@ -5,50 +5,74 @@
 -- 
 -- ==============================================================
 
-Library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity face_classifier_cpcA_DSP48_2 is
+port (
+    in0:  in  std_logic_vector(16 - 1 downto 0);
+    in1:  in  std_logic_vector(16 - 1 downto 0);
+    in2:  in  std_logic_vector(19 - 1 downto 0);
+    dout: out std_logic_vector(31 - 1 downto 0));
+
+end entity;
+
+architecture behav of face_classifier_cpcA_DSP48_2 is
+    signal a       : signed(27-1 downto 0);
+    signal b       : signed(18-1 downto 0);
+    signal c       : signed(48-1 downto 0);
+    signal m       : signed(45-1 downto 0);
+    signal p       : signed(48-1 downto 0);
+begin
+a  <= signed(resize(unsigned(in0), 27));
+b  <= signed(resize(signed(in1), 18));
+c  <= signed(resize(signed(in2), 48));
+
+m  <= a * b;
+p  <= m + c;
+
+dout <= std_logic_vector(resize(unsigned(p), 31));
+
+end architecture;
+
+Library IEEE;
+use IEEE.std_logic_1164.all;
 
 entity face_classifier_cpcA is
     generic (
-        ID         : integer := 69;
-        NUM_STAGE  : integer := 1;
-        din0_WIDTH : integer := 32;
-        dout_WIDTH : integer := 64
-    );
+        ID : INTEGER;
+        NUM_STAGE : INTEGER;
+        din0_WIDTH : INTEGER;
+        din1_WIDTH : INTEGER;
+        din2_WIDTH : INTEGER;
+        dout_WIDTH : INTEGER);
     port (
-        din0 : in  std_logic_vector(din0_WIDTH-1 downto 0);
-        dout : out std_logic_vector(dout_WIDTH-1 downto 0)
-    );
+        din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
+        din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
+        din2 : IN STD_LOGIC_VECTOR(din2_WIDTH - 1 DOWNTO 0);
+        dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
 architecture arch of face_classifier_cpcA is
-    --------------------- Component ---------------------
-    component face_classifier_c_ap_fpext_0_no_dsp_32 is
+    component face_classifier_cpcA_DSP48_2 is
         port (
-            s_axis_a_tvalid      : in  std_logic;
-            s_axis_a_tdata       : in  std_logic_vector(31 downto 0);
-            m_axis_result_tvalid : out std_logic;
-            m_axis_result_tdata  : out std_logic_vector(63 downto 0)
-        );
+            in0 : IN STD_LOGIC_VECTOR;
+            in1 : IN STD_LOGIC_VECTOR;
+            in2 : IN STD_LOGIC_VECTOR;
+            dout : OUT STD_LOGIC_VECTOR);
     end component;
-    --------------------- Local signal ------------------
-    signal a_tvalid : std_logic;
-    signal a_tdata  : std_logic_vector(31 downto 0);
-    signal r_tvalid : std_logic;
-    signal r_tdata  : std_logic_vector(63 downto 0);
-begin
-    --------------------- Instantiation -----------------
-    face_classifier_c_ap_fpext_0_no_dsp_32_u : component face_classifier_c_ap_fpext_0_no_dsp_32
-    port map (
-        s_axis_a_tvalid      => a_tvalid,
-        s_axis_a_tdata       => a_tdata,
-        m_axis_result_tvalid => r_tvalid,
-        m_axis_result_tdata  => r_tdata
-    );
 
-    --------------------- Assignment --------------------
-    a_tvalid <= '1';
-    a_tdata  <= din0;
-    dout     <= r_tdata;
+
+
+begin
+    face_classifier_cpcA_DSP48_2_U :  component face_classifier_cpcA_DSP48_2
+    port map (
+        in0 => din0,
+        in1 => din1,
+        in2 => din2,
+        dout => dout);
 
 end architecture;
+
+

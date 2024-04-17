@@ -5,157 +5,196 @@
 -- 
 -- ==============================================================
 
-library ieee; 
-use ieee.std_logic_1164.all; 
-use ieee.std_logic_unsigned.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-entity face_classifier_cyd2_rom is 
-    generic(
-             DWIDTH     : integer := 32; 
-             AWIDTH     : integer := 7; 
-             MEM_SIZE    : integer := 100
-    ); 
+entity face_classifier_cyd2_div_u is
+    generic (
+        in0_WIDTH   : INTEGER :=32;
+        in1_WIDTH   : INTEGER :=32;
+        out_WIDTH   : INTEGER :=32);
     port (
-          addr0      : in std_logic_vector(AWIDTH-1 downto 0); 
-          ce0       : in std_logic; 
-          q0         : out std_logic_vector(DWIDTH-1 downto 0);
-          clk       : in std_logic
-    ); 
-end entity; 
+        clk         : in  STD_LOGIC;
+        reset       : in  STD_LOGIC;
+        ce          : in  STD_LOGIC;
+        start       : in  STD_LOGIC;
+        dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+        divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+        done        : out STD_LOGIC;
+        quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+        remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
 
+    function max (left, right : INTEGER) return INTEGER is
+    begin
+        if left > right then return left;
+        else return right;
+        end if;
+    end max;
 
-architecture rtl of face_classifier_cyd2_rom is 
+end entity;
 
-signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
-type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
-signal mem : mem_array := (
-    0 => "00110101101101011011111011010101", 
-    1 => "10110111010100011010111001110001", 
-    2 => "00110111011100100001110101011111", 
-    3 => "10110110000001001011110000001010", 
-    4 => "00110101110111111001001010111110", 
-    5 => "10110110010001110000011100010011", 
-    6 => "10110101010110011111110101011111", 
-    7 => "10110111111011100000100111001011", 
-    8 => "10110101101100011000000100010011", 
-    9 => "00110111000000100001000011011011", 
-    10 => "00110110111100111110010101101010", 
-    11 => "10110111000110010100011011001011", 
-    12 => "10110111001001110110110001001100", 
-    13 => "10110110110000100001011101110010", 
-    14 => "00110111101001110110100110010001", 
-    15 => "10111000000001011011101010100110", 
-    16 => "00110101110011001101001100110000", 
-    17 => "00110101100100010110110000011011", 
-    18 => "00110111001110100100100111001000", 
-    19 => "00110111001011010001100010111100", 
-    20 => "00110111010100101111010000010111", 
-    21 => "10110111001100110101000001000100", 
-    22 => "10110111000110011000111011111111", 
-    23 => "00110111101100110010000011000100", 
-    24 => "00110101010110101110011110000111", 
-    25 => "10110111001000100110110010100100", 
-    26 => "10110111100011001000101000110010", 
-    27 => "00110110001111010001011111010001", 
-    28 => "10110111100010100000101010011010", 
-    29 => "10110110000111101110000100101101", 
-    30 => "00110101011001101010000100010011", 
-    31 => "10110110111011011010011011010001", 
-    32 => "10110111011011010010100000100110", 
-    33 => "10110111001001001000110000110010", 
-    34 => "10110111100011000001101110111110", 
-    35 => "00110111100000100010011010011011", 
-    36 => "00110111010010000011000001110000", 
-    37 => "00110101101001010110000101010010", 
-    38 => "00111000100001111011111101001110", 
-    39 => "10110111000111000000101010100110", 
-    40 => "10110111010100001101111011010011", 
-    41 => "10110111101011000011100110100101", 
-    42 => "10110111000110111100010000100001", 
-    43 => "10110100100110000101010110000110", 
-    44 => "00110111100011110011101000001010", 
-    45 => "00110110111110101111100010111011", 
-    46 => "10111000001100100100111100110100", 
-    47 => "10110101100001111010101000111000", 
-    48 => "10110111101110010001100111101110", 
-    49 => "10110111000101001110111000110110", 
-    50 => "10110111100011100010010111111010", 
-    51 => "10110101100000110000110110010001", 
-    52 => "00110111111001111101011001110110", 
-    53 => "10111000000111111101010011001010", 
-    54 => "10110111011000011001011100101010", 
-    55 => "00110111100110110111000001100011", 
-    56 => "00110111000011111001001001101010", 
-    57 => "00110111100100001101000111111111", 
-    58 => "10110101011010110100001101111010", 
-    59 => "10110111101010011000010100101110", 
-    60 => "00110110010001010111101111001110", 
-    61 => "10110111110110100010110010010010", 
-    62 => "10110111010000001001010001100100", 
-    63 => "10111000011000111010000110000100", 
-    64 => "10110111000000110100101000101000", 
-    65 => "00110100010011010100011011111011", 
-    66 => "00110111011000000001010000010100", 
-    67 => "00110101001001110001100100100100", 
-    68 => "10110110110000101000000000001101", 
-    69 => "00110110101101001110111101001001", 
-    70 => "10110111011010001111000001010101", 
-    71 => "00110110101101000010001001101000", 
-    72 => "10110110000010010101100110001010", 
-    73 => "10110110000111110100000011011000", 
-    74 => "10110110101010010110011001011100", 
-    75 => "10110111010100110100000000111001", 
-    76 => "00110110111010010011110110110010", 
-    77 => "00110110010110101110111111011010", 
-    78 => "00110111101110010100111101010111", 
-    79 => "00110111111001110010001010111000", 
-    80 => "00110111011000101100101001101100", 
-    81 => "10110111000000101111101101000011", 
-    82 => "10110111110011100000001000111011", 
-    83 => "10110111110010000111001010100100", 
-    84 => "10110110111101111100111110010000", 
-    85 => "00110111010100011110100010111001", 
-    86 => "00110111010111001010100100101110", 
-    87 => "10110111100100000011011010001100", 
-    88 => "10110111000010011101100010110101", 
-    89 => "10110110111010110011010100110011", 
-    90 => "10110111001000101110001101100001", 
-    91 => "10110111110100110100100011111000", 
-    92 => "00110111000101110000110110011110", 
-    93 => "00110110010110000111010111000101", 
-    94 => "00111000011011110100000100001000", 
-    95 => "00111000001110000010000110001101", 
-    96 => "00110100001000010010101101010010", 
-    97 => "10111000011001100010111000111100", 
-    98 => "10110110100111110001110010011111", 
-    99 => "00110111101100001011010000011110" );
+architecture rtl of face_classifier_cyd2_div_u is
+    constant cal_WIDTH      : INTEGER := max(in0_WIDTH, in1_WIDTH);
 
-
-begin 
-
-
-memory_access_guard_0: process (addr0) 
+    signal dividend0        : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal divisor0         : UNSIGNED(in1_WIDTH-1 downto 0);
+    signal dividend_tmp     : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal remd_tmp         : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal dividend_tmp_mux : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal remd_tmp_mux     : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal comb_tmp         : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal cal_tmp          : UNSIGNED(cal_WIDTH downto 0);
+    signal r_stage          : UNSIGNED(in0_WIDTH downto 0);
 begin
-      addr0_tmp <= addr0;
---synthesis translate_off
-      if (CONV_INTEGER(addr0) > mem_size-1) then
-           addr0_tmp <= (others => '0');
-      else 
-           addr0_tmp <= addr0;
-      end if;
---synthesis translate_on
-end process;
+  quot     <= STD_LOGIC_VECTOR(RESIZE(dividend_tmp, out_WIDTH));
+  remd     <= STD_LOGIC_VECTOR(RESIZE(remd_tmp, out_WIDTH));
 
-p_rom_access: process (clk)  
-begin 
+  tran0_proc : process (clk)
+  begin
+      if (clk'event and clk='1') then
+          if (start = '1') then
+              dividend0 <= UNSIGNED(dividend);
+              divisor0  <= UNSIGNED(divisor);
+          end if;
+      end if;
+  end process;
+
+  -- r_stage(0)=1:accept input; r_stage(in0_WIDTH)=1:done
+  done <= r_stage(in0_WIDTH);
+  one_hot : process (clk)
+  begin
+      if clk'event and clk = '1' then
+          if reset = '1' then
+              r_stage <= (others => '0'); 
+          elsif (ce = '1') then
+              r_stage <= r_stage(in0_WIDTH-1 downto 0) & start;
+          end if;
+      end if;
+  end process;
+
+  -- MUXs
+  dividend_tmp_mux  <=  dividend_tmp when (r_stage(0) = '0') else
+                        dividend0;
+  remd_tmp_mux      <=  remd_tmp when (r_stage(0) = '0') else
+                        (others => '0');
+
+  comb_tmp <= remd_tmp_mux(in0_WIDTH-2 downto 0) & dividend_tmp_mux(in0_WIDTH-1);
+  cal_tmp  <= ('0' & comb_tmp) - ('0' & divisor0);
+
+  process (clk)
+  begin
+      if (clk'event and clk='1') then
+          if (ce = '1') then
+              dividend_tmp <= dividend_tmp_mux(in0_WIDTH-2 downto 0) & (not cal_tmp(cal_WIDTH));
+              if cal_tmp(cal_WIDTH) = '1' then
+                  remd_tmp <= comb_tmp;
+              else
+                  remd_tmp <= cal_tmp(in0_WIDTH-1 downto 0);
+              end if;
+          end if;
+      end if;
+  end process;
+
+end architecture;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity face_classifier_cyd2_div is
+    generic (
+        in0_WIDTH   : INTEGER :=32;
+        in1_WIDTH   : INTEGER :=32;
+        out_WIDTH   : INTEGER :=32);
+    port (
+        clk         : in  STD_LOGIC;
+        reset       : in  STD_LOGIC;
+        ce          : in  STD_LOGIC;
+        start       : in  STD_LOGIC;
+        done        : out STD_LOGIC;
+        dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+        divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+        quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+        remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+end entity;
+
+architecture rtl of face_classifier_cyd2_div is
+    component face_classifier_cyd2_div_u is
+        generic (
+            in0_WIDTH   : INTEGER :=32;
+            in1_WIDTH   : INTEGER :=32;
+            out_WIDTH   : INTEGER :=32);
+        port (
+            reset       : in  STD_LOGIC;
+            clk         : in  STD_LOGIC;
+            ce          : in  STD_LOGIC;
+            start       : in  STD_LOGIC;
+            done        : out STD_LOGIC;
+            dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+            divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+            quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+            remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+    end component;
+
+    signal start0     : STD_LOGIC := '0';
+    signal done0      : STD_LOGIC;
+    signal dividend0  : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+    signal divisor0   : STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+    signal dividend_u : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+    signal divisor_u  : STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+    signal quot_u     : STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+    signal remd_u     : STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+begin
+    face_classifier_cyd2_div_u_0 : face_classifier_cyd2_div_u
+        generic map(
+            in0_WIDTH   => in0_WIDTH,
+            in1_WIDTH   => in1_WIDTH,
+            out_WIDTH   => out_WIDTH)
+        port map(
+            clk         => clk,
+            reset       => reset,
+            ce          => ce,
+            start       => start0,
+            done        => done0,
+            dividend    => dividend_u,
+            divisor     => divisor_u,
+            quot        => quot_u,
+            remd        => remd_u);
+
+    dividend_u  <= dividend0;
+    divisor_u   <= divisor0;
+
+process (clk)
+begin
     if (clk'event and clk = '1') then
-        if (ce0 = '1') then 
-            q0 <= mem(CONV_INTEGER(addr0_tmp)); 
+        if (ce = '1') then
+            dividend0 <= dividend;
+            divisor0 <= divisor;
+            start0 <= start;
         end if;
     end if;
 end process;
 
-end rtl;
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        done <= done0;
+    end if;
+end process;
+
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        if (done0 = '1') then
+            quot <= quot_u;
+            remd <= remd_u;
+        end if;
+    end if;
+end process;
+
+end architecture;
+
 
 
 Library IEEE;
@@ -163,35 +202,60 @@ use IEEE.std_logic_1164.all;
 
 entity face_classifier_cyd2 is
     generic (
-        DataWidth : INTEGER := 32;
-        AddressRange : INTEGER := 100;
-        AddressWidth : INTEGER := 7);
+        ID : INTEGER;
+        NUM_STAGE : INTEGER;
+        din0_WIDTH : INTEGER;
+        din1_WIDTH : INTEGER;
+        dout_WIDTH : INTEGER);
     port (
-        reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce0 : IN STD_LOGIC;
-        q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
+        reset : IN STD_LOGIC;
+        ce : IN STD_LOGIC;
+        start : IN STD_LOGIC;
+        done : OUT STD_LOGIC;
+        din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
+        din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
+        dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
 architecture arch of face_classifier_cyd2 is
-    component face_classifier_cyd2_rom is
+    component face_classifier_cyd2_div is
+        generic (
+            in0_WIDTH : INTEGER;
+            in1_WIDTH : INTEGER;
+            out_WIDTH : INTEGER);
         port (
+            dividend : IN STD_LOGIC_VECTOR;
+            divisor : IN STD_LOGIC_VECTOR;
+            quot : OUT STD_LOGIC_VECTOR;
+            remd : OUT STD_LOGIC_VECTOR;
             clk : IN STD_LOGIC;
-            addr0 : IN STD_LOGIC_VECTOR;
-            ce0 : IN STD_LOGIC;
-            q0 : OUT STD_LOGIC_VECTOR);
+            ce : IN STD_LOGIC;
+            reset : IN STD_LOGIC;
+            start : IN STD_LOGIC;
+            done : OUT STD_LOGIC);
     end component;
 
+    signal sig_quot : STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0);
+    signal sig_remd : STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0);
 
 
 begin
-    face_classifier_cyd2_rom_U :  component face_classifier_cyd2_rom
+    face_classifier_cyd2_div_U :  component face_classifier_cyd2_div
+    generic map (
+        in0_WIDTH => din0_WIDTH,
+        in1_WIDTH => din1_WIDTH,
+        out_WIDTH => dout_WIDTH)
     port map (
+        dividend => din0,
+        divisor => din1,
+        quot => dout,
+        remd => sig_remd,
         clk => clk,
-        addr0 => address0,
-        ce0 => ce0,
-        q0 => q0);
+        ce => ce,
+        reset => reset,
+        start => start,
+        done => done);
 
 end architecture;
 

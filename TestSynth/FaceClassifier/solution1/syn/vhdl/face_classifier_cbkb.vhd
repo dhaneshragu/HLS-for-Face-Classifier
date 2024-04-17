@@ -5,60 +5,219 @@
 -- 
 -- ==============================================================
 
-Library ieee;
+library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity face_classifier_cbkb_div_u is
+    generic (
+        in0_WIDTH   : INTEGER :=32;
+        in1_WIDTH   : INTEGER :=32;
+        out_WIDTH   : INTEGER :=32);
+    port (
+        clk         : in  STD_LOGIC;
+        reset       : in  STD_LOGIC;
+        ce          : in  STD_LOGIC;
+        dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+        divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+        quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+        remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+
+    function max (left, right : INTEGER) return INTEGER is
+    begin
+        if left > right then return left;
+        else return right;
+        end if;
+    end max;
+
+end entity;
+
+architecture rtl of face_classifier_cbkb_div_u is
+    constant cal_WIDTH      : INTEGER := max(in0_WIDTH, in1_WIDTH);
+    type  in0_vector  is array(INTEGER range <>) of UNSIGNED(in0_WIDTH-1 downto 0);
+    type  in1_vector  is array(INTEGER range <>) of UNSIGNED(in1_WIDTH-1 downto 0);
+    type  cal_vector  is array(INTEGER range <>) of UNSIGNED(cal_WIDTH downto 0);
+
+    signal dividend_tmp     : in0_vector(0 to in0_WIDTH);
+    signal divisor_tmp      : in1_vector(0 to in0_WIDTH);
+    signal remd_tmp         : in0_vector(0 to in0_WIDTH);
+    signal comb_tmp         : in0_vector(0 to in0_WIDTH-1);
+    signal cal_tmp          : cal_vector(0 to in0_WIDTH-1);
+begin
+    quot   <= STD_LOGIC_VECTOR(RESIZE(dividend_tmp(in0_WIDTH), out_WIDTH));
+    remd   <= STD_LOGIC_VECTOR(RESIZE(remd_tmp(in0_WIDTH), out_WIDTH));
+
+    tran_tmp_proc : process (clk)
+    begin
+        if (clk'event and clk='1') then
+            if (ce = '1') then
+                dividend_tmp(0) <= UNSIGNED(dividend);
+                divisor_tmp(0)  <= UNSIGNED(divisor);
+                remd_tmp(0) <= (others => '0');
+            end if;
+        end if;
+    end process tran_tmp_proc;
+
+    run_proc: for i in 0 to in0_WIDTH-1 generate
+    begin
+        comb_tmp(i) <= remd_tmp(i)(in0_WIDTH-2 downto 0) & dividend_tmp(i)(in0_WIDTH-1);
+        cal_tmp(i)  <= ('0' & comb_tmp(i)) - ('0' & divisor_tmp(i));
+
+        process (clk)
+        begin
+            if (clk'event and clk='1') then
+                if (ce = '1') then
+                    dividend_tmp(i+1) <= dividend_tmp(i)(in0_WIDTH-2 downto 0) & (not cal_tmp(i)(cal_WIDTH));
+                    divisor_tmp(i+1)  <= divisor_tmp(i);
+                    if cal_tmp(i)(cal_WIDTH) = '1' then
+                        remd_tmp(i+1) <= comb_tmp(i);
+                    else
+                        remd_tmp(i+1) <= cal_tmp(i)(in0_WIDTH-1 downto 0);
+                    end if;
+                end if;
+            end if;
+        end process;
+    end generate run_proc;
+
+end architecture;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity face_classifier_cbkb_div is
+    generic (
+        in0_WIDTH   : INTEGER :=32;
+        in1_WIDTH   : INTEGER :=32;
+        out_WIDTH   : INTEGER :=32);
+    port (
+        clk         : in  STD_LOGIC;
+        reset       : in  STD_LOGIC;
+        ce          : in  STD_LOGIC;
+        dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+        divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+        quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+        remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+end entity;
+
+architecture rtl of face_classifier_cbkb_div is
+    component face_classifier_cbkb_div_u is
+        generic (
+            in0_WIDTH   : INTEGER :=32;
+            in1_WIDTH   : INTEGER :=32;
+            out_WIDTH   : INTEGER :=32);
+        port (
+            reset       : in  STD_LOGIC;
+            clk         : in  STD_LOGIC;
+            ce          : in  STD_LOGIC;
+            dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+            divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+            quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+            remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+    end component;
+
+    signal dividend0  : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+    signal divisor0   : STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+    signal dividend_u : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+    signal divisor_u  : STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+    signal quot_u     : STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+    signal remd_u     : STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+begin
+    face_classifier_cbkb_div_u_0 : face_classifier_cbkb_div_u
+        generic map(
+            in0_WIDTH   => in0_WIDTH,
+            in1_WIDTH   => in1_WIDTH,
+            out_WIDTH   => out_WIDTH)
+        port map(
+            clk         => clk,
+            reset       => reset,
+            ce          => ce,
+            dividend    => dividend_u,
+            divisor     => divisor_u,
+            quot        => quot_u,
+            remd        => remd_u);
+
+    dividend_u  <= dividend0;
+    divisor_u   <= divisor0;
+
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        if (ce = '1') then
+            dividend0 <= dividend;
+            divisor0 <= divisor;
+        end if;
+    end if;
+end process;
+
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        if (ce = '1') then
+            quot <= quot_u;
+            remd <= remd_u;
+        end if;
+    end if;
+end process;
+
+end architecture;
+
+
+
+Library IEEE;
+use IEEE.std_logic_1164.all;
 
 entity face_classifier_cbkb is
     generic (
-        ID         : integer := 4;
-        NUM_STAGE  : integer := 1;
-        din0_WIDTH : integer := 32;
-        din1_WIDTH : integer := 32;
-        dout_WIDTH : integer := 32
-    );
+        ID : INTEGER;
+        NUM_STAGE : INTEGER;
+        din0_WIDTH : INTEGER;
+        din1_WIDTH : INTEGER;
+        dout_WIDTH : INTEGER);
     port (
-        din0 : in  std_logic_vector(din0_WIDTH-1 downto 0);
-        din1 : in  std_logic_vector(din1_WIDTH-1 downto 0);
-        dout : out std_logic_vector(dout_WIDTH-1 downto 0)
-    );
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        ce : IN STD_LOGIC;
+        din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
+        din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
+        dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
 architecture arch of face_classifier_cbkb is
-    --------------------- Component ---------------------
-    component face_classifier_c_ap_fadd_0_full_dsp_32 is
+    component face_classifier_cbkb_div is
+        generic (
+            in0_WIDTH : INTEGER;
+            in1_WIDTH : INTEGER;
+            out_WIDTH : INTEGER);
         port (
-            s_axis_a_tvalid      : in  std_logic;
-            s_axis_a_tdata       : in  std_logic_vector(31 downto 0);
-            s_axis_b_tvalid      : in  std_logic;
-            s_axis_b_tdata       : in  std_logic_vector(31 downto 0);
-            m_axis_result_tvalid : out std_logic;
-            m_axis_result_tdata  : out std_logic_vector(31 downto 0)
-        );
+            dividend : IN STD_LOGIC_VECTOR;
+            divisor : IN STD_LOGIC_VECTOR;
+            remd : OUT STD_LOGIC_VECTOR;
+            quot : OUT STD_LOGIC_VECTOR;
+            clk : IN STD_LOGIC;
+            ce : IN STD_LOGIC;
+            reset : IN STD_LOGIC);
     end component;
-    --------------------- Local signal ------------------
-    signal a_tvalid : std_logic;
-    signal a_tdata  : std_logic_vector(31 downto 0);
-    signal b_tvalid : std_logic;
-    signal b_tdata  : std_logic_vector(31 downto 0);
-    signal r_tvalid : std_logic;
-    signal r_tdata  : std_logic_vector(31 downto 0);
-begin
-    --------------------- Instantiation -----------------
-    face_classifier_c_ap_fadd_0_full_dsp_32_u : component face_classifier_c_ap_fadd_0_full_dsp_32
-    port map (
-        s_axis_a_tvalid      => a_tvalid,
-        s_axis_a_tdata       => a_tdata,
-        s_axis_b_tvalid      => b_tvalid,
-        s_axis_b_tdata       => b_tdata,
-        m_axis_result_tvalid => r_tvalid,
-        m_axis_result_tdata  => r_tdata
-    );
 
-    --------------------- Assignment --------------------
-    a_tvalid <= '1';
-    a_tdata  <= din0;
-    b_tvalid <= '1';
-    b_tdata  <= din1;
-    dout     <= r_tdata;
+    signal sig_quot : STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0);
+    signal sig_remd : STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0);
+
+
+begin
+    face_classifier_cbkb_div_U :  component face_classifier_cbkb_div
+    generic map (
+        in0_WIDTH => din0_WIDTH,
+        in1_WIDTH => din1_WIDTH,
+        out_WIDTH => dout_WIDTH)
+    port map (
+        dividend => din0,
+        divisor => din1,
+        remd => dout,
+        quot => sig_quot,
+        clk => clk,
+        ce => ce,
+        reset => reset);
 
 end architecture;
+
+

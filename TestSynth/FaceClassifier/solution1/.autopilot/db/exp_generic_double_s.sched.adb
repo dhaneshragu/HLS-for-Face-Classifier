@@ -345,14 +345,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.81</m_delay>
+				<m_delay>0.92</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_8">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>12</id>
-						<name>tmp_i_112</name>
+						<name>tmp_i_82</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_isnan.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>17</lineNumber>
@@ -398,7 +398,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.77</m_delay>
+				<m_delay>1.38</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_9">
 				<Value>
@@ -444,7 +444,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_10">
 				<Value>
@@ -497,14 +497,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.77</m_delay>
+				<m_delay>1.38</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_11">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>15</id>
-						<name>tmp_32_i</name>
+						<name>tmp_54_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_isinf.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>17</lineNumber>
@@ -550,7 +550,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_12">
 				<Value>
@@ -642,7 +642,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_14">
 				<Value>
@@ -747,7 +747,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.12</m_delay>
+				<m_delay>1.23</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_16">
 				<Value>
@@ -801,7 +801,7 @@
 					<Obj>
 						<type>0</type>
 						<id>21</id>
-						<name>p_Val2_s_113</name>
+						<name>p_Val2_s_83</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>246</lineNumber>
@@ -840,7 +840,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.29</m_delay>
+				<m_delay>1.50</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_18">
 				<Value>
@@ -887,7 +887,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.64</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_19">
 				<Value>
@@ -1072,14 +1072,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.12</m_delay>
+				<m_delay>1.23</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_23">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>27</id>
-						<name>tmp_96_cast</name>
+						<name>tmp_130_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>251</lineNumber>
@@ -1164,7 +1164,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.33</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_25">
 				<Value>
@@ -1216,7 +1216,7 @@
 					<Obj>
 						<type>0</type>
 						<id>30</id>
-						<name>tmp_92</name>
+						<name>tmp_127</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>251</lineNumber>
@@ -1261,7 +1261,7 @@
 					<Obj>
 						<type>0</type>
 						<id>31</id>
-						<name>tmp_97_cast</name>
+						<name>tmp_131_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>251</lineNumber>
@@ -1306,7 +1306,7 @@
 					<Obj>
 						<type>0</type>
 						<id>32</id>
-						<name>tmp_93</name>
+						<name>tmp_128</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>251</lineNumber>
@@ -1352,7 +1352,7 @@
 					<Obj>
 						<type>0</type>
 						<id>33</id>
-						<name>tmp_98_cast</name>
+						<name>tmp_132_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>251</lineNumber>
@@ -1397,7 +1397,7 @@
 					<Obj>
 						<type>0</type>
 						<id>34</id>
-						<name>tmp_94</name>
+						<name>tmp_129</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>251</lineNumber>
@@ -1483,14 +1483,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>4.28</m_delay>
+				<m_delay>1.65</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_32">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>36</id>
-						<name>tmp_95</name>
+						<name>tmp_130</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>251</lineNumber>
@@ -1538,7 +1538,7 @@
 					<Obj>
 						<type>0</type>
 						<id>37</id>
-						<name>tmp_96</name>
+						<name>tmp_131</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>252</lineNumber>
@@ -1583,7 +1583,7 @@
 					<Obj>
 						<type>0</type>
 						<id>38</id>
-						<name>tmp_97</name>
+						<name>tmp_132</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>252</lineNumber>
@@ -1629,7 +1629,7 @@
 					<Obj>
 						<type>0</type>
 						<id>39</id>
-						<name>tmp_98</name>
+						<name>tmp_133</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>252</lineNumber>
@@ -1675,7 +1675,7 @@
 					<Obj>
 						<type>0</type>
 						<id>40</id>
-						<name>tmp_99</name>
+						<name>tmp_134</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>257</lineNumber>
@@ -1723,7 +1723,7 @@
 					<Obj>
 						<type>0</type>
 						<id>41</id>
-						<name>tmp_115</name>
+						<name>tmp_150</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>262</lineNumber>
@@ -1854,14 +1854,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.36</m_delay>
+				<m_delay>1.11</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_40">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>44</id>
-						<name>tmp_100</name>
+						<name>tmp_135</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -1908,7 +1908,7 @@
 					<Obj>
 						<type>0</type>
 						<id>45</id>
-						<name>tmp_109_cast</name>
+						<name>tmp_143_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -1992,14 +1992,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.82</m_delay>
+				<m_delay>2.44</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_43">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>47</id>
-						<name>tmp_19</name>
+						<name>tmp_20</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -2047,7 +2047,7 @@
 					<Obj>
 						<type>0</type>
 						<id>48</id>
-						<name>tmp_116</name>
+						<name>tmp_151</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -2094,7 +2094,7 @@
 					<Obj>
 						<type>0</type>
 						<id>49</id>
-						<name>tmp_117</name>
+						<name>tmp_152</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -2139,7 +2139,7 @@
 					<Obj>
 						<type>0</type>
 						<id>50</id>
-						<name>tmp_101</name>
+						<name>tmp_136</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -2178,14 +2178,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.38</m_delay>
+				<m_delay>1.11</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_47">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>51</id>
-						<name>tmp_20</name>
+						<name>tmp_21</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -2224,14 +2224,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.13</m_delay>
+				<m_delay>1.27</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_48">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>52</id>
-						<name>tmp_21</name>
+						<name>tmp_22</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>265</lineNumber>
@@ -2318,7 +2318,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.43</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_50">
 				<Value>
@@ -2409,7 +2409,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>13.4</m_delay>
+				<m_delay>7.36</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_52">
 				<Value>
@@ -2463,7 +2463,7 @@
 					<Obj>
 						<type>0</type>
 						<id>57</id>
-						<name>tmp_102</name>
+						<name>tmp_137</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>273</lineNumber>
@@ -2510,7 +2510,7 @@
 					<Obj>
 						<type>0</type>
 						<id>58</id>
-						<name>tmp_103</name>
+						<name>tmp_138</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>275</lineNumber>
@@ -2603,7 +2603,7 @@
 					<Obj>
 						<type>0</type>
 						<id>60</id>
-						<name>tmp_104</name>
+						<name>tmp_139</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>275</lineNumber>
@@ -2650,7 +2650,7 @@
 					<Obj>
 						<type>0</type>
 						<id>61</id>
-						<name>tmp_117_cast</name>
+						<name>tmp_151_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>275</lineNumber>
@@ -2734,7 +2734,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.78</m_delay>
+				<m_delay>1.67</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_59">
 				<Value>
@@ -2789,7 +2789,7 @@
 					<Obj>
 						<type>0</type>
 						<id>64</id>
-						<name>tmp_105</name>
+						<name>tmp_140</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>312</lineNumber>
@@ -2919,7 +2919,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.25</m_delay>
+				<m_delay>1.76</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_63">
 				<Value>
@@ -3143,7 +3143,7 @@
 					<Obj>
 						<type>0</type>
 						<id>71</id>
-						<name>tmp_99_i</name>
+						<name>tmp_121_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>140</lineNumber>
@@ -3294,7 +3294,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.25</m_delay>
+				<m_delay>1.76</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_70">
 				<Value>
@@ -3356,7 +3356,7 @@
 					<Obj>
 						<type>0</type>
 						<id>75</id>
-						<name>tmp_100_i</name>
+						<name>tmp_122_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>141</lineNumber>
@@ -3408,7 +3408,7 @@
 					<Obj>
 						<type>0</type>
 						<id>76</id>
-						<name>tmp_101_i</name>
+						<name>tmp_123_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>141</lineNumber>
@@ -3506,14 +3506,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.76</m_delay>
+				<m_delay>1.47</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_74">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>78</id>
-						<name>tmp_102_i</name>
+						<name>tmp_124_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>145</lineNumber>
@@ -3664,14 +3664,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.25</m_delay>
+				<m_delay>1.76</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_77">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>81</id>
-						<name>tmp_97_i</name>
+						<name>tmp_135_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>124</lineNumber>
@@ -3876,7 +3876,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>9.68</m_delay>
+				<m_delay>5.32</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_81">
 				<Value>
@@ -3938,7 +3938,7 @@
 					<Obj>
 						<type>0</type>
 						<id>86</id>
-						<name>tmp_104_i</name>
+						<name>tmp_138_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>124</lineNumber>
@@ -3990,7 +3990,7 @@
 					<Obj>
 						<type>0</type>
 						<id>87</id>
-						<name>tmp_106_i_cast</name>
+						<name>tmp_140_i_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>154</lineNumber>
@@ -4088,7 +4088,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.79</m_delay>
+				<m_delay>1.47</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_85">
 				<Value>
@@ -4193,14 +4193,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.97</m_delay>
+				<m_delay>1.47</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_87">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>91</id>
-						<name>tmp_107_i</name>
+						<name>tmp_126_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>162</lineNumber>
@@ -4351,7 +4351,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.25</m_delay>
+				<m_delay>1.76</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_90">
 				<Value>
@@ -4413,7 +4413,7 @@
 					<Obj>
 						<type>0</type>
 						<id>95</id>
-						<name>tmp_109_i</name>
+						<name>tmp_127_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>163</lineNumber>
@@ -4618,7 +4618,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>10.3</m_delay>
+				<m_delay>5.71</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_95">
 				<Value>
@@ -4680,7 +4680,7 @@
 					<Obj>
 						<type>0</type>
 						<id>100</id>
-						<name>tmp_112_i</name>
+						<name>tmp_130_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>169</lineNumber>
@@ -4736,7 +4736,7 @@
 					<Obj>
 						<type>0</type>
 						<id>101</id>
-						<name>tmp_112_i_cast</name>
+						<name>tmp_130_i_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>169</lineNumber>
@@ -4788,7 +4788,7 @@
 					<Obj>
 						<type>0</type>
 						<id>102</id>
-						<name>tmp_114_i_cast</name>
+						<name>tmp_132_i_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>169</lineNumber>
@@ -4886,7 +4886,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.00</m_delay>
+				<m_delay>1.47</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_100">
 				<Value>
@@ -4991,7 +4991,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.22</m_delay>
+				<m_delay>1.46</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_102">
 				<Value>
@@ -5053,7 +5053,7 @@
 					<Obj>
 						<type>0</type>
 						<id>107</id>
-						<name>tmp_106</name>
+						<name>tmp_141</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>314</lineNumber>
@@ -5101,7 +5101,7 @@
 					<Obj>
 						<type>0</type>
 						<id>108</id>
-						<name>tmp_107</name>
+						<name>tmp_142</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>317</lineNumber>
@@ -5185,7 +5185,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>3.40</m_delay>
+				<m_delay>1.55</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_106">
 				<Value>
@@ -5321,14 +5321,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>10.2</m_delay>
+				<m_delay>5.75</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_109">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>113</id>
-						<name>tmp_108</name>
+						<name>tmp_143</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>317</lineNumber>
@@ -5375,7 +5375,7 @@
 					<Obj>
 						<type>0</type>
 						<id>114</id>
-						<name>tmp_124_cast</name>
+						<name>tmp_158_cast</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>317</lineNumber>
@@ -5459,14 +5459,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>4.81</m_delay>
+				<m_delay>1.82</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_112">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>116</id>
-						<name>tmp_119</name>
+						<name>tmp_154</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>321</lineNumber>
@@ -5552,7 +5552,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.13</m_delay>
+				<m_delay>1.27</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_114">
 				<Value>
@@ -5599,14 +5599,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.43</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_115">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>119</id>
-						<name>tmp_109</name>
+						<name>tmp_144</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>327</lineNumber>
@@ -5645,14 +5645,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.92</m_delay>
+				<m_delay>0.95</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_116">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>120</id>
-						<name>tmp_110</name>
+						<name>tmp_145</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>327</lineNumber>
@@ -5691,14 +5691,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>4.27</m_delay>
+				<m_delay>1.65</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_117">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>121</id>
-						<name>tmp_120</name>
+						<name>tmp_155</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>327</lineNumber>
@@ -5785,7 +5785,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.18</m_delay>
+				<m_delay>0.61</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_119">
 				<Value>
@@ -5831,14 +5831,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_120">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>124</id>
-						<name>tmp_121</name>
+						<name>tmp_156</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>328</lineNumber>
@@ -5885,7 +5885,7 @@
 					<Obj>
 						<type>0</type>
 						<id>125</id>
-						<name>tmp_111</name>
+						<name>tmp_146</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>344</lineNumber>
@@ -5924,14 +5924,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.04</m_delay>
+				<m_delay>0.99</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_122">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>126</id>
-						<name>tmp_24</name>
+						<name>tmp_25</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>353</lineNumber>
@@ -5979,7 +5979,7 @@
 					<Obj>
 						<type>0</type>
 						<id>127</id>
-						<name>tmp_25</name>
+						<name>tmp_26</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>353</lineNumber>
@@ -6074,7 +6074,7 @@
 					<Obj>
 						<type>0</type>
 						<id>129</id>
-						<name>tmp_122</name>
+						<name>tmp_157</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>354</lineNumber>
@@ -6158,7 +6158,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.12</m_delay>
+				<m_delay>1.23</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_127">
 				<Value>
@@ -6273,7 +6273,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_129">
 				<Value>
@@ -6365,7 +6365,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_131">
 				<Value>
@@ -6418,7 +6418,7 @@
 					<Obj>
 						<type>0</type>
 						<id>136</id>
-						<name>tmp_32_i_not</name>
+						<name>tmp_54_i_not</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>204</lineNumber>
@@ -6641,7 +6641,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_137">
 				<Value>
@@ -6871,7 +6871,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_142">
 				<Value>
@@ -6963,7 +6963,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_144">
 				<Value>
@@ -7285,14 +7285,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_151">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>155</id>
-						<name>tmp_32</name>
+						<name>tmp_33</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7351,7 +7351,7 @@
 					<Obj>
 						<type>0</type>
 						<id>156</id>
-						<name>tmp_33</name>
+						<name>tmp_34</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7412,7 +7412,7 @@
 					<Obj>
 						<type>0</type>
 						<id>157</id>
-						<name>tmp_34</name>
+						<name>tmp_35</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7472,7 +7472,7 @@
 					<Obj>
 						<type>0</type>
 						<id>158</id>
-						<name>tmp_35</name>
+						<name>tmp_36</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7526,14 +7526,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.58</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_155">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>159</id>
-						<name>tmp_36</name>
+						<name>tmp_37</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7594,7 +7594,7 @@
 					<Obj>
 						<type>0</type>
 						<id>160</id>
-						<name>tmp_37</name>
+						<name>tmp_38</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7654,7 +7654,7 @@
 					<Obj>
 						<type>0</type>
 						<id>161</id>
-						<name>tmp_38</name>
+						<name>tmp_39</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7708,7 +7708,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.54</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_158">
 				<Value>
@@ -7775,7 +7775,7 @@
 					<Obj>
 						<type>0</type>
 						<id>163</id>
-						<name>tmp_39</name>
+						<name>tmp_40</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>475</lineNumber>
@@ -7889,7 +7889,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.54</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_161">
 				<Value>
@@ -11757,11 +11757,11 @@
 				<item>166</item>
 			</basic_blocks>
 			<mII>1</mII>
-			<mDepth>2</mDepth>
+			<mDepth>7</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>1</mMinLatency>
-			<mMaxLatency>1</mMaxLatency>
+			<mMinLatency>6</mMinLatency>
+			<mMaxLatency>6</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -11844,14 +11844,14 @@
 		<item>
 			<first>16</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>17</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -12068,7 +12068,7 @@
 		<item>
 			<first>48</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -12096,28 +12096,28 @@
 		<item>
 			<first>52</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>53</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>54</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>55</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -12138,427 +12138,427 @@
 		<item>
 			<first>58</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>59</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>60</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>61</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>62</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>63</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>64</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>65</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>66</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>67</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>68</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>69</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>70</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>71</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>72</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>73</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>74</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>75</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>76</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>77</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>78</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>79</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>80</first>
 			<second>
-				<first>0</first>
+				<first>2</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>81</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>82</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>83</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>84</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>85</first>
 			<second>
-				<first>1</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>86</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>87</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>88</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>89</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>90</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>91</first>
 			<second>
-				<first>0</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>92</first>
 			<second>
-				<first>0</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>93</first>
 			<second>
-				<first>0</first>
+				<first>3</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>94</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>95</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>96</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>97</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>98</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>99</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>100</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>101</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>102</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>103</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>104</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>105</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>106</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>107</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>108</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>109</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>110</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>111</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>112</first>
 			<second>
-				<first>1</first>
+				<first>5</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>113</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>114</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>115</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>116</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>117</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>118</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -12579,21 +12579,21 @@
 		<item>
 			<first>121</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>122</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>123</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -12607,287 +12607,287 @@
 		<item>
 			<first>125</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>126</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>127</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>128</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>129</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>130</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>131</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>132</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>133</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>134</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>135</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>136</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>137</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>138</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>139</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>140</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>141</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>142</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>143</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>144</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>145</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>146</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>147</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>148</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>149</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>150</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>151</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>152</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>153</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>154</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>155</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>156</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>157</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>158</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>159</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>160</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>161</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>162</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>163</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>164</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>165</first>
 			<second>
-				<first>1</first>
+				<first>6</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -12899,7 +12899,7 @@
 			<first>166</first>
 			<second class_id="31" tracking_level="0" version="0">
 				<first>0</first>
-				<second>1</second>
+				<second>6</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
@@ -12920,7 +12920,7 @@
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
 			<interval>1</interval>
-			<pipe_depth>2</pipe_depth>
+			<pipe_depth>7</pipe_depth>
 		</item>
 	</regions>
 	<dp_fu_nodes class_id="34" tracking_level="0" version="0">

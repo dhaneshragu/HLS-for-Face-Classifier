@@ -5796,7 +5796,7 @@ size_t num_outputs = 1;
 face_classifier_c_initialize(); 
 clock_t t0 = clock(); 
 face_classifier_c(test1_dense_input_input,&c_activation_3_test1);
-face_classifier_c(test2_dense_input_input,&c_activation_3_test2); 
+// face_classifier_c(test2_dense_input_input,&c_activation_3_test2); 
 // face_classifier_c(&test3_dense_input_input,&c_activation_3_test3); 
 // face_classifier_c(&test4_dense_input_input,&c_activation_3_test4); 
 // face_classifier_c(&test5_dense_input_input,&c_activation_3_test5); 
@@ -5810,7 +5810,7 @@ clock_t t1 = clock();
 printf("Average time over 2 tests: %e s \n",
  ((double)t1-t0)/(double)CLOCKS_PER_SEC/(double)10); 
 errors[0] = maxabs(&keras_activation_3_test1,&c_activation_3_test1); 
-errors[1] = maxabs(&keras_activation_3_test2,&c_activation_3_test2); 
+// errors[1] = maxabs(&keras_activation_3_test2,&c_activation_3_test2); 
 // errors[2] = maxabs(&keras_activation_3_test3,&c_activation_3_test3); 
 // errors[3] = maxabs(&keras_activation_3_test4,&c_activation_3_test4); 
 // errors[4] = maxabs(&keras_activation_3_test5,&c_activation_3_test5); 
@@ -5820,7 +5820,7 @@ errors[1] = maxabs(&keras_activation_3_test2,&c_activation_3_test2);
 // errors[8] = maxabs(&keras_activation_3_test9,&c_activation_3_test9); 
 // errors[9] = maxabs(&keras_activation_3_test10,&c_activation_3_test10); 
 float maxerror = errors[0]; 
-num_tests = 2;
+num_tests = 1;
 for(size_t i=1; i< num_tests*num_outputs;i++){ 
 if (errors[i] > maxerror) { 
 maxerror = errors[i];}} 

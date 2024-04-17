@@ -27,11 +27,11 @@ using namespace sc_dt;
 
 // [dump_struct_tree [build_nameSpaceTree] dumpedStructList] ---------->
     typedef struct {
-        float array[300000];
+        float array[2622];
         long long unsigned int ndim;
         long long unsigned int numel;
         long long unsigned int shape[5];
-       } k2c_tensor;
+       } k2c_tensor2;
 
 
 
@@ -130,12 +130,12 @@ class INTER_TCL_FILE {
 };
 
 extern "C" void face_classifier_c (
-k2c_tensor dense_input_input,
-k2c_tensor* activation_3_output);
+k2c_tensor2 dense_input_input,
+k2c_tensor2* activation_3_output);
 
 extern "C" void AESL_WRAP_face_classifier_c (
-k2c_tensor dense_input_input,
-k2c_tensor* activation_3_output)
+k2c_tensor2 dense_input_input,
+k2c_tensor2* activation_3_output)
 {
 	refine_signal_handler();
 	fstream wrapc_switch_file_token;
@@ -162,7 +162,7 @@ k2c_tensor* activation_3_output)
 		{
 			aesl_fh.read(AUTOTB_TVOUT_PC_activation_3_output_array, AESL_token); // data
 
-			sc_bv<32> *activation_3_output_array_pc_buffer = new sc_bv<32>[300000];
+			sc_bv<32> *activation_3_output_array_pc_buffer = new sc_bv<32>[2622];
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -235,7 +235,7 @@ k2c_tensor* activation_3_output)
 					// {
 						// celement: activation_3_output.array(31, 0)
 						// {
-							sc_lv<32>* activation_3_output_array_lv0_0_299999_1 = new sc_lv<32>[300000];
+							sc_lv<32>* activation_3_output_array_lv0_0_2621_1 = new sc_lv<32>[2622];
 						// }
 					// }
 
@@ -244,12 +244,12 @@ k2c_tensor* activation_3_output)
 						int hls_map_index = 0;
 						// celement: activation_3_output.array(31, 0)
 						{
-							// carray: (0) => (299999) @ (1)
-							for (int i_0 = 0; i_0 <= 299999; i_0 += 1)
+							// carray: (0) => (2621) @ (1)
+							for (int i_0 = 0; i_0 <= 2621; i_0 += 1)
 							{
 								if (&(activation_3_output->array[0]) != NULL) // check the null address if the c port is array or others
 								{
-									activation_3_output_array_lv0_0_299999_1[hls_map_index].range(31, 0) = sc_bv<32>(activation_3_output_array_pc_buffer[hls_map_index].range(31, 0));
+									activation_3_output_array_lv0_0_2621_1[hls_map_index].range(31, 0) = sc_bv<32>(activation_3_output_array_pc_buffer[hls_map_index].range(31, 0));
 									hls_map_index++;
 								}
 							}
@@ -261,18 +261,18 @@ k2c_tensor* activation_3_output)
 						int hls_map_index = 0;
 						// celement: activation_3_output.array(31, 0)
 						{
-							// carray: (0) => (299999) @ (1)
-							for (int i_0 = 0; i_0 <= 299999; i_0 += 1)
+							// carray: (0) => (2621) @ (1)
+							for (int i_0 = 0; i_0 <= 2621; i_0 += 1)
 							{
 								// sub                    : i_0
 								// ori_name               : activation_3_output->array[i_0]
 								// sub_1st_elem           : 0
 								// ori_name_1st_elem      : activation_3_output->array[0]
 								// output_left_conversion : *(int*)&activation_3_output->array[i_0]
-								// output_type_conversion : (activation_3_output_array_lv0_0_299999_1[hls_map_index]).to_uint64()
+								// output_type_conversion : (activation_3_output_array_lv0_0_2621_1[hls_map_index]).to_uint64()
 								if (&(activation_3_output->array[0]) != NULL) // check the null address if the c port is array or others
 								{
-									*(int*)&activation_3_output->array[i_0] = (activation_3_output_array_lv0_0_299999_1[hls_map_index]).to_uint64();
+									*(int*)&activation_3_output->array[i_0] = (activation_3_output_array_lv0_0_2621_1[hls_map_index]).to_uint64();
 									hls_map_index++;
 								}
 							}
@@ -743,7 +743,7 @@ k2c_tensor* activation_3_output)
 		sprintf(tvin_dense_input_input_array, "[[transaction]] %d\n", AESL_transaction);
 		aesl_fh.write(AUTOTB_TVIN_dense_input_input_array, tvin_dense_input_input_array);
 
-		sc_bv<32>* dense_input_input_array_tvin_wrapc_buffer = new sc_bv<32>[300000];
+		sc_bv<32>* dense_input_input_array_tvin_wrapc_buffer = new sc_bv<32>[2622];
 
 		// RTL Name: dense_input_input_array
 		{
@@ -752,8 +752,8 @@ k2c_tensor* activation_3_output)
 				int hls_map_index = 0;
 				// celement: dense_input_input.array(31, 0)
 				{
-					// carray: (0) => (299999) @ (1)
-					for (int i_0 = 0; i_0 <= 299999; i_0 += 1)
+					// carray: (0) => (2621) @ (1)
+					for (int i_0 = 0; i_0 <= 2621; i_0 += 1)
 					{
 						// sub                   : i_0
 						// ori_name              : dense_input_input.array[i_0]
@@ -774,13 +774,13 @@ k2c_tensor* activation_3_output)
 		}
 
 		// dump tv to file
-		for (int i = 0; i < 300000; i++)
+		for (int i = 0; i < 2622; i++)
 		{
 			sprintf(tvin_dense_input_input_array, "%s\n", (dense_input_input_array_tvin_wrapc_buffer[i]).to_string(SC_HEX).c_str());
 			aesl_fh.write(AUTOTB_TVIN_dense_input_input_array, tvin_dense_input_input_array);
 		}
 
-		tcl_file.set_num(300000, &tcl_file.dense_input_input_array_depth);
+		tcl_file.set_num(2622, &tcl_file.dense_input_input_array_depth);
 		sprintf(tvin_dense_input_input_array, "[[/transaction]] \n");
 		aesl_fh.write(AUTOTB_TVIN_dense_input_input_array, tvin_dense_input_input_array);
 
@@ -923,7 +923,7 @@ k2c_tensor* activation_3_output)
 		sprintf(tvin_activation_3_output_array, "[[transaction]] %d\n", AESL_transaction);
 		aesl_fh.write(AUTOTB_TVIN_activation_3_output_array, tvin_activation_3_output_array);
 
-		sc_bv<32>* activation_3_output_array_tvin_wrapc_buffer = new sc_bv<32>[300000];
+		sc_bv<32>* activation_3_output_array_tvin_wrapc_buffer = new sc_bv<32>[2622];
 
 		// RTL Name: activation_3_output_array
 		{
@@ -932,8 +932,8 @@ k2c_tensor* activation_3_output)
 				int hls_map_index = 0;
 				// celement: activation_3_output.array(31, 0)
 				{
-					// carray: (0) => (299999) @ (1)
-					for (int i_0 = 0; i_0 <= 299999; i_0 += 1)
+					// carray: (0) => (2621) @ (1)
+					for (int i_0 = 0; i_0 <= 2621; i_0 += 1)
 					{
 						// sub                   : i_0
 						// ori_name              : activation_3_output->array[i_0]
@@ -954,13 +954,13 @@ k2c_tensor* activation_3_output)
 		}
 
 		// dump tv to file
-		for (int i = 0; i < 300000; i++)
+		for (int i = 0; i < 2622; i++)
 		{
 			sprintf(tvin_activation_3_output_array, "%s\n", (activation_3_output_array_tvin_wrapc_buffer[i]).to_string(SC_HEX).c_str());
 			aesl_fh.write(AUTOTB_TVIN_activation_3_output_array, tvin_activation_3_output_array);
 		}
 
-		tcl_file.set_num(300000, &tcl_file.activation_3_output_array_depth);
+		tcl_file.set_num(2622, &tcl_file.activation_3_output_array_depth);
 		sprintf(tvin_activation_3_output_array, "[[/transaction]] \n");
 		aesl_fh.write(AUTOTB_TVIN_activation_3_output_array, tvin_activation_3_output_array);
 
@@ -1026,7 +1026,7 @@ k2c_tensor* activation_3_output)
 		sprintf(tvout_activation_3_output_array, "[[transaction]] %d\n", AESL_transaction);
 		aesl_fh.write(AUTOTB_TVOUT_activation_3_output_array, tvout_activation_3_output_array);
 
-		sc_bv<32>* activation_3_output_array_tvout_wrapc_buffer = new sc_bv<32>[300000];
+		sc_bv<32>* activation_3_output_array_tvout_wrapc_buffer = new sc_bv<32>[2622];
 
 		// RTL Name: activation_3_output_array
 		{
@@ -1035,8 +1035,8 @@ k2c_tensor* activation_3_output)
 				int hls_map_index = 0;
 				// celement: activation_3_output.array(31, 0)
 				{
-					// carray: (0) => (299999) @ (1)
-					for (int i_0 = 0; i_0 <= 299999; i_0 += 1)
+					// carray: (0) => (2621) @ (1)
+					for (int i_0 = 0; i_0 <= 2621; i_0 += 1)
 					{
 						// sub                   : i_0
 						// ori_name              : activation_3_output->array[i_0]
@@ -1057,13 +1057,13 @@ k2c_tensor* activation_3_output)
 		}
 
 		// dump tv to file
-		for (int i = 0; i < 300000; i++)
+		for (int i = 0; i < 2622; i++)
 		{
 			sprintf(tvout_activation_3_output_array, "%s\n", (activation_3_output_array_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
 			aesl_fh.write(AUTOTB_TVOUT_activation_3_output_array, tvout_activation_3_output_array);
 		}
 
-		tcl_file.set_num(300000, &tcl_file.activation_3_output_array_depth);
+		tcl_file.set_num(2622, &tcl_file.activation_3_output_array_depth);
 		sprintf(tvout_activation_3_output_array, "[[/transaction]] \n");
 		aesl_fh.write(AUTOTB_TVOUT_activation_3_output_array, tvout_activation_3_output_array);
 

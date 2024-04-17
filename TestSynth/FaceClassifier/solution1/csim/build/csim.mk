@@ -62,6 +62,8 @@ IFLAG += -D__SIM_FIR__
 IFLAG += -D__SIM_DDS__
 
 IFLAG += -D__DSP48E1__
+IFLAG += -Wno-unknown-pragmas -Wuninitialized -Wall 
+LFLAG += -Wl,--stack,16777216
 IFLAG += -g
 IFLAG += -DNT
 LFLAG += -Wl,--enable-auto-import 
@@ -82,7 +84,7 @@ AUTOCC := cmd //c apcc.bat
 
 $(ObjDir)/face_classifier_c_test_suite.o: ../../../../../C-Code-Original/face_classifier_c_test_suite.c $(ObjDir)/.dir
 	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/face_classifier_c_test_suite.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(AUTOCC) -c -MMD -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/face_classifier_c_test_suite.d
 
@@ -112,7 +114,7 @@ $(ObjDir)/k2c_merge_layers.o: ../../../../../C-Code-Original/include/k2c_merge_l
 
 $(ObjDir)/k2c_helper_functions.o: ../../../../../C-Code-Original/include/k2c_helper_functions.c $(ObjDir)/.dir
 	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_helper_functions.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(AUTOCC) -c -MMD -Wuninitialized -Wall  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/k2c_helper_functions.d
 
@@ -136,12 +138,12 @@ $(ObjDir)/k2c_convolution_layers.o: ../../../../../C-Code-Original/include/k2c_c
 
 $(ObjDir)/k2c_activations.o: ../../../../../C-Code-Original/include/k2c_activations.c $(ObjDir)/.dir
 	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/include/k2c_activations.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(AUTOCC) -c -MMD -Wuninitialized -Wall  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/k2c_activations.d
 
 $(ObjDir)/face_classifier_c.o: ../../../../../C-Code-Original/face_classifier_c.c $(ObjDir)/.dir
 	$(Echo) "   Compiling(apcc) ../../../../../C-Code-Original/face_classifier_c.c in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(AUTOCC) -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(AUTOCC) -c -MMD -Wuninitialized -Wall  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/face_classifier_c.d

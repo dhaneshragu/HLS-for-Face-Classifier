@@ -11,14 +11,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 140 \
+    id 115 \
     name output_array \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename output_array \
     op interface \
-    ports { output_array_address0 { O 19 vector } output_array_ce0 { O 1 bit } output_array_we0 { O 1 bit } output_array_d0 { O 32 vector } output_array_q0 { I 32 vector } } \
+    ports { output_array_address0 { O 12 vector } output_array_ce0 { O 1 bit } output_array_we0 { O 1 bit } output_array_d0 { O 32 vector } output_array_q0 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'output_array'"
@@ -30,14 +30,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 142 \
+    id 117 \
     name input_array \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename input_array \
     op interface \
-    ports { input_array_address0 { O 19 vector } input_array_ce0 { O 1 bit } input_array_q0 { I 32 vector } } \
+    ports { input_array_address0 { O 12 vector } input_array_ce0 { O 1 bit } input_array_q0 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'input_array'"
@@ -49,7 +49,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 145 \
+    id 120 \
     name input_shape \
     reset_level 1 \
     sync_rst true \
@@ -68,7 +68,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 146 \
+    id 121 \
     name kernel_array \
     reset_level 1 \
     sync_rst true \
@@ -87,7 +87,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 149 \
+    id 124 \
     name kernel_shape \
     reset_level 1 \
     sync_rst true \
@@ -106,14 +106,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 150 \
+    id 125 \
     name bias_array \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename bias_array \
     op interface \
-    ports { bias_array_address0 { O 19 vector } bias_array_ce0 { O 1 bit } bias_array_q0 { I 32 vector } } \
+    ports { bias_array_address0 { O 12 vector } bias_array_ce0 { O 1 bit } bias_array_q0 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'bias_array'"
@@ -125,14 +125,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 152 \
+    id 127 \
     name fwork \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename fwork \
     op interface \
-    ports { fwork_address0 { O 7 vector } fwork_ce0 { O 1 bit } fwork_we0 { O 1 bit } fwork_d0 { O 32 vector } fwork_q0 { I 32 vector } fwork_address1 { O 7 vector } fwork_ce1 { O 1 bit } fwork_q1 { I 32 vector } } \
+    ports { fwork_address0 { O 11 vector } fwork_ce0 { O 1 bit } fwork_we0 { O 1 bit } fwork_d0 { O 32 vector } fwork_q0 { I 32 vector } fwork_address1 { O 11 vector } fwork_ce1 { O 1 bit } fwork_q1 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'fwork'"
@@ -143,7 +143,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 141 \
+    id 116 \
     name output_numel_read \
     type other \
     dir I \
@@ -158,7 +158,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 143 \
+    id 118 \
     name input_ndim_read \
     type other \
     dir I \
@@ -173,7 +173,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 144 \
+    id 119 \
     name input_numel_read \
     type other \
     dir I \
@@ -188,7 +188,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 147 \
+    id 122 \
     name kernel_ndim_read \
     type other \
     dir I \
@@ -203,7 +203,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 148 \
+    id 123 \
     name kernel_numel_read \
     type other \
     dir I \
@@ -218,7 +218,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 151 \
+    id 126 \
     name bias_numel_read \
     type other \
     dir I \

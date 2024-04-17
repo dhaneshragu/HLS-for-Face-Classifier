@@ -566,7 +566,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.47</m_delay>
+				<m_delay>0.82</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_11">
 				<Value>
@@ -620,7 +620,7 @@
 					<Obj>
 						<type>0</type>
 						<id>16</id>
-						<name>tmp_30</name>
+						<name>tmp_55</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>69</lineNumber>
@@ -659,7 +659,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.47</m_delay>
+				<m_delay>0.82</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_13">
 				<Value>
@@ -713,7 +713,7 @@
 					<Obj>
 						<type>0</type>
 						<id>19</id>
-						<name>tmp_31</name>
+						<name>tmp_56</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>70</lineNumber>
@@ -752,14 +752,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.47</m_delay>
+				<m_delay>0.82</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_15">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>20</id>
-						<name>tmp_32</name>
+						<name>tmp_57</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>70</lineNumber>
@@ -798,7 +798,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.40</m_delay>
+				<m_delay>1.16</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_16">
 				<Value>
@@ -844,7 +844,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.94</m_delay>
+				<m_delay>0.13</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_17">
 				<Value>
@@ -898,7 +898,7 @@
 					<Obj>
 						<type>0</type>
 						<id>24</id>
-						<name>tmp_17</name>
+						<name>tmp_18</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>75</lineNumber>
@@ -937,7 +937,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>6.61</m_delay>
+				<m_delay>3.52</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_19">
 				<Value>
@@ -984,14 +984,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.79</m_delay>
+				<m_delay>1.07</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_20">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>27</id>
-						<name>tmp_34</name>
+						<name>tmp_59</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>78</lineNumber>
@@ -1030,14 +1030,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.47</m_delay>
+				<m_delay>0.82</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_21">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>28</id>
-						<name>tmp_90_neg</name>
+						<name>tmp_113_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>79</lineNumber>
@@ -1076,14 +1076,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.00</m_delay>
+				<m_delay>0.51</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_22">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>29</id>
-						<name>tmp_35</name>
+						<name>tmp_60</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>79</lineNumber>
@@ -1167,7 +1167,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.00</m_delay>
+				<m_delay>6.77</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_24">
 				<Value>
@@ -1213,7 +1213,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.00</m_delay>
+				<m_delay>6.77</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_25">
 				<Value>
@@ -1274,7 +1274,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>26.5</m_delay>
+				<m_delay>0.49</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_26">
 				<Value>
@@ -1448,7 +1448,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.47</m_delay>
+				<m_delay>0.82</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_29">
 				<Value>
@@ -1502,14 +1502,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.70</m_delay>
+				<m_delay>0.99</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_30">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>38</id>
-						<name>tmp_i_43</name>
+						<name>tmp_i_50</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>9</lineNumber>
@@ -1555,7 +1555,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.47</m_delay>
+				<m_delay>0.82</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_31">
 				<Value>
@@ -1609,7 +1609,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.70</m_delay>
+				<m_delay>0.99</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_32">
 				<Value>
@@ -1661,14 +1661,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>5.34</m_delay>
+				<m_delay>3.09</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_33">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>42</id>
-						<name>tmp_96_i</name>
+						<name>tmp_118_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1717,14 +1717,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>37.1</m_delay>
+				<m_delay>8.63</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_34">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>43</id>
-						<name>tmp_97_i</name>
+						<name>tmp_119_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1770,14 +1770,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>37.3</m_delay>
+				<m_delay>8.42</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_35">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>44</id>
-						<name>tmp_98_i</name>
+						<name>tmp_120_i</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>11</lineNumber>
@@ -1822,7 +1822,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>6.40</m_delay>
+				<m_delay>3.86</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_36">
 				<Value>
@@ -1874,7 +1874,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.70</m_delay>
+				<m_delay>0.99</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_37">
 				<Value>
@@ -1964,7 +1964,7 @@
 					<Obj>
 						<type>0</type>
 						<id>50</id>
-						<name>tmp_38</name>
+						<name>tmp_63</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>95</lineNumber>
@@ -2003,14 +2003,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>26.5</m_delay>
+				<m_delay>6.77</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_40">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>51</id>
-						<name>tmp_39</name>
+						<name>tmp_64</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>95</lineNumber>
@@ -2049,7 +2049,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>81.3</m_delay>
+				<m_delay>8.73</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_41">
 				<Value>
@@ -2095,7 +2095,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>26.5</m_delay>
+				<m_delay>6.77</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_42">
 				<Value>
@@ -2126,14 +2126,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.79</m_delay>
+				<m_delay>1.07</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_43">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>55</id>
-						<name>tmp_91_to_int</name>
+						<name>tmp_114_to_int</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2178,7 +2178,7 @@
 					<Obj>
 						<type>0</type>
 						<id>56</id>
-						<name>tmp_91_neg</name>
+						<name>tmp_114_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2217,14 +2217,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.26</m_delay>
+				<m_delay>0.51</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_45">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>57</id>
-						<name>tmp_36</name>
+						<name>tmp_61</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2269,7 +2269,7 @@
 					<Obj>
 						<type>0</type>
 						<id>58</id>
-						<name>tmp_37</name>
+						<name>tmp_62</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>90</lineNumber>
@@ -2308,7 +2308,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>26.5</m_delay>
+				<m_delay>6.77</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_47">
 				<Value>
@@ -2354,7 +2354,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>81.3</m_delay>
+				<m_delay>8.73</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_48">
 				<Value>
@@ -2399,14 +2399,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.79</m_delay>
+				<m_delay>1.07</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_49">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>62</id>
-						<name>tmp_33</name>
+						<name>tmp_58</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>73</lineNumber>
@@ -2445,7 +2445,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.00</m_delay>
+				<m_delay>6.77</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_50">
 				<Value>
@@ -2491,7 +2491,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>26.5</m_delay>
+				<m_delay>8.46</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_51">
 				<Value>
@@ -2536,14 +2536,14 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.79</m_delay>
+				<m_delay>1.07</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_52">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>66</id>
-						<name>tmp_29</name>
+						<name>tmp_54</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>62</lineNumber>
@@ -2582,7 +2582,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.40</m_delay>
+				<m_delay>1.16</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_53">
 				<Value>
@@ -2629,7 +2629,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.49</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_54">
 				<Value>
@@ -2674,7 +2674,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.79</m_delay>
+				<m_delay>1.07</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_55">
 				<Value>
@@ -2721,7 +2721,7 @@
 					<Obj>
 						<type>0</type>
 						<id>71</id>
-						<name>tmp_95_to_int</name>
+						<name>tmp_118_to_int</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>
@@ -2766,7 +2766,7 @@
 					<Obj>
 						<type>0</type>
 						<id>72</id>
-						<name>tmp_95_neg</name>
+						<name>tmp_118_neg</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>
@@ -2812,7 +2812,7 @@
 					<Obj>
 						<type>0</type>
 						<id>73</id>
-						<name>tmp_40</name>
+						<name>tmp_65</name>
 						<fileName>r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h</fileName>
 						<fileDirectory>r:\builds\2018.2\continuous\2018_06_14_2258646\src\products</fileDirectory>
 						<lineNumber>107</lineNumber>
@@ -2904,7 +2904,7 @@
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>1.37</m_delay>
+				<m_delay>0.51</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_60">
 				<Value>
@@ -4768,11 +4768,11 @@
 				<item>76</item>
 			</basic_blocks>
 			<mII>1</mII>
-			<mDepth>7</mDepth>
+			<mDepth>33</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>6</mMinLatency>
-			<mMaxLatency>6</mMaxLatency>
+			<mMinLatency>32</mMinLatency>
+			<mMaxLatency>32</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -4933,181 +4933,181 @@
 			<first>30</first>
 			<second>
 				<first>0</first>
-				<second>0</second>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>31</first>
 			<second>
 				<first>0</first>
-				<second>0</second>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>32</first>
 			<second>
-				<first>0</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>33</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>34</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>35</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>36</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>38</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>39</first>
 			<second>
-				<first>0</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>41</first>
 			<second>
-				<first>1</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>42</first>
 			<second>
-				<first>1</first>
-				<second>1</second>
+				<first>5</first>
+				<second>6</second>
 			</second>
 		</item>
 		<item>
 			<first>43</first>
 			<second>
-				<first>3</first>
-				<second>0</second>
+				<first>12</first>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>44</first>
 			<second>
-				<first>3</first>
+				<first>16</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>45</first>
 			<second>
-				<first>3</first>
+				<first>16</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>47</first>
 			<second>
-				<first>3</first>
+				<first>17</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>48</first>
 			<second>
-				<first>0</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>50</first>
 			<second>
-				<first>3</first>
-				<second>0</second>
+				<first>17</first>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>51</first>
 			<second>
-				<first>4</first>
-				<second>1</second>
+				<first>21</first>
+				<second>7</second>
 			</second>
 		</item>
 		<item>
 			<first>52</first>
 			<second>
-				<first>6</first>
-				<second>0</second>
+				<first>29</first>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>53</first>
 			<second>
-				<first>6</first>
+				<first>32</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>55</first>
 			<second>
-				<first>4</first>
+				<first>20</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>56</first>
 			<second>
-				<first>4</first>
+				<first>20</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>57</first>
 			<second>
-				<first>4</first>
+				<first>21</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>58</first>
 			<second>
-				<first>3</first>
-				<second>0</second>
+				<first>17</first>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>59</first>
 			<second>
-				<first>4</first>
-				<second>1</second>
+				<first>21</first>
+				<second>7</second>
 			</second>
 		</item>
 		<item>
 			<first>60</first>
 			<second>
-				<first>5</first>
+				<first>31</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -5115,20 +5115,20 @@
 			<first>62</first>
 			<second>
 				<first>0</first>
-				<second>0</second>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>63</first>
 			<second>
-				<first>0</first>
-				<second>0</second>
+				<first>4</first>
+				<second>1</second>
 			</second>
 		</item>
 		<item>
 			<first>64</first>
 			<second>
-				<first>5</first>
+				<first>31</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -5142,56 +5142,56 @@
 		<item>
 			<first>67</first>
 			<second>
-				<first>5</first>
+				<first>31</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>68</first>
 			<second>
-				<first>5</first>
+				<first>31</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>70</first>
 			<second>
-				<first>6</first>
+				<first>32</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>71</first>
 			<second>
-				<first>6</first>
+				<first>32</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>72</first>
 			<second>
-				<first>6</first>
+				<first>32</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>73</first>
 			<second>
-				<first>6</first>
+				<first>32</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>74</first>
 			<second>
-				<first>6</first>
+				<first>32</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>75</first>
 			<second>
-				<first>6</first>
+				<first>32</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -5231,63 +5231,63 @@
 			<first>37</first>
 			<second>
 				<first>0</first>
-				<second>0</second>
+				<second>4</second>
 			</second>
 		</item>
 		<item>
 			<first>40</first>
 			<second>
-				<first>0</first>
-				<second>0</second>
+				<first>4</first>
+				<second>4</second>
 			</second>
 		</item>
 		<item>
 			<first>46</first>
 			<second>
-				<first>1</first>
-				<second>3</second>
+				<first>4</first>
+				<second>16</second>
 			</second>
 		</item>
 		<item>
 			<first>49</first>
 			<second>
 				<first>0</first>
-				<second>3</second>
+				<second>17</second>
 			</second>
 		</item>
 		<item>
 			<first>54</first>
 			<second>
-				<first>0</first>
-				<second>6</second>
+				<first>17</first>
+				<second>32</second>
 			</second>
 		</item>
 		<item>
 			<first>61</first>
 			<second>
 				<first>0</first>
-				<second>5</second>
+				<second>31</second>
 			</second>
 		</item>
 		<item>
 			<first>65</first>
 			<second>
 				<first>0</first>
-				<second>5</second>
+				<second>31</second>
 			</second>
 		</item>
 		<item>
 			<first>69</first>
 			<second>
 				<first>0</first>
-				<second>5</second>
+				<second>31</second>
 			</second>
 		</item>
 		<item>
 			<first>76</first>
 			<second>
-				<first>6</first>
-				<second>6</second>
+				<first>32</first>
+				<second>32</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
@@ -5320,7 +5320,7 @@
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
 			<interval>1</interval>
-			<pipe_depth>7</pipe_depth>
+			<pipe_depth>33</pipe_depth>
 		</item>
 	</regions>
 	<dp_fu_nodes class_id="34" tracking_level="0" version="0">

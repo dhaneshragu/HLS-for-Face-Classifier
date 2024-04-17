@@ -7,7 +7,7 @@
 
 #ifndef __face_classifier_chbi__HH__
 #define __face_classifier_chbi__HH__
-#include "ACMP_fdiv.h"
+#include "simcore_mac_0.h"
 #include <systemc>
 
 template<
@@ -15,26 +15,23 @@ template<
     int NUM_STAGE,
     int din0_WIDTH,
     int din1_WIDTH,
+    int din2_WIDTH,
     int dout_WIDTH>
 SC_MODULE(face_classifier_chbi) {
-    sc_core::sc_in_clk clk;
-    sc_core::sc_in<sc_dt::sc_logic> reset;
-    sc_core::sc_in<sc_dt::sc_logic> ce;
     sc_core::sc_in< sc_dt::sc_lv<din0_WIDTH> >   din0;
     sc_core::sc_in< sc_dt::sc_lv<din1_WIDTH> >   din1;
+    sc_core::sc_in< sc_dt::sc_lv<din2_WIDTH> >   din2;
     sc_core::sc_out< sc_dt::sc_lv<dout_WIDTH> >   dout;
 
 
 
-    ACMP_fdiv<ID, 2, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_fdiv_U;
+    simcore_mac_0<ID, 1, din0_WIDTH, din1_WIDTH, din2_WIDTH, dout_WIDTH> simcore_mac_0_U;
 
-    SC_CTOR(face_classifier_chbi):  ACMP_fdiv_U ("ACMP_fdiv_U") {
-        ACMP_fdiv_U.clk(clk);
-        ACMP_fdiv_U.reset(reset);
-        ACMP_fdiv_U.ce(ce);
-        ACMP_fdiv_U.din0(din0);
-        ACMP_fdiv_U.din1(din1);
-        ACMP_fdiv_U.dout(dout);
+    SC_CTOR(face_classifier_chbi):  simcore_mac_0_U ("simcore_mac_0_U") {
+        simcore_mac_0_U.din0(din0);
+        simcore_mac_0_U.din1(din1);
+        simcore_mac_0_U.din2(din2);
+        simcore_mac_0_U.dout(dout);
 
     }
 

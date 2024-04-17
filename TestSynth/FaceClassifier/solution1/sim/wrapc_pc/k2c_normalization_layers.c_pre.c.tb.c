@@ -1664,7 +1664,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 struct k2c_tensor
 {
 
-    float array[300000];
+    float array[262200];
 
 
     size_t ndim;
@@ -1677,6 +1677,23 @@ struct k2c_tensor
 };
 
 typedef struct k2c_tensor k2c_tensor;
+
+struct k2c_tensor2
+{
+
+    float array[2622];
+
+
+    size_t ndim;
+
+
+    size_t numel;
+
+
+    size_t shape[5];
+};
+
+typedef struct k2c_tensor2 k2c_tensor2;
 #12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h" 2
 
 
@@ -1702,30 +1719,44 @@ extern k2c_activationType * k2c_softmax;
 extern k2c_activationType * k2c_softplus;
 extern k2c_activationType * k2c_softsign;
 #68 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
-void k2c_dense(k2c_tensor* output, const k2c_tensor* input, const k2c_tensor* kernel,
-               const k2c_tensor* bias, float * fwork);
-#102 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
-void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
-                    const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
+void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* kernel,
+               const k2c_tensor2* bias, float * fwork);
+void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2* kernel,
+               const k2c_tensor2* bias, float * fwork);
+#85 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
+size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim);
+void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
+void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const size_t * axesA,
+             const size_t * axesB, const size_t naxes, const int normalize, float * fwork);
+void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
+#106 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
+void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
+                    const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis);
 #12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c" 2
 #27 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c"
-void k2c_batch_norm(k2c_tensor* outputs, const k2c_tensor* inputs, const k2c_tensor* mean,
-                    const k2c_tensor* stdev, const k2c_tensor* gamma, const k2c_tensor* beta,
+void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
+                    const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis) {
 
-    size_t offset = 1;
-    size_t i;
-    for ( i=axis+1; i<inputs->ndim; ++i) {
-        offset *= inputs->shape[i];
-    }
-    const size_t step = inputs->shape[axis];
 
-    for ( i=0; i<inputs->numel; ++i) {
-        size_t idx = (i/offset)%step;
-        outputs->array[i] = (inputs->array[i] - mean->array[idx]) /
-                            stdev->array[idx] *
-                            gamma->array[idx] +
-                            beta->array[idx];
+
+    size_t i;
+
+
+
+
+
+    const size_t step = inputs->shape[axis];
+    const size_t numel = inputs->numel;
+
+    for ( i=0; i<numel; ++i) {
+#pragma HLS PIPELINE
+#pragma HLS LOOP_TRIPCOUNT min=10 max=100 avg=10
+ size_t idx = i%step;
+        float temp = (inputs->array[i] - mean->array[idx]) /stdev->array[idx];
+  outputs->array[i] = temp * gamma->array[idx] + beta->array[idx];
     }
 }

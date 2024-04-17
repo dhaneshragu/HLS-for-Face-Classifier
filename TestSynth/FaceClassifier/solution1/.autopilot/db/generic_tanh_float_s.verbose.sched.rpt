@@ -3,13 +3,13 @@
 ================================================================
 == Vivado HLS Report for 'generic_tanh_float_s'
 ================================================================
-* Date:           Mon Apr  8 17:34:41 2024
+* Date:           Wed Apr 17 23:19:27 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
 * Solution:       solution1
-* Product family: aartix7
-* Target device:  xa7a12tcsg325-1q
+* Product family: virtexu
+* Target device:  xcvu160-flgc2104-2-e
 
 
 ================================================================
@@ -17,11 +17,11 @@
 ================================================================
 + Timing (ns): 
     * Summary: 
-    +--------+--------+----------+------------+
-    |  Clock | Target | Estimated| Uncertainty|
-    +--------+--------+----------+------------+
-    |ap_clk  |  100.00|    82.621|       12.50|
-    +--------+--------+----------+------------+
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.733|        1.25|
+    +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline |
     | min | max | min | max |   Type   |
     +-----+-----+-----+-----+----------+
-    |    6|    6|    1|    1| function |
+    |   32|   32|    1|    1| function |
     +-----+-----+-----+-----+----------+
 
     + Detail: 
@@ -62,15 +62,15 @@ HasImplIP: 0
 IsGatedGlobalClock: 0
 
 + Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 1, depth = 7
+  * Pipeline-0: initiation interval (II) = 1, depth = 33
 
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 7
+* Number of FSM states : 33
 * Pipeline : 1
-  Pipeline-0 : II = 1, D = 7, States = { 1 2 3 4 5 6 7 }
+  Pipeline-0 : II = 1, D = 33, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
@@ -87,131 +87,372 @@ IsGatedGlobalClock: 0
 6 --> 
 	7  / true
 7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 31.2>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%t_in_read = call float @_ssdm_op_Read.ap_auto.float(float %t_in) nounwind"   --->   Operation 8 'read' 't_in_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%p_Val2_s = bitcast float %t_in_read to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:273->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 9 'bitcast' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%p_Result_s = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_Val2_s, i32 31)" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:279->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 10 'bitselect' 'p_Result_s' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%loc_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_s, i32 23, i32 30)" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:280->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 11 'partselect' 'loc_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%loc_V_1 = trunc i32 %p_Val2_s to i23" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:281->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 12 'trunc' 'loc_V_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp = trunc i32 %p_Val2_s to i31" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:298->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:311->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:332->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:57]   --->   Operation 13 'trunc' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%p_Result_9 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 false, i31 %tmp)" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:298->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:311->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:332->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:57]   --->   Operation 14 'bitconcatenate' 'p_Result_9' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%abst_in = bitcast i32 %p_Result_9 to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:311->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:332->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:57]   --->   Operation 15 'bitcast' 'abst_in' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (1.47ns)   --->   "%tmp_s = icmp eq i8 %loc_V, -1" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:60]   --->   Operation 16 'icmp' 'tmp_s' <Predicate = true> <Delay = 1.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "br i1 %tmp_s, label %1, label %2" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:60]   --->   Operation 17 'br' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (1.47ns)   --->   "%tmp_30 = icmp ult i8 %loc_V, 72" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:69]   --->   Operation 18 'icmp' 'tmp_30' <Predicate = (!tmp_s)> <Delay = 1.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "br i1 %tmp_30, label %._crit_edge38, label %3" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:69]   --->   Operation 19 'br' <Predicate = (!tmp_s)> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (1.47ns)   --->   "%tmp_31 = icmp eq i8 %loc_V, 72" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 20 'icmp' 'tmp_31' <Predicate = (!tmp_s & !tmp_30)> <Delay = 1.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 21 [1/1] (2.40ns)   --->   "%tmp_32 = icmp eq i23 %loc_V_1, 0" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 21 'icmp' 'tmp_32' <Predicate = (!tmp_s & !tmp_30)> <Delay = 2.40> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 22 [1/1] (0.94ns)   --->   "%or_cond = and i1 %tmp_31, %tmp_32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 22 'and' 'or_cond' <Predicate = (!tmp_s & !tmp_30)> <Delay = 0.94> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.26> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "br i1 %or_cond, label %._crit_edge38, label %._crit_edge39" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 23 'br' <Predicate = (!tmp_s & !tmp_30)> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (6.61ns)   --->   "%tmp_17 = fcmp olt float %abst_in, 2.200000e+01" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:75]   --->   Operation 24 'fcmp' 'tmp_17' <Predicate = (!tmp_s & !tmp_30 & !or_cond)> <Delay = 6.61> <Core = "FCmp">   --->   Core 105 'FCmp' <Latency = 0> <II = 1> <Delay = 6.61> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 25 [1/1] (1.79ns)   --->   "br i1 %tmp_17, label %_ifconv, label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:75]   --->   Operation 25 'br' <Predicate = (!tmp_s & !tmp_30 & !or_cond)> <Delay = 1.79>
-ST_1 : Operation 26 [1/1] (1.47ns)   --->   "%tmp_34 = icmp ult i8 %loc_V, 127" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:78]   --->   Operation 26 'icmp' 'tmp_34' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 1.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 27 [1/1] (0.00ns) (grouped into LUT with out node x_2)   --->   "%tmp_90_neg = xor i32 %p_Result_9, -2147483648" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 27 'xor' 'tmp_90_neg' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.26> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 28 [1/1] (0.00ns) (grouped into LUT with out node x_2)   --->   "%tmp_35 = bitcast i32 %tmp_90_neg to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 28 'bitcast' 'tmp_35' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns) (grouped into LUT with out node x_2)   --->   "%x = fsub float %tmp_35, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 29 'fsub' 'x' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 30 [1/1] (0.00ns) (grouped into LUT with out node x_2)   --->   "%x_1 = fadd float %abst_in, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:82]   --->   Operation 30 'fadd' 'x_1' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 31 [1/1] (26.5ns) (out node of the LUT)   --->   "%x_2 = select i1 %tmp_34, float %x, float %x_1" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 31 'select' 'x_2' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 26.5> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%p_Val2_3 = bitcast float %x_2 to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:273->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 32 'bitcast' 'p_Val2_3' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%loc_V_2 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_3, i32 23, i32 30) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:280->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 33 'partselect' 'loc_V_2' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00>
-ST_1 : Operation 34 [1/1] (1.47ns)   --->   "%tmp_i = icmp eq i8 %loc_V_2, 0" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:8->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 34 'icmp' 'tmp_i' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 1.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 35 [1/1] (1.70ns)   --->   "br i1 %tmp_i, label %expm1.exit, label %4" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:8->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 35 'br' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 1.70>
-ST_1 : Operation 36 [1/1] (1.47ns)   --->   "%tmp_i_43 = icmp ult i8 %loc_V_2, 96" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:9->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 36 'icmp' 'tmp_i_43' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i)> <Delay = 1.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 37 [1/1] (1.70ns)   --->   "br i1 %tmp_i_43, label %expm1.exit, label %5" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:9->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 37 'br' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i)> <Delay = 1.70>
-ST_1 : Operation 38 [1/1] (0.00ns)   --->   "br i1 %tmp_34, label %6, label %7" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:87]   --->   Operation 38 'br' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00>
-ST_1 : Operation 39 [1/1] (0.00ns) (grouped into LUT with out node resultf)   --->   "%tmp_33 = fadd float %abst_in, 1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 39 'fadd' 'tmp_33' <Predicate = (!tmp_s & tmp_30) | (!tmp_s & or_cond)> <Delay = 0.00> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 40 [1/1] (26.5ns) (out node of the LUT)   --->   "%resultf = fmul float %abst_in, %tmp_33" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 40 'fmul' 'resultf' <Predicate = (!tmp_s & tmp_30) | (!tmp_s & or_cond)> <Delay = 26.5> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 0> <II = 1> <Delay = 15.4> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 41 [1/1] (2.40ns)   --->   "%tmp_29 = icmp eq i23 %loc_V_1, 0" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62]   --->   Operation 41 'icmp' 'tmp_29' <Predicate = (tmp_s)> <Delay = 2.40> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+State 1 <SV = 0> <Delay = 7.28>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%t_in_read = call float @_ssdm_op_Read.ap_auto.float(float %t_in) nounwind"   --->   Operation 34 'read' 't_in_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%p_Val2_s = bitcast float %t_in_read to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:273->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 35 'bitcast' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%p_Result_s = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_Val2_s, i32 31)" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:279->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 36 'bitselect' 'p_Result_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%loc_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_s, i32 23, i32 30)" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:280->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 37 'partselect' 'loc_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%loc_V_1 = trunc i32 %p_Val2_s to i23" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:281->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 38 'trunc' 'loc_V_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%tmp = trunc i32 %p_Val2_s to i31" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:298->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:311->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:332->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:57]   --->   Operation 39 'trunc' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%p_Result_9 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 false, i31 %tmp)" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:298->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:311->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:332->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:57]   --->   Operation 40 'bitconcatenate' 'p_Result_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%abst_in = bitcast i32 %p_Result_9 to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:311->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:332->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:57]   --->   Operation 41 'bitcast' 'abst_in' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.82ns)   --->   "%tmp_s = icmp eq i8 %loc_V, -1" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:60]   --->   Operation 42 'icmp' 'tmp_s' <Predicate = true> <Delay = 0.82> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "br i1 %tmp_s, label %1, label %2" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:60]   --->   Operation 43 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.82ns)   --->   "%tmp_55 = icmp ult i8 %loc_V, 72" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:69]   --->   Operation 44 'icmp' 'tmp_55' <Predicate = (!tmp_s)> <Delay = 0.82> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "br i1 %tmp_55, label %._crit_edge38, label %3" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:69]   --->   Operation 45 'br' <Predicate = (!tmp_s)> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.82ns)   --->   "%tmp_56 = icmp eq i8 %loc_V, 72" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 46 'icmp' 'tmp_56' <Predicate = (!tmp_s & !tmp_55)> <Delay = 0.82> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 47 [1/1] (1.16ns)   --->   "%tmp_57 = icmp eq i23 %loc_V_1, 0" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 47 'icmp' 'tmp_57' <Predicate = (!tmp_s & !tmp_55)> <Delay = 1.16> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 48 [1/1] (0.13ns)   --->   "%or_cond = and i1 %tmp_56, %tmp_57" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 48 'and' 'or_cond' <Predicate = (!tmp_s & !tmp_55)> <Delay = 0.13> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "br i1 %or_cond, label %._crit_edge38, label %._crit_edge39" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:70]   --->   Operation 49 'br' <Predicate = (!tmp_s & !tmp_55)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (3.52ns)   --->   "%tmp_18 = fcmp olt float %abst_in, 2.200000e+01" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:75]   --->   Operation 50 'fcmp' 'tmp_18' <Predicate = (!tmp_s & !tmp_55 & !or_cond)> <Delay = 3.52> <Core = "FCmp">   --->   Core 105 'FCmp' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 51 [1/1] (1.07ns)   --->   "br i1 %tmp_18, label %_ifconv, label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:75]   --->   Operation 51 'br' <Predicate = (!tmp_s & !tmp_55 & !or_cond)> <Delay = 1.07>
+ST_1 : Operation 52 [1/1] (0.82ns)   --->   "%tmp_59 = icmp ult i8 %loc_V, 127" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:78]   --->   Operation 52 'icmp' 'tmp_59' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.82> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 53 [1/1] (0.51ns)   --->   "%tmp_113_neg = xor i32 %p_Result_9, -2147483648" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 53 'xor' 'tmp_113_neg' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.51> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%tmp_60 = bitcast i32 %tmp_113_neg to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 54 'bitcast' 'tmp_60' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.00>
+ST_1 : Operation 55 [4/4] (6.77ns)   --->   "%x = fsub float %tmp_60, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 55 'fsub' 'x' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 56 [4/4] (6.77ns)   --->   "%x_1 = fadd float %abst_in, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:82]   --->   Operation 56 'fadd' 'x_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 57 [4/4] (6.77ns)   --->   "%tmp_58 = fadd float %abst_in, 1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 57 'fadd' 'tmp_58' <Predicate = (!tmp_s & tmp_55) | (!tmp_s & or_cond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 58 [1/1] (1.16ns)   --->   "%tmp_54 = icmp eq i23 %loc_V_1, 0" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62]   --->   Operation 58 'icmp' 'tmp_54' <Predicate = (tmp_s)> <Delay = 1.16> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 
-State 2 <SV = 1> <Delay = 42.5>
-ST_2 : Operation 42 [1/1] (5.34ns)   --->   "%xd = fpext float %x_2 to double" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:10->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 42 'fpext' 'xd' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i & !tmp_i_43)> <Delay = 5.34> <Core = "Float2Double">   --->   Core 108 'Float2Double' <Latency = 0> <II = 1> <Delay = 5.34> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
-ST_2 : Operation 43 [2/2] (37.1ns)   --->   "%tmp_96_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 43 'call' 'tmp_96_i' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i & !tmp_i_43)> <Delay = 37.1> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 2 <SV = 1> <Delay = 6.77>
+ST_2 : Operation 59 [3/4] (6.77ns)   --->   "%x = fsub float %tmp_60, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 59 'fsub' 'x' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 60 [3/4] (6.77ns)   --->   "%x_1 = fadd float %abst_in, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:82]   --->   Operation 60 'fadd' 'x_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 61 [3/4] (6.77ns)   --->   "%tmp_58 = fadd float %abst_in, 1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 61 'fadd' 'tmp_58' <Predicate = (!tmp_s & tmp_55) | (!tmp_s & or_cond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 
-State 3 <SV = 2> <Delay = 61.2>
-ST_3 : Operation 44 [1/2] (61.2ns)   --->   "%tmp_96_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 44 'call' 'tmp_96_i' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i & !tmp_i_43)> <Delay = 61.2> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 3 <SV = 2> <Delay = 6.77>
+ST_3 : Operation 62 [2/4] (6.77ns)   --->   "%x = fsub float %tmp_60, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 62 'fsub' 'x' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 63 [2/4] (6.77ns)   --->   "%x_1 = fadd float %abst_in, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:82]   --->   Operation 63 'fadd' 'x_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 64 [2/4] (6.77ns)   --->   "%tmp_58 = fadd float %abst_in, 1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 64 'fadd' 'tmp_58' <Predicate = (!tmp_s & tmp_55) | (!tmp_s & or_cond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 
-State 4 <SV = 3> <Delay = 72.0>
-ST_4 : Operation 45 [1/1] (37.3ns)   --->   "%tmp_97_i = fadd double %tmp_96_i, -1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 45 'dadd' 'tmp_97_i' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i & !tmp_i_43)> <Delay = 37.3> <Core = "DAddSub">   --->   Core 109 'DAddSub' <Latency = 0> <II = 1> <Delay = 37.3> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 46 [1/1] (6.40ns)   --->   "%tmp_98_i = fptrunc double %tmp_97_i to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 46 'fptrunc' 'tmp_98_i' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i & !tmp_i_43)> <Delay = 6.40> <Core = "Double2Float">   --->   Core 117 'Double2Float' <Latency = 0> <II = 1> <Delay = 6.40> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
-ST_4 : Operation 47 [1/1] (1.70ns)   --->   "br label %expm1.exit" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 47 'br' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_i & !tmp_i_43)> <Delay = 1.70>
-ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%expx = phi float [ %tmp_98_i, %5 ], [ 0.000000e+00, %_ifconv ], [ %x_2, %4 ]"   --->   Operation 48 'phi' 'expx' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17)> <Delay = 0.00>
-ST_4 : Operation 49 [1/1] (26.5ns)   --->   "%tmp_38 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 49 'fadd' 'tmp_38' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_34)> <Delay = 26.5> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 50 [1/1] (26.5ns)   --->   "%tmp_37 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 50 'fadd' 'tmp_37' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & tmp_34)> <Delay = 26.5> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+State 4 <SV = 3> <Delay = 7.26>
+ST_4 : Operation 65 [1/4] (6.77ns)   --->   "%x = fsub float %tmp_60, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79]   --->   Operation 65 'fsub' 'x' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 66 [1/4] (6.77ns)   --->   "%x_1 = fadd float %abst_in, %abst_in" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:82]   --->   Operation 66 'fadd' 'x_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 67 [1/1] (0.49ns)   --->   "%x_2 = select i1 %tmp_59, float %x, float %x_1" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 67 'select' 'x_2' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.49> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "br i1 %tmp_59, label %6, label %7" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:87]   --->   Operation 68 'br' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.00>
+ST_4 : Operation 69 [1/4] (6.77ns)   --->   "%tmp_58 = fadd float %abst_in, 1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 69 'fadd' 'tmp_58' <Predicate = (!tmp_s & tmp_55) | (!tmp_s & or_cond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 
-State 5 <SV = 4> <Delay = 82.6>
-ST_5 : Operation 51 [2/2] (81.3ns)   --->   "%tmp_39 = fdiv float 2.000000e+00, %tmp_38" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 51 'fdiv' 'tmp_39' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_34)> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%tmp_91_to_int = bitcast float %expx to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 52 'bitcast' 'tmp_91_to_int' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & tmp_34)> <Delay = 0.00>
-ST_5 : Operation 53 [1/1] (1.26ns)   --->   "%tmp_91_neg = xor i32 %tmp_91_to_int, -2147483648" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 53 'xor' 'tmp_91_neg' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & tmp_34)> <Delay = 1.26> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.26> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%tmp_36 = bitcast i32 %tmp_91_neg to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 54 'bitcast' 'tmp_36' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & tmp_34)> <Delay = 0.00>
-ST_5 : Operation 55 [2/2] (81.3ns)   --->   "%resultf_1 = fdiv float %tmp_36, %tmp_37" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 55 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & tmp_34)> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+State 5 <SV = 4> <Delay = 8.46>
+ST_5 : Operation 70 [1/1] (0.00ns)   --->   "%p_Val2_3 = bitcast float %x_2 to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:273->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 70 'bitcast' 'p_Val2_3' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.00>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "%loc_V_2 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_3, i32 23, i32 30) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:280->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 71 'partselect' 'loc_V_2' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.00>
+ST_5 : Operation 72 [1/1] (0.82ns)   --->   "%tmp_i = icmp eq i8 %loc_V_2, 0" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:8->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 72 'icmp' 'tmp_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.82> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 73 [1/1] (0.99ns)   --->   "br i1 %tmp_i, label %expm1.exit, label %4" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:8->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 73 'br' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.99>
+ST_5 : Operation 74 [1/1] (0.82ns)   --->   "%tmp_i_50 = icmp ult i8 %loc_V_2, 96" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:9->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 74 'icmp' 'tmp_i_50' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i)> <Delay = 0.82> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 75 [1/1] (0.99ns)   --->   "br i1 %tmp_i_50, label %expm1.exit, label %5" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:9->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 75 'br' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i)> <Delay = 0.99>
+ST_5 : Operation 76 [1/1] (3.09ns)   --->   "%xd = fpext float %x_2 to double" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:10->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 76 'fpext' 'xd' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 3.09> <Core = "Float2Double">   --->   Core 108 'Float2Double' <Latency = 0> <II = 1> <Delay = 3.09> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+ST_5 : Operation 77 [2/2] (8.46ns)   --->   "%resultf = fmul float %abst_in, %tmp_58" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 77 'fmul' 'resultf' <Predicate = (!tmp_s & tmp_55) | (!tmp_s & or_cond)> <Delay = 8.46> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 1> <II = 1> <Delay = 8.46> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
 
-State 6 <SV = 5> <Delay = 81.3>
-ST_6 : Operation 56 [1/2] (81.3ns)   --->   "%tmp_39 = fdiv float 2.000000e+00, %tmp_38" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 56 'fdiv' 'tmp_39' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_34)> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 57 [1/2] (81.3ns)   --->   "%resultf_1 = fdiv float %tmp_36, %tmp_37" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 57 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & tmp_34)> <Delay = 81.3> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 1> <II = 1> <Delay = 81.3> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 58 [1/1] (1.79ns)   --->   "br label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:91]   --->   Operation 58 'br' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & tmp_34)> <Delay = 1.79>
-ST_6 : Operation 59 [1/1] (1.79ns)   --->   "br label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:74]   --->   Operation 59 'br' <Predicate = (!tmp_s & tmp_30) | (!tmp_s & or_cond)> <Delay = 1.79>
-ST_6 : Operation 60 [1/1] (1.37ns)   --->   "%p_1 = select i1 %tmp_29, float 1.000000e+00, float 0x7FFFFFFFE0000000" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62]   --->   Operation 60 'select' 'p_1' <Predicate = (tmp_s)> <Delay = 1.37> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_6 : Operation 61 [1/1] (1.79ns)   --->   "br label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62]   --->   Operation 61 'br' <Predicate = (tmp_s)> <Delay = 1.79>
+State 6 <SV = 5> <Delay = 8.63>
+ST_6 : Operation 78 [7/7] (8.63ns)   --->   "%tmp_118_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 78 'call' 'tmp_118_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.63> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 79 [1/2] (8.46ns)   --->   "%resultf = fmul float %abst_in, %tmp_58" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73]   --->   Operation 79 'fmul' 'resultf' <Predicate = (!tmp_s & tmp_55) | (!tmp_s & or_cond)> <Delay = 8.46> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 1> <II = 1> <Delay = 8.46> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
 
-State 7 <SV = 6> <Delay = 29.7>
-ST_7 : Operation 62 [1/1] (26.5ns)   --->   "%resultf_2 = fsub float 1.000000e+00, %tmp_39" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 62 'fsub' 'resultf_2' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_34)> <Delay = 26.5> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 0> <II = 1> <Delay = 26.5> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 63 [1/1] (1.79ns)   --->   "br label %._crit_edge_ifconv"   --->   Operation 63 'br' <Predicate = (!tmp_s & !tmp_30 & !or_cond & tmp_17 & !tmp_34)> <Delay = 1.79>
-ST_7 : Operation 64 [1/1] (0.00ns)   --->   "%resultf_4 = phi float [ %resultf, %._crit_edge38 ], [ %resultf_1, %6 ], [ %resultf_2, %7 ], [ 1.000000e+00, %._crit_edge39 ], [ %p_1, %1 ]"   --->   Operation 64 'phi' 'resultf_4' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 65 [1/1] (0.00ns) (grouped into LUT with out node p_s)   --->   "%tmp_95_to_int = bitcast float %resultf_4 to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:107]   --->   Operation 65 'bitcast' 'tmp_95_to_int' <Predicate = (p_Result_s)> <Delay = 0.00>
-ST_7 : Operation 66 [1/1] (0.00ns) (grouped into LUT with out node p_s)   --->   "%tmp_95_neg = xor i32 %tmp_95_to_int, -2147483648" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:107]   --->   Operation 66 'xor' 'tmp_95_neg' <Predicate = (p_Result_s)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.26> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node p_s)   --->   "%tmp_40 = bitcast i32 %tmp_95_neg to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:107]   --->   Operation 67 'bitcast' 'tmp_40' <Predicate = (p_Result_s)> <Delay = 0.00>
-ST_7 : Operation 68 [1/1] (1.37ns) (out node of the LUT)   --->   "%p_s = select i1 %p_Result_s, float %tmp_40, float %resultf_4" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:279->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 68 'select' 'p_s' <Predicate = true> <Delay = 1.37> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_7 : Operation 69 [1/1] (0.00ns)   --->   "ret float %p_s" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:109]   --->   Operation 69 'ret' <Predicate = true> <Delay = 0.00>
+State 7 <SV = 6> <Delay = 8.68>
+ST_7 : Operation 80 [6/7] (8.68ns)   --->   "%tmp_118_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 80 'call' 'tmp_118_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.68> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 7> <Delay = 8.68>
+ST_8 : Operation 81 [5/7] (8.68ns)   --->   "%tmp_118_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 81 'call' 'tmp_118_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.68> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 8> <Delay = 8.68>
+ST_9 : Operation 82 [4/7] (8.68ns)   --->   "%tmp_118_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 82 'call' 'tmp_118_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.68> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 9> <Delay = 8.68>
+ST_10 : Operation 83 [3/7] (8.68ns)   --->   "%tmp_118_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 83 'call' 'tmp_118_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.68> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 11 <SV = 10> <Delay = 8.68>
+ST_11 : Operation 84 [2/7] (8.68ns)   --->   "%tmp_118_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 84 'call' 'tmp_118_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.68> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 12 <SV = 11> <Delay = 6.71>
+ST_12 : Operation 85 [1/7] (6.71ns)   --->   "%tmp_118_i = call fastcc double @"exp_generic<double>"(double %xd) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 85 'call' 'tmp_118_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 6.71> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 12> <Delay = 8.42>
+ST_13 : Operation 86 [4/4] (8.42ns)   --->   "%tmp_119_i = fadd double %tmp_118_i, -1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 86 'dadd' 'tmp_119_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.42> <Core = "DAddSub">   --->   Core 109 'DAddSub' <Latency = 3> <II = 1> <Delay = 8.42> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 8.42>
+ST_14 : Operation 87 [3/4] (8.42ns)   --->   "%tmp_119_i = fadd double %tmp_118_i, -1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 87 'dadd' 'tmp_119_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.42> <Core = "DAddSub">   --->   Core 109 'DAddSub' <Latency = 3> <II = 1> <Delay = 8.42> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 8.42>
+ST_15 : Operation 88 [2/4] (8.42ns)   --->   "%tmp_119_i = fadd double %tmp_118_i, -1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 88 'dadd' 'tmp_119_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.42> <Core = "DAddSub">   --->   Core 109 'DAddSub' <Latency = 3> <II = 1> <Delay = 8.42> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 8.42>
+ST_16 : Operation 89 [1/4] (8.42ns)   --->   "%tmp_119_i = fadd double %tmp_118_i, -1.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 89 'dadd' 'tmp_119_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 8.42> <Core = "DAddSub">   --->   Core 109 'DAddSub' <Latency = 3> <II = 1> <Delay = 8.42> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 3.86>
+ST_17 : Operation 90 [1/1] (3.86ns)   --->   "%tmp_120_i = fptrunc double %tmp_119_i to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 90 'fptrunc' 'tmp_120_i' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 3.86> <Core = "Double2Float">   --->   Core 117 'Double2Float' <Latency = 0> <II = 1> <Delay = 3.86> <FuncUnit> <Opcode : 'fptrunc'> <InPorts = 1> <OutPorts = 1>
+ST_17 : Operation 91 [1/1] (0.99ns)   --->   "br label %expm1.exit" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85]   --->   Operation 91 'br' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_i & !tmp_i_50)> <Delay = 0.99>
+
+State 18 <SV = 17> <Delay = 6.77>
+ST_18 : Operation 92 [1/1] (0.00ns)   --->   "%expx = phi float [ %tmp_120_i, %5 ], [ 0.000000e+00, %_ifconv ], [ %x_2, %4 ]"   --->   Operation 92 'phi' 'expx' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18)> <Delay = 0.00>
+ST_18 : Operation 93 [4/4] (6.77ns)   --->   "%tmp_63 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 93 'fadd' 'tmp_63' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 94 [4/4] (6.77ns)   --->   "%tmp_62 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 94 'fadd' 'tmp_62' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 6.77>
+ST_19 : Operation 95 [3/4] (6.77ns)   --->   "%tmp_63 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 95 'fadd' 'tmp_63' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 96 [3/4] (6.77ns)   --->   "%tmp_62 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 96 'fadd' 'tmp_62' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 6.77>
+ST_20 : Operation 97 [2/4] (6.77ns)   --->   "%tmp_63 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 97 'fadd' 'tmp_63' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 98 [2/4] (6.77ns)   --->   "%tmp_62 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 98 'fadd' 'tmp_62' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 6.77>
+ST_21 : Operation 99 [1/4] (6.77ns)   --->   "%tmp_63 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 99 'fadd' 'tmp_63' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 100 [1/1] (0.00ns)   --->   "%tmp_114_to_int = bitcast float %expx to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 100 'bitcast' 'tmp_114_to_int' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 0.00>
+ST_21 : Operation 101 [1/1] (0.51ns)   --->   "%tmp_114_neg = xor i32 %tmp_114_to_int, -2147483648" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 101 'xor' 'tmp_114_neg' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 0.51> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 102 [1/4] (6.77ns)   --->   "%tmp_62 = fadd float %expx, 2.000000e+00" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 102 'fadd' 'tmp_62' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 8.73>
+ST_22 : Operation 103 [8/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 103 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_61 = bitcast i32 %tmp_114_neg to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 104 'bitcast' 'tmp_61' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 0.00>
+ST_22 : Operation 105 [8/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 105 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 8.73>
+ST_23 : Operation 106 [7/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 106 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 107 [7/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 107 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 8.73>
+ST_24 : Operation 108 [6/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 108 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 109 [6/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 109 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 8.73>
+ST_25 : Operation 110 [5/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 110 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 111 [5/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 111 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 8.73>
+ST_26 : Operation 112 [4/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 112 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 113 [4/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 113 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 8.73>
+ST_27 : Operation 114 [3/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 114 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 115 [3/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 115 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 8.73>
+ST_28 : Operation 116 [2/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 116 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 117 [2/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 117 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 8.73>
+ST_29 : Operation 118 [1/8] (8.73ns)   --->   "%tmp_64 = fdiv float 2.000000e+00, %tmp_63" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 118 'fdiv' 'tmp_64' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 119 [1/8] (8.73ns)   --->   "%resultf_1 = fdiv float %tmp_61, %tmp_62" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90]   --->   Operation 119 'fdiv' 'resultf_1' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 8.73> <Core = "FDiv">   --->   Core 101 'FDiv' <Latency = 7> <II = 1> <Delay = 8.73> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 29> <Delay = 6.77>
+ST_30 : Operation 120 [4/4] (6.77ns)   --->   "%resultf_2 = fsub float 1.000000e+00, %tmp_64" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 120 'fsub' 'resultf_2' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 6.77>
+ST_31 : Operation 121 [3/4] (6.77ns)   --->   "%resultf_2 = fsub float 1.000000e+00, %tmp_64" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 121 'fsub' 'resultf_2' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 31> <Delay = 6.77>
+ST_32 : Operation 122 [2/4] (6.77ns)   --->   "%resultf_2 = fsub float 1.000000e+00, %tmp_64" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 122 'fsub' 'resultf_2' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 123 [1/1] (1.07ns)   --->   "br label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:91]   --->   Operation 123 'br' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & tmp_59)> <Delay = 1.07>
+ST_32 : Operation 124 [1/1] (1.07ns)   --->   "br label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:74]   --->   Operation 124 'br' <Predicate = (!tmp_s & tmp_55) | (!tmp_s & or_cond)> <Delay = 1.07>
+ST_32 : Operation 125 [1/1] (0.49ns)   --->   "%p_1 = select i1 %tmp_54, float 1.000000e+00, float 0x7FFFFFFFE0000000" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62]   --->   Operation 125 'select' 'p_1' <Predicate = (tmp_s)> <Delay = 0.49> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_32 : Operation 126 [1/1] (1.07ns)   --->   "br label %._crit_edge_ifconv" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62]   --->   Operation 126 'br' <Predicate = (tmp_s)> <Delay = 1.07>
+
+State 33 <SV = 32> <Delay = 8.36>
+ST_33 : Operation 127 [1/4] (6.77ns)   --->   "%resultf_2 = fsub float 1.000000e+00, %tmp_64" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95]   --->   Operation 127 'fsub' 'resultf_2' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 128 [1/1] (1.07ns)   --->   "br label %._crit_edge_ifconv"   --->   Operation 128 'br' <Predicate = (!tmp_s & !tmp_55 & !or_cond & tmp_18 & !tmp_59)> <Delay = 1.07>
+ST_33 : Operation 129 [1/1] (0.00ns)   --->   "%resultf_4 = phi float [ %resultf, %._crit_edge38 ], [ %resultf_1, %6 ], [ %resultf_2, %7 ], [ 1.000000e+00, %._crit_edge39 ], [ %p_1, %1 ]"   --->   Operation 129 'phi' 'resultf_4' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 130 [1/1] (0.00ns) (grouped into LUT with out node p_s)   --->   "%tmp_118_to_int = bitcast float %resultf_4 to i32" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:107]   --->   Operation 130 'bitcast' 'tmp_118_to_int' <Predicate = (p_Result_s)> <Delay = 0.00>
+ST_33 : Operation 131 [1/1] (0.00ns) (grouped into LUT with out node p_s)   --->   "%tmp_118_neg = xor i32 %tmp_118_to_int, -2147483648" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:107]   --->   Operation 131 'xor' 'tmp_118_neg' <Predicate = (p_Result_s)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 132 [1/1] (0.00ns) (grouped into LUT with out node p_s)   --->   "%tmp_65 = bitcast i32 %tmp_118_neg to float" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:107]   --->   Operation 132 'bitcast' 'tmp_65' <Predicate = (p_Result_s)> <Delay = 0.00>
+ST_33 : Operation 133 [1/1] (0.51ns) (out node of the LUT)   --->   "%p_s = select i1 %p_Result_s, float %tmp_65, float %resultf_4" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:279->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56]   --->   Operation 133 'select' 'p_s' <Predicate = true> <Delay = 0.51> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_33 : Operation 134 [1/1] (0.00ns)   --->   "ret float %p_s" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:109]   --->   Operation 134 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
 + Verbose Summary: Timing violations
 ============================================================
-Target clock period: 100ns, clock uncertainty: 12.5ns.
+Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 31.2ns
+ <State 1>: 7.29ns
 The critical path consists of the following:
 	wire read on port 't_in' [5]  (0 ns)
-	'icmp' operation ('tmp_34', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:78) [27]  (1.48 ns)
-	'select' operation ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [32]  (26.6 ns)
-	'icmp' operation ('tmp_i_43', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:9->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [38]  (1.48 ns)
-	multiplexor before 'phi' operation ('x') with incoming values : ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) ('tmp_98_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [47]  (1.71 ns)
+	'xor' operation ('tmp_113_neg', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79) [28]  (0.517 ns)
+	'fsub' operation ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79) [30]  (6.77 ns)
 
- <State 2>: 42.5ns
+ <State 2>: 6.77ns
 The critical path consists of the following:
-	'fpext' operation ('xd', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:10->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [41]  (5.35 ns)
-	'call' operation ('tmp_96_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (37.2 ns)
+	'fsub' operation ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79) [30]  (6.77 ns)
 
- <State 3>: 61.2ns
+ <State 3>: 6.77ns
 The critical path consists of the following:
-	'call' operation ('tmp_96_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (61.2 ns)
+	'fsub' operation ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79) [30]  (6.77 ns)
 
- <State 4>: 72ns
+ <State 4>: 7.27ns
 The critical path consists of the following:
-	'dadd' operation ('tmp_97_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [43]  (37.3 ns)
-	'fptrunc' operation ('tmp_98_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [44]  (6.4 ns)
-	multiplexor before 'phi' operation ('x') with incoming values : ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) ('tmp_98_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [47]  (1.71 ns)
-	'phi' operation ('x') with incoming values : ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) ('tmp_98_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [47]  (0 ns)
-	'fadd' operation ('tmp_37', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90) [58]  (26.6 ns)
+	'fsub' operation ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:79) [30]  (6.77 ns)
+	'select' operation ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [32]  (0.496 ns)
 
- <State 5>: 82.6ns
+ <State 5>: 8.46ns
 The critical path consists of the following:
-	'xor' operation ('tmp_91_neg', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90) [56]  (1.27 ns)
-	'fdiv' operation ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90) [59]  (81.4 ns)
+	'fmul' operation ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73) [63]  (8.46 ns)
 
- <State 6>: 81.4ns
+ <State 6>: 8.63ns
 The critical path consists of the following:
-	'fdiv' operation ('tmp_39', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (81.4 ns)
+	'call' operation ('tmp_118_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (8.63 ns)
 
- <State 7>: 29.7ns
+ <State 7>: 8.69ns
 The critical path consists of the following:
-	'fsub' operation ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [52]  (26.6 ns)
-	multiplexor before 'phi' operation ('resultf') with incoming values : ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90) ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73) ('p_1', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62) [70]  (1.8 ns)
+	'call' operation ('tmp_118_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (8.69 ns)
+
+ <State 8>: 8.69ns
+The critical path consists of the following:
+	'call' operation ('tmp_118_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (8.69 ns)
+
+ <State 9>: 8.69ns
+The critical path consists of the following:
+	'call' operation ('tmp_118_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (8.69 ns)
+
+ <State 10>: 8.69ns
+The critical path consists of the following:
+	'call' operation ('tmp_118_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (8.69 ns)
+
+ <State 11>: 8.69ns
+The critical path consists of the following:
+	'call' operation ('tmp_118_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (8.69 ns)
+
+ <State 12>: 6.72ns
+The critical path consists of the following:
+	'call' operation ('tmp_118_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) to 'exp_generic<double>' [42]  (6.72 ns)
+
+ <State 13>: 8.42ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_119_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [43]  (8.42 ns)
+
+ <State 14>: 8.42ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_119_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [43]  (8.42 ns)
+
+ <State 15>: 8.42ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_119_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [43]  (8.42 ns)
+
+ <State 16>: 8.42ns
+The critical path consists of the following:
+	'dadd' operation ('tmp_119_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [43]  (8.42 ns)
+
+ <State 17>: 3.87ns
+The critical path consists of the following:
+	'fptrunc' operation ('tmp_120_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [44]  (3.87 ns)
+
+ <State 18>: 6.77ns
+The critical path consists of the following:
+	'phi' operation ('x') with incoming values : ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) ('tmp_120_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [47]  (0 ns)
+	'fadd' operation ('tmp_63', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [50]  (6.77 ns)
+
+ <State 19>: 6.77ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_63', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [50]  (6.77 ns)
+
+ <State 20>: 6.77ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_63', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [50]  (6.77 ns)
+
+ <State 21>: 6.77ns
+The critical path consists of the following:
+	'fadd' operation ('tmp_63', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [50]  (6.77 ns)
+
+ <State 22>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 23>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 24>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 25>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 26>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 27>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 28>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 29>: 8.73ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_64', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [51]  (8.73 ns)
+
+ <State 30>: 6.77ns
+The critical path consists of the following:
+	'fsub' operation ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [52]  (6.77 ns)
+
+ <State 31>: 6.77ns
+The critical path consists of the following:
+	'fsub' operation ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [52]  (6.77 ns)
+
+ <State 32>: 6.77ns
+The critical path consists of the following:
+	'fsub' operation ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [52]  (6.77 ns)
+
+ <State 33>: 8.37ns
+The critical path consists of the following:
+	'fsub' operation ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [52]  (6.77 ns)
+	multiplexor before 'phi' operation ('resultf') with incoming values : ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90) ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73) ('p_1', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62) [70]  (1.08 ns)
 	'phi' operation ('resultf') with incoming values : ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90) ('resultf', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:73) ('p_1', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:62) [70]  (0 ns)
-	'select' operation ('p_s', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:279->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56) [74]  (1.37 ns)
+	'select' operation ('p_s', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:279->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:56) [74]  (0.517 ns)
 
 
 ============================================================
@@ -229,6 +470,32 @@ N/A
 	State 5
 	State 6
 	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
 
 
 ============================================================

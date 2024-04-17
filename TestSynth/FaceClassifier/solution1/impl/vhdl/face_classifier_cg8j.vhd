@@ -5,69 +5,258 @@
 -- 
 -- ==============================================================
 
-Library ieee;
+library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity face_classifier_cg8j_div_u is
+    generic (
+        in0_WIDTH   : INTEGER :=32;
+        in1_WIDTH   : INTEGER :=32;
+        out_WIDTH   : INTEGER :=32);
+    port (
+        clk         : in  STD_LOGIC;
+        reset       : in  STD_LOGIC;
+        ce          : in  STD_LOGIC;
+        start       : in  STD_LOGIC;
+        dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+        divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+        done        : out STD_LOGIC;
+        quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+        remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+
+    function max (left, right : INTEGER) return INTEGER is
+    begin
+        if left > right then return left;
+        else return right;
+        end if;
+    end max;
+
+end entity;
+
+architecture rtl of face_classifier_cg8j_div_u is
+    constant cal_WIDTH      : INTEGER := max(in0_WIDTH, in1_WIDTH);
+
+    signal dividend0        : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal divisor0         : UNSIGNED(in1_WIDTH-1 downto 0);
+    signal dividend_tmp     : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal remd_tmp         : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal dividend_tmp_mux : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal remd_tmp_mux     : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal comb_tmp         : UNSIGNED(in0_WIDTH-1 downto 0);
+    signal cal_tmp          : UNSIGNED(cal_WIDTH downto 0);
+    signal r_stage          : UNSIGNED(in0_WIDTH downto 0);
+begin
+  quot     <= STD_LOGIC_VECTOR(RESIZE(dividend_tmp, out_WIDTH));
+  remd     <= STD_LOGIC_VECTOR(RESIZE(remd_tmp, out_WIDTH));
+
+  tran0_proc : process (clk)
+  begin
+      if (clk'event and clk='1') then
+          if (start = '1') then
+              dividend0 <= UNSIGNED(dividend);
+              divisor0  <= UNSIGNED(divisor);
+          end if;
+      end if;
+  end process;
+
+  -- r_stage(0)=1:accept input; r_stage(in0_WIDTH)=1:done
+  done <= r_stage(in0_WIDTH);
+  one_hot : process (clk)
+  begin
+      if clk'event and clk = '1' then
+          if reset = '1' then
+              r_stage <= (others => '0'); 
+          elsif (ce = '1') then
+              r_stage <= r_stage(in0_WIDTH-1 downto 0) & start;
+          end if;
+      end if;
+  end process;
+
+  -- MUXs
+  dividend_tmp_mux  <=  dividend_tmp when (r_stage(0) = '0') else
+                        dividend0;
+  remd_tmp_mux      <=  remd_tmp when (r_stage(0) = '0') else
+                        (others => '0');
+
+  comb_tmp <= remd_tmp_mux(in0_WIDTH-2 downto 0) & dividend_tmp_mux(in0_WIDTH-1);
+  cal_tmp  <= ('0' & comb_tmp) - ('0' & divisor0);
+
+  process (clk)
+  begin
+      if (clk'event and clk='1') then
+          if (ce = '1') then
+              dividend_tmp <= dividend_tmp_mux(in0_WIDTH-2 downto 0) & (not cal_tmp(cal_WIDTH));
+              if cal_tmp(cal_WIDTH) = '1' then
+                  remd_tmp <= comb_tmp;
+              else
+                  remd_tmp <= cal_tmp(in0_WIDTH-1 downto 0);
+              end if;
+          end if;
+      end if;
+  end process;
+
+end architecture;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity face_classifier_cg8j_div is
+    generic (
+        in0_WIDTH   : INTEGER :=32;
+        in1_WIDTH   : INTEGER :=32;
+        out_WIDTH   : INTEGER :=32);
+    port (
+        clk         : in  STD_LOGIC;
+        reset       : in  STD_LOGIC;
+        ce          : in  STD_LOGIC;
+        start       : in  STD_LOGIC;
+        done        : out STD_LOGIC;
+        dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+        divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+        quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+        remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+end entity;
+
+architecture rtl of face_classifier_cg8j_div is
+    component face_classifier_cg8j_div_u is
+        generic (
+            in0_WIDTH   : INTEGER :=32;
+            in1_WIDTH   : INTEGER :=32;
+            out_WIDTH   : INTEGER :=32);
+        port (
+            reset       : in  STD_LOGIC;
+            clk         : in  STD_LOGIC;
+            ce          : in  STD_LOGIC;
+            start       : in  STD_LOGIC;
+            done        : out STD_LOGIC;
+            dividend    : in  STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+            divisor     : in  STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+            quot        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+            remd        : out STD_LOGIC_VECTOR(out_WIDTH-1 downto 0));
+    end component;
+
+    signal start0     : STD_LOGIC := '0';
+    signal done0      : STD_LOGIC;
+    signal dividend0  : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+    signal divisor0   : STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+    signal dividend_u : STD_LOGIC_VECTOR(in0_WIDTH-1 downto 0);
+    signal divisor_u  : STD_LOGIC_VECTOR(in1_WIDTH-1 downto 0);
+    signal quot_u     : STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+    signal remd_u     : STD_LOGIC_VECTOR(out_WIDTH-1 downto 0);
+begin
+    face_classifier_cg8j_div_u_0 : face_classifier_cg8j_div_u
+        generic map(
+            in0_WIDTH   => in0_WIDTH,
+            in1_WIDTH   => in1_WIDTH,
+            out_WIDTH   => out_WIDTH)
+        port map(
+            clk         => clk,
+            reset       => reset,
+            ce          => ce,
+            start       => start0,
+            done        => done0,
+            dividend    => dividend_u,
+            divisor     => divisor_u,
+            quot        => quot_u,
+            remd        => remd_u);
+
+    dividend_u  <= dividend0;
+    divisor_u   <= divisor0;
+
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        if (ce = '1') then
+            dividend0 <= dividend;
+            divisor0 <= divisor;
+            start0 <= start;
+        end if;
+    end if;
+end process;
+
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        done <= done0;
+    end if;
+end process;
+
+process (clk)
+begin
+    if (clk'event and clk = '1') then
+        if (done0 = '1') then
+            quot <= quot_u;
+            remd <= remd_u;
+        end if;
+    end if;
+end process;
+
+end architecture;
+
+
+
+Library IEEE;
+use IEEE.std_logic_1164.all;
 
 entity face_classifier_cg8j is
     generic (
-        ID         : integer := 39;
-        NUM_STAGE  : integer := 1;
-        din0_WIDTH : integer := 32;
-        din1_WIDTH : integer := 32;
-        dout_WIDTH : integer := 32
-    );
+        ID : INTEGER;
+        NUM_STAGE : INTEGER;
+        din0_WIDTH : INTEGER;
+        din1_WIDTH : INTEGER;
+        dout_WIDTH : INTEGER);
     port (
-        din0   : in  std_logic_vector(din0_WIDTH-1 downto 0);
-        din1   : in  std_logic_vector(din1_WIDTH-1 downto 0);
-        opcode : in  std_logic_vector(1 downto 0);
-        dout   : out std_logic_vector(dout_WIDTH-1 downto 0)
-    );
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        ce : IN STD_LOGIC;
+        start : IN STD_LOGIC;
+        done : OUT STD_LOGIC;
+        din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
+        din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
+        dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
 architecture arch of face_classifier_cg8j is
-    --------------------- Component ---------------------
-    component face_classifier_c_ap_faddfsub_0_full_dsp_32 is
+    component face_classifier_cg8j_div is
+        generic (
+            in0_WIDTH : INTEGER;
+            in1_WIDTH : INTEGER;
+            out_WIDTH : INTEGER);
         port (
-            s_axis_a_tvalid         : in  std_logic;
-            s_axis_a_tdata          : in  std_logic_vector(31 downto 0);
-            s_axis_b_tvalid         : in  std_logic;
-            s_axis_b_tdata          : in  std_logic_vector(31 downto 0);
-            s_axis_operation_tvalid : in  std_logic;
-            s_axis_operation_tdata  : in  std_logic_vector(7 downto 0);
-            m_axis_result_tvalid    : out std_logic;
-            m_axis_result_tdata     : out std_logic_vector(31 downto 0)
-        );
+            dividend : IN STD_LOGIC_VECTOR;
+            divisor : IN STD_LOGIC_VECTOR;
+            quot : OUT STD_LOGIC_VECTOR;
+            remd : OUT STD_LOGIC_VECTOR;
+            clk : IN STD_LOGIC;
+            ce : IN STD_LOGIC;
+            reset : IN STD_LOGIC;
+            start : IN STD_LOGIC;
+            done : OUT STD_LOGIC);
     end component;
-    --------------------- Local signal ------------------
-    signal a_tvalid  : std_logic;
-    signal a_tdata   : std_logic_vector(31 downto 0);
-    signal b_tvalid  : std_logic;
-    signal b_tdata   : std_logic_vector(31 downto 0);
-    signal op_tvalid : std_logic;
-    signal op_tdata  : std_logic_vector(7 downto 0);
-    signal r_tvalid  : std_logic;
-    signal r_tdata   : std_logic_vector(31 downto 0);
-begin
-    --------------------- Instantiation -----------------
-    face_classifier_c_ap_faddfsub_0_full_dsp_32_u : component face_classifier_c_ap_faddfsub_0_full_dsp_32
-    port map (
-        s_axis_a_tvalid         => a_tvalid,
-        s_axis_a_tdata          => a_tdata,
-        s_axis_b_tvalid         => b_tvalid,
-        s_axis_b_tdata          => b_tdata,
-        s_axis_operation_tvalid => op_tvalid,
-        s_axis_operation_tdata  => op_tdata,
-        m_axis_result_tvalid    => r_tvalid,
-        m_axis_result_tdata     => r_tdata
-    );
 
-    --------------------- Assignment --------------------
-    a_tvalid  <= '1';
-    a_tdata   <= din0;
-    b_tvalid  <= '1';
-    b_tdata   <= din1;
-    op_tvalid <= '1';
-    op_tdata  <= ( "000000" & opcode);
-    dout      <= r_tdata;
+    signal sig_quot : STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0);
+    signal sig_remd : STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0);
+
+
+begin
+    face_classifier_cg8j_div_U :  component face_classifier_cg8j_div
+    generic map (
+        in0_WIDTH => din0_WIDTH,
+        in1_WIDTH => din1_WIDTH,
+        out_WIDTH => dout_WIDTH)
+    port map (
+        dividend => din0,
+        divisor => din1,
+        quot => dout,
+        remd => sig_remd,
+        clk => clk,
+        ce => ce,
+        reset => reset,
+        start => start,
+        done => done);
 
 end architecture;
+
+

@@ -6,15 +6,15 @@
         <DownStreamTool name=""/>
     </downStreamTool>
     <clockList>
-        <clock default="false" name="default" period="100"/>
+        <clock default="false" name="default" period="10"/>
     </clockList>
     <config>
         <schedule model="face_classifier_c"/>
     </config>
     <UIConfigurations>
-        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="true" isStopAskAgain="false" showDetailDesignViewer="false">
-            <Platform>xilinx/aartix7/aartix7</Platform>
-            <Platform>xilinx/aartix7/aartix7_fpv6</Platform>
+        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
+            <Platform>xilinx/virtexu/virtexu</Platform>
+            <Platform>xilinx/virtexu/virtexu_fpv7</Platform>
             <customLibs/>
         </UIAutosynConf>
         <UIIPPackagerConf AskAgain="true" DescriptionButton="false" LibraryButton="false" RTLLanguage="verilog" UseNetList="none" VendorButton="false" VersionButton="false" evaluateRTL="false" setup="false">
@@ -50,8 +50,8 @@
         <Format formatName="syn_dcp"/>
         <Format formatName="pcore" use_netlist="none"/>
     </ExportDesign>
-    <Simulation>
-        <SimFlow askAgain="true" clangSanitizer="false" compile="false" compileChoice="gcc" dumpTrace="none" name="cosim" optimizeCompile="false" reduce_diskspace="false" setup="false" toolName="Auto" waveDebug="false">
+    <Simulation argv="">
+        <SimFlow askAgain="true" clangSanitizer="false" compile="false" compileChoice="gcc" dumpTrace="none" ldflags="-Wl,--stack,16777216" name="cosim" optimizeCompile="false" reduce_diskspace="false" setup="false" toolName="auto" waveDebug="false" mflags="" compiledLibrary="">
             <Rtl active="false" name="systemc"/>
             <Rtl active="true" name="verilog"/>
             <Rtl active="false" name="vhdl"/>
@@ -64,11 +64,11 @@
         <value string="FaceClassifier"/>
     </project>
     <targetInfo>
-        <TargetInfo value="xa7a12t:csg325:-1q"/>
+        <TargetInfo value="xcvu160:-flgc2104:-2-e"/>
     </targetInfo>
     <libraryList>
-        <library name="DefaultPlatform" value="xilinx/aartix7/aartix7"/>
-        <library name="DefaultPlatform" value="xilinx/aartix7/aartix7_fpv6"/>
+        <library name="DefaultPlatform" value="xilinx/virtexu/virtexu"/>
+        <library name="DefaultPlatform" value="xilinx/virtexu/virtexu_fpv7"/>
     </libraryList>
 </solution>
 

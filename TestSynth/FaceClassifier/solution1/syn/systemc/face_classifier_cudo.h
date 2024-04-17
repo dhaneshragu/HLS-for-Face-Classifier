@@ -7,7 +7,7 @@
 
 #ifndef __face_classifier_cudo__HH__
 #define __face_classifier_cudo__HH__
-#include "simcore_mac_1.h"
+#include "ACMP_dadd.h"
 #include <systemc>
 
 template<
@@ -15,23 +15,26 @@ template<
     int NUM_STAGE,
     int din0_WIDTH,
     int din1_WIDTH,
-    int din2_WIDTH,
     int dout_WIDTH>
 SC_MODULE(face_classifier_cudo) {
+    sc_core::sc_in_clk clk;
+    sc_core::sc_in<sc_dt::sc_logic> reset;
+    sc_core::sc_in<sc_dt::sc_logic> ce;
     sc_core::sc_in< sc_dt::sc_lv<din0_WIDTH> >   din0;
     sc_core::sc_in< sc_dt::sc_lv<din1_WIDTH> >   din1;
-    sc_core::sc_in< sc_dt::sc_lv<din2_WIDTH> >   din2;
     sc_core::sc_out< sc_dt::sc_lv<dout_WIDTH> >   dout;
 
 
 
-    simcore_mac_1<ID, 1, din0_WIDTH, din1_WIDTH, din2_WIDTH, dout_WIDTH> simcore_mac_1_U;
+    ACMP_dadd<ID, 4, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_dadd_U;
 
-    SC_CTOR(face_classifier_cudo):  simcore_mac_1_U ("simcore_mac_1_U") {
-        simcore_mac_1_U.din0(din0);
-        simcore_mac_1_U.din1(din1);
-        simcore_mac_1_U.din2(din2);
-        simcore_mac_1_U.dout(dout);
+    SC_CTOR(face_classifier_cudo):  ACMP_dadd_U ("ACMP_dadd_U") {
+        ACMP_dadd_U.clk(clk);
+        ACMP_dadd_U.reset(reset);
+        ACMP_dadd_U.ce(ce);
+        ACMP_dadd_U.din0(din0);
+        ACMP_dadd_U.din1(din1);
+        ACMP_dadd_U.dout(dout);
 
     }
 

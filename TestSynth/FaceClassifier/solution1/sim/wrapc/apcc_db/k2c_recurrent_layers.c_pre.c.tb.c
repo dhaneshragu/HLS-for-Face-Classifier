@@ -131,7 +131,7 @@ typedef struct l_struct_OC_k2c_tensor l_struct_OC_k2c_tensor;
 
 /* Structure contents */
 struct l_struct_OC_k2c_tensor {
-  float field0[300000];
+  float field0[262200];
   unsigned long long field1;
   unsigned long long field2;
   signed long long field3[5];

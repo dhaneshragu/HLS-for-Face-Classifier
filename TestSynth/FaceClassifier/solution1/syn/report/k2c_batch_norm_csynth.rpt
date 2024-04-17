@@ -3,13 +3,13 @@
 ================================================================
 == Vivado HLS Report for 'k2c_batch_norm'
 ================================================================
-* Date:           Mon Apr  8 17:34:51 2024
+* Date:           Wed Apr 17 23:19:38 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
 * Solution:       solution1
-* Product family: aartix7
-* Target device:  xa7a12tcsg325-1q
+* Product family: virtexu
+* Target device:  xcvu160-flgc2104-2-e
 
 
 ================================================================
@@ -17,11 +17,11 @@
 ================================================================
 + Timing (ns): 
     * Summary: 
-    +--------+--------+----------+------------+
-    |  Clock | Target | Estimated| Uncertainty|
-    +--------+--------+----------+------------+
-    |ap_clk  |  100.00|    84.609|       12.50|
-    +--------+--------+----------+------------+
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.733|        1.25|
+    +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |    ?|    ?|    ?|    ?|   none  |
+    |   45|  135|   45|  135|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -37,13 +37,12 @@
         N/A
 
         * Loop: 
-        +----------+-----+-----+----------+-----------+-----------+------+----------+
-        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +----------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
-        |- Loop 2  |    ?|    ?|        94|          -|          -|     ?|    no    |
-        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        +----------+-----+-----+----------+-----------+-----------+----------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  |   Trip   |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  |   Count  | Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+----------+----------+
+        |- Loop 1  |   42|  132|        34|          1|          1| 10 ~ 100 |    yes   |
+        +----------+-----+-----+----------+-----------+-----------+----------+----------+
 
 
 
@@ -51,37 +50,41 @@
 == Utilization Estimates
 ================================================================
 * Summary: 
-+-----------------+---------+-------+-------+------+
-|       Name      | BRAM_18K| DSP48E|   FF  |  LUT |
-+-----------------+---------+-------+-------+------+
-|DSP              |        -|      -|      -|     -|
-|Expression       |        -|     10|      0|   201|
-|FIFO             |        -|      -|      -|     -|
-|Instance         |        -|      5|   1991|  2590|
-|Memory           |        -|      -|      -|     -|
-|Multiplexer      |        -|      -|      -|   524|
-|Register         |        -|      -|    539|     -|
-+-----------------+---------+-------+-------+------+
-|Total            |        0|     15|   2530|  3315|
-+-----------------+---------+-------+-------+------+
-|Available        |       40|     40|  16000|  8000|
-+-----------------+---------+-------+-------+------+
-|Utilization (%)  |        0|     37|     15|    41|
-+-----------------+---------+-------+-------+------+
++---------------------+---------+-------+---------+--------+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT  |
++---------------------+---------+-------+---------+--------+
+|DSP                  |        -|      -|        -|       -|
+|Expression           |        -|      -|        0|      52|
+|FIFO                 |        -|      -|        -|       -|
+|Instance             |        -|      7|     9592|    7972|
+|Memory               |        -|      -|        -|       -|
+|Multiplexer          |        -|      -|        -|      54|
+|Register             |        2|      -|      579|      98|
++---------------------+---------+-------+---------+--------+
+|Total                |        2|      7|    10171|    8176|
++---------------------+---------+-------+---------+--------+
+|Available SLR        |     2184|    520|   617600|  308800|
++---------------------+---------+-------+---------+--------+
+|Utilization SLR (%)  |    ~0   |      1|        1|       2|
++---------------------+---------+-------+---------+--------+
+|Available            |     6552|   1560|  1852800|  926400|
++---------------------+---------+-------+---------+--------+
+|Utilization (%)      |    ~0   |   ~0  |    ~0   |   ~0   |
++---------------------+---------+-------+---------+--------+
 
 + Detail: 
     * Instance: 
-    +--------------------------+----------------------+---------+-------+-----+-----+
-    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT |
-    +--------------------------+----------------------+---------+-------+-----+-----+
-    |face_classifier_ccud_U40  |face_classifier_ccud  |        0|      3|  128|  320|
-    |face_classifier_cfYi_U43  |face_classifier_cfYi  |        0|      0|  779|  469|
-    |face_classifier_cg8j_U39  |face_classifier_cg8j  |        0|      2|  177|  385|
-    |face_classifier_chbi_U41  |face_classifier_chbi  |        0|      0|  128|  947|
-    |face_classifier_cibs_U42  |face_classifier_cibs  |        0|      0|  779|  469|
-    +--------------------------+----------------------+---------+-------+-----+-----+
-    |Total                     |                      |        0|      5| 1991| 2590|
-    +--------------------------+----------------------+---------+-------+-----+-----+
+    +--------------------------+----------------------+---------+-------+------+------+
+    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF  |  LUT |
+    +--------------------------+----------------------+---------+-------+------+------+
+    |face_classifier_cdEe_U53  |face_classifier_cdEe  |        0|      2|   227|   214|
+    |face_classifier_ceOg_U54  |face_classifier_ceOg  |        0|      3|   128|   135|
+    |face_classifier_cjbC_U52  |face_classifier_cjbC  |        0|      2|   227|   214|
+    |face_classifier_ckbM_U55  |face_classifier_ckbM  |        0|      0|   359|   802|
+    |face_classifier_clbW_U56  |face_classifier_clbW  |        0|      0|  8651|  6607|
+    +--------------------------+----------------------+---------+-------+------+------+
+    |Total                     |                      |        0|      7|  9592|  7972|
+    +--------------------------+----------------------+---------+-------+------+------+
 
     * DSP48: 
     N/A
@@ -93,52 +96,86 @@
     N/A
 
     * Expression: 
-    +--------------------+----------+-------+---+----+------------+------------+
-    |    Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +--------------------+----------+-------+---+----+------------+------------+
-    |offset_1_fu_205_p2  |     *    |     10|  0|  46|          64|          64|
-    |i_38_fu_220_p2      |     +    |      0|  0|  26|          19|           1|
-    |phitmp_fu_199_p2    |     +    |      0|  0|  71|          64|           1|
-    |exitcond_fu_215_p2  |   icmp   |      0|  0|  29|          64|          64|
-    |tmp_fu_194_p2       |   icmp   |      0|  0|  29|          64|          64|
-    +--------------------+----------+-------+---+----+------------+------------+
-    |Total               |          |     10|  0| 201|         275|         194|
-    +--------------------+----------+-------+---+----+------------+------------+
+    +-------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name      | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------+----------+-------+---+----+------------+------------+
+    |i_39_fu_183_p2           |     +    |      0|  0|  19|          12|           1|
+    |exitcond_fu_178_p2       |   icmp   |      0|  0|  29|          64|          64|
+    |ap_enable_pp0            |    xor   |      0|  0|   2|           1|           2|
+    |ap_enable_reg_pp0_iter1  |    xor   |      0|  0|   2|           2|           1|
+    +-------------------------+----------+-------+---+----+------------+------------+
+    |Total                    |          |      0|  0|  52|          79|          68|
+    +-------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +-----------------------+-----+-----------+-----+-----------+
-    |          Name         | LUT | Input Size| Bits| Total Bits|
-    +-----------------------+-----+-----------+-----+-----------+
-    |ap_NS_fsm              |  437|         99|    1|         99|
-    |grp_fu_175_opcode      |   15|          3|    2|          6|
-    |grp_fu_175_p0          |   15|          3|   32|         96|
-    |grp_fu_175_p1          |   15|          3|   32|         96|
-    |i_1_reg_164            |    9|          2|   19|         38|
-    |i_reg_152              |    9|          2|   64|        128|
-    |inputs_shape_address0  |   15|          3|    3|          9|
-    |offset_reg_140         |    9|          2|   64|        128|
-    +-----------------------+-----+-----------+-----+-----------+
-    |Total                  |  524|        117|  217|        600|
-    +-----------------------+-----+-----------+-----+-----------+
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                 |  27|          5|    1|          5|
+    |ap_enable_reg_pp0_iter1   |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter33  |   9|          2|    1|          2|
+    |i_reg_144                 |   9|          2|   12|         24|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     |  54|         11|   15|         33|
+    +--------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +------------------+----+----+-----+-----------+
-    |       Name       | FF | LUT| Bits| Const Bits|
-    +------------------+----+----+-----+-----------+
-    |ap_CS_fsm         |  98|   0|   98|          0|
-    |i_1_cast_reg_276  |  19|   0|   64|         45|
-    |i_1_reg_164       |  19|   0|   19|          0|
-    |i_38_reg_286      |  19|   0|   19|          0|
-    |i_reg_152         |  64|   0|   64|          0|
-    |idx_reg_296       |  64|   0|   64|          0|
-    |offset_reg_140    |  64|   0|   64|          0|
-    |phitmp_reg_256    |  64|   0|   64|          0|
-    |step_reg_271      |  64|   0|   64|          0|
-    |tmp_25_reg_313    |  32|   0|   32|          0|
-    |tmp_26_reg_328    |  32|   0|   32|          0|
-    +------------------+----+----+-----+-----------+
-    |Total             | 539|   0|  584|         45|
-    +------------------+----+----+-----+-----------+
+    +--------------------------+----+----+-----+-----------+
+    |           Name           | FF | LUT| Bits| Const Bits|
+    +--------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                 |   4|   0|    4|          0|
+    |ap_enable_reg_pp0_iter0   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter10  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter11  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter12  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter13  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter14  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter15  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter16  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter17  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter18  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter19  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter20  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter21  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter22  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter23  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter24  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter25  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter26  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter27  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter28  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter29  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter30  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter31  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter32  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter33  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter5   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter6   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter7   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter8   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter9   |   1|   0|    1|          0|
+    |beta_array_load_reg_288   |  32|   0|   32|          0|
+    |exitcond_reg_217          |   1|   0|    1|          0|
+    |gamma_array_load_reg_283  |  32|   0|   32|          0|
+    |i_cast_reg_210            |  12|   0|   64|         52|
+    |i_reg_144                 |  12|   0|   12|          0|
+    |idx_reg_226               |  64|   0|   64|          0|
+    |stdev_array_load_reg_263  |  32|   0|   32|          0|
+    |step_reg_205              |  64|   0|   64|          0|
+    |temp_reg_278              |  32|   0|   32|          0|
+    |tmp_reg_258               |  32|   0|   32|          0|
+    |tmp_s_reg_293             |  32|   0|   32|          0|
+    |beta_array_load_reg_288   |  64|  32|   32|          0|
+    |exitcond_reg_217          |  64|  32|    1|          0|
+    |i_cast_reg_210            |  64|  32|   64|         52|
+    |idx_reg_226               |   4|   2|   64|          0|
+    +--------------------------+----+----+-----+-----------+
+    |Total                     | 579|  98|  596|        104|
+    +--------------------------+----+----+-----+-----------+
 
 
 
@@ -155,28 +192,27 @@
 |ap_done                 | out |    1| ap_ctrl_hs |   k2c_batch_norm  | return value |
 |ap_idle                 | out |    1| ap_ctrl_hs |   k2c_batch_norm  | return value |
 |ap_ready                | out |    1| ap_ctrl_hs |   k2c_batch_norm  | return value |
-|outputs_array_address0  | out |   19|  ap_memory |   outputs_array   |     array    |
+|outputs_array_address0  | out |   12|  ap_memory |   outputs_array   |     array    |
 |outputs_array_ce0       | out |    1|  ap_memory |   outputs_array   |     array    |
 |outputs_array_we0       | out |    1|  ap_memory |   outputs_array   |     array    |
 |outputs_array_d0        | out |   32|  ap_memory |   outputs_array   |     array    |
-|inputs_array_address0   | out |   19|  ap_memory |    inputs_array   |     array    |
+|inputs_array_address0   | out |   12|  ap_memory |    inputs_array   |     array    |
 |inputs_array_ce0        | out |    1|  ap_memory |    inputs_array   |     array    |
 |inputs_array_q0         |  in |   32|  ap_memory |    inputs_array   |     array    |
-|inputs_ndim_read        |  in |   64|   ap_none  |  inputs_ndim_read |    scalar    |
 |inputs_numel_read       |  in |   64|   ap_none  | inputs_numel_read |    scalar    |
 |inputs_shape_address0   | out |    3|  ap_memory |    inputs_shape   |     array    |
 |inputs_shape_ce0        | out |    1|  ap_memory |    inputs_shape   |     array    |
 |inputs_shape_q0         |  in |   64|  ap_memory |    inputs_shape   |     array    |
-|mean_array_address0     | out |   19|  ap_memory |     mean_array    |     array    |
+|mean_array_address0     | out |   12|  ap_memory |     mean_array    |     array    |
 |mean_array_ce0          | out |    1|  ap_memory |     mean_array    |     array    |
 |mean_array_q0           |  in |   32|  ap_memory |     mean_array    |     array    |
-|stdev_array_address0    | out |   19|  ap_memory |    stdev_array    |     array    |
+|stdev_array_address0    | out |   12|  ap_memory |    stdev_array    |     array    |
 |stdev_array_ce0         | out |    1|  ap_memory |    stdev_array    |     array    |
 |stdev_array_q0          |  in |   32|  ap_memory |    stdev_array    |     array    |
-|gamma_array_address0    | out |   19|  ap_memory |    gamma_array    |     array    |
+|gamma_array_address0    | out |   12|  ap_memory |    gamma_array    |     array    |
 |gamma_array_ce0         | out |    1|  ap_memory |    gamma_array    |     array    |
 |gamma_array_q0          |  in |   32|  ap_memory |    gamma_array    |     array    |
-|beta_array_address0     | out |   19|  ap_memory |     beta_array    |     array    |
+|beta_array_address0     | out |   12|  ap_memory |     beta_array    |     array    |
 |beta_array_ce0          | out |    1|  ap_memory |     beta_array    |     array    |
 |beta_array_q0           |  in |   32|  ap_memory |     beta_array    |     array    |
 +------------------------+-----+-----+------------+-------------------+--------------+
