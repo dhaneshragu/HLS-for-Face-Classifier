@@ -3,30 +3,61 @@
   <errorLogs>
     <logs>
       <synLog/>
-      <simLog/>
-      <mgLog/>
-      <packageLog/>
-      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [HLS 200-40] Cannot find source file ../C-Code-Original/include/k2c_recurrent_layers.c; skipping it." projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:05.366+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find source file ../C-Code-Original/include/k2c_pooling_layers.c; skipping it." projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:05.356+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find source file ../C-Code-Original/include/k2c_merge_layers.c; skipping it." projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:05.348+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find source file ../C-Code-Original/include/k2c_embedding_layers.c; skipping it." projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:05.338+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find source file ../C-Code-Original/include/k2c_convolution_layers.c; skipping it." projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:05.329+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find design file '../C-Code-Original/include/k2c_convolution_layers.c'" projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:04.906+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find design file '../C-Code-Original/include/k2c_embedding_layers.c'" projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:04.886+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find design file '../C-Code-Original/include/k2c_merge_layers.c'" projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:04.859+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find design file '../C-Code-Original/include/k2c_pooling_layers.c'" projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:04.846+0530" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] Cannot find design file '../C-Code-Original/include/k2c_recurrent_layers.c'" projectName="FaceClassifier" solutionName="solution1" date="2024-04-20T23:54:04.836+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 20 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:06.601+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 15 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.988+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 11 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.968+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 6 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.948+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 1 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.926+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 20 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.904+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 15 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.656+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 11 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.630+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 6 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.609+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 1 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.587+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 20 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.562+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 15 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.230+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 11 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.117+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 6 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.090+0530" type="Warning"/>
+        <logs message="WARNING: [HLS 200-433] Loop - Loop 1 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:03.067+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_2_kernel_shape' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.872+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dropout_3_output_sha' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.817+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dropout_3_output_num' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.793+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'dropout_3_output_ndi' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.769+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dropout_3_output_ndi' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.748+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_1_output_shape' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.654+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_1_kernel_shape' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.616+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dropout_2_output_arr' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.576+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dropout_2_output_sha' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.535+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_output_shape' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.424+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_kernel_shape' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.386+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_2_bias_array' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.342+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'dense_2_bias_numel' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.307+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dense_2_bias_numel' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.285+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dense_2_kernel_numel' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.228+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'dense_2_kernel_ndim' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.213+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dense_2_kernel_ndim' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.187+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_2_output_array' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.155+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'dense_2_output_numel' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.138+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dense_2_output_numel' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.118+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dense_2_output_ndim' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.094+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'batch_normalization_5' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:39:00.055+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'batch_normalization_6' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.989+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'batch_normalization_15' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.933+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'batch_normalization_7' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.873+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'batch_normalization_8' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.818+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'batch_normalization_9' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.796+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_1_bias_array' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.778+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'dense_1_bias_numel' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.761+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dense_1_bias_numel' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.743+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'dense_1_kernel_array_1' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.541+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'dense_1_kernel_numel' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.481+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'dense_1_kernel_numel' is power-on initialization." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.440+0530" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global scalar 'dense_1_kernel_ndim' will not be exposed as RTL port." projectName="FaceClassifier" solutionName="solution1" date="2024-04-21T00:38:59.422+0530" type="Warning"/>
       </synLog>
-      <simLog/>
-      <mgLog/>
-      <packageLog/>
-      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

@@ -2256,10 +2256,10 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const
     count=0;
     size_t i,j;
     for ( i=0; i<ndimA; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2, 2, "");
  isin = 0;
         for (size_t j=0; j<naxes; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_Unroll(0,0,0, "");
  if (i==axesA[j]) {
                 isin=1;
@@ -2272,9 +2272,10 @@ _ssdm_Unroll(0,0,0, "");
     }
     count=0;
     for ( i=0; i<ndimB; ++i) {
-        isin = 0;
+_ssdm_op_SpecLoopTripCount(1, 2, 2, "");
+ isin = 0;
         for (size_t j=0; j<naxes; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_Unroll(0,0,0, "");
  if (i==axesB[j]) {
                 isin=1;
@@ -2288,12 +2289,12 @@ _ssdm_Unroll(0,0,0, "");
 
 
     for ( i=0; i < naxes; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_Unroll(0,0,0, "");
  prod_axesA *= Ar->shape[axesA[i]];
     }
     for (i=0; i < naxes; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_Unroll(0,0,0, "");
  prod_axesB *= B->shape[axesB[i]];
     }
@@ -2302,22 +2303,22 @@ _ssdm_Unroll(0,0,0, "");
     free_axesB = B->numel/prod_axesB;
 
     for ( i=0; i<ndimA-naxes; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  permA[i] = freeA[i];
     }
     for ( i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  permA[i] = axesA[j];
     }
     for ( i=0; i<naxes; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  permB[i] = axesB[i];
     }
     for (i=naxes, j=0; i<ndimB; ++i, ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  permB[i] = freeB[j];
     }
@@ -2325,23 +2326,22 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 
 
     for ( i=0; i<ndimA; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2, 2, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  newshpA[i] = Ar->shape[permA[i]];
     }
     for ( i=0; i<ndimB; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2, 2, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  newshpB[i] = B->shape[permB[i]];
     }
 
 
     for ( i=0; i<Ar->numel; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
-
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
  k2c_idx2sub(i,Asub,Ar->shape,ndimA);
         for (size_t j=0; j<ndimA; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  Bsub[j] = Asub[permA[j]];
         }
@@ -2350,10 +2350,10 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
     }
 
     for ( i=0; i<B->numel; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
  k2c_idx2sub(i,Bsub,B->shape,ndimB);
         for (size_t j=0; j<ndimB; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 5, 5, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  Asub[j] = Bsub[permB[j]];
         }
@@ -2368,35 +2368,33 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
         float inorm;
         size_t i;
         for ( i=0; i<free_axesA; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
-
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
  sum = 0;
             size_t j;
             for ( j=0; j<prod_axesA; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
             }
             inorm = 1.0f/sqrtf(sum);
             for ( j=0; j<prod_axesA; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  reshapeA[i*prod_axesA + j] *= inorm;
             }
         }
         for ( i=0; i<free_axesB; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
-
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
  sum = 0;
             size_t j;
             for ( j=0; j<prod_axesB; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
             }
             inorm = 1.0f/sqrtf(sum);
             for ( j=0; j<prod_axesB; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  reshapeB[i + free_axesB*j] *= inorm;
             }
@@ -2406,19 +2404,22 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 
 
         for (i = 0 ; i < free_axesA; ++i) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
+
  for (size_t j = 0; j < free_axesB; ++j) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
+
  C->array[i*free_axesB + j] = 0;
                 for (size_t k = 0; k < prod_axesA; ++k) {
-_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+_ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
+
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
                 }
             }
         }
 }
-# 817 "../C-Code-Original/include/k2c_helper_functions.c"
+# 818 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b) {
 
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
@@ -2433,7 +2434,7 @@ _ssdm_op_SpecLoopTripCount(1, 2622, 2622, "");
         }
     }
 }
-# 841 "../C-Code-Original/include/k2c_helper_functions.c"
+# 842 "../C-Code-Original/include/k2c_helper_functions.c"
 void k2c_flip(k2c_tensor *A, const size_t axis) {
     const size_t ndim = A->ndim;
     const size_t * shape = A->shape;
@@ -2466,7 +2467,7 @@ void k2c_flip(k2c_tensor *A, const size_t axis) {
         }
     }
 }
-# 883 "../C-Code-Original/include/k2c_helper_functions.c"
+# 884 "../C-Code-Original/include/k2c_helper_functions.c"
 float* k2c_read_array(const char* filename, const size_t array_size) {
     float* ptr = (float*) malloc(array_size * sizeof(float));
     if (!ptr) {

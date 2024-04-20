@@ -115,6 +115,10 @@ wire [2 : 0] activation_3_output_shape_address0;
 wire  activation_3_output_shape_ce0;
 wire  activation_3_output_shape_we0;
 wire [63 : 0] activation_3_output_shape_d0;
+wire [2 : 0] activation_3_output_shape_address1;
+wire  activation_3_output_shape_ce1;
+wire  activation_3_output_shape_we1;
+wire [63 : 0] activation_3_output_shape_d1;
 integer done_cnt = 0;
 integer AESL_ready_cnt = 0;
 integer ready_cnt = 0;
@@ -155,7 +159,11 @@ wire ap_rst_n;
     .activation_3_output_shape_address0(activation_3_output_shape_address0),
     .activation_3_output_shape_ce0(activation_3_output_shape_ce0),
     .activation_3_output_shape_we0(activation_3_output_shape_we0),
-    .activation_3_output_shape_d0(activation_3_output_shape_d0));
+    .activation_3_output_shape_d0(activation_3_output_shape_d0),
+    .activation_3_output_shape_address1(activation_3_output_shape_address1),
+    .activation_3_output_shape_ce1(activation_3_output_shape_ce1),
+    .activation_3_output_shape_we1(activation_3_output_shape_we1),
+    .activation_3_output_shape_d1(activation_3_output_shape_d1));
 
 // Assignment for control signal
 assign ap_clk = AESL_clock;
@@ -553,8 +561,10 @@ assign arrayactivation_3_output_shape_address0 = activation_3_output_shape_addre
 assign arrayactivation_3_output_shape_ce0 = activation_3_output_shape_ce0;
 assign arrayactivation_3_output_shape_we0 = activation_3_output_shape_we0;
 assign arrayactivation_3_output_shape_din0 = activation_3_output_shape_d0;
-assign arrayactivation_3_output_shape_we1 = 0;
-assign arrayactivation_3_output_shape_din1 = 0;
+assign arrayactivation_3_output_shape_address1 = activation_3_output_shape_address1;
+assign arrayactivation_3_output_shape_ce1 = activation_3_output_shape_ce1;
+assign arrayactivation_3_output_shape_we1 = activation_3_output_shape_we1;
+assign arrayactivation_3_output_shape_din1 = activation_3_output_shape_d1;
 assign arrayactivation_3_output_shape_ready= ready_initial | arrayactivation_3_output_shape_done;
 assign arrayactivation_3_output_shape_done =    AESL_done_delay;
 

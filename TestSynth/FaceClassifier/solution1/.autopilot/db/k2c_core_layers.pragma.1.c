@@ -707,8 +707,7 @@ __extension__ long long llrintl (long double);
    extern long double _chgsignl (long double);
 # 898 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3
 #pragma pack(pop)
-# 9 "../C-Code-Original/include/k2c_core_layers.c" 2
-
+# 10 "../C-Code-Original/include/k2c_core_layers.c" 2
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 1 3
 
 
@@ -1067,8 +1066,7 @@ __extension__ long long llrintl (long double);
 
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw_print_pop.h" 1 3
 # 511 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
-# 10 "../C-Code-Original/include/k2c_core_layers.c" 2
-
+# 11 "../C-Code-Original/include/k2c_core_layers.c" 2
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
 
 
@@ -1233,8 +1231,7 @@ __extension__ long long llrintl (long double);
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
 # 9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 2 3
 # 175 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3
-# 11 "../C-Code-Original/include/k2c_core_layers.c" 2
-
+# 12 "../C-Code-Original/include/k2c_core_layers.c" 2
 # 1 "../C-Code-Original/include/k2c_include.h" 1
 # 11 "../C-Code-Original/include/k2c_include.h"
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 1 3
@@ -1854,7 +1851,7 @@ void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
 void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
                     const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis);
-# 12 "../C-Code-Original/include/k2c_core_layers.c" 2
+# 13 "../C-Code-Original/include/k2c_core_layers.c" 2
 # 24 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* kernel,
                const k2c_tensor2* bias, float * fwork) {
@@ -1896,14 +1893,8 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 _ssdm_SpecConstant(axesA);
 # 60 "../C-Code-Original/include/k2c_core_layers.c"
 
-_ssdm_SpecArrayMap( axesA, "&axesA", -1, "HORIZONTAL", "");
-# 60 "../C-Code-Original/include/k2c_core_layers.c"
-
         const size_t axesB[1] = {0};
 _ssdm_SpecConstant(axesB);
-# 61 "../C-Code-Original/include/k2c_core_layers.c"
-
-_ssdm_SpecArrayMap( axesB, "&axesB", -1, "HORIZONTAL", "");
 # 61 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t naxes = 1;

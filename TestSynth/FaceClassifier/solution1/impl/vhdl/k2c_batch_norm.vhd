@@ -332,7 +332,7 @@ architecture behav of k2c_batch_norm is
 
 
 begin
-    face_classifier_cjbC_U53 : component face_classifier_cjbC
+    face_classifier_cjbC_U52 : component face_classifier_cjbC
     generic map (
         ID => 1,
         NUM_STAGE => 4,
@@ -347,7 +347,7 @@ begin
         ce => ap_const_logic_1,
         dout => grp_fu_155_p2);
 
-    face_classifier_cdEe_U54 : component face_classifier_cdEe
+    face_classifier_cdEe_U53 : component face_classifier_cdEe
     generic map (
         ID => 1,
         NUM_STAGE => 4,
@@ -362,7 +362,7 @@ begin
         ce => ap_const_logic_1,
         dout => grp_fu_161_p2);
 
-    face_classifier_ceOg_U55 : component face_classifier_ceOg
+    face_classifier_ceOg_U54 : component face_classifier_ceOg
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -377,7 +377,7 @@ begin
         ce => ap_const_logic_1,
         dout => grp_fu_166_p2);
 
-    face_classifier_ckbM_U56 : component face_classifier_ckbM
+    face_classifier_ckbM_U55 : component face_classifier_ckbM
     generic map (
         ID => 1,
         NUM_STAGE => 8,
@@ -392,7 +392,7 @@ begin
         ce => ap_const_logic_1,
         dout => grp_fu_170_p2);
 
-    face_classifier_clbW_U57 : component face_classifier_clbW
+    face_classifier_clbW_U56 : component face_classifier_clbW
     generic map (
         ID => 1,
         NUM_STAGE => 16,
