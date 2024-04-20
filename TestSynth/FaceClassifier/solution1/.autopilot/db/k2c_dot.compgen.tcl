@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 93
+set id 94
 set name face_classifier_cvdy
 set corename simcore_udiv_seq
 set op udiv
@@ -94,7 +94,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_div, check your pla
 }
 
 
-set id 95
+set id 96
 set name face_classifier_cwdI
 set corename simcore_mul
 set op mul
@@ -170,7 +170,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your p
 }
 
 
-set id 96
+set id 97
 set name face_classifier_cxdS
 set corename simcore_mac
 set op mac
@@ -263,7 +263,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 100 \
+    id 101 \
     name C_array \
     reset_level 1 \
     sync_rst true \
@@ -282,7 +282,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 101 \
+    id 102 \
     name Ar_array \
     reset_level 1 \
     sync_rst true \
@@ -301,7 +301,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 104 \
+    id 105 \
     name Ar_shape \
     reset_level 1 \
     sync_rst true \
@@ -320,7 +320,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 105 \
+    id 106 \
     name B_array \
     reset_level 1 \
     sync_rst true \
@@ -339,7 +339,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 108 \
+    id 109 \
     name B_shape \
     reset_level 1 \
     sync_rst true \
@@ -359,6 +359,25 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     id 110 \
+    name axesA \
+    reset_level 1 \
+    sync_rst true \
+    dir I \
+    corename axesA \
+    op interface \
+    ports { axesA_address0 { O 1 vector } axesA_ce0 { O 1 bit } axesA_q0 { I 64 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'axesA'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 111 \
     name fwork \
     reset_level 1 \
     sync_rst true \
@@ -376,7 +395,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 102 \
+    id 103 \
     name Ar_ndim_read \
     type other \
     dir I \
@@ -391,7 +410,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 103 \
+    id 104 \
     name Ar_numel_read \
     type other \
     dir I \
@@ -406,7 +425,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 106 \
+    id 107 \
     name B_ndim_read \
     type other \
     dir I \
@@ -421,7 +440,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 107 \
+    id 108 \
     name B_numel_read \
     type other \
     dir I \
@@ -430,21 +449,6 @@ eval "cg_default_interface_gen_dc { \
     corename dc_B_numel_read \
     op interface \
     ports { B_numel_read { I 64 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 109 \
-    name axesA_0_read \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_axesA_0_read \
-    op interface \
-    ports { axesA_0_read { I 64 vector } } \
 } "
 }
 

@@ -51,16 +51,16 @@ struct generic_tanh_float_s : public sc_module {
     sc_trace_file* mVcdFile;
 
     exp_generic_double_s* grp_exp_generic_double_s_fu_89;
-    face_classifier_cqcK<1,4,32,32,32>* face_classifier_cqcK_U74;
-    face_classifier_cdEe<1,4,32,32,32>* face_classifier_cdEe_U75;
+    face_classifier_cqcK<1,4,32,32,32>* face_classifier_cqcK_U75;
     face_classifier_cdEe<1,4,32,32,32>* face_classifier_cdEe_U76;
-    face_classifier_cjbC<1,4,32,32,32>* face_classifier_cjbC_U77;
-    face_classifier_ceOg<1,2,32,32,32>* face_classifier_ceOg_U78;
-    face_classifier_ckbM<1,8,32,32,32>* face_classifier_ckbM_U79;
-    face_classifier_crcU<1,1,64,32>* face_classifier_crcU_U80;
-    face_classifier_csc4<1,1,32,64>* face_classifier_csc4_U81;
-    face_classifier_ctde<1,1,32,32,1>* face_classifier_ctde_U82;
-    face_classifier_cudo<1,4,64,64,64>* face_classifier_cudo_U83;
+    face_classifier_cdEe<1,4,32,32,32>* face_classifier_cdEe_U77;
+    face_classifier_cjbC<1,4,32,32,32>* face_classifier_cjbC_U78;
+    face_classifier_ceOg<1,2,32,32,32>* face_classifier_ceOg_U79;
+    face_classifier_ckbM<1,8,32,32,32>* face_classifier_ckbM_U80;
+    face_classifier_crcU<1,1,64,32>* face_classifier_crcU_U81;
+    face_classifier_csc4<1,1,32,64>* face_classifier_csc4_U82;
+    face_classifier_ctde<1,1,32,32,1>* face_classifier_ctde_U83;
+    face_classifier_cudo<1,4,64,64,64>* face_classifier_cudo_U84;
     sc_signal< sc_lv<1> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_pp0_stage0;
     sc_signal< sc_logic > ap_enable_reg_pp0_iter0;

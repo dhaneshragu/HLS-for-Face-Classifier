@@ -443,7 +443,7 @@ begin
         ce0 => table_f_Z2_array_V_ce0,
         q0 => table_f_Z2_array_V_q0);
 
-    face_classifier_cpcA_U68 : component face_classifier_cpcA
+    face_classifier_cpcA_U69 : component face_classifier_cpcA
     generic map (
         ID => 1,
         NUM_STAGE => 1,

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'generic_tanh_float_s'
 ================================================================
-* Date:           Wed Apr 17 23:19:27 2024
+* Date:           Sat Apr 20 22:09:01 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -389,7 +389,7 @@ The critical path consists of the following:
  <State 18>: 6.77ns
 The critical path consists of the following:
 	'phi' operation ('x') with incoming values : ('x', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:268->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files\utils/x_hls_utils.h:282->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:7->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) ('tmp_120_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:11->r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) [47]  (0 ns)
-	'fadd' operation ('tmp_63', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:95) [50]  (6.77 ns)
+	'fadd' operation ('tmp_62', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:90) [58]  (6.77 ns)
 
  <State 19>: 6.77ns
 The critical path consists of the following:

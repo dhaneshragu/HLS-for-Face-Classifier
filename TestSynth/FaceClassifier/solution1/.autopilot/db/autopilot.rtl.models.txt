@@ -26,7 +26,7 @@ face_classifier_cxdS
 face_classifier_cyd2
 face_classifier_czec
 face_classifier_cAem
-face_classifier_cbrm
+face_classifier_cbsm
 face_classifier_cBew
 face_classifier_cCeG
 face_classifier_cDeQ
@@ -48,13 +48,14 @@ face_classifier_c8jQ
 face_classifier_c9j0
 face_classifier_cbak
 face_classifier_cbbk
-face_classifier_cbdk
-face_classifier_cbhl
+face_classifier_cbck
+face_classifier_cbek
 face_classifier_cbil
-face_classifier_cbnm
+face_classifier_cbjl
 face_classifier_cbom
 face_classifier_cbpm
 face_classifier_cbqm
+face_classifier_cbrm
 k2c_idx2sub
 k2c_sub2idx
 k2c_dot_1

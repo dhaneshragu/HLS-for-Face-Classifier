@@ -61,11 +61,11 @@ struct k2c_batch_norm : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    face_classifier_cjbC<1,4,32,32,32>* face_classifier_cjbC_U52;
-    face_classifier_cdEe<1,4,32,32,32>* face_classifier_cdEe_U53;
-    face_classifier_ceOg<1,2,32,32,32>* face_classifier_ceOg_U54;
-    face_classifier_ckbM<1,8,32,32,32>* face_classifier_ckbM_U55;
-    face_classifier_clbW<1,16,12,64,64>* face_classifier_clbW_U56;
+    face_classifier_cjbC<1,4,32,32,32>* face_classifier_cjbC_U53;
+    face_classifier_cdEe<1,4,32,32,32>* face_classifier_cdEe_U54;
+    face_classifier_ceOg<1,2,32,32,32>* face_classifier_ceOg_U55;
+    face_classifier_ckbM<1,8,32,32,32>* face_classifier_ckbM_U56;
+    face_classifier_clbW<1,16,12,64,64>* face_classifier_clbW_U57;
     sc_signal< sc_lv<4> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
     sc_signal< sc_lv<12> > i_reg_144;

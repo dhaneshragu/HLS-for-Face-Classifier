@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_dense'
 ================================================================
-* Date:           Wed Apr 17 23:19:26 2024
+* Date:           Sat Apr 20 22:09:00 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -41,7 +41,7 @@
         |                     |  Latency  | Iteration|  Initiation Interval  | Trip |          |
         |      Loop Name      | min | max |  Latency |  achieved |   target  | Count| Pipelined|
         +---------------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1             |    ?|    ?|         4|          -|          -|     ?|    no    |
+        |- Loop 1             |    0|    0|         4|          -|          -|     0|    no    |
         | + k2c_dense_label0  |    0|    0|         8|          4|          1|     0|    yes   |
         +---------------------+-----+-----+----------+-----------+-----------+------+----------+
 
@@ -74,32 +74,32 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 16
+* Number of FSM states : 17
 * Pipeline : 1
-  Pipeline-0 : II = 4, D = 8, States = { 8 9 10 11 12 13 14 15 }
+  Pipeline-0 : II = 4, D = 8, States = { 9 10 11 12 13 14 15 16 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
 	2  / (!tmp)
-	5  / (tmp)
+	6  / (tmp)
 2 --> 
 	3  / true
 3 --> 
 	4  / true
 4 --> 
+	5  / true
 5 --> 
-	6  / true
 6 --> 
-	7  / (!exitcond_flatten)
-	4  / (exitcond_flatten)
+	7  / true
 7 --> 
-	8  / true
+	8  / (!exitcond_flatten)
+	5  / (exitcond_flatten)
 8 --> 
-	16  / (exitcond)
-	9  / (!exitcond)
+	9  / true
 9 --> 
-	10  / true
+	17  / (exitcond)
+	10  / (!exitcond)
 10 --> 
 	11  / true
 11 --> 
@@ -111,132 +111,138 @@ IsGatedGlobalClock: 0
 14 --> 
 	15  / true
 15 --> 
-	8  / true
+	16  / true
 16 --> 
-	6  / true
+	9  / true
+17 --> 
+	7  / true
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.64>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%input_numel_read_2 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %input_numel_read)"   --->   Operation 17 'read' 'input_numel_read_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%input_ndim_read_2 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %input_ndim_read)"   --->   Operation 18 'read' 'input_ndim_read_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (1.45ns)   --->   "%tmp = icmp ult i64 %input_ndim_read_2, 3" [../C-Code-Original/include/k2c_core_layers.c:27]   --->   Operation 19 'icmp' 'tmp' <Predicate = true> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "br i1 %tmp, label %_ifconv, label %5" [../C-Code-Original/include/k2c_core_layers.c:27]   --->   Operation 20 'br' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (1.64ns)   --->   "%tmp_43 = add i64 %input_ndim_read_2, -1" [../C-Code-Original/include/k2c_core_layers.c:59]   --->   Operation 21 'add' 'tmp_43' <Predicate = (!tmp)> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 22 [2/2] (0.00ns)   --->   "call fastcc void @k2c_dot.1([2622 x float]* %output_array, [2622 x float]* %input_array, i64 %input_ndim_read_2, i64 %input_numel_read_2, [5 x i64]* %input_shape, [262200 x float]* %kernel_array, [5 x i64]* %kernel_shape, i64 %tmp_43, [264822 x float]* %fwork)" [../C-Code-Original/include/k2c_core_layers.c:64]   --->   Operation 22 'call' <Predicate = (!tmp)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%tmp_66 = call i63 @_ssdm_op_PartSelect.i63.i64.i32.i32(i64 %input_ndim_read_2, i32 1, i32 63)" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 23 'partselect' 'tmp_66' <Predicate = (tmp)> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (1.45ns)   --->   "%icmp = icmp ne i63 %tmp_66, 0" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 24 'icmp' 'icmp' <Predicate = (tmp)> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%input_shape_addr = getelementptr [5 x i64]* %input_shape, i64 0, i64 0" [../C-Code-Original/include/k2c_core_layers.c:31]   --->   Operation 25 'getelementptr' 'input_shape_addr' <Predicate = (tmp)> <Delay = 0.00>
-ST_1 : Operation 26 [2/2] (0.70ns)   --->   "%outrows = load i64* %input_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:31]   --->   Operation 26 'load' 'outrows' <Predicate = (tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%kernel_shape_addr = getelementptr [5 x i64]* %kernel_shape, i64 0, i64 1" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 27 'getelementptr' 'kernel_shape_addr' <Predicate = (tmp)> <Delay = 0.00>
-ST_1 : Operation 28 [2/2] (0.70ns)   --->   "%outcols = load i64* %kernel_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 28 'load' 'outcols' <Predicate = (tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%kernel_shape_addr_1 = getelementptr [5 x i64]* %kernel_shape, i64 0, i64 0" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 29 'getelementptr' 'kernel_shape_addr_1' <Predicate = (tmp)> <Delay = 0.00>
-ST_1 : Operation 30 [2/2] (0.70ns)   --->   "%innerdim = load i64* %kernel_shape_addr_1, align 8" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 30 'load' 'innerdim' <Predicate = (tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+State 1 <SV = 0> <Delay = 2.34>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%input_numel_read_2 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %input_numel_read)"   --->   Operation 18 'read' 'input_numel_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%input_ndim_read_2 = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %input_ndim_read)"   --->   Operation 19 'read' 'input_ndim_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.45ns)   --->   "%tmp = icmp ult i64 %input_ndim_read_2, 3" [../C-Code-Original/include/k2c_core_layers.c:27]   --->   Operation 20 'icmp' 'tmp' <Predicate = true> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "br i1 %tmp, label %_ifconv, label %5" [../C-Code-Original/include/k2c_core_layers.c:27]   --->   Operation 21 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (1.64ns)   --->   "%tmp_43 = add i64 %input_ndim_read_2, -1" [../C-Code-Original/include/k2c_core_layers.c:60]   --->   Operation 22 'add' 'tmp_43' <Predicate = (!tmp)> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.70ns)   --->   "store i64 %tmp_43, i64* getelementptr inbounds ([1 x i64]* @axesA, i64 0, i64 0), align 8" [../C-Code-Original/include/k2c_core_layers.c:60]   --->   Operation 23 'store' <Predicate = (!tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_66 = call i63 @_ssdm_op_PartSelect.i63.i64.i32.i32(i64 %input_ndim_read_2, i32 1, i32 63)" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 24 'partselect' 'tmp_66' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (1.45ns)   --->   "%icmp = icmp ne i63 %tmp_66, 0" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 25 'icmp' 'icmp' <Predicate = (tmp)> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%input_shape_addr = getelementptr [5 x i64]* %input_shape, i64 0, i64 0" [../C-Code-Original/include/k2c_core_layers.c:31]   --->   Operation 26 'getelementptr' 'input_shape_addr' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 27 [2/2] (0.70ns)   --->   "%outrows = load i64* %input_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:31]   --->   Operation 27 'load' 'outrows' <Predicate = (tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%kernel_shape_addr = getelementptr [5 x i64]* %kernel_shape, i64 0, i64 1" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 28 'getelementptr' 'kernel_shape_addr' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 29 [2/2] (0.70ns)   --->   "%outcols = load i64* %kernel_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 29 'load' 'outcols' <Predicate = (tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%kernel_shape_addr_1 = getelementptr [5 x i64]* %kernel_shape, i64 0, i64 0" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 30 'getelementptr' 'kernel_shape_addr_1' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 31 [2/2] (0.70ns)   --->   "%innerdim = load i64* %kernel_shape_addr_1, align 8" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 31 'load' 'innerdim' <Predicate = (tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
 
 State 2 <SV = 1> <Delay = 0.00>
-ST_2 : Operation 31 [1/2] (0.00ns)   --->   "call fastcc void @k2c_dot.1([2622 x float]* %output_array, [2622 x float]* %input_array, i64 %input_ndim_read_2, i64 %input_numel_read_2, [5 x i64]* %input_shape, [262200 x float]* %kernel_array, [5 x i64]* %kernel_shape, i64 %tmp_43, [264822 x float]* %fwork)" [../C-Code-Original/include/k2c_core_layers.c:64]   --->   Operation 31 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 32 [2/2] (0.00ns)   --->   "call fastcc void @k2c_dot.1([2622 x float]* %output_array, [2622 x float]* %input_array, i64 %input_ndim_read_2, i64 %input_numel_read_2, [5 x i64]* %input_shape, [262200 x float]* %kernel_array, [5 x i64]* %kernel_shape, [1 x i64]* @axesA, [264822 x float]* %fwork)" [../C-Code-Original/include/k2c_core_layers.c:65]   --->   Operation 32 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 3 <SV = 2> <Delay = 0.00>
-ST_3 : Operation 32 [2/2] (0.00ns)   --->   "call fastcc void @k2c_bias_add([2622 x float]* %output_array, i64 100, [2622 x float]* %bias_array, i64 100)" [../C-Code-Original/include/k2c_core_layers.c:65]   --->   Operation 32 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 33 [1/2] (0.00ns)   --->   "call fastcc void @k2c_dot.1([2622 x float]* %output_array, [2622 x float]* %input_array, i64 %input_ndim_read_2, i64 %input_numel_read_2, [5 x i64]* %input_shape, [262200 x float]* %kernel_array, [5 x i64]* %kernel_shape, [1 x i64]* @axesA, [264822 x float]* %fwork)" [../C-Code-Original/include/k2c_core_layers.c:65]   --->   Operation 33 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 4 <SV = 3> <Delay = 0.00>
-ST_4 : Operation 33 [1/2] (0.00ns)   --->   "call fastcc void @k2c_bias_add([2622 x float]* %output_array, i64 100, [2622 x float]* %bias_array, i64 100)" [../C-Code-Original/include/k2c_core_layers.c:65]   --->   Operation 33 'call' <Predicate = (!tmp)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_4 : Operation 34 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 34 'br' <Predicate = (!tmp)> <Delay = 0.00>
-ST_4 : Operation 35 [1/1] (0.00ns)   --->   "ret void" [../C-Code-Original/include/k2c_core_layers.c:68]   --->   Operation 35 'ret' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [2/2] (0.00ns)   --->   "call fastcc void @k2c_bias_add([2622 x float]* %output_array, i64 100, [2622 x float]* %bias_array, i64 100)" [../C-Code-Original/include/k2c_core_layers.c:66]   --->   Operation 34 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 5 <SV = 1> <Delay = 8.01>
-ST_5 : Operation 36 [1/2] (0.70ns)   --->   "%outrows = load i64* %input_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:31]   --->   Operation 36 'load' 'outrows' <Predicate = true> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_5 : Operation 37 [1/1] (0.54ns)   --->   "%outrows2 = select i1 %icmp, i64 %outrows, i64 1" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 37 'select' 'outrows2' <Predicate = true> <Delay = 0.54> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_5 : Operation 38 [1/2] (0.70ns)   --->   "%outcols = load i64* %kernel_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 38 'load' 'outcols' <Predicate = true> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_5 : Operation 39 [1/1] (0.00ns)   --->   "%tmp_67 = trunc i64 %outcols to i20" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 39 'trunc' 'tmp_67' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 40 [1/1] (0.00ns)   --->   "%tmp_68 = trunc i64 %outcols to i13" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 40 'trunc' 'tmp_68' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 41 [1/2] (0.70ns)   --->   "%innerdim = load i64* %kernel_shape_addr_1, align 8" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 41 'load' 'innerdim' <Predicate = true> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_5 : Operation 42 [1/1] (0.00ns)   --->   "%tmp_69 = trunc i64 %innerdim to i13" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 42 'trunc' 'tmp_69' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%cast = zext i64 %outrows2 to i128" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 43 'zext' 'cast' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%cast1 = zext i64 %outcols to i128" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 44 'zext' 'cast1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 45 [1/1] (6.77ns)   --->   "%bound = mul i128 %cast1, %cast" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 45 'mul' 'bound' <Predicate = true> <Delay = 6.77> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 46 [1/1] (0.95ns)   --->   "br label %1" [../C-Code-Original/include/k2c_core_layers.c:43]   --->   Operation 46 'br' <Predicate = true> <Delay = 0.95>
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 35 [1/2] (0.00ns)   --->   "call fastcc void @k2c_bias_add([2622 x float]* %output_array, i64 100, [2622 x float]* %bias_array, i64 100)" [../C-Code-Original/include/k2c_core_layers.c:66]   --->   Operation 35 'call' <Predicate = (!tmp)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 36 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 36 'br' <Predicate = (!tmp)> <Delay = 0.00>
+ST_5 : Operation 37 [1/1] (0.00ns)   --->   "ret void" [../C-Code-Original/include/k2c_core_layers.c:69]   --->   Operation 37 'ret' <Predicate = true> <Delay = 0.00>
 
-State 6 <SV = 2> <Delay = 5.73>
-ST_6 : Operation 47 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i128 [ 0, %_ifconv ], [ %indvar_flatten_next, %4 ]"   --->   Operation 47 'phi' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 48 [1/1] (0.00ns)   --->   "%i = phi i64 [ 0, %_ifconv ], [ %outrowidx_mid2_v_v, %4 ]" [../C-Code-Original/include/k2c_core_layers.c:44]   --->   Operation 48 'phi' 'i' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%j = phi i64 [ 0, %_ifconv ], [ %j_13, %4 ]"   --->   Operation 49 'phi' 'j' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 50 [1/1] (1.55ns)   --->   "%exitcond_flatten = icmp eq i128 %indvar_flatten, %bound" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 50 'icmp' 'exitcond_flatten' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 51 [1/1] (1.90ns)   --->   "%indvar_flatten_next = add i128 %indvar_flatten, 1"   --->   Operation 51 'add' 'indvar_flatten_next' <Predicate = true> <Delay = 1.90> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 52 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %.loopexit.loopexit, label %.reset" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 52 'br' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 53 [1/1] (1.45ns)   --->   "%exitcond14 = icmp eq i64 %j, %outcols" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 53 'icmp' 'exitcond14' <Predicate = (!exitcond_flatten)> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 54 [1/1] (0.54ns)   --->   "%j_mid2 = select i1 %exitcond14, i64 0, i64 %j" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 54 'select' 'j_mid2' <Predicate = (!exitcond_flatten)> <Delay = 0.54> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_6 : Operation 55 [1/1] (1.64ns)   --->   "%i_s = add i64 1, %i" [../C-Code-Original/include/k2c_core_layers.c:43]   --->   Operation 55 'add' 'i_s' <Predicate = (!exitcond_flatten)> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 56 [1/1] (0.54ns)   --->   "%outrowidx_mid2_v_v = select i1 %exitcond14, i64 %i_s, i64 %i" [../C-Code-Original/include/k2c_core_layers.c:44]   --->   Operation 56 'select' 'outrowidx_mid2_v_v' <Predicate = (!exitcond_flatten)> <Delay = 0.54> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_6 : Operation 57 [1/1] (0.00ns)   --->   "%tmp_70 = trunc i64 %outrowidx_mid2_v_v to i13" [../C-Code-Original/include/k2c_core_layers.c:44]   --->   Operation 57 'trunc' 'tmp_70' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
-ST_6 : Operation 58 [1/1] (1.11ns)   --->   "%outrowidx_mid2 = mul i13 %tmp_68, %tmp_70" [../C-Code-Original/include/k2c_core_layers.c:44]   --->   Operation 58 'mul' 'outrowidx_mid2' <Predicate = (!exitcond_flatten)> <Delay = 1.11> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 3.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
-ST_6 : Operation 59 [1/1] (3.55ns)   --->   "%inneridx_mid2 = mul i13 %tmp_69, %tmp_70" [../C-Code-Original/include/k2c_core_layers.c:45]   --->   Operation 59 'mul' 'inneridx_mid2' <Predicate = (!exitcond_flatten)> <Delay = 3.55> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 3.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
-ST_6 : Operation 60 [1/1] (0.00ns)   --->   "%tmp_71 = trunc i64 %j_mid2 to i20" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 60 'trunc' 'tmp_71' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
-ST_6 : Operation 61 [1/1] (0.00ns)   --->   "%tmp_72 = trunc i64 %j_mid2 to i13" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 61 'trunc' 'tmp_72' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
-ST_6 : Operation 62 [1/1] (0.00ns)   --->   "%bias_array_addr = getelementptr [2622 x float]* %bias_array, i64 0, i64 %j_mid2" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 62 'getelementptr' 'bias_array_addr' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
-ST_6 : Operation 63 [2/2] (1.76ns)   --->   "%bias_array_load = load float* %bias_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 63 'load' 'bias_array_load' <Predicate = (!exitcond_flatten)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_6 : Operation 64 [1/1] (2.44ns)   --->   "%tmp_44 = add i13 %tmp_72, %outrowidx_mid2" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 64 'add' 'tmp_44' <Predicate = (!exitcond_flatten)> <Delay = 2.44> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 3.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
-ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%tmp_44_cast = zext i13 %tmp_44 to i64" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 65 'zext' 'tmp_44_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
-ST_6 : Operation 66 [1/1] (0.00ns)   --->   "%output_array_addr = getelementptr [2622 x float]* %output_array, i64 0, i64 %tmp_44_cast" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 66 'getelementptr' 'output_array_addr' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
-ST_6 : Operation 67 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 67 'br' <Predicate = (exitcond_flatten)> <Delay = 0.00>
+State 6 <SV = 1> <Delay = 8.01>
+ST_6 : Operation 38 [1/2] (0.70ns)   --->   "%outrows = load i64* %input_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:31]   --->   Operation 38 'load' 'outrows' <Predicate = true> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_6 : Operation 39 [1/1] (0.54ns)   --->   "%outrows2 = select i1 %icmp, i64 %outrows, i64 1" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 39 'select' 'outrows2' <Predicate = true> <Delay = 0.54> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 40 [1/2] (0.70ns)   --->   "%outcols = load i64* %kernel_shape_addr, align 8" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 40 'load' 'outcols' <Predicate = true> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_6 : Operation 41 [1/1] (0.00ns)   --->   "%tmp_67 = trunc i64 %outcols to i20" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 41 'trunc' 'tmp_67' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 42 [1/1] (0.00ns)   --->   "%tmp_68 = trunc i64 %outcols to i13" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 42 'trunc' 'tmp_68' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 43 [1/2] (0.70ns)   --->   "%innerdim = load i64* %kernel_shape_addr_1, align 8" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 43 'load' 'innerdim' <Predicate = true> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_6 : Operation 44 [1/1] (0.00ns)   --->   "%tmp_69 = trunc i64 %innerdim to i13" [../C-Code-Original/include/k2c_core_layers.c:37]   --->   Operation 44 'trunc' 'tmp_69' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%cast = zext i64 %outrows2 to i128" [../C-Code-Original/include/k2c_core_layers.c:30]   --->   Operation 45 'zext' 'cast' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 46 [1/1] (0.00ns)   --->   "%cast1 = zext i64 %outcols to i128" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 46 'zext' 'cast1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 47 [1/1] (6.77ns)   --->   "%bound = mul i128 %cast1, %cast" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 47 'mul' 'bound' <Predicate = true> <Delay = 6.77> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 48 [1/1] (0.95ns)   --->   "br label %1" [../C-Code-Original/include/k2c_core_layers.c:43]   --->   Operation 48 'br' <Predicate = true> <Delay = 0.95>
 
-State 7 <SV = 3> <Delay = 3.53>
-ST_7 : Operation 68 [1/1] (0.00ns)   --->   "%tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str34)" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 68 'specregionbegin' 'tmp_s' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 69 [1/2] (1.76ns)   --->   "%bias_array_load = load float* %bias_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 69 'load' 'bias_array_load' <Predicate = true> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_7 : Operation 70 [1/1] (1.76ns)   --->   "store float %bias_array_load, float* %output_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 70 'store' <Predicate = true> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_7 : Operation 71 [1/1] (0.95ns)   --->   "br label %2" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 71 'br' <Predicate = true> <Delay = 0.95>
+State 7 <SV = 2> <Delay = 5.73>
+ST_7 : Operation 49 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i128 [ 0, %_ifconv ], [ %indvar_flatten_next, %4 ]"   --->   Operation 49 'phi' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 50 [1/1] (0.00ns)   --->   "%i = phi i64 [ 0, %_ifconv ], [ %outrowidx_mid2_v_v, %4 ]" [../C-Code-Original/include/k2c_core_layers.c:45]   --->   Operation 50 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 51 [1/1] (0.00ns)   --->   "%j = phi i64 [ 0, %_ifconv ], [ %j_17, %4 ]"   --->   Operation 51 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 52 [1/1] (1.55ns)   --->   "%exitcond_flatten = icmp eq i128 %indvar_flatten, %bound" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 52 'icmp' 'exitcond_flatten' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 53 [1/1] (1.90ns)   --->   "%indvar_flatten_next = add i128 %indvar_flatten, 1"   --->   Operation 53 'add' 'indvar_flatten_next' <Predicate = true> <Delay = 1.90> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 54 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %.loopexit.loopexit, label %.reset" [../C-Code-Original/include/k2c_core_layers.c:36]   --->   Operation 54 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 55 [1/1] (1.45ns)   --->   "%exitcond14 = icmp eq i64 %j, %outcols" [../C-Code-Original/include/k2c_core_layers.c:47]   --->   Operation 55 'icmp' 'exitcond14' <Predicate = (!exitcond_flatten)> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 56 [1/1] (0.54ns)   --->   "%j_mid2 = select i1 %exitcond14, i64 0, i64 %j" [../C-Code-Original/include/k2c_core_layers.c:47]   --->   Operation 56 'select' 'j_mid2' <Predicate = (!exitcond_flatten)> <Delay = 0.54> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 57 [1/1] (1.64ns)   --->   "%i_s = add i64 1, %i" [../C-Code-Original/include/k2c_core_layers.c:43]   --->   Operation 57 'add' 'i_s' <Predicate = (!exitcond_flatten)> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 58 [1/1] (0.54ns)   --->   "%outrowidx_mid2_v_v = select i1 %exitcond14, i64 %i_s, i64 %i" [../C-Code-Original/include/k2c_core_layers.c:45]   --->   Operation 58 'select' 'outrowidx_mid2_v_v' <Predicate = (!exitcond_flatten)> <Delay = 0.54> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 59 [1/1] (0.00ns)   --->   "%tmp_70 = trunc i64 %outrowidx_mid2_v_v to i13" [../C-Code-Original/include/k2c_core_layers.c:45]   --->   Operation 59 'trunc' 'tmp_70' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_7 : Operation 60 [1/1] (1.11ns)   --->   "%outrowidx_mid2 = mul i13 %tmp_68, %tmp_70" [../C-Code-Original/include/k2c_core_layers.c:45]   --->   Operation 60 'mul' 'outrowidx_mid2' <Predicate = (!exitcond_flatten)> <Delay = 1.11> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 3.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 61 [1/1] (3.55ns)   --->   "%inneridx_mid2 = mul i13 %tmp_69, %tmp_70" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 61 'mul' 'inneridx_mid2' <Predicate = (!exitcond_flatten)> <Delay = 3.55> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 3.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%tmp_71 = trunc i64 %j_mid2 to i20" [../C-Code-Original/include/k2c_core_layers.c:47]   --->   Operation 62 'trunc' 'tmp_71' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_7 : Operation 63 [1/1] (0.00ns)   --->   "%tmp_72 = trunc i64 %j_mid2 to i13" [../C-Code-Original/include/k2c_core_layers.c:47]   --->   Operation 63 'trunc' 'tmp_72' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_7 : Operation 64 [1/1] (0.00ns)   --->   "%bias_array_addr = getelementptr [2622 x float]* %bias_array, i64 0, i64 %j_mid2" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 64 'getelementptr' 'bias_array_addr' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_7 : Operation 65 [2/2] (1.76ns)   --->   "%bias_array_load = load float* %bias_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 65 'load' 'bias_array_load' <Predicate = (!exitcond_flatten)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_7 : Operation 66 [1/1] (2.44ns)   --->   "%tmp_44 = add i13 %tmp_72, %outrowidx_mid2" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 66 'add' 'tmp_44' <Predicate = (!exitcond_flatten)> <Delay = 2.44> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 3.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 67 [1/1] (0.00ns)   --->   "%tmp_44_cast = zext i13 %tmp_44 to i64" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 67 'zext' 'tmp_44_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_7 : Operation 68 [1/1] (0.00ns)   --->   "%output_array_addr = getelementptr [2622 x float]* %output_array, i64 0, i64 %tmp_44_cast" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 68 'getelementptr' 'output_array_addr' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_7 : Operation 69 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 69 'br' <Predicate = (exitcond_flatten)> <Delay = 0.00>
 
-State 8 <SV = 4> <Delay = 6.66>
-ST_8 : Operation 72 [1/1] (0.00ns)   --->   "%tmp_45 = phi float [ %bias_array_load, %.reset ], [ %tmp_50, %3 ]" [../C-Code-Original/include/k2c_core_layers.c:48]   --->   Operation 72 'phi' 'tmp_45' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 73 [1/1] (0.00ns)   --->   "%k = phi i64 [ 0, %.reset ], [ %k_4, %3 ]"   --->   Operation 73 'phi' 'k' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 74 [1/1] (1.45ns)   --->   "%exitcond = icmp eq i64 %k, %innerdim" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 74 'icmp' 'exitcond' <Predicate = true> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 75 [1/1] (1.64ns)   --->   "%k_4 = add i64 %k, 1" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 75 'add' 'k_4' <Predicate = true> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 76 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %4, label %3" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 76 'br' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 77 [1/1] (0.00ns)   --->   "%tmp_73 = trunc i64 %k to i20" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 77 'trunc' 'tmp_73' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_8 : Operation 78 [1/1] (0.00ns)   --->   "%tmp_74 = trunc i64 %k to i13" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 78 'trunc' 'tmp_74' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_8 : Operation 79 [1/1] (1.27ns)   --->   "%tmp_46 = add i13 %tmp_74, %inneridx_mid2" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 79 'add' 'tmp_46' <Predicate = (!exitcond)> <Delay = 1.27> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 80 [1/1] (0.00ns)   --->   "%tmp_46_cast = zext i13 %tmp_46 to i64" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 80 'zext' 'tmp_46_cast' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_8 : Operation 81 [1/1] (0.00ns)   --->   "%input_array_addr = getelementptr [2622 x float]* %input_array, i64 0, i64 %tmp_46_cast" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 81 'getelementptr' 'input_array_addr' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_8 : Operation 82 [2/2] (1.76ns)   --->   "%input_array_load = load float* %input_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 82 'load' 'input_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_8 : Operation 83 [1/1] (3.53ns)   --->   "%tmp_47 = mul i20 %tmp_67, %tmp_73" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 83 'mul' 'tmp_47' <Predicate = (!exitcond)> <Delay = 3.53> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 84 [1/1] (1.36ns)   --->   "%tmp_48 = add i20 %tmp_47, %tmp_71" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 84 'add' 'tmp_48' <Predicate = (!exitcond)> <Delay = 1.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 85 [1/1] (0.00ns)   --->   "%tmp_48_cast = zext i20 %tmp_48 to i64" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 85 'zext' 'tmp_48_cast' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_8 : Operation 86 [1/1] (0.00ns)   --->   "%kernel_array_addr = getelementptr [262200 x float]* %kernel_array, i64 0, i64 %tmp_48_cast" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 86 'getelementptr' 'kernel_array_addr' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_8 : Operation 87 [2/2] (1.76ns)   --->   "%kernel_array_load = load float* %kernel_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 87 'load' 'kernel_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+State 8 <SV = 3> <Delay = 3.53>
+ST_8 : Operation 70 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 0, i64 0)"   --->   Operation 70 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 71 [1/1] (0.00ns)   --->   "%tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str236)" [../C-Code-Original/include/k2c_core_layers.c:47]   --->   Operation 71 'specregionbegin' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 72 [1/2] (1.76ns)   --->   "%bias_array_load = load float* %bias_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 72 'load' 'bias_array_load' <Predicate = true> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_8 : Operation 73 [1/1] (1.76ns)   --->   "store float %bias_array_load, float* %output_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 73 'store' <Predicate = true> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_8 : Operation 74 [1/1] (0.95ns)   --->   "br label %2" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 74 'br' <Predicate = true> <Delay = 0.95>
 
-State 9 <SV = 5> <Delay = 1.76>
-ST_9 : Operation 88 [1/2] (1.76ns)   --->   "%input_array_load = load float* %input_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 88 'load' 'input_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_9 : Operation 89 [1/2] (1.76ns)   --->   "%kernel_array_load = load float* %kernel_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 89 'load' 'kernel_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+State 9 <SV = 4> <Delay = 6.66>
+ST_9 : Operation 75 [1/1] (0.00ns)   --->   "%tmp_45 = phi float [ %bias_array_load, %.reset ], [ %tmp_50, %3 ]" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 75 'phi' 'tmp_45' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 76 [1/1] (0.00ns)   --->   "%k = phi i64 [ 0, %.reset ], [ %k_4, %3 ]"   --->   Operation 76 'phi' 'k' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 77 [1/1] (1.45ns)   --->   "%exitcond = icmp eq i64 %k, %innerdim" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 77 'icmp' 'exitcond' <Predicate = true> <Delay = 1.45> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 78 [1/1] (1.64ns)   --->   "%k_4 = add i64 %k, 1" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 78 'add' 'k_4' <Predicate = true> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 79 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %4, label %3" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 79 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 80 [1/1] (0.00ns)   --->   "%tmp_73 = trunc i64 %k to i20" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 80 'trunc' 'tmp_73' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_9 : Operation 81 [1/1] (0.00ns)   --->   "%tmp_74 = trunc i64 %k to i13" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 81 'trunc' 'tmp_74' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_9 : Operation 82 [1/1] (1.27ns)   --->   "%tmp_46 = add i13 %tmp_74, %inneridx_mid2" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 82 'add' 'tmp_46' <Predicate = (!exitcond)> <Delay = 1.27> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 83 [1/1] (0.00ns)   --->   "%tmp_46_cast = zext i13 %tmp_46 to i64" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 83 'zext' 'tmp_46_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_9 : Operation 84 [1/1] (0.00ns)   --->   "%input_array_addr = getelementptr [2622 x float]* %input_array, i64 0, i64 %tmp_46_cast" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 84 'getelementptr' 'input_array_addr' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_9 : Operation 85 [2/2] (1.76ns)   --->   "%input_array_load = load float* %input_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 85 'load' 'input_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_9 : Operation 86 [1/1] (3.53ns)   --->   "%tmp_47 = mul i20 %tmp_67, %tmp_73" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 86 'mul' 'tmp_47' <Predicate = (!exitcond)> <Delay = 3.53> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 87 [1/1] (1.36ns)   --->   "%tmp_48 = add i20 %tmp_47, %tmp_71" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 87 'add' 'tmp_48' <Predicate = (!exitcond)> <Delay = 1.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 88 [1/1] (0.00ns)   --->   "%tmp_48_cast = zext i20 %tmp_48 to i64" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 88 'zext' 'tmp_48_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_9 : Operation 89 [1/1] (0.00ns)   --->   "%kernel_array_addr = getelementptr [262200 x float]* %kernel_array, i64 0, i64 %tmp_48_cast" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 89 'getelementptr' 'kernel_array_addr' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_9 : Operation 90 [2/2] (1.76ns)   --->   "%kernel_array_load = load float* %kernel_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 90 'load' 'kernel_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
 
-State 10 <SV = 6> <Delay = 8.46>
-ST_10 : Operation 90 [2/2] (8.46ns)   --->   "%tmp_49 = fmul float %input_array_load, %kernel_array_load" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 90 'fmul' 'tmp_49' <Predicate = (!exitcond)> <Delay = 8.46> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 1> <II = 1> <Delay = 8.46> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+State 10 <SV = 5> <Delay = 1.76>
+ST_10 : Operation 91 [1/2] (1.76ns)   --->   "%input_array_load = load float* %input_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 91 'load' 'input_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_10 : Operation 92 [1/2] (1.76ns)   --->   "%kernel_array_load = load float* %kernel_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 92 'load' 'kernel_array_load' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
 
-State 11 <SV = 7> <Delay = 8.46>
-ST_11 : Operation 91 [1/2] (8.46ns)   --->   "%tmp_49 = fmul float %input_array_load, %kernel_array_load" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 91 'fmul' 'tmp_49' <Predicate = (!exitcond)> <Delay = 8.46> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 1> <II = 1> <Delay = 8.46> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+State 11 <SV = 6> <Delay = 8.46>
+ST_11 : Operation 93 [2/2] (8.46ns)   --->   "%tmp_49 = fmul float %input_array_load, %kernel_array_load" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 93 'fmul' 'tmp_49' <Predicate = (!exitcond)> <Delay = 8.46> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 1> <II = 1> <Delay = 8.46> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
 
-State 12 <SV = 8> <Delay = 6.77>
-ST_12 : Operation 92 [4/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 92 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+State 12 <SV = 7> <Delay = 8.46>
+ST_12 : Operation 94 [1/2] (8.46ns)   --->   "%tmp_49 = fmul float %input_array_load, %kernel_array_load" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 94 'fmul' 'tmp_49' <Predicate = (!exitcond)> <Delay = 8.46> <Core = "FMul">   --->   Core 100 'FMul' <Latency = 1> <II = 1> <Delay = 8.46> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
 
-State 13 <SV = 9> <Delay = 6.77>
-ST_13 : Operation 93 [3/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 93 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+State 13 <SV = 8> <Delay = 6.77>
+ST_13 : Operation 95 [4/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 95 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 
-State 14 <SV = 10> <Delay = 6.77>
-ST_14 : Operation 94 [2/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 94 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+State 14 <SV = 9> <Delay = 6.77>
+ST_14 : Operation 96 [3/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 96 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 
-State 15 <SV = 11> <Delay = 8.53>
-ST_15 : Operation 95 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([17 x i8]* @p_str236) nounwind" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 95 'specloopname' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_15 : Operation 96 [1/1] (0.00ns)   --->   "%tmp_51 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @p_str236)" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 96 'specregionbegin' 'tmp_51' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_15 : Operation 97 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 0, i32 0, i32 0, [1 x i8]* @p_str135) nounwind" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 97 'speclooptripcount' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_15 : Operation 98 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str135) nounwind" [../C-Code-Original/include/k2c_core_layers.c:51]   --->   Operation 98 'specpipeline' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_15 : Operation 99 [1/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 99 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
-ST_15 : Operation 100 [1/1] (1.76ns)   --->   "store float %tmp_50, float* %output_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 100 'store' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
-ST_15 : Operation 101 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @p_str236, i32 %tmp_51)" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 101 'specregionend' 'empty' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_15 : Operation 102 [1/1] (0.00ns)   --->   "br label %2" [../C-Code-Original/include/k2c_core_layers.c:49]   --->   Operation 102 'br' <Predicate = (!exitcond)> <Delay = 0.00>
+State 15 <SV = 10> <Delay = 6.77>
+ST_15 : Operation 97 [2/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 97 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 
-State 16 <SV = 5> <Delay = 1.64>
-ST_16 : Operation 103 [1/1] (0.00ns)   --->   "%empty_49 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str34, i32 %tmp_s)" [../C-Code-Original/include/k2c_core_layers.c:54]   --->   Operation 103 'specregionend' 'empty_49' <Predicate = true> <Delay = 0.00>
-ST_16 : Operation 104 [1/1] (1.64ns)   --->   "%j_13 = add i64 %j_mid2, 1" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 104 'add' 'j_13' <Predicate = true> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_16 : Operation 105 [1/1] (0.00ns)   --->   "br label %1" [../C-Code-Original/include/k2c_core_layers.c:46]   --->   Operation 105 'br' <Predicate = true> <Delay = 0.00>
+State 16 <SV = 11> <Delay = 8.53>
+ST_16 : Operation 98 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([17 x i8]* @p_str337) nounwind" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 98 'specloopname' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_16 : Operation 99 [1/1] (0.00ns)   --->   "%tmp_51 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @p_str337)" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 99 'specregionbegin' 'tmp_51' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_16 : Operation 100 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 0, i32 0, i32 0, [1 x i8]* @p_str135) nounwind" [../C-Code-Original/include/k2c_core_layers.c:51]   --->   Operation 100 'speclooptripcount' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_16 : Operation 101 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str135) nounwind" [../C-Code-Original/include/k2c_core_layers.c:52]   --->   Operation 101 'specpipeline' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_16 : Operation 102 [1/4] (6.77ns)   --->   "%tmp_50 = fadd float %tmp_45, %tmp_49" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 102 'fadd' 'tmp_50' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 103 [1/1] (1.76ns)   --->   "store float %tmp_50, float* %output_array_addr, align 4" [../C-Code-Original/include/k2c_core_layers.c:53]   --->   Operation 103 'store' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.76> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 2622> <RAM>
+ST_16 : Operation 104 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @p_str337, i32 %tmp_51)" [../C-Code-Original/include/k2c_core_layers.c:54]   --->   Operation 104 'specregionend' 'empty' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_16 : Operation 105 [1/1] (0.00ns)   --->   "br label %2" [../C-Code-Original/include/k2c_core_layers.c:50]   --->   Operation 105 'br' <Predicate = (!exitcond)> <Delay = 0.00>
+
+State 17 <SV = 5> <Delay = 1.64>
+ST_17 : Operation 106 [1/1] (0.00ns)   --->   "%empty_49 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str236, i32 %tmp_s)" [../C-Code-Original/include/k2c_core_layers.c:55]   --->   Operation 106 'specregionend' 'empty_49' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 107 [1/1] (1.64ns)   --->   "%j_17 = add i64 %j_mid2, 1" [../C-Code-Original/include/k2c_core_layers.c:47]   --->   Operation 107 'add' 'j_17' <Predicate = true> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 108 [1/1] (0.00ns)   --->   "br label %1" [../C-Code-Original/include/k2c_core_layers.c:47]   --->   Operation 108 'br' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -244,10 +250,11 @@ ST_16 : Operation 105 [1/1] (0.00ns)   --->   "br label %1" [../C-Code-Original/
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.64ns
+ <State 1>: 2.35ns
 The critical path consists of the following:
-	wire read on port 'input_ndim_read' [11]  (0 ns)
-	'add' operation ('tmp_43', ../C-Code-Original/include/k2c_core_layers.c:59) [15]  (1.64 ns)
+	wire read on port 'input_ndim_read' [12]  (0 ns)
+	'add' operation ('tmp_43', ../C-Code-Original/include/k2c_core_layers.c:60) [16]  (1.64 ns)
+	'store' operation (../C-Code-Original/include/k2c_core_layers.c:60) of variable 'tmp_43', ../C-Code-Original/include/k2c_core_layers.c:60 on array 'axesA' [17]  (0.706 ns)
 
  <State 2>: 0ns
 The critical path consists of the following:
@@ -258,64 +265,68 @@ The critical path consists of the following:
  <State 4>: 0ns
 The critical path consists of the following:
 
- <State 5>: 8.02ns
+ <State 5>: 0ns
 The critical path consists of the following:
-	'load' operation ('outrows', ../C-Code-Original/include/k2c_core_layers.c:31) on array 'input_shape' [23]  (0.706 ns)
-	'select' operation ('outrows2', ../C-Code-Original/include/k2c_core_layers.c:30) [24]  (0.541 ns)
-	'mul' operation ('bound', ../C-Code-Original/include/k2c_core_layers.c:36) [34]  (6.77 ns)
 
- <State 6>: 5.73ns
+ <State 6>: 8.02ns
 The critical path consists of the following:
-	'phi' operation ('i', ../C-Code-Original/include/k2c_core_layers.c:44) with incoming values : ('outrowidx_mid2_v_v', ../C-Code-Original/include/k2c_core_layers.c:44) [38]  (0 ns)
-	'add' operation ('i_s', ../C-Code-Original/include/k2c_core_layers.c:43) [46]  (1.64 ns)
-	'select' operation ('outrowidx_mid2_v_v', ../C-Code-Original/include/k2c_core_layers.c:44) [47]  (0.541 ns)
-	'mul' operation ('inneridx_mid2', ../C-Code-Original/include/k2c_core_layers.c:45) [50]  (3.55 ns)
+	'load' operation ('outrows', ../C-Code-Original/include/k2c_core_layers.c:31) on array 'input_shape' [25]  (0.706 ns)
+	'select' operation ('outrows2', ../C-Code-Original/include/k2c_core_layers.c:30) [26]  (0.541 ns)
+	'mul' operation ('bound', ../C-Code-Original/include/k2c_core_layers.c:36) [36]  (6.77 ns)
 
- <State 7>: 3.54ns
+ <State 7>: 5.73ns
 The critical path consists of the following:
-	'load' operation ('bias_array_load', ../C-Code-Original/include/k2c_core_layers.c:48) on array 'bias_array' [55]  (1.77 ns)
-	'store' operation (../C-Code-Original/include/k2c_core_layers.c:48) of variable 'bias_array_load', ../C-Code-Original/include/k2c_core_layers.c:48 on array 'output_array' [59]  (1.77 ns)
+	'phi' operation ('i', ../C-Code-Original/include/k2c_core_layers.c:45) with incoming values : ('outrowidx_mid2_v_v', ../C-Code-Original/include/k2c_core_layers.c:45) [40]  (0 ns)
+	'add' operation ('i_s', ../C-Code-Original/include/k2c_core_layers.c:43) [49]  (1.64 ns)
+	'select' operation ('outrowidx_mid2_v_v', ../C-Code-Original/include/k2c_core_layers.c:45) [50]  (0.541 ns)
+	'mul' operation ('outrowidx_mid2', ../C-Code-Original/include/k2c_core_layers.c:45) [52]  (1.11 ns)
+	'add' operation ('tmp_44', ../C-Code-Original/include/k2c_core_layers.c:49) [59]  (2.44 ns)
 
- <State 8>: 6.66ns
+ <State 8>: 3.54ns
 The critical path consists of the following:
-	'phi' operation ('k') with incoming values : ('k', ../C-Code-Original/include/k2c_core_layers.c:49) [63]  (0 ns)
-	'mul' operation ('tmp_47', ../C-Code-Original/include/k2c_core_layers.c:52) [78]  (3.53 ns)
-	'add' operation ('tmp_48', ../C-Code-Original/include/k2c_core_layers.c:52) [79]  (1.37 ns)
-	'getelementptr' operation ('kernel_array_addr', ../C-Code-Original/include/k2c_core_layers.c:52) [81]  (0 ns)
-	'load' operation ('kernel_array_load', ../C-Code-Original/include/k2c_core_layers.c:52) on array 'kernel_array' [82]  (1.77 ns)
+	'load' operation ('bias_array_load', ../C-Code-Original/include/k2c_core_layers.c:49) on array 'bias_array' [58]  (1.77 ns)
+	'store' operation (../C-Code-Original/include/k2c_core_layers.c:49) of variable 'bias_array_load', ../C-Code-Original/include/k2c_core_layers.c:49 on array 'output_array' [62]  (1.77 ns)
 
- <State 9>: 1.77ns
+ <State 9>: 6.66ns
 The critical path consists of the following:
-	'load' operation ('input_array_load', ../C-Code-Original/include/k2c_core_layers.c:52) on array 'input_array' [77]  (1.77 ns)
+	'phi' operation ('k') with incoming values : ('k', ../C-Code-Original/include/k2c_core_layers.c:50) [66]  (0 ns)
+	'mul' operation ('tmp_47', ../C-Code-Original/include/k2c_core_layers.c:53) [81]  (3.53 ns)
+	'add' operation ('tmp_48', ../C-Code-Original/include/k2c_core_layers.c:53) [82]  (1.37 ns)
+	'getelementptr' operation ('kernel_array_addr', ../C-Code-Original/include/k2c_core_layers.c:53) [84]  (0 ns)
+	'load' operation ('kernel_array_load', ../C-Code-Original/include/k2c_core_layers.c:53) on array 'kernel_array' [85]  (1.77 ns)
 
- <State 10>: 8.46ns
+ <State 10>: 1.77ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_49', ../C-Code-Original/include/k2c_core_layers.c:52) [83]  (8.46 ns)
+	'load' operation ('input_array_load', ../C-Code-Original/include/k2c_core_layers.c:53) on array 'input_array' [80]  (1.77 ns)
 
  <State 11>: 8.46ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_49', ../C-Code-Original/include/k2c_core_layers.c:52) [83]  (8.46 ns)
+	'fmul' operation ('tmp_49', ../C-Code-Original/include/k2c_core_layers.c:53) [86]  (8.46 ns)
 
- <State 12>: 6.77ns
+ <State 12>: 8.46ns
 The critical path consists of the following:
-	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:52) [84]  (6.77 ns)
+	'fmul' operation ('tmp_49', ../C-Code-Original/include/k2c_core_layers.c:53) [86]  (8.46 ns)
 
  <State 13>: 6.77ns
 The critical path consists of the following:
-	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:52) [84]  (6.77 ns)
+	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:53) [87]  (6.77 ns)
 
  <State 14>: 6.77ns
 The critical path consists of the following:
-	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:52) [84]  (6.77 ns)
+	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:53) [87]  (6.77 ns)
 
- <State 15>: 8.54ns
+ <State 15>: 6.77ns
 The critical path consists of the following:
-	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:52) [84]  (6.77 ns)
-	'store' operation (../C-Code-Original/include/k2c_core_layers.c:52) of variable 'tmp_50', ../C-Code-Original/include/k2c_core_layers.c:52 on array 'output_array' [85]  (1.77 ns)
+	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:53) [87]  (6.77 ns)
 
- <State 16>: 1.64ns
+ <State 16>: 8.54ns
 The critical path consists of the following:
-	'add' operation ('j', ../C-Code-Original/include/k2c_core_layers.c:46) [90]  (1.64 ns)
+	'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:53) [87]  (6.77 ns)
+	'store' operation (../C-Code-Original/include/k2c_core_layers.c:53) of variable 'tmp_50', ../C-Code-Original/include/k2c_core_layers.c:53 on array 'output_array' [88]  (1.77 ns)
+
+ <State 17>: 1.64ns
+The critical path consists of the following:
+	'add' operation ('j', ../C-Code-Original/include/k2c_core_layers.c:47) [93]  (1.64 ns)
 
 
 ============================================================
@@ -342,6 +353,7 @@ N/A
 	State 14
 	State 15
 	State 16
+	State 17
 
 
 ============================================================

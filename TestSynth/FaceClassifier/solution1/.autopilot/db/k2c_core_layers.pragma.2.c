@@ -2002,7 +2002,8 @@ void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* 
 
         size_t i;
         for ( i = 0 ; i < outrows; ++i) {
-        const size_t outrowidx = i*outcols;
+_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+ const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t j = 0; j < outcols; ++j) {
 _ssdm_op_SpecLoopTripCount(0, 0, 0, "");
@@ -2019,11 +2020,17 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
     else {
         const size_t axesA[1] = {input->ndim-1};
 _ssdm_SpecConstant(axesA);
-# 59 "../C-Code-Original/include/k2c_core_layers.c"
+# 60 "../C-Code-Original/include/k2c_core_layers.c"
+
+_ssdm_SpecArrayMap( axesA, "&axesA", -1, "HORIZONTAL", "");
+# 60 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t axesB[1] = {0};
 _ssdm_SpecConstant(axesB);
-# 60 "../C-Code-Original/include/k2c_core_layers.c"
+# 61 "../C-Code-Original/include/k2c_core_layers.c"
+
+_ssdm_SpecArrayMap( axesB, "&axesB", -1, "HORIZONTAL", "");
+# 61 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t naxes = 1;
         const int normalize = 0;
@@ -2068,11 +2075,11 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
     else {
         const size_t axesA[1] = {input->ndim-1};
 _ssdm_SpecConstant(axesA);
-# 102 "../C-Code-Original/include/k2c_core_layers.c"
+# 103 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t axesB[1] = {0};
 _ssdm_SpecConstant(axesB);
-# 103 "../C-Code-Original/include/k2c_core_layers.c"
+# 104 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t naxes = 1;
         const int normalize = 0;
@@ -2082,7 +2089,7 @@ _ssdm_SpecConstant(axesB);
         k2c_linear_func(output->array, output->numel);
     }
 }
-# 122 "../C-Code-Original/include/k2c_core_layers.c"
+# 123 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
 
     memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
@@ -2093,7 +2100,7 @@ void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
     output->numel = input->numel;
     output->ndim = 1;
 }
-# 142 "../C-Code-Original/include/k2c_core_layers.c"
+# 143 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * newshp,
                  const size_t newndim) {
 
@@ -2104,7 +2111,7 @@ void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * new
     output->ndim = newndim;
     output->numel = input->numel;
 }
-# 162 "../C-Code-Original/include/k2c_core_layers.c"
+# 163 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
                       const size_t * permute) {
 
@@ -2131,7 +2138,7 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
         output->array[bidx] = input->array[i];
     }
 }
-# 198 "../C-Code-Original/include/k2c_core_layers.c"
+# 199 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n) {
 
     const size_t in_width = input->shape[0];

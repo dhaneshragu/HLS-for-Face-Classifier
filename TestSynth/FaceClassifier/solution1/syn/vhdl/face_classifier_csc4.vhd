@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity face_classifier_csc4 is
     generic (
-        ID         : integer := 81;
+        ID         : integer := 82;
         NUM_STAGE  : integer := 1;
         din0_WIDTH : integer := 32;
         dout_WIDTH : integer := 64

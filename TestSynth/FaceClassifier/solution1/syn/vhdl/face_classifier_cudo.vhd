@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity face_classifier_cudo is
     generic (
-        ID         : integer := 83;
+        ID         : integer := 84;
         NUM_STAGE  : integer := 4;
         din0_WIDTH : integer := 64;
         din1_WIDTH : integer := 64;

@@ -117,11 +117,11 @@ set RtlHierarchyInfo {[
 			{"Name" : "stdev_array", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "gamma_array", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "beta_array", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cjbC_U52", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cdEe_U53", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ceOg_U54", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ckbM_U55", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_clbW_U56", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cjbC_U53", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_cdEe_U54", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ceOg_U55", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_ckbM_U56", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.face_classifier_clbW_U57", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {

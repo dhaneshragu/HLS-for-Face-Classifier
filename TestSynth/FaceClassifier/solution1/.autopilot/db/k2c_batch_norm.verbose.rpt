@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_batch_norm'
 ================================================================
-* Date:           Wed Apr 17 23:19:38 2024
+* Date:           Sat Apr 20 22:09:11 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -77,11 +77,11 @@
     +--------------------------+----------------------+---------+-------+------+------+
     |         Instance         |        Module        | BRAM_18K| DSP48E|  FF  |  LUT |
     +--------------------------+----------------------+---------+-------+------+------+
-    |face_classifier_cdEe_U53  |face_classifier_cdEe  |        0|      2|   227|   214|
-    |face_classifier_ceOg_U54  |face_classifier_ceOg  |        0|      3|   128|   135|
-    |face_classifier_cjbC_U52  |face_classifier_cjbC  |        0|      2|   227|   214|
-    |face_classifier_ckbM_U55  |face_classifier_ckbM  |        0|      0|   359|   802|
-    |face_classifier_clbW_U56  |face_classifier_clbW  |        0|      0|  8651|  6607|
+    |face_classifier_cdEe_U54  |face_classifier_cdEe  |        0|      2|   227|   214|
+    |face_classifier_ceOg_U55  |face_classifier_ceOg  |        0|      3|   128|   135|
+    |face_classifier_cjbC_U53  |face_classifier_cjbC  |        0|      2|   227|   214|
+    |face_classifier_ckbM_U56  |face_classifier_ckbM  |        0|      0|   359|   802|
+    |face_classifier_clbW_U57  |face_classifier_clbW  |        0|      0|  8651|  6607|
     +--------------------------+----------------------+---------+-------+------+------+
     |Total                     |                      |        0|      7|  9592|  7972|
     +--------------------------+----------------------+---------+-------+------+------+
@@ -458,13 +458,13 @@ State 35 <SV = 34> <Delay = 6.77>
 ST_35 : Operation 95 [2/4] (6.77ns)   --->   "%tmp_52 = fadd float %tmp_s, %beta_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:47]   --->   Operation 95 'fadd' 'tmp_52' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 
 State 36 <SV = 35> <Delay = 8.53>
-ST_36 : Operation 96 [1/1] (0.00ns)   --->   "%tmp_53 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str85)" [../C-Code-Original/include/k2c_normalization_layers.c:42]   --->   Operation 96 'specregionbegin' 'tmp_53' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_36 : Operation 97 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str186) nounwind" [../C-Code-Original/include/k2c_normalization_layers.c:43]   --->   Operation 97 'specpipeline' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_36 : Operation 98 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 10, i32 100, i32 10, [1 x i8]* @p_str186) nounwind" [../C-Code-Original/include/k2c_normalization_layers.c:44]   --->   Operation 98 'speclooptripcount' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_36 : Operation 96 [1/1] (0.00ns)   --->   "%tmp_53 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str89)" [../C-Code-Original/include/k2c_normalization_layers.c:42]   --->   Operation 96 'specregionbegin' 'tmp_53' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_36 : Operation 97 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str190) nounwind" [../C-Code-Original/include/k2c_normalization_layers.c:43]   --->   Operation 97 'specpipeline' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_36 : Operation 98 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 10, i32 100, i32 10, [1 x i8]* @p_str190) nounwind" [../C-Code-Original/include/k2c_normalization_layers.c:44]   --->   Operation 98 'speclooptripcount' <Predicate = (!exitcond)> <Delay = 0.00>
 ST_36 : Operation 99 [1/4] (6.77ns)   --->   "%tmp_52 = fadd float %tmp_s, %beta_array_load" [../C-Code-Original/include/k2c_normalization_layers.c:47]   --->   Operation 99 'fadd' 'tmp_52' <Predicate = (!exitcond)> <Delay = 6.77> <Core = "FAddSub">   --->   Core 99 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.77> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
 ST_36 : Operation 100 [1/1] (0.00ns)   --->   "%outputs_array_addr = getelementptr [2622 x float]* %outputs_array, i64 0, i64 %i_cast" [../C-Code-Original/include/k2c_normalization_layers.c:47]   --->   Operation 100 'getelementptr' 'outputs_array_addr' <Predicate = (!exitcond)> <Delay = 0.00>
 ST_36 : Operation 101 [1/1] (1.76ns)   --->   "store float %tmp_52, float* %outputs_array_addr, align 4" [../C-Code-Original/include/k2c_normalization_layers.c:47]   --->   Operation 101 'store' <Predicate = (!exitcond)> <Delay = 1.76> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.70> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 5> <RAM>
-ST_36 : Operation 102 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str85, i32 %tmp_53)" [../C-Code-Original/include/k2c_normalization_layers.c:48]   --->   Operation 102 'specregionend' 'empty' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_36 : Operation 102 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str89, i32 %tmp_53)" [../C-Code-Original/include/k2c_normalization_layers.c:48]   --->   Operation 102 'specregionend' 'empty' <Predicate = (!exitcond)> <Delay = 0.00>
 ST_36 : Operation 103 [1/1] (0.00ns)   --->   "br label %1" [../C-Code-Original/include/k2c_normalization_layers.c:42]   --->   Operation 103 'br' <Predicate = (!exitcond)> <Delay = 0.00>
 
 State 37 <SV = 3> <Delay = 0.00>
@@ -662,7 +662,7 @@ StgValue_104        (ret              ) [ 00000000000000000000000000000000000000
 <pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str85"/></StgValue>
+<StgValue><ssdm name="p_str89"/></StgValue>
 </bind>
 </comp>
 
@@ -707,7 +707,7 @@ StgValue_104        (ret              ) [ 00000000000000000000000000000000000000
 <pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str186"/></StgValue>
+<StgValue><ssdm name="p_str190"/></StgValue>
 </bind>
 </comp>
 

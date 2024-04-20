@@ -1267,7 +1267,7 @@
 
 <Node id="20" bw="32" op_0_bw="32" op_1_bw="0">
 <![CDATA[
-:0  %tmp_53 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str85)
+:0  %tmp_53 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str89)
 
 ]]></Node>
 <StgValue><ssdm name="tmp_53"/></StgValue>
@@ -1283,7 +1283,7 @@
 
 <Node id="21" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str186) nounwind
+:1  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str190) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1299,7 +1299,7 @@
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="0">
 <![CDATA[
-:2  call void (...)* @_ssdm_op_SpecLoopTripCount(i32 10, i32 100, i32 10, [1 x i8]* @p_str186) nounwind
+:2  call void (...)* @_ssdm_op_SpecLoopTripCount(i32 10, i32 100, i32 10, [1 x i8]* @p_str190) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1363,7 +1363,7 @@
 
 <Node id="40" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
-:20  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str85, i32 %tmp_53)
+:20  %empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str89, i32 %tmp_53)
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>

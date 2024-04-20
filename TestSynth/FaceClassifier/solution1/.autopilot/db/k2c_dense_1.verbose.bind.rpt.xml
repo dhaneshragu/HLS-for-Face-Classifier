@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'k2c_dense_1'" level="0">
-<item name = "Date">Wed Apr 17 23:19:30 2024
+<item name = "Date">Sat Apr 20 22:09:03 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -31,13 +31,13 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_k2c_dot_fu_255">k2c_dot, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_bias_add_fu_279">k2c_bias_add, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dot_fu_265">k2c_dot, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_bias_add_fu_287">k2c_bias_add, ?, ?, ?, ?, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, 4, -, -, ?, no</column>
+<column name="- Loop 1">0, 0, 4, -, -, 0, no</column>
 <column name=" + k2c_dense_label0">0, 0, 8, 4, 1, 0, yes</column>
 </table>
 </item>

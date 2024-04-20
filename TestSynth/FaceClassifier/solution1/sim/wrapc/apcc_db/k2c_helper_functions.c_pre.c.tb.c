@@ -175,10 +175,10 @@ float *k2c_read_array( char *llvm_cbe_filename, signed long long llvm_cbe_array_
 
 
 /* Global Variable Definitions and Initialization */
-static  char aesl_internal__OC_str[28] = "cannot allocate memory %s \n";
 static  char aesl_internal__OC_str1[2] = "r";
 static  char aesl_internal__OC_str2[25] = "Unable to open file %s \n";
 static  char aesl_internal__OC_str3[4] = "%f,";
+static  char aesl_internal__OC_str[28] = "cannot allocate memory %s \n";
 
 
 /* Function Bodies */

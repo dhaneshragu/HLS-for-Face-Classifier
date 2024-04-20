@@ -339,7 +339,7 @@ face_classifier_cpcA #(
     .din1_WIDTH( 16 ),
     .din2_WIDTH( 19 ),
     .dout_WIDTH( 31 ))
-face_classifier_cpcA_U68(
+face_classifier_cpcA_U69(
     .din0(grp_fu_1173_p0),
     .din1(tmp_134_fu_447_p4),
     .din2(tmp_135_fu_469_p3),

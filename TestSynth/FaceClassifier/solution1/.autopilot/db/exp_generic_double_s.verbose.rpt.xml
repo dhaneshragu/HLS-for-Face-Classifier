@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'exp_generic_double_s'" level="0">
-<item name = "Date">Wed Apr 17 23:19:38 2024
+<item name = "Date">Sat Apr 20 22:09:12 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -67,7 +67,7 @@
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
 <keys size="3">Instance, Module, Expression</keys>
-<column name="face_classifier_cpcA_U68">face_classifier_cpcA, i0 * i1 + i2</column>
+<column name="face_classifier_cpcA_U69">face_classifier_cpcA, i0 * i1 + i2</column>
 </table>
 </item>
 <item name = "Memory"><table name="" hasTotal="1">

@@ -10,7 +10,7 @@
 
 module face_classifier_cqcK
 #(parameter
-    ID         = 74,
+    ID         = 75,
     NUM_STAGE  = 4,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

@@ -101,11 +101,11 @@ exp_generic_double_s::exp_generic_double_s(sc_module_name name) : sc_module(name
     table_f_Z2_array_V_U->address0(table_f_Z2_array_V_address0);
     table_f_Z2_array_V_U->ce0(table_f_Z2_array_V_ce0);
     table_f_Z2_array_V_U->q0(table_f_Z2_array_V_q0);
-    face_classifier_cpcA_U68 = new face_classifier_cpcA<1,1,16,16,19,31>("face_classifier_cpcA_U68");
-    face_classifier_cpcA_U68->din0(grp_fu_1173_p0);
-    face_classifier_cpcA_U68->din1(tmp_134_fu_447_p4);
-    face_classifier_cpcA_U68->din2(tmp_135_fu_469_p3);
-    face_classifier_cpcA_U68->dout(grp_fu_1173_p3);
+    face_classifier_cpcA_U69 = new face_classifier_cpcA<1,1,16,16,19,31>("face_classifier_cpcA_U69");
+    face_classifier_cpcA_U69->din0(grp_fu_1173_p0);
+    face_classifier_cpcA_U69->din1(tmp_134_fu_447_p4);
+    face_classifier_cpcA_U69->din2(tmp_135_fu_469_p3);
+    face_classifier_cpcA_U69->dout(grp_fu_1173_p3);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
@@ -1068,7 +1068,7 @@ exp_generic_double_s::~exp_generic_double_s() {
     delete table_exp_Z1_array_s_U;
     delete table_f_Z3_array_V_U;
     delete table_f_Z2_array_V_U;
-    delete face_classifier_cpcA_U68;
+    delete face_classifier_cpcA_U69;
 }
 
 void exp_generic_double_s::thread_ap_clk_no_reset_() {

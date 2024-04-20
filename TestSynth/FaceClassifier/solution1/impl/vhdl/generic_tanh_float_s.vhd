@@ -717,7 +717,7 @@ begin
         x => xd_reg_396,
         ap_return => grp_exp_generic_double_s_fu_89_ap_return);
 
-    face_classifier_cqcK_U74 : component face_classifier_cqcK
+    face_classifier_cqcK_U75 : component face_classifier_cqcK
     generic map (
         ID => 1,
         NUM_STAGE => 4,
@@ -733,7 +733,7 @@ begin
         ce => grp_fu_100_ce,
         dout => grp_fu_100_p2);
 
-    face_classifier_cdEe_U75 : component face_classifier_cdEe
+    face_classifier_cdEe_U76 : component face_classifier_cdEe
     generic map (
         ID => 1,
         NUM_STAGE => 4,
@@ -748,7 +748,7 @@ begin
         ce => grp_fu_104_ce,
         dout => grp_fu_104_p2);
 
-    face_classifier_cdEe_U76 : component face_classifier_cdEe
+    face_classifier_cdEe_U77 : component face_classifier_cdEe
     generic map (
         ID => 1,
         NUM_STAGE => 4,
@@ -763,7 +763,7 @@ begin
         ce => grp_fu_109_ce,
         dout => grp_fu_109_p2);
 
-    face_classifier_cjbC_U77 : component face_classifier_cjbC
+    face_classifier_cjbC_U78 : component face_classifier_cjbC
     generic map (
         ID => 1,
         NUM_STAGE => 4,
@@ -778,7 +778,7 @@ begin
         ce => grp_fu_115_ce,
         dout => grp_fu_115_p2);
 
-    face_classifier_ceOg_U78 : component face_classifier_ceOg
+    face_classifier_ceOg_U79 : component face_classifier_ceOg
     generic map (
         ID => 1,
         NUM_STAGE => 2,
@@ -793,7 +793,7 @@ begin
         ce => grp_fu_121_ce,
         dout => grp_fu_121_p2);
 
-    face_classifier_ckbM_U79 : component face_classifier_ckbM
+    face_classifier_ckbM_U80 : component face_classifier_ckbM
     generic map (
         ID => 1,
         NUM_STAGE => 8,
@@ -808,7 +808,7 @@ begin
         ce => grp_fu_125_ce,
         dout => grp_fu_125_p2);
 
-    face_classifier_crcU_U80 : component face_classifier_crcU
+    face_classifier_crcU_U81 : component face_classifier_crcU
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -818,7 +818,7 @@ begin
         din0 => tmp_119_i_reg_411,
         dout => tmp_120_i_fu_130_p1);
 
-    face_classifier_csc4_U81 : component face_classifier_csc4
+    face_classifier_csc4_U82 : component face_classifier_csc4
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -828,7 +828,7 @@ begin
         din0 => x_2_reg_376,
         dout => xd_fu_133_p1);
 
-    face_classifier_ctde_U82 : component face_classifier_ctde
+    face_classifier_ctde_U83 : component face_classifier_ctde
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -841,7 +841,7 @@ begin
         opcode => ap_const_lv5_4,
         dout => tmp_18_fu_136_p2);
 
-    face_classifier_cudo_U83 : component face_classifier_cudo
+    face_classifier_cudo_U84 : component face_classifier_cudo
     generic map (
         ID => 1,
         NUM_STAGE => 4,

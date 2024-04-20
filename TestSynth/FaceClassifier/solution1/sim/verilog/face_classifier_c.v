@@ -276,9 +276,9 @@ reg    dense_1_kernel_array_1_ce0;
 reg    dense_1_kernel_array_1_we0;
 wire   [31:0] dense_1_kernel_array_1_q0;
 reg   [63:0] dense_1_bias_numel;
-wire   [3:0] dense_1_bias_array2_address0;
-reg    dense_1_bias_array2_ce0;
-wire   [31:0] dense_1_bias_array2_q0;
+wire   [3:0] dense_1_bias_array8_address0;
+reg    dense_1_bias_array8_ce0;
+wire   [31:0] dense_1_bias_array8_q0;
 reg   [11:0] dense_1_bias_array_address0;
 reg    dense_1_bias_array_ce0;
 reg    dense_1_bias_array_we0;
@@ -338,9 +338,9 @@ reg    dense_2_kernel_array_2_ce0;
 reg    dense_2_kernel_array_2_we0;
 wire   [31:0] dense_2_kernel_array_2_q0;
 reg   [63:0] dense_2_bias_numel;
-wire   [2:0] dense_2_bias_array7_address0;
-reg    dense_2_bias_array7_ce0;
-wire   [31:0] dense_2_bias_array7_q0;
+wire   [2:0] dense_2_bias_array13_address0;
+reg    dense_2_bias_array13_ce0;
+wire   [31:0] dense_2_bias_array13_q0;
 reg   [11:0] dense_2_bias_array_address0;
 reg    dense_2_bias_array_ce0;
 reg    dense_2_bias_array_we0;
@@ -1819,12 +1819,12 @@ face_classifier_cShg #(
     .DataWidth( 32 ),
     .AddressRange( 10 ),
     .AddressWidth( 4 ))
-dense_1_bias_array2_U(
+dense_1_bias_array8_U(
     .clk(ap_clk),
     .reset(ap_rst),
-    .address0(dense_1_bias_array2_address0),
-    .ce0(dense_1_bias_array2_ce0),
-    .q0(dense_1_bias_array2_q0)
+    .address0(dense_1_bias_array8_address0),
+    .ce0(dense_1_bias_array8_ce0),
+    .q0(dense_1_bias_array8_q0)
 );
 
 face_classifier_cBew #(
@@ -1837,7 +1837,7 @@ dense_1_bias_array_U(
     .address0(dense_1_bias_array_address0),
     .ce0(dense_1_bias_array_ce0),
     .we0(dense_1_bias_array_we0),
-    .d0(dense_1_bias_array2_q0),
+    .d0(dense_1_bias_array8_q0),
     .q0(dense_1_bias_array_q0)
 );
 
@@ -2008,12 +2008,12 @@ face_classifier_c6jw #(
     .DataWidth( 32 ),
     .AddressRange( 6 ),
     .AddressWidth( 3 ))
-dense_2_bias_array7_U(
+dense_2_bias_array13_U(
     .clk(ap_clk),
     .reset(ap_rst),
-    .address0(dense_2_bias_array7_address0),
-    .ce0(dense_2_bias_array7_ce0),
-    .q0(dense_2_bias_array7_q0)
+    .address0(dense_2_bias_array13_address0),
+    .ce0(dense_2_bias_array13_ce0),
+    .q0(dense_2_bias_array13_q0)
 );
 
 face_classifier_cBew #(
@@ -2026,7 +2026,7 @@ dense_2_bias_array_U(
     .address0(dense_2_bias_array_address0),
     .ce0(dense_2_bias_array_ce0),
     .we0(dense_2_bias_array_we0),
-    .d0(dense_2_bias_array7_q0),
+    .d0(dense_2_bias_array13_q0),
     .q0(dense_2_bias_array_q0)
 );
 
@@ -6013,9 +6013,9 @@ end
 
 always @ (*) begin
     if (((ap_enable_reg_pp10_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp10_stage0) & (1'b0 == ap_block_pp10_stage0_11001))) begin
-        dense_1_bias_array2_ce0 = 1'b1;
+        dense_1_bias_array8_ce0 = 1'b1;
     end else begin
-        dense_1_bias_array2_ce0 = 1'b0;
+        dense_1_bias_array8_ce0 = 1'b0;
     end
 end
 
@@ -6319,9 +6319,9 @@ end
 
 always @ (*) begin
     if (((ap_enable_reg_pp18_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp18_stage0) & (1'b0 == ap_block_pp18_stage0_11001))) begin
-        dense_2_bias_array7_ce0 = 1'b1;
+        dense_2_bias_array13_ce0 = 1'b1;
     end else begin
-        dense_2_bias_array7_ce0 = 1'b0;
+        dense_2_bias_array13_ce0 = 1'b0;
     end
 end
 
@@ -8439,11 +8439,11 @@ assign batch_normalization_35_address0 = tmp_74_fu_2375_p1;
 
 assign batch_normalization_s_address0 = tmp_62_fu_2158_p1;
 
-assign dense_1_bias_array2_address0 = tmp_68_fu_2267_p1;
+assign dense_1_bias_array8_address0 = tmp_68_fu_2267_p1;
 
 assign dense_1_kernel_array_address0 = tmp_66_fu_2244_p1;
 
-assign dense_2_bias_array7_address0 = tmp_78_fu_2456_p1;
+assign dense_2_bias_array13_address0 = tmp_78_fu_2456_p1;
 
 assign dense_2_kernel_array_address0 = tmp_76_fu_2433_p1;
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'face_classifier_c'" level="0">
-<item name = "Date">Wed Apr 17 23:19:34 2024
+<item name = "Date">Sat Apr 20 22:09:07 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -31,11 +31,11 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_k2c_dense_1_fu_1846">k2c_dense_1, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_dense_fu_1869">k2c_dense, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_dense2_fu_1888">k2c_dense2, ?, ?, ?, ?, none</column>
-<column name="grp_k2c_batch_norm_fu_1917">k2c_batch_norm, 45, 135, 45, 135, none</column>
-<column name="grp_generic_tanh_float_s_fu_1943">generic_tanh_float_s, 32, 32, 1, 1, function</column>
+<column name="grp_k2c_dense_1_fu_1848">k2c_dense_1, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense_fu_1873">k2c_dense, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_dense2_fu_1894">k2c_dense2, ?, ?, ?, ?, none</column>
+<column name="grp_k2c_batch_norm_fu_1923">k2c_batch_norm, 45, 135, 45, 135, none</column>
+<column name="grp_generic_tanh_float_s_fu_1949">generic_tanh_float_s, 32, 32, 1, 1, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
