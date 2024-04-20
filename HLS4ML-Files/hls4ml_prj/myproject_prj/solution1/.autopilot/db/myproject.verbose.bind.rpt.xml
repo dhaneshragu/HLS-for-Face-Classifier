@@ -1,0 +1,51 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'myproject'" level="0">
+<item name = "Date">Fri Apr 19 00:19:22 2024
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">virtexu</item>
+<item name = "Target device">xcvu190-flgb2104-1-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.047, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1067261, 1067261, 1067261, 1067261, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_tanh_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_tanh_config5_s_fu_64">tanh_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_tanh_config5_s, 52, 52, 50, 50, function</column>
+<column name="grp_tanh_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_tanh_config9_s_fu_72">tanh_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_tanh_config9_s, 6, 6, 5, 5, function</column>
+<column name="grp_softmax_stable_ap_fixed_ap_fixed_16_6_5_3_0_softmax_config12_s_fu_80">softmax_stable_ap_fixed_ap_fixed_16_6_5_3_0_softmax_config12_s, 19, 19, 6, 6, function</column>
+<column name="grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config2_s_fu_91">dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config2_s, 1062314, 1062314, 1062314, 1062314, none</column>
+<column name="grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config6_s_fu_103">dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config6_s, 4544, 4544, 4544, 4544, none</column>
+<column name="grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config10_s_fu_113">dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config10_s, 318, 318, 318, 318, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>
