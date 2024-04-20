@@ -10,7 +10,7 @@
 
 module face_classifier_crcU
 #(parameter
-    ID         = 80,
+    ID         = 81,
     NUM_STAGE  = 1,
     din0_WIDTH = 64,
     dout_WIDTH = 32

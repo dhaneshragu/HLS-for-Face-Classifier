@@ -42,7 +42,7 @@ struct exp_generic_double_s : public sc_module {
     exp_generic_doublmb6* table_exp_Z1_array_s_U;
     exp_generic_doublncg* table_f_Z3_array_V_U;
     exp_generic_doublocq* table_f_Z2_array_V_U;
-    face_classifier_cpcA<1,1,16,16,19,31>* face_classifier_cpcA_U68;
+    face_classifier_cpcA<1,1,16,16,19,31>* face_classifier_cpcA_U69;
     sc_signal< sc_lv<1> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_pp0_stage0;
     sc_signal< sc_logic > ap_enable_reg_pp0_iter0;

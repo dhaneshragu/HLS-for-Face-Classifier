@@ -308,7 +308,7 @@ face_classifier_cjbC #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_cjbC_U52(
+face_classifier_cjbC_U53(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(inputs_array_q0),
@@ -323,7 +323,7 @@ face_classifier_cdEe #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_cdEe_U53(
+face_classifier_cdEe_U54(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_s_reg_293),
@@ -338,7 +338,7 @@ face_classifier_ceOg #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_ceOg_U54(
+face_classifier_ceOg_U55(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(temp_reg_278),
@@ -353,7 +353,7 @@ face_classifier_ckbM #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_ckbM_U55(
+face_classifier_ckbM_U56(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_reg_258),
@@ -368,7 +368,7 @@ face_classifier_clbW #(
     .din0_WIDTH( 12 ),
     .din1_WIDTH( 64 ),
     .dout_WIDTH( 64 ))
-face_classifier_clbW_U56(
+face_classifier_clbW_U57(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(grp_fu_189_p0),

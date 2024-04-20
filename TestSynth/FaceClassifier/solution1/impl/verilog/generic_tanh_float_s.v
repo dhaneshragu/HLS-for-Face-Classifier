@@ -584,7 +584,7 @@ face_classifier_cqcK #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_cqcK_U74(
+face_classifier_cqcK_U75(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(grp_fu_100_p0),
@@ -600,7 +600,7 @@ face_classifier_cdEe #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_cdEe_U75(
+face_classifier_cdEe_U76(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(abst_in_fu_207_p1),
@@ -615,7 +615,7 @@ face_classifier_cdEe #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_cdEe_U76(
+face_classifier_cdEe_U77(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(ap_phi_reg_pp0_iter17_expx_reg_58),
@@ -630,7 +630,7 @@ face_classifier_cjbC #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_cjbC_U77(
+face_classifier_cjbC_U78(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(32'd1065353216),
@@ -645,7 +645,7 @@ face_classifier_ceOg #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_ceOg_U78(
+face_classifier_ceOg_U79(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(abst_in_reg_336_pp0_iter3_reg),
@@ -660,7 +660,7 @@ face_classifier_ckbM #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-face_classifier_ckbM_U79(
+face_classifier_ckbM_U80(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(grp_fu_125_p0),
@@ -674,7 +674,7 @@ face_classifier_crcU #(
     .NUM_STAGE( 1 ),
     .din0_WIDTH( 64 ),
     .dout_WIDTH( 32 ))
-face_classifier_crcU_U80(
+face_classifier_crcU_U81(
     .din0(tmp_119_i_reg_411),
     .dout(tmp_120_i_fu_130_p1)
 );
@@ -684,7 +684,7 @@ face_classifier_csc4 #(
     .NUM_STAGE( 1 ),
     .din0_WIDTH( 32 ),
     .dout_WIDTH( 64 ))
-face_classifier_csc4_U81(
+face_classifier_csc4_U82(
     .din0(x_2_reg_376),
     .dout(xd_fu_133_p1)
 );
@@ -695,7 +695,7 @@ face_classifier_ctde #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 1 ))
-face_classifier_ctde_U82(
+face_classifier_ctde_U83(
     .din0(abst_in_fu_207_p1),
     .din1(32'd1102053376),
     .opcode(5'd4),
@@ -708,7 +708,7 @@ face_classifier_cudo #(
     .din0_WIDTH( 64 ),
     .din1_WIDTH( 64 ),
     .dout_WIDTH( 64 ))
-face_classifier_cudo_U83(
+face_classifier_cudo_U84(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_118_i_reg_406),

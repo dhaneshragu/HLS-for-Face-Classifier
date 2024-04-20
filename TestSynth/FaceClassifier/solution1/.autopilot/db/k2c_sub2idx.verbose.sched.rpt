@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_sub2idx'
 ================================================================
-* Date:           Wed Apr 17 23:19:23 2024
+* Date:           Sat Apr 20 22:08:58 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -92,7 +92,7 @@ IsGatedGlobalClock: 0
 
 State 1 <SV = 0> <Delay = 0.95>
 ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%ndim_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %ndim)"   --->   Operation 6 'read' 'ndim_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str47) nounwind" [../C-Code-Original/include/k2c_helper_functions.c:87]   --->   Operation 7 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str51) nounwind" [../C-Code-Original/include/k2c_helper_functions.c:87]   --->   Operation 7 'specpipeline' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%tmp_2 = trunc i64 %ndim_read to i4" [../C-Code-Original/include/k2c_helper_functions.c:88]   --->   Operation 8 'trunc' 'tmp_2' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 9 [1/1] (0.95ns)   --->   "br label %1" [../C-Code-Original/include/k2c_helper_functions.c:88]   --->   Operation 9 'br' <Predicate = true> <Delay = 0.95>
 
@@ -109,9 +109,9 @@ ST_2 : Operation 18 [2/2] (0.70ns)   --->   "%temp = load i64* %sub_addr, align 
 ST_2 : Operation 19 [1/1] (0.00ns)   --->   "ret i64 %idx" [../C-Code-Original/include/k2c_helper_functions.c:98]   --->   Operation 19 'ret' <Predicate = (exitcond)> <Delay = 0.00>
 
 State 3 <SV = 2> <Delay = 0.95>
-ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str148)" [../C-Code-Original/include/k2c_helper_functions.c:89]   --->   Operation 20 'specregionbegin' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str152)" [../C-Code-Original/include/k2c_helper_functions.c:89]   --->   Operation 20 'specregionbegin' 'tmp_1' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 21 [1/2] (0.70ns)   --->   "%temp = load i64* %sub_addr, align 8" [../C-Code-Original/include/k2c_helper_functions.c:90]   --->   Operation 21 'load' 'temp' <Predicate = true> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.70> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 5> <RAM>
-ST_3 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str47) nounwind" [../C-Code-Original/include/k2c_helper_functions.c:91]   --->   Operation 22 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str51) nounwind" [../C-Code-Original/include/k2c_helper_functions.c:91]   --->   Operation 22 'specpipeline' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 23 [1/1] (0.95ns)   --->   "br label %3" [../C-Code-Original/include/k2c_helper_functions.c:92]   --->   Operation 23 'br' <Predicate = true> <Delay = 0.95>
 
 State 4 <SV = 3> <Delay = 3.09>
@@ -123,7 +123,7 @@ ST_4 : Operation 28 [1/1] (0.00ns)   --->   "br i1 %tmp, label %4, label %5" [..
 ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%shape_addr = getelementptr [5 x i64]* %shape, i64 0, i64 %j" [../C-Code-Original/include/k2c_helper_functions.c:94]   --->   Operation 29 'getelementptr' 'shape_addr' <Predicate = (tmp)> <Delay = 0.00>
 ST_4 : Operation 30 [2/2] (0.70ns)   --->   "%shape_load = load i64* %shape_addr, align 8" [../C-Code-Original/include/k2c_helper_functions.c:94]   --->   Operation 30 'load' 'shape_load' <Predicate = (tmp)> <Delay = 0.70> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.70> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 5> <RAM>
 ST_4 : Operation 31 [1/1] (1.64ns)   --->   "%idx_1 = add i64 %temp1, %idx" [../C-Code-Original/include/k2c_helper_functions.c:96]   --->   Operation 31 'add' 'idx_1' <Predicate = (!tmp)> <Delay = 1.64> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.64> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str148, i32 %tmp_1)" [../C-Code-Original/include/k2c_helper_functions.c:97]   --->   Operation 32 'specregionend' 'empty' <Predicate = (!tmp)> <Delay = 0.00>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str152, i32 %tmp_1)" [../C-Code-Original/include/k2c_helper_functions.c:97]   --->   Operation 32 'specregionend' 'empty' <Predicate = (!tmp)> <Delay = 0.00>
 ST_4 : Operation 33 [1/1] (0.00ns)   --->   "br label %1" [../C-Code-Original/include/k2c_helper_functions.c:88]   --->   Operation 33 'br' <Predicate = (!tmp)> <Delay = 0.00>
 
 State 5 <SV = 4> <Delay = 7.47>

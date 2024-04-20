@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'k2c_dot'" level="0">
-<item name = "Date">Wed Apr 17 23:19:28 2024
+<item name = "Date">Sat Apr 20 22:09:02 2024
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">FaceClassifier</item>
@@ -38,7 +38,7 @@
 <column name="- Loop 1">?, ?, 1, -, -, ?, no</column>
 <column name="- Loop 2">?, ?, 1, -, -, ?, no</column>
 <column name="- Loop 3">?, ?, 2, 1, 1, ?, yes</column>
-<column name="- Loop 4">?, ?, 1, 1, 1, ?, yes</column>
+<column name="- Loop 4">?, ?, 2, 1, 1, ?, yes</column>
 <column name="- Loop 5">?, ?, 2, 1, 1, ?, yes</column>
 <column name="- Loop 6">?, ?, 3, 1, 1, ?, yes</column>
 <column name="- Loop 7">?, ?, 3, 1, 1, ?, yes</column>

@@ -12,9 +12,10 @@
     "Package": "-flgc2104",
     "Speed": "-2-e"
   },
-  "HlsSolution": {
-    
-  },
+  "HlsSolution": {"Directives": [
+      "array_map k2c_dense {{map positionBooleanCmd} {variable positionBooleanTextRequiredaxesA} {horizontal positionBoolean0mode}} {}",
+      "array_map k2c_dense {{map positionBooleanCmd} {variable positionBooleanTextRequiredaxesB} {horizontal positionBoolean0mode}} {}"
+    ]},
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
@@ -60,16 +61,17 @@
       "impl\/vhdl\/face_classifier_cAem.vhd",
       "impl\/vhdl\/face_classifier_cbak.vhd",
       "impl\/vhdl\/face_classifier_cbbk.vhd",
-      "impl\/vhdl\/face_classifier_cbdk.vhd",
+      "impl\/vhdl\/face_classifier_cbck.vhd",
+      "impl\/vhdl\/face_classifier_cbek.vhd",
       "impl\/vhdl\/face_classifier_cBew.vhd",
-      "impl\/vhdl\/face_classifier_cbhl.vhd",
       "impl\/vhdl\/face_classifier_cbil.vhd",
+      "impl\/vhdl\/face_classifier_cbjl.vhd",
       "impl\/vhdl\/face_classifier_cbkb.vhd",
-      "impl\/vhdl\/face_classifier_cbnm.vhd",
       "impl\/vhdl\/face_classifier_cbom.vhd",
       "impl\/vhdl\/face_classifier_cbpm.vhd",
       "impl\/vhdl\/face_classifier_cbqm.vhd",
       "impl\/vhdl\/face_classifier_cbrm.vhd",
+      "impl\/vhdl\/face_classifier_cbsm.vhd",
       "impl\/vhdl\/face_classifier_cCeG.vhd",
       "impl\/vhdl\/face_classifier_ccud.vhd",
       "impl\/vhdl\/face_classifier_cdEe.vhd",
@@ -142,21 +144,23 @@
       "impl\/verilog\/face_classifier_cbak_ram.dat",
       "impl\/verilog\/face_classifier_cbbk.v",
       "impl\/verilog\/face_classifier_cbbk_ram.dat",
-      "impl\/verilog\/face_classifier_cbdk.v",
-      "impl\/verilog\/face_classifier_cbdk_ram.dat",
+      "impl\/verilog\/face_classifier_cbck.v",
+      "impl\/verilog\/face_classifier_cbck_ram.dat",
+      "impl\/verilog\/face_classifier_cbek.v",
+      "impl\/verilog\/face_classifier_cbek_ram.dat",
       "impl\/verilog\/face_classifier_cBew.v",
       "impl\/verilog\/face_classifier_cBew_ram.dat",
-      "impl\/verilog\/face_classifier_cbhl.v",
-      "impl\/verilog\/face_classifier_cbhl_ram.dat",
       "impl\/verilog\/face_classifier_cbil.v",
       "impl\/verilog\/face_classifier_cbil_ram.dat",
+      "impl\/verilog\/face_classifier_cbjl.v",
+      "impl\/verilog\/face_classifier_cbjl_ram.dat",
       "impl\/verilog\/face_classifier_cbkb.v",
-      "impl\/verilog\/face_classifier_cbnm.v",
-      "impl\/verilog\/face_classifier_cbnm_ram.dat",
       "impl\/verilog\/face_classifier_cbom.v",
+      "impl\/verilog\/face_classifier_cbom_ram.dat",
       "impl\/verilog\/face_classifier_cbpm.v",
       "impl\/verilog\/face_classifier_cbqm.v",
       "impl\/verilog\/face_classifier_cbrm.v",
+      "impl\/verilog\/face_classifier_cbsm.v",
       "impl\/verilog\/face_classifier_cCeG.v",
       "impl\/verilog\/face_classifier_cCeG_rom.dat",
       "impl\/verilog\/face_classifier_ccud.v",
@@ -594,55 +598,55 @@
       "Instances": [
         {
           "ModuleName": "k2c_dense_1",
-          "InstanceName": "grp_k2c_dense_1_fu_1846",
+          "InstanceName": "grp_k2c_dense_1_fu_1848",
           "Instances": [
             {
               "ModuleName": "k2c_dot",
-              "InstanceName": "grp_k2c_dot_fu_255",
+              "InstanceName": "grp_k2c_dot_fu_265",
               "Instances": [
                 {
                   "ModuleName": "k2c_idx2sub",
-                  "InstanceName": "grp_k2c_idx2sub_fu_647"
+                  "InstanceName": "grp_k2c_idx2sub_fu_676"
                 },
                 {
                   "ModuleName": "k2c_sub2idx",
-                  "InstanceName": "grp_k2c_sub2idx_fu_658"
+                  "InstanceName": "grp_k2c_sub2idx_fu_687"
                 }
               ]
             },
             {
               "ModuleName": "k2c_bias_add",
-              "InstanceName": "grp_k2c_bias_add_fu_279"
+              "InstanceName": "grp_k2c_bias_add_fu_287"
             }
           ]
         },
         {
           "ModuleName": "k2c_dense",
-          "InstanceName": "grp_k2c_dense_fu_1869",
+          "InstanceName": "grp_k2c_dense_fu_1873",
           "Instances": [
             {
               "ModuleName": "k2c_dot_1",
-              "InstanceName": "grp_k2c_dot_1_fu_225",
+              "InstanceName": "grp_k2c_dot_1_fu_235",
               "Instances": [
                 {
                   "ModuleName": "k2c_idx2sub",
-                  "InstanceName": "grp_k2c_idx2sub_fu_644"
+                  "InstanceName": "grp_k2c_idx2sub_fu_673"
                 },
                 {
                   "ModuleName": "k2c_sub2idx",
-                  "InstanceName": "grp_k2c_sub2idx_fu_656"
+                  "InstanceName": "grp_k2c_sub2idx_fu_685"
                 }
               ]
             },
             {
               "ModuleName": "k2c_bias_add",
-              "InstanceName": "grp_k2c_bias_add_fu_246"
+              "InstanceName": "grp_k2c_bias_add_fu_255"
             }
           ]
         },
         {
           "ModuleName": "k2c_dense2",
-          "InstanceName": "grp_k2c_dense2_fu_1888",
+          "InstanceName": "grp_k2c_dense2_fu_1894",
           "Instances": [
             {
               "ModuleName": "k2c_dot2",
@@ -666,11 +670,11 @@
         },
         {
           "ModuleName": "k2c_batch_norm",
-          "InstanceName": "grp_k2c_batch_norm_fu_1917"
+          "InstanceName": "grp_k2c_batch_norm_fu_1923"
         },
         {
           "ModuleName": "generic_tanh_float_s",
-          "InstanceName": "grp_generic_tanh_float_s_fu_1943",
+          "InstanceName": "grp_generic_tanh_float_s_fu_1949",
           "Instances": [{
               "ModuleName": "exp_generic_double_s",
               "InstanceName": "grp_exp_generic_double_s_fu_89"
@@ -783,7 +787,7 @@
             "TripCount": "",
             "Latency": "",
             "PipelineII": "1",
-            "PipelineDepth": "1"
+            "PipelineDepth": "2"
           },
           {
             "Name": "Loop 5",
@@ -852,8 +856,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "28",
-          "FF": "22408",
-          "LUT": "18027"
+          "FF": "22543",
+          "LUT": "18145"
         }
       },
       "k2c_bias_add": {
@@ -907,8 +911,8 @@
         },
         "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "",
-            "Latency": "",
+            "TripCount": "0",
+            "Latency": "0",
             "PipelineII": "",
             "PipelineDepth": "4",
             "Loops": [{
@@ -922,8 +926,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "48",
-          "FF": "24413",
-          "LUT": "20134"
+          "FF": "24485",
+          "LUT": "20285"
         }
       },
       "k2c_batch_norm": {
@@ -1041,7 +1045,7 @@
             "TripCount": "",
             "Latency": "",
             "PipelineII": "1",
-            "PipelineDepth": "1"
+            "PipelineDepth": "2"
           },
           {
             "Name": "Loop 5",
@@ -1110,8 +1114,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "28",
-          "FF": "22711",
-          "LUT": "18196"
+          "FF": "22846",
+          "LUT": "18314"
         }
       },
       "k2c_dense_1": {
@@ -1130,8 +1134,8 @@
         },
         "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "",
-            "Latency": "",
+            "TripCount": "0",
+            "Latency": "0",
             "PipelineII": "",
             "PipelineDepth": "4",
             "Loops": [{
@@ -1145,8 +1149,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "48",
-          "FF": "24728",
-          "LUT": "20303"
+          "FF": "24800",
+          "LUT": "20454"
         }
       },
       "k2c_dot2": {
@@ -1601,8 +1605,8 @@
         "Area": {
           "BRAM_18K": "2066",
           "DSP48E": "190",
-          "FF": "92626",
-          "LUT": "81168"
+          "FF": "92898",
+          "LUT": "81531"
         }
       }
     }
@@ -1614,7 +1618,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2024-04-17 23:20:18 +0530",
+    "Time": "2024-04-20 22:09:45 +0530",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

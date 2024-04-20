@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'exp_generic_double_s'
 ================================================================
-* Date:           Wed Apr 17 23:19:27 2024
+* Date:           Sat Apr 20 22:09:01 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -213,7 +213,7 @@ ST_6 : Operation 116 [1/1] (0.00ns)   --->   "%OP2_V = zext i50 %exp_Z1P_m_1_V t
 ST_6 : Operation 117 [1/1] (5.75ns)   --->   "%p_Val2_13 = mul i100 %OP1_V_2, %OP2_V" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:317]   --->   Operation 117 'mul' 'p_Val2_13' <Predicate = true> <Delay = 5.75> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 5.75> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
 
 State 7 <SV = 6> <Delay = 6.71>
-ST_7 : Operation 118 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str156) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:180]   --->   Operation 118 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 118 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str161) nounwind" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:180]   --->   Operation 118 'specpipeline' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp2)   --->   "%not_Result_i4 = xor i1 %p_Result_s, true" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:204]   --->   Operation 119 'xor' 'not_Result_i4' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.13> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_7 : Operation 120 [1/1] (0.13ns)   --->   "%x_is_ninf = and i1 %tmp_54_i, %p_Result_s" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:205]   --->   Operation 120 'and' 'x_is_ninf' <Predicate = true> <Delay = 0.13> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.13> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_7 : Operation 121 [1/1] (0.00ns)   --->   "%tmp_142 = zext i58 %p_Val2_25 to i59" [r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:317]   --->   Operation 121 'zext' 'tmp_142' <Predicate = true> <Delay = 0.00>
@@ -280,7 +280,7 @@ The critical path consists of the following:
 	wire read on port 'x' [5]  (0 ns)
 	'sub' operation ('p_Val2_s_83', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:246) [21]  (1.5 ns)
 	'select' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:246) [22]  (0.646 ns)
-	'ashr' operation ('tmp_128', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:251) [32]  (0 ns)
+	'shl' operation ('tmp_129', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:251) [34]  (0 ns)
 	'select' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:251) [35]  (1.65 ns)
 	'mul' operation ('__Val2__', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:265) [43]  (1.11 ns)
 	'add' operation ('r.V', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:265) [46]  (2.44 ns)

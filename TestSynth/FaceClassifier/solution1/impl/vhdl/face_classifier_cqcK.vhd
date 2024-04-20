@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity face_classifier_cqcK is
     generic (
-        ID         : integer := 74;
+        ID         : integer := 75;
         NUM_STAGE  : integer := 4;
         din0_WIDTH : integer := 32;
         din1_WIDTH : integer := 32;

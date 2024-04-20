@@ -1747,7 +1747,8 @@ void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* 
 
         size_t i;
         for ( i = 0 ; i < outrows; ++i) {
-        const size_t outrowidx = i*outcols;
+#pragma HLS LOOP_TRIPCOUNT
+ const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t j = 0; j < outcols; ++j) {
 #pragma HLS LOOP_TRIPCOUNT
@@ -1815,7 +1816,7 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
         k2c_linear_func(output->array, output->numel);
     }
 }
-# 122 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+# 123 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
 
     memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
@@ -1826,7 +1827,7 @@ void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
     output->numel = input->numel;
     output->ndim = 1;
 }
-# 142 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+# 143 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * newshp,
                  const size_t newndim) {
 
@@ -1837,7 +1838,7 @@ void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * new
     output->ndim = newndim;
     output->numel = input->numel;
 }
-# 162 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+# 163 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
                       const size_t * permute) {
 
@@ -1864,7 +1865,7 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
         output->array[bidx] = input->array[i];
     }
 }
-# 198 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+# 199 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n) {
 
     const size_t in_width = input->shape[0];

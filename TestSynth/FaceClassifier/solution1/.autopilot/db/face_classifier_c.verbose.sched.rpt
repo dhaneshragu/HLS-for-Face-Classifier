@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'face_classifier_c'
 ================================================================
-* Date:           Wed Apr 17 23:19:32 2024
+* Date:           Sat Apr 20 22:09:06 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -1173,7 +1173,7 @@ ST_72 : Operation 602 [1/1] (0.00ns)   --->   "br label %31" [../C-Code-Original
 State 73 <SV = 58> <Delay = 0.95>
 ST_73 : Operation 603 [1/1] (0.95ns)   --->   "br label %meminst236" [../C-Code-Original/face_classifier_c.c:53192]   --->   Operation 603 'br' <Predicate = true> <Delay = 0.95>
 
-State 74 <SV = 59> <Delay = 1.76>
+State 74 <SV = 59> <Delay = 2.34>
 ST_74 : Operation 604 [1/1] (0.00ns)   --->   "%invdar3 = phi i7 [ %indvarinc3, %meminst236 ], [ 0, %meminst236.preheader ]" [../C-Code-Original/face_classifier_c.c:53192]   --->   Operation 604 'phi' 'invdar3' <Predicate = true> <Delay = 0.00>
 ST_74 : Operation 605 [1/1] (1.10ns)   --->   "%indvarinc3 = add i7 %invdar3, 1" [../C-Code-Original/face_classifier_c.c:53192]   --->   Operation 605 'add' 'indvarinc3' <Predicate = true> <Delay = 1.10> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.46> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_74 : Operation 606 [1/1] (0.00ns)   --->   "%tmp_77 = zext i7 %invdar3 to i64" [../C-Code-Original/face_classifier_c.c:53192]   --->   Operation 606 'zext' 'tmp_77' <Predicate = true> <Delay = 0.00>
@@ -1183,7 +1183,7 @@ ST_74 : Operation 609 [1/1] (0.82ns)   --->   "%tmp_79 = icmp eq i7 %invdar3, -5
 ST_74 : Operation 610 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([21 x i8]* @memset_dense_2_fwork)"   --->   Operation 610 'specloopname' <Predicate = true> <Delay = 0.00>
 ST_74 : Operation 611 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 70, i64 70, i64 70)"   --->   Operation 611 'speclooptripcount' <Predicate = true> <Delay = 0.00>
 ST_74 : Operation 612 [1/1] (0.00ns)   --->   "br i1 %tmp_79, label %33, label %meminst236" [../C-Code-Original/face_classifier_c.c:53192]   --->   Operation 612 'br' <Predicate = true> <Delay = 0.00>
-ST_74 : Operation 613 [2/2] (1.64ns)   --->   "call fastcc void @k2c_dense([2622 x float]* @dense_output_array, [2622 x float]* %dense_input_input_array, i64 %dense_input_input_nd, i64 %dense_input_input_nu, [5 x i64]* %dense_input_input_shape, [262200 x float]* @dense_kernel_array, [5 x i64]* @dense_kernel_shape, [2622 x float]* @dense_bias_array_0, [264822 x float]* %dense_fwork)" [../C-Code-Original/face_classifier_c.c:53196]   --->   Operation 613 'call' <Predicate = (tmp_79)> <Delay = 1.64> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_74 : Operation 613 [2/2] (2.34ns)   --->   "call fastcc void @k2c_dense([2622 x float]* @dense_output_array, [2622 x float]* %dense_input_input_array, i64 %dense_input_input_nd, i64 %dense_input_input_nu, [5 x i64]* %dense_input_input_shape, [262200 x float]* @dense_kernel_array, [5 x i64]* @dense_kernel_shape, [2622 x float]* @dense_bias_array_0, [264822 x float]* %dense_fwork)" [../C-Code-Original/face_classifier_c.c:53196]   --->   Operation 613 'call' <Predicate = (tmp_79)> <Delay = 2.34> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 75 <SV = 60> <Delay = 0.00>
 ST_75 : Operation 614 [1/2] (0.00ns)   --->   "call fastcc void @k2c_dense([2622 x float]* @dense_output_array, [2622 x float]* %dense_input_input_array, i64 %dense_input_input_nd, i64 %dense_input_input_nu, [5 x i64]* %dense_input_input_shape, [262200 x float]* @dense_kernel_array, [5 x i64]* @dense_kernel_shape, [2622 x float]* @dense_bias_array_0, [264822 x float]* %dense_fwork)" [../C-Code-Original/face_classifier_c.c:53196]   --->   Operation 614 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
@@ -1403,12 +1403,12 @@ ST_124 : Operation 729 [1/1] (1.76ns)   --->   "store float %activation_1_output
 ST_124 : Operation 730 [1/1] (0.00ns)   --->   "%empty_76 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str24, i32 %tmp_121)" [../C-Code-Original/face_classifier_c.c:53238]   --->   Operation 730 'specregionend' 'empty_76' <Predicate = (tmp_87)> <Delay = 0.00>
 ST_124 : Operation 731 [1/1] (0.00ns)   --->   "br label %.preheader28" [../C-Code-Original/face_classifier_c.c:53234]   --->   Operation 731 'br' <Predicate = (tmp_87)> <Delay = 0.00>
 
-State 125 <SV = 72> <Delay = 1.64>
+State 125 <SV = 72> <Delay = 2.34>
 ST_125 : Operation 732 [1/1] (0.00ns)   --->   "%dense_1_output_numel_1 = load i64* @dense_1_output_numel, align 8" [../C-Code-Original/face_classifier_c.c:53241]   --->   Operation 732 'load' 'dense_1_output_numel_1' <Predicate = true> <Delay = 0.00>
 ST_125 : Operation 733 [1/1] (0.00ns)   --->   "%dense_1_bias_numel_l = load i64* @dense_1_bias_numel, align 8" [../C-Code-Original/face_classifier_c.c:53241]   --->   Operation 733 'load' 'dense_1_bias_numel_l' <Predicate = true> <Delay = 0.00>
 ST_125 : Operation 734 [1/1] (0.00ns)   --->   "%dense_1_kernel_ndim_s = load i64* @dense_1_kernel_ndim, align 8" [../C-Code-Original/face_classifier_c.c:53241]   --->   Operation 734 'load' 'dense_1_kernel_ndim_s' <Predicate = true> <Delay = 0.00>
 ST_125 : Operation 735 [1/1] (0.00ns)   --->   "%dense_1_kernel_numel_1 = load i64* @dense_1_kernel_numel, align 8" [../C-Code-Original/face_classifier_c.c:53241]   --->   Operation 735 'load' 'dense_1_kernel_numel_1' <Predicate = true> <Delay = 0.00>
-ST_125 : Operation 736 [2/2] (1.64ns)   --->   "call fastcc void @k2c_dense.1([2622 x float]* @dense_1_output_array, i64 %dense_1_output_numel_1, [2622 x float]* @dropout_2_output_arr, i64 %batch_normalization_56, i64 %batch_normalization_53, [5 x i64]* @dropout_2_output_sha, [262200 x float]* @dense_1_kernel_array_1, i64 %dense_1_kernel_ndim_s, i64 %dense_1_kernel_numel_1, [5 x i64]* @dense_1_kernel_shape, [2622 x float]* @dense_1_bias_array, i64 %dense_1_bias_numel_l, [1100 x float]* %dense_1_fwork)" [../C-Code-Original/face_classifier_c.c:53241]   --->   Operation 736 'call' <Predicate = true> <Delay = 1.64> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_125 : Operation 736 [2/2] (2.34ns)   --->   "call fastcc void @k2c_dense.1([2622 x float]* @dense_1_output_array, i64 %dense_1_output_numel_1, [2622 x float]* @dropout_2_output_arr, i64 %batch_normalization_56, i64 %batch_normalization_53, [5 x i64]* @dropout_2_output_sha, [262200 x float]* @dense_1_kernel_array_1, i64 %dense_1_kernel_ndim_s, i64 %dense_1_kernel_numel_1, [5 x i64]* @dense_1_kernel_shape, [2622 x float]* @dense_1_bias_array, i64 %dense_1_bias_numel_l, [1100 x float]* %dense_1_fwork)" [../C-Code-Original/face_classifier_c.c:53241]   --->   Operation 736 'call' <Predicate = true> <Delay = 2.34> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 126 <SV = 73> <Delay = 0.00>
 ST_126 : Operation 737 [1/2] (0.00ns)   --->   "call fastcc void @k2c_dense.1([2622 x float]* @dense_1_output_array, i64 %dense_1_output_numel_1, [2622 x float]* @dropout_2_output_arr, i64 %batch_normalization_56, i64 %batch_normalization_53, [5 x i64]* @dropout_2_output_sha, [262200 x float]* @dense_1_kernel_array_1, i64 %dense_1_kernel_ndim_s, i64 %dense_1_kernel_numel_1, [5 x i64]* @dense_1_kernel_shape, [2622 x float]* @dense_1_bias_array, i64 %dense_1_bias_numel_l, [1100 x float]* %dense_1_fwork)" [../C-Code-Original/face_classifier_c.c:53241]   --->   Operation 737 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
@@ -1826,791 +1826,789 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:38) of constant 100 on array 'dense_output_shape' [92]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:38) of constant 100 on array 'dense_output_shape' [93]  (0.706 ns)
 
  <State 2>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:39) of constant 1 on array 'dense_output_shape' [93]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:39) of constant 1 on array 'dense_output_shape' [94]  (0.706 ns)
 
  <State 3>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:46) [99]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:46) [100]  (0.952 ns)
 
  <State 4>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:46) [99]  (0 ns)
-	'getelementptr' operation ('dense_output_array_a', ../C-Code-Original/face_classifier_c.c:48) [108]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:48) of constant 0 on array 'dense_output_array' [109]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:46) [100]  (0 ns)
+	'getelementptr' operation ('dense_output_array_a', ../C-Code-Original/face_classifier_c.c:48) [109]  (0 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:48) of constant 0 on array 'dense_output_array' [110]  (1.77 ns)
 
  <State 5>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('invdar', ../C-Code-Original/face_classifier_c.c:52492) with incoming values : ('indvarinc', ../C-Code-Original/face_classifier_c.c:52492) [115]  (0.952 ns)
+	multiplexor before 'phi' operation ('invdar', ../C-Code-Original/face_classifier_c.c:52492) with incoming values : ('indvarinc', ../C-Code-Original/face_classifier_c.c:52492) [116]  (0.952 ns)
 
  <State 6>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('invdar', ../C-Code-Original/face_classifier_c.c:52492) with incoming values : ('indvarinc', ../C-Code-Original/face_classifier_c.c:52492) [115]  (0 ns)
-	'getelementptr' operation ('face_classifier_c_de_1', ../C-Code-Original/face_classifier_c.c:52492) [119]  (0 ns)
-	'load' operation ('face_classifier_c_de_2', ../C-Code-Original/face_classifier_c.c:52492) on array 'face_classifier_c_de' [120]  (1.77 ns)
+	'phi' operation ('invdar', ../C-Code-Original/face_classifier_c.c:52492) with incoming values : ('indvarinc', ../C-Code-Original/face_classifier_c.c:52492) [116]  (0 ns)
+	'getelementptr' operation ('face_classifier_c_de_1', ../C-Code-Original/face_classifier_c.c:52492) [120]  (0 ns)
+	'load' operation ('face_classifier_c_de_2', ../C-Code-Original/face_classifier_c.c:52492) on array 'face_classifier_c_de' [121]  (1.77 ns)
 
  <State 7>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('face_classifier_c_de_2', ../C-Code-Original/face_classifier_c.c:52492) on array 'face_classifier_c_de' [120]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52492) of variable 'face_classifier_c_de_2', ../C-Code-Original/face_classifier_c.c:52492 on array 'dense_kernel_array', ../C-Code-Original/face_classifier_c.c:51 [121]  (1.77 ns)
+	'load' operation ('face_classifier_c_de_2', ../C-Code-Original/face_classifier_c.c:52492) on array 'face_classifier_c_de' [121]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52492) of variable 'face_classifier_c_de_2', ../C-Code-Original/face_classifier_c.c:52492 on array 'dense_kernel_array', ../C-Code-Original/face_classifier_c.c:51 [122]  (1.77 ns)
 
  <State 8>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:52499) of constant 100 on array 'dense_kernel_shape' [128]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52499) of constant 100 on array 'dense_kernel_shape' [129]  (0.706 ns)
 
  <State 9>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52506) [134]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52506) [135]  (0.952 ns)
 
  <State 10>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52506) [134]  (0 ns)
-	'getelementptr' operation ('dense_kernel_array_a_1', ../C-Code-Original/face_classifier_c.c:52508) [143]  (0 ns)
-	'load' operation ('dense_kernel_array_l', ../C-Code-Original/face_classifier_c.c:52508) on array 'dense_kernel_array', ../C-Code-Original/face_classifier_c.c:51 [144]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52506) [135]  (0 ns)
+	'getelementptr' operation ('dense_kernel_array_a_1', ../C-Code-Original/face_classifier_c.c:52508) [144]  (0 ns)
+	'load' operation ('dense_kernel_array_l', ../C-Code-Original/face_classifier_c.c:52508) on array 'dense_kernel_array', ../C-Code-Original/face_classifier_c.c:51 [145]  (1.77 ns)
 
  <State 11>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('dense_kernel_array_l', ../C-Code-Original/face_classifier_c.c:52508) on array 'dense_kernel_array', ../C-Code-Original/face_classifier_c.c:51 [144]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52508) of variable 'dense_kernel_array_l', ../C-Code-Original/face_classifier_c.c:52508 on array 'dense_kernel_array' [146]  (1.77 ns)
+	'load' operation ('dense_kernel_array_l', ../C-Code-Original/face_classifier_c.c:52508) on array 'dense_kernel_array', ../C-Code-Original/face_classifier_c.c:51 [145]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52508) of variable 'dense_kernel_array_l', ../C-Code-Original/face_classifier_c.c:52508 on array 'dense_kernel_array' [147]  (1.77 ns)
 
  <State 12>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52545) [152]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52545) [153]  (0.952 ns)
 
  <State 13>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52545) [152]  (0 ns)
-	'getelementptr' operation ('dense_bias_array_add', ../C-Code-Original/face_classifier_c.c:52547) [161]  (0 ns)
-	'load' operation ('dense_bias_array_loa', ../C-Code-Original/face_classifier_c.c:52547) on array 'dense_bias_array' [162]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52545) [153]  (0 ns)
+	'getelementptr' operation ('dense_bias_array_add', ../C-Code-Original/face_classifier_c.c:52547) [162]  (0 ns)
+	'load' operation ('dense_bias_array_loa', ../C-Code-Original/face_classifier_c.c:52547) on array 'dense_bias_array' [163]  (1.77 ns)
 
  <State 14>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('dense_bias_array_loa', ../C-Code-Original/face_classifier_c.c:52547) on array 'dense_bias_array' [162]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52547) of variable 'dense_bias_array_loa', ../C-Code-Original/face_classifier_c.c:52547 on array 'dense_bias_array_0' [164]  (1.77 ns)
+	'load' operation ('dense_bias_array_loa', ../C-Code-Original/face_classifier_c.c:52547) on array 'dense_bias_array' [163]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52547) of variable 'dense_bias_array_loa', ../C-Code-Original/face_classifier_c.c:52547 on array 'dense_bias_array_0' [165]  (1.77 ns)
 
  <State 15>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('invdar1', ../C-Code-Original/face_classifier_c.c:52549) with incoming values : ('indvarinc1', ../C-Code-Original/face_classifier_c.c:52549) [170]  (0.952 ns)
+	multiplexor before 'phi' operation ('invdar1', ../C-Code-Original/face_classifier_c.c:52549) with incoming values : ('indvarinc1', ../C-Code-Original/face_classifier_c.c:52549) [171]  (0.952 ns)
 
  <State 16>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('invdar1', ../C-Code-Original/face_classifier_c.c:52549) with incoming values : ('indvarinc1', ../C-Code-Original/face_classifier_c.c:52549) [170]  (0 ns)
-	'getelementptr' operation ('dense_fwork_addr', ../C-Code-Original/face_classifier_c.c:52549) [173]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52549) of constant 0 on array 'dense_fwork', ../C-Code-Original/face_classifier_c.c:52549 [174]  (1.77 ns)
+	'phi' operation ('invdar1', ../C-Code-Original/face_classifier_c.c:52549) with incoming values : ('indvarinc1', ../C-Code-Original/face_classifier_c.c:52549) [171]  (0 ns)
+	'getelementptr' operation ('dense_fwork_addr', ../C-Code-Original/face_classifier_c.c:52549) [174]  (0 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52549) of constant 0 on array 'dense_fwork', ../C-Code-Original/face_classifier_c.c:52549 [175]  (1.77 ns)
 
  <State 17>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:52559) of constant 1 on array 'batch_normalization_4' [183]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52559) of constant 1 on array 'batch_normalization_4' [184]  (0.706 ns)
 
  <State 18>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52567) [189]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52567) [190]  (0.952 ns)
 
  <State 19>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52567) [189]  (0 ns)
-	'getelementptr' operation ('batch_normalization_24', ../C-Code-Original/face_classifier_c.c:52569) [198]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52569) of constant 0 on array 'batch_normalization_23' [199]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52567) [190]  (0 ns)
+	'getelementptr' operation ('batch_normalization_24', ../C-Code-Original/face_classifier_c.c:52569) [199]  (0 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52569) of constant 0 on array 'batch_normalization_23' [200]  (1.77 ns)
 
  <State 20>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52609) [205]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52609) [206]  (0.952 ns)
 
  <State 21>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52609) [205]  (0 ns)
-	'getelementptr' operation ('batch_normalization_25', ../C-Code-Original/face_classifier_c.c:52611) [214]  (0 ns)
-	'load' operation ('batch_normalization_26', ../C-Code-Original/face_classifier_c.c:52611) on array 'batch_normalization_11' [215]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52609) [206]  (0 ns)
+	'getelementptr' operation ('batch_normalization_25', ../C-Code-Original/face_classifier_c.c:52611) [215]  (0 ns)
+	'load' operation ('batch_normalization_26', ../C-Code-Original/face_classifier_c.c:52611) on array 'batch_normalization_11' [216]  (1.77 ns)
 
  <State 22>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_26', ../C-Code-Original/face_classifier_c.c:52611) on array 'batch_normalization_11' [215]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52611) of variable 'batch_normalization_26', ../C-Code-Original/face_classifier_c.c:52611 on array 'batch_normalization_22' [217]  (1.77 ns)
+	'load' operation ('batch_normalization_26', ../C-Code-Original/face_classifier_c.c:52611) on array 'batch_normalization_11' [216]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52611) of variable 'batch_normalization_26', ../C-Code-Original/face_classifier_c.c:52611 on array 'batch_normalization_22' [218]  (1.77 ns)
 
  <State 23>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52650) [223]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52650) [224]  (0.952 ns)
 
  <State 24>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52650) [223]  (0 ns)
-	'getelementptr' operation ('batch_normalization_28', ../C-Code-Original/face_classifier_c.c:52652) [232]  (0 ns)
-	'load' operation ('batch_normalization_30', ../C-Code-Original/face_classifier_c.c:52652) on array 'batch_normalization_s' [233]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52650) [224]  (0 ns)
+	'getelementptr' operation ('batch_normalization_28', ../C-Code-Original/face_classifier_c.c:52652) [233]  (0 ns)
+	'load' operation ('batch_normalization_30', ../C-Code-Original/face_classifier_c.c:52652) on array 'batch_normalization_s' [234]  (1.77 ns)
 
  <State 25>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_30', ../C-Code-Original/face_classifier_c.c:52652) on array 'batch_normalization_s' [233]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52652) of variable 'batch_normalization_30', ../C-Code-Original/face_classifier_c.c:52652 on array 'batch_normalization_18' [235]  (1.77 ns)
+	'load' operation ('batch_normalization_30', ../C-Code-Original/face_classifier_c.c:52652) on array 'batch_normalization_s' [234]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52652) of variable 'batch_normalization_30', ../C-Code-Original/face_classifier_c.c:52652 on array 'batch_normalization_18' [236]  (1.77 ns)
 
  <State 26>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52691) [241]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52691) [242]  (0.952 ns)
 
  <State 27>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52691) [241]  (0 ns)
-	'getelementptr' operation ('batch_normalization_33', ../C-Code-Original/face_classifier_c.c:52693) [250]  (0 ns)
-	'load' operation ('batch_normalization_34', ../C-Code-Original/face_classifier_c.c:52693) on array 'batch_normalization_14' [251]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52691) [242]  (0 ns)
+	'getelementptr' operation ('batch_normalization_33', ../C-Code-Original/face_classifier_c.c:52693) [251]  (0 ns)
+	'load' operation ('batch_normalization_34', ../C-Code-Original/face_classifier_c.c:52693) on array 'batch_normalization_14' [252]  (1.77 ns)
 
  <State 28>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_34', ../C-Code-Original/face_classifier_c.c:52693) on array 'batch_normalization_14' [251]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52693) of variable 'batch_normalization_34', ../C-Code-Original/face_classifier_c.c:52693 on array 'batch_normalization_21' [253]  (1.77 ns)
+	'load' operation ('batch_normalization_34', ../C-Code-Original/face_classifier_c.c:52693) on array 'batch_normalization_14' [252]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52693) of variable 'batch_normalization_34', ../C-Code-Original/face_classifier_c.c:52693 on array 'batch_normalization_21' [254]  (1.77 ns)
 
  <State 29>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52731) [259]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52731) [260]  (0.952 ns)
 
  <State 30>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52731) [259]  (0 ns)
-	'getelementptr' operation ('batch_normalization_37', ../C-Code-Original/face_classifier_c.c:52733) [268]  (0 ns)
-	'load' operation ('batch_normalization_38', ../C-Code-Original/face_classifier_c.c:52733) on array 'batch_normalization_17' [269]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52731) [260]  (0 ns)
+	'getelementptr' operation ('batch_normalization_37', ../C-Code-Original/face_classifier_c.c:52733) [269]  (0 ns)
+	'load' operation ('batch_normalization_38', ../C-Code-Original/face_classifier_c.c:52733) on array 'batch_normalization_17' [270]  (1.77 ns)
 
  <State 31>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_38', ../C-Code-Original/face_classifier_c.c:52733) on array 'batch_normalization_17' [269]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52733) of variable 'batch_normalization_38', ../C-Code-Original/face_classifier_c.c:52733 on array 'batch_normalization_19' [271]  (1.77 ns)
+	'load' operation ('batch_normalization_38', ../C-Code-Original/face_classifier_c.c:52733) on array 'batch_normalization_17' [270]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52733) of variable 'batch_normalization_38', ../C-Code-Original/face_classifier_c.c:52733 on array 'batch_normalization_19' [272]  (1.77 ns)
 
  <State 32>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:52743) of constant 10 on array 'dense_1_output_shape' [276]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52743) of constant 10 on array 'dense_1_output_shape' [277]  (0.706 ns)
 
  <State 33>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:52744) of constant 1 on array 'dense_1_output_shape' [277]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52744) of constant 1 on array 'dense_1_output_shape' [278]  (0.706 ns)
 
  <State 34>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52751) [283]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52751) [284]  (0.952 ns)
 
  <State 35>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52751) [283]  (0 ns)
-	'getelementptr' operation ('dense_1_output_array_1', ../C-Code-Original/face_classifier_c.c:52753) [292]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52753) of constant 0 on array 'dense_1_output_array' [293]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52751) [284]  (0 ns)
+	'getelementptr' operation ('dense_1_output_array_1', ../C-Code-Original/face_classifier_c.c:52753) [293]  (0 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52753) of constant 0 on array 'dense_1_output_array' [294]  (1.77 ns)
 
  <State 36>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:52963) of constant 100 on array 'dense_1_kernel_shape' [299]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52963) of constant 100 on array 'dense_1_kernel_shape' [300]  (0.706 ns)
 
  <State 37>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:52964) of constant 10 on array 'dense_1_kernel_shape' [300]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52964) of constant 10 on array 'dense_1_kernel_shape' [301]  (0.706 ns)
 
  <State 38>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52972) [306]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52972) [307]  (0.952 ns)
 
  <State 39>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52972) [306]  (0 ns)
-	'getelementptr' operation ('dense_1_kernel_array_1', ../C-Code-Original/face_classifier_c.c:52974) [315]  (0 ns)
-	'load' operation ('dense_1_kernel_array_2', ../C-Code-Original/face_classifier_c.c:52974) on array 'dense_1_kernel_array' [316]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52972) [307]  (0 ns)
+	'getelementptr' operation ('dense_1_kernel_array_1', ../C-Code-Original/face_classifier_c.c:52974) [316]  (0 ns)
+	'load' operation ('dense_1_kernel_array_2', ../C-Code-Original/face_classifier_c.c:52974) on array 'dense_1_kernel_array' [317]  (1.77 ns)
 
  <State 40>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('dense_1_kernel_array_2', ../C-Code-Original/face_classifier_c.c:52974) on array 'dense_1_kernel_array' [316]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52974) of variable 'dense_1_kernel_array_2', ../C-Code-Original/face_classifier_c.c:52974 on array 'dense_1_kernel_array_1' [318]  (1.77 ns)
+	'load' operation ('dense_1_kernel_array_2', ../C-Code-Original/face_classifier_c.c:52974) on array 'dense_1_kernel_array' [317]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52974) of variable 'dense_1_kernel_array_2', ../C-Code-Original/face_classifier_c.c:52974 on array 'dense_1_kernel_array_1' [319]  (1.77 ns)
 
  <State 41>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52995) [325]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52995) [326]  (0.952 ns)
 
  <State 42>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52995) [325]  (0 ns)
-	'getelementptr' operation ('dense_1_bias_array2_s', ../C-Code-Original/face_classifier_c.c:52997) [334]  (0 ns)
-	'load' operation ('dense_1_bias_array2_1', ../C-Code-Original/face_classifier_c.c:52997) on array 'dense_1_bias_array2' [335]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:52995) [326]  (0 ns)
+	'getelementptr' operation ('dense_1_bias_array2_s', ../C-Code-Original/face_classifier_c.c:52997) [335]  (0 ns)
+	'load' operation ('dense_1_bias_array2_1', ../C-Code-Original/face_classifier_c.c:52997) on array 'dense_1_bias_array2' [336]  (1.77 ns)
 
  <State 43>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('dense_1_bias_array2_1', ../C-Code-Original/face_classifier_c.c:52997) on array 'dense_1_bias_array2' [335]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:52997) of variable 'dense_1_bias_array2_1', ../C-Code-Original/face_classifier_c.c:52997 on array 'dense_1_bias_array' [337]  (1.77 ns)
+	'load' operation ('dense_1_bias_array2_1', ../C-Code-Original/face_classifier_c.c:52997) on array 'dense_1_bias_array2' [336]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:52997) of variable 'dense_1_bias_array2_1', ../C-Code-Original/face_classifier_c.c:52997 on array 'dense_1_bias_array' [338]  (1.77 ns)
 
  <State 44>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('invdar2', ../C-Code-Original/face_classifier_c.c:53001) with incoming values : ('indvarinc2', ../C-Code-Original/face_classifier_c.c:53001) [343]  (0.952 ns)
+	multiplexor before 'phi' operation ('invdar2', ../C-Code-Original/face_classifier_c.c:53001) with incoming values : ('indvarinc2', ../C-Code-Original/face_classifier_c.c:53001) [344]  (0.952 ns)
 
  <State 45>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('invdar2', ../C-Code-Original/face_classifier_c.c:53001) with incoming values : ('indvarinc2', ../C-Code-Original/face_classifier_c.c:53001) [343]  (0 ns)
-	'getelementptr' operation ('dense_1_fwork_addr', ../C-Code-Original/face_classifier_c.c:53001) [346]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53001) of constant 0 on array 'dense_1_fwork', ../C-Code-Original/face_classifier_c.c:53001 [347]  (1.77 ns)
+	'phi' operation ('invdar2', ../C-Code-Original/face_classifier_c.c:53001) with incoming values : ('indvarinc2', ../C-Code-Original/face_classifier_c.c:53001) [344]  (0 ns)
+	'getelementptr' operation ('dense_1_fwork_addr', ../C-Code-Original/face_classifier_c.c:53001) [347]  (0 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53001) of constant 0 on array 'dense_1_fwork', ../C-Code-Original/face_classifier_c.c:53001 [348]  (1.77 ns)
 
  <State 46>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53012) of constant 1 on array 'batch_normalization_12' [355]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53012) of constant 1 on array 'batch_normalization_12' [356]  (0.706 ns)
 
  <State 47>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53020) [361]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53020) [362]  (0.952 ns)
 
  <State 48>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53020) [361]  (0 ns)
-	'getelementptr' operation ('batch_normalization_40', ../C-Code-Original/face_classifier_c.c:53022) [370]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53022) of constant 0 on array 'batch_normalization_8' [371]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53020) [362]  (0 ns)
+	'getelementptr' operation ('batch_normalization_40', ../C-Code-Original/face_classifier_c.c:53022) [371]  (0 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53022) of constant 0 on array 'batch_normalization_8' [372]  (1.77 ns)
 
  <State 49>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53043) [377]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53043) [378]  (0.952 ns)
 
  <State 50>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53043) [377]  (0 ns)
-	'getelementptr' operation ('batch_normalization_41', ../C-Code-Original/face_classifier_c.c:53045) [386]  (0 ns)
-	'load' operation ('batch_normalization_42', ../C-Code-Original/face_classifier_c.c:53045) on array 'batch_normalization_29' [387]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53043) [378]  (0 ns)
+	'getelementptr' operation ('batch_normalization_41', ../C-Code-Original/face_classifier_c.c:53045) [387]  (0 ns)
+	'load' operation ('batch_normalization_42', ../C-Code-Original/face_classifier_c.c:53045) on array 'batch_normalization_29' [388]  (1.77 ns)
 
  <State 51>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_42', ../C-Code-Original/face_classifier_c.c:53045) on array 'batch_normalization_29' [387]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53045) of variable 'batch_normalization_42', ../C-Code-Original/face_classifier_c.c:53045 on array 'batch_normalization_7' [389]  (1.77 ns)
+	'load' operation ('batch_normalization_42', ../C-Code-Original/face_classifier_c.c:53045) on array 'batch_normalization_29' [388]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53045) of variable 'batch_normalization_42', ../C-Code-Original/face_classifier_c.c:53045 on array 'batch_normalization_7' [390]  (1.77 ns)
 
  <State 52>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53066) [395]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53066) [396]  (0.952 ns)
 
  <State 53>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53066) [395]  (0 ns)
-	'getelementptr' operation ('batch_normalization_44', ../C-Code-Original/face_classifier_c.c:53068) [404]  (0 ns)
-	'load' operation ('batch_normalization_45', ../C-Code-Original/face_classifier_c.c:53068) on array 'batch_normalization_20' [405]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53066) [396]  (0 ns)
+	'getelementptr' operation ('batch_normalization_44', ../C-Code-Original/face_classifier_c.c:53068) [405]  (0 ns)
+	'load' operation ('batch_normalization_45', ../C-Code-Original/face_classifier_c.c:53068) on array 'batch_normalization_20' [406]  (1.77 ns)
 
  <State 54>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_45', ../C-Code-Original/face_classifier_c.c:53068) on array 'batch_normalization_20' [405]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53068) of variable 'batch_normalization_45', ../C-Code-Original/face_classifier_c.c:53068 on array 'batch_normalization_15' [407]  (1.77 ns)
+	'load' operation ('batch_normalization_45', ../C-Code-Original/face_classifier_c.c:53068) on array 'batch_normalization_20' [406]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53068) of variable 'batch_normalization_45', ../C-Code-Original/face_classifier_c.c:53068 on array 'batch_normalization_15' [408]  (1.77 ns)
 
  <State 55>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53089) [413]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53089) [414]  (0.952 ns)
 
  <State 56>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53089) [413]  (0 ns)
-	'getelementptr' operation ('batch_normalization_47', ../C-Code-Original/face_classifier_c.c:53091) [422]  (0 ns)
-	'load' operation ('batch_normalization_48', ../C-Code-Original/face_classifier_c.c:53091) on array 'batch_normalization_32' [423]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53089) [414]  (0 ns)
+	'getelementptr' operation ('batch_normalization_47', ../C-Code-Original/face_classifier_c.c:53091) [423]  (0 ns)
+	'load' operation ('batch_normalization_48', ../C-Code-Original/face_classifier_c.c:53091) on array 'batch_normalization_32' [424]  (1.77 ns)
 
  <State 57>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_48', ../C-Code-Original/face_classifier_c.c:53091) on array 'batch_normalization_32' [423]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53091) of variable 'batch_normalization_48', ../C-Code-Original/face_classifier_c.c:53091 on array 'batch_normalization_6' [425]  (1.77 ns)
+	'load' operation ('batch_normalization_48', ../C-Code-Original/face_classifier_c.c:53091) on array 'batch_normalization_32' [424]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53091) of variable 'batch_normalization_48', ../C-Code-Original/face_classifier_c.c:53091 on array 'batch_normalization_6' [426]  (1.77 ns)
 
  <State 58>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53112) [431]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53112) [432]  (0.952 ns)
 
  <State 59>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53112) [431]  (0 ns)
-	'getelementptr' operation ('batch_normalization_50', ../C-Code-Original/face_classifier_c.c:53114) [440]  (0 ns)
-	'load' operation ('batch_normalization_51', ../C-Code-Original/face_classifier_c.c:53114) on array 'batch_normalization_35' [441]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53112) [432]  (0 ns)
+	'getelementptr' operation ('batch_normalization_50', ../C-Code-Original/face_classifier_c.c:53114) [441]  (0 ns)
+	'load' operation ('batch_normalization_51', ../C-Code-Original/face_classifier_c.c:53114) on array 'batch_normalization_35' [442]  (1.77 ns)
 
  <State 60>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_51', ../C-Code-Original/face_classifier_c.c:53114) on array 'batch_normalization_35' [441]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53114) of variable 'batch_normalization_51', ../C-Code-Original/face_classifier_c.c:53114 on array 'batch_normalization_5' [443]  (1.77 ns)
+	'load' operation ('batch_normalization_51', ../C-Code-Original/face_classifier_c.c:53114) on array 'batch_normalization_35' [442]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53114) of variable 'batch_normalization_51', ../C-Code-Original/face_classifier_c.c:53114 on array 'batch_normalization_5' [444]  (1.77 ns)
 
  <State 61>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53123) of constant 6 on array 'dense_2_output_shape' [449]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53123) of constant 6 on array 'dense_2_output_shape' [450]  (0.706 ns)
 
  <State 62>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53124) of constant 1 on array 'dense_2_output_shape' [450]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53124) of constant 1 on array 'dense_2_output_shape' [451]  (0.706 ns)
 
  <State 63>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53132) [456]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53132) [457]  (0.952 ns)
 
  <State 64>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53132) [456]  (0 ns)
-	'getelementptr' operation ('dense_2_output_array_3', ../C-Code-Original/face_classifier_c.c:53134) [465]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53134) of constant 0 on array 'dense_2_output_array' [466]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53132) [457]  (0 ns)
+	'getelementptr' operation ('dense_2_output_array_3', ../C-Code-Original/face_classifier_c.c:53134) [466]  (0 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53134) of constant 0 on array 'dense_2_output_array' [467]  (1.77 ns)
 
  <State 65>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53155) of constant 10 on array 'dense_2_kernel_shape' [472]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53155) of constant 10 on array 'dense_2_kernel_shape' [473]  (0.706 ns)
 
  <State 66>: 0.706ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53156) of constant 6 on array 'dense_2_kernel_shape' [473]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53156) of constant 6 on array 'dense_2_kernel_shape' [474]  (0.706 ns)
 
  <State 67>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53164) [479]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53164) [480]  (0.952 ns)
 
  <State 68>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53164) [479]  (0 ns)
-	'getelementptr' operation ('dense_2_kernel_array_1', ../C-Code-Original/face_classifier_c.c:53166) [488]  (0 ns)
-	'load' operation ('dense_2_kernel_array_2', ../C-Code-Original/face_classifier_c.c:53166) on array 'dense_2_kernel_array' [489]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53164) [480]  (0 ns)
+	'getelementptr' operation ('dense_2_kernel_array_1', ../C-Code-Original/face_classifier_c.c:53166) [489]  (0 ns)
+	'load' operation ('dense_2_kernel_array_2', ../C-Code-Original/face_classifier_c.c:53166) on array 'dense_2_kernel_array' [490]  (1.77 ns)
 
  <State 69>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('dense_2_kernel_array_2', ../C-Code-Original/face_classifier_c.c:53166) on array 'dense_2_kernel_array' [489]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53166) of variable 'dense_2_kernel_array_2', ../C-Code-Original/face_classifier_c.c:53166 on array 'dense_2_kernel_array_2' [491]  (1.77 ns)
+	'load' operation ('dense_2_kernel_array_2', ../C-Code-Original/face_classifier_c.c:53166) on array 'dense_2_kernel_array' [490]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53166) of variable 'dense_2_kernel_array_2', ../C-Code-Original/face_classifier_c.c:53166 on array 'dense_2_kernel_array_2' [492]  (1.77 ns)
 
  <State 70>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53186) [498]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53186) [499]  (0.952 ns)
 
  <State 71>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53186) [498]  (0 ns)
-	'getelementptr' operation ('dense_2_bias_array7_s', ../C-Code-Original/face_classifier_c.c:53188) [507]  (0 ns)
-	'load' operation ('dense_2_bias_array7_1', ../C-Code-Original/face_classifier_c.c:53188) on array 'dense_2_bias_array7' [508]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53186) [499]  (0 ns)
+	'getelementptr' operation ('dense_2_bias_array7_s', ../C-Code-Original/face_classifier_c.c:53188) [508]  (0 ns)
+	'load' operation ('dense_2_bias_array7_1', ../C-Code-Original/face_classifier_c.c:53188) on array 'dense_2_bias_array7' [509]  (1.77 ns)
 
  <State 72>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('dense_2_bias_array7_1', ../C-Code-Original/face_classifier_c.c:53188) on array 'dense_2_bias_array7' [508]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53188) of variable 'dense_2_bias_array7_1', ../C-Code-Original/face_classifier_c.c:53188 on array 'dense_2_bias_array' [510]  (1.77 ns)
+	'load' operation ('dense_2_bias_array7_1', ../C-Code-Original/face_classifier_c.c:53188) on array 'dense_2_bias_array7' [509]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53188) of variable 'dense_2_bias_array7_1', ../C-Code-Original/face_classifier_c.c:53188 on array 'dense_2_bias_array' [511]  (1.77 ns)
 
  <State 73>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('invdar3', ../C-Code-Original/face_classifier_c.c:53192) with incoming values : ('indvarinc3', ../C-Code-Original/face_classifier_c.c:53192) [516]  (0.952 ns)
+	multiplexor before 'phi' operation ('invdar3', ../C-Code-Original/face_classifier_c.c:53192) with incoming values : ('indvarinc3', ../C-Code-Original/face_classifier_c.c:53192) [517]  (0.952 ns)
 
- <State 74>: 1.77ns
+ <State 74>: 2.35ns
 The critical path consists of the following:
-	'phi' operation ('invdar3', ../C-Code-Original/face_classifier_c.c:53192) with incoming values : ('indvarinc3', ../C-Code-Original/face_classifier_c.c:53192) [516]  (0 ns)
-	'getelementptr' operation ('dense_2_fwork_addr', ../C-Code-Original/face_classifier_c.c:53192) [519]  (0 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53192) of constant 0 on array 'dense_2_fwork', ../C-Code-Original/face_classifier_c.c:53192 [520]  (1.77 ns)
+	'call' operation (../C-Code-Original/face_classifier_c.c:53196) to 'k2c_dense' [527]  (2.35 ns)
 
  <State 75>: 0ns
 The critical path consists of the following:
 
  <State 76>: 0.952ns
 The critical path consists of the following:
-	'load' operation ('dense_output_numel_l', ../C-Code-Original/face_classifier_c.c:53198) on global variable 'dense_output_numel' [527]  (0 ns)
-	'call' operation (../C-Code-Original/face_classifier_c.c:53198) to 'k2c_batch_norm' [528]  (0.952 ns)
+	'load' operation ('dense_output_numel_l', ../C-Code-Original/face_classifier_c.c:53198) on global variable 'dense_output_numel' [528]  (0 ns)
+	'call' operation (../C-Code-Original/face_classifier_c.c:53198) to 'k2c_batch_norm' [529]  (0.952 ns)
 
  <State 77>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53201) [532]  (0.952 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53201) [533]  (0.952 ns)
 
  <State 78>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53201) [532]  (0 ns)
-	'getelementptr' operation ('batch_normalization_54', ../C-Code-Original/face_classifier_c.c:53203) [540]  (0 ns)
-	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53203) on array 'batch_normalization_23' [541]  (1.77 ns)
+	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53201) [533]  (0 ns)
+	'getelementptr' operation ('batch_normalization_54', ../C-Code-Original/face_classifier_c.c:53203) [541]  (0 ns)
+	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53203) on array 'batch_normalization_23' [542]  (1.77 ns)
 
  <State 79>: 7.33ns
 The critical path consists of the following:
-	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53203) on array 'batch_normalization_23' [541]  (1.77 ns)
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (5.56 ns)
+	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53203) on array 'batch_normalization_23' [542]  (1.77 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (5.56 ns)
 
  <State 80>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 81>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 82>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 83>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 84>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 85>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 86>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 87>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 88>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 89>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 90>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 91>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 92>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 93>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 94>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 95>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 96>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 97>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 98>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 99>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 100>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 101>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 102>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 103>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 104>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 105>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 106>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 107>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 108>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 109>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 110>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.75 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.75 ns)
 
  <State 111>: 8.37ns
 The critical path consists of the following:
-	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [542]  (8.37 ns)
+	'call' operation ('tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203) to 'generic_tanh<float>' [543]  (8.37 ns)
 
  <State 112>: 1.77ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53203) of variable 'tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203 on array 'batch_normalization_23' [543]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53203) of variable 'tmp_i', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53203 on array 'batch_normalization_23' [544]  (1.77 ns)
 
  <State 113>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53208) [550]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53208) [551]  (0.952 ns)
 
  <State 114>: 0.753ns
 The critical path consists of the following:
-	'icmp' operation ('exitcond5', ../C-Code-Original/face_classifier_c.c:53208) [551]  (0.618 ns)
+	'icmp' operation ('exitcond5', ../C-Code-Original/face_classifier_c.c:53208) [552]  (0.618 ns)
 	blocking operation 0.135 ns on control path)
 
  <State 115>: 1.41ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_58', ../C-Code-Original/face_classifier_c.c:53210) on array 'batch_normalization_4' [560]  (0.706 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53210) of variable 'batch_normalization_58', ../C-Code-Original/face_classifier_c.c:53210 on array 'activation_1_output_s' [562]  (0.706 ns)
+	'load' operation ('batch_normalization_58', ../C-Code-Original/face_classifier_c.c:53210) on array 'batch_normalization_4' [561]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53210) of variable 'batch_normalization_58', ../C-Code-Original/face_classifier_c.c:53210 on array 'activation_1_output_s' [563]  (0.706 ns)
 
  <State 116>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53215) [568]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53215) [569]  (0.952 ns)
 
  <State 117>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53215) [568]  (0 ns)
-	'getelementptr' operation ('batch_normalization_59', ../C-Code-Original/face_classifier_c.c:53218) [577]  (0 ns)
-	'load' operation ('batch_normalization_60', ../C-Code-Original/face_classifier_c.c:53218) on array 'batch_normalization_23' [578]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53215) [569]  (0 ns)
+	'getelementptr' operation ('batch_normalization_59', ../C-Code-Original/face_classifier_c.c:53218) [578]  (0 ns)
+	'load' operation ('batch_normalization_60', ../C-Code-Original/face_classifier_c.c:53218) on array 'batch_normalization_23' [579]  (1.77 ns)
 
  <State 118>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_60', ../C-Code-Original/face_classifier_c.c:53218) on array 'batch_normalization_23' [578]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53218) of variable 'batch_normalization_60', ../C-Code-Original/face_classifier_c.c:53218 on array 'activation_1_output_1' [580]  (1.77 ns)
+	'load' operation ('batch_normalization_60', ../C-Code-Original/face_classifier_c.c:53218) on array 'batch_normalization_23' [579]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53218) of variable 'batch_normalization_60', ../C-Code-Original/face_classifier_c.c:53218 on array 'activation_1_output_1' [581]  (1.77 ns)
 
  <State 119>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53225) [586]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53225) [587]  (0.952 ns)
 
  <State 120>: 0.753ns
 The critical path consists of the following:
-	'icmp' operation ('exitcond4', ../C-Code-Original/face_classifier_c.c:53225) [587]  (0.618 ns)
+	'icmp' operation ('exitcond4', ../C-Code-Original/face_classifier_c.c:53225) [588]  (0.618 ns)
 	blocking operation 0.135 ns on control path)
 
  <State 121>: 1.41ns
 The critical path consists of the following:
-	'load' operation ('activation_1_output_5', ../C-Code-Original/face_classifier_c.c:53228) on array 'activation_1_output_s' [596]  (0.706 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53228) of variable 'extLd', ../C-Code-Original/face_classifier_c.c:53228 on array 'dropout_2_output_sha' [599]  (0.706 ns)
+	'load' operation ('activation_1_output_5', ../C-Code-Original/face_classifier_c.c:53228) on array 'activation_1_output_s' [597]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53228) of variable 'extLd', ../C-Code-Original/face_classifier_c.c:53228 on array 'dropout_2_output_sha' [600]  (0.706 ns)
 
  <State 122>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53234) [605]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53234) [606]  (0.952 ns)
 
  <State 123>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53234) [605]  (0 ns)
-	'getelementptr' operation ('activation_1_output_6', ../C-Code-Original/face_classifier_c.c:53237) [614]  (0 ns)
-	'load' operation ('activation_1_output_7', ../C-Code-Original/face_classifier_c.c:53237) on array 'activation_1_output_1' [615]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53234) [606]  (0 ns)
+	'getelementptr' operation ('activation_1_output_6', ../C-Code-Original/face_classifier_c.c:53237) [615]  (0 ns)
+	'load' operation ('activation_1_output_7', ../C-Code-Original/face_classifier_c.c:53237) on array 'activation_1_output_1' [616]  (1.77 ns)
 
  <State 124>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('activation_1_output_7', ../C-Code-Original/face_classifier_c.c:53237) on array 'activation_1_output_1' [615]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53237) of variable 'activation_1_output_7', ../C-Code-Original/face_classifier_c.c:53237 on array 'dropout_2_output_arr' [617]  (1.77 ns)
+	'load' operation ('activation_1_output_7', ../C-Code-Original/face_classifier_c.c:53237) on array 'activation_1_output_1' [616]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53237) of variable 'activation_1_output_7', ../C-Code-Original/face_classifier_c.c:53237 on array 'dropout_2_output_arr' [618]  (1.77 ns)
 
- <State 125>: 1.64ns
+ <State 125>: 2.35ns
 The critical path consists of the following:
-	'load' operation ('dense_1_output_numel_1', ../C-Code-Original/face_classifier_c.c:53241) on global variable 'dense_1_output_numel' [621]  (0 ns)
-	'call' operation (../C-Code-Original/face_classifier_c.c:53241) to 'k2c_dense.1' [625]  (1.64 ns)
+	'load' operation ('dense_1_output_numel_1', ../C-Code-Original/face_classifier_c.c:53241) on global variable 'dense_1_output_numel' [622]  (0 ns)
+	'call' operation (../C-Code-Original/face_classifier_c.c:53241) to 'k2c_dense.1' [626]  (2.35 ns)
 
  <State 126>: 0ns
 The critical path consists of the following:
 
  <State 127>: 0.952ns
 The critical path consists of the following:
-	'load' operation ('dense_1_output_numel_2', ../C-Code-Original/face_classifier_c.c:53243) on global variable 'dense_1_output_numel' [626]  (0 ns)
-	'call' operation (../C-Code-Original/face_classifier_c.c:53243) to 'k2c_batch_norm' [627]  (0.952 ns)
+	'load' operation ('dense_1_output_numel_2', ../C-Code-Original/face_classifier_c.c:53243) on global variable 'dense_1_output_numel' [627]  (0 ns)
+	'call' operation (../C-Code-Original/face_classifier_c.c:53243) to 'k2c_batch_norm' [628]  (0.952 ns)
 
  <State 128>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53245) [630]  (0.952 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53245) [631]  (0.952 ns)
 
  <State 129>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53245) [630]  (0 ns)
-	'getelementptr' operation ('batch_normalization_61', ../C-Code-Original/face_classifier_c.c:53247) [639]  (0 ns)
-	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53247) on array 'batch_normalization_8' [640]  (1.77 ns)
+	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53245) [631]  (0 ns)
+	'getelementptr' operation ('batch_normalization_61', ../C-Code-Original/face_classifier_c.c:53247) [640]  (0 ns)
+	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53247) on array 'batch_normalization_8' [641]  (1.77 ns)
 
  <State 130>: 7.33ns
 The critical path consists of the following:
-	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53247) on array 'batch_normalization_8' [640]  (1.77 ns)
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (5.56 ns)
+	'load' operation ('x', ../C-Code-Original/face_classifier_c.c:53247) on array 'batch_normalization_8' [641]  (1.77 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (5.56 ns)
 
  <State 131>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 132>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 133>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 134>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 135>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 136>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 137>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 138>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 139>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 140>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 141>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 142>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 143>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 144>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 145>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 146>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 147>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 148>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 149>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 150>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 151>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 152>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 153>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 154>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 155>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 156>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 157>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 158>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 159>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 160>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 161>: 8.75ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.75 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.75 ns)
 
  <State 162>: 8.37ns
 The critical path consists of the following:
-	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [641]  (8.37 ns)
+	'call' operation ('tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247) to 'generic_tanh<float>' [642]  (8.37 ns)
 
  <State 163>: 1.77ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53247) of variable 'tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247 on array 'batch_normalization_8' [642]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53247) of variable 'tmp_i6', r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/tanhfloat.cpp:7->../C-Code-Original/face_classifier_c.c:53247 on array 'batch_normalization_8' [643]  (1.77 ns)
 
  <State 164>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53252) [650]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53252) [651]  (0.952 ns)
 
  <State 165>: 0.753ns
 The critical path consists of the following:
-	'icmp' operation ('exitcond3', ../C-Code-Original/face_classifier_c.c:53252) [651]  (0.618 ns)
+	'icmp' operation ('exitcond3', ../C-Code-Original/face_classifier_c.c:53252) [652]  (0.618 ns)
 	blocking operation 0.135 ns on control path)
 
  <State 166>: 1.41ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_65', ../C-Code-Original/face_classifier_c.c:53255) on array 'batch_normalization_12' [660]  (0.706 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53255) of variable 'batch_normalization_65', ../C-Code-Original/face_classifier_c.c:53255 on array 'activation_2_output_s' [662]  (0.706 ns)
+	'load' operation ('batch_normalization_65', ../C-Code-Original/face_classifier_c.c:53255) on array 'batch_normalization_12' [661]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53255) of variable 'batch_normalization_65', ../C-Code-Original/face_classifier_c.c:53255 on array 'activation_2_output_s' [663]  (0.706 ns)
 
  <State 167>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53263) [668]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53263) [669]  (0.952 ns)
 
  <State 168>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53263) [668]  (0 ns)
-	'getelementptr' operation ('batch_normalization_66', ../C-Code-Original/face_classifier_c.c:53266) [677]  (0 ns)
-	'load' operation ('batch_normalization_67', ../C-Code-Original/face_classifier_c.c:53266) on array 'batch_normalization_8' [678]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53263) [669]  (0 ns)
+	'getelementptr' operation ('batch_normalization_66', ../C-Code-Original/face_classifier_c.c:53266) [678]  (0 ns)
+	'load' operation ('batch_normalization_67', ../C-Code-Original/face_classifier_c.c:53266) on array 'batch_normalization_8' [679]  (1.77 ns)
 
  <State 169>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('batch_normalization_67', ../C-Code-Original/face_classifier_c.c:53266) on array 'batch_normalization_8' [678]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53266) of variable 'batch_normalization_67', ../C-Code-Original/face_classifier_c.c:53266 on array 'activation_2_output_1' [680]  (1.77 ns)
+	'load' operation ('batch_normalization_67', ../C-Code-Original/face_classifier_c.c:53266) on array 'batch_normalization_8' [679]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53266) of variable 'batch_normalization_67', ../C-Code-Original/face_classifier_c.c:53266 on array 'activation_2_output_1' [681]  (1.77 ns)
 
  <State 170>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53275) [688]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53275) [689]  (0.952 ns)
 
  <State 171>: 0.753ns
 The critical path consists of the following:
-	'icmp' operation ('exitcond2', ../C-Code-Original/face_classifier_c.c:53275) [689]  (0.618 ns)
+	'icmp' operation ('exitcond2', ../C-Code-Original/face_classifier_c.c:53275) [690]  (0.618 ns)
 	blocking operation 0.135 ns on control path)
 
  <State 172>: 1.41ns
 The critical path consists of the following:
-	'load' operation ('activation_2_output_5', ../C-Code-Original/face_classifier_c.c:53278) on array 'activation_2_output_s' [698]  (0.706 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53278) of variable 'extLd3', ../C-Code-Original/face_classifier_c.c:53278 on array 'dropout_3_output_sha' [701]  (0.706 ns)
+	'load' operation ('activation_2_output_5', ../C-Code-Original/face_classifier_c.c:53278) on array 'activation_2_output_s' [699]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53278) of variable 'extLd3', ../C-Code-Original/face_classifier_c.c:53278 on array 'dropout_3_output_sha' [702]  (0.706 ns)
 
  <State 173>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53285) [707]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53285) [708]  (0.952 ns)
 
  <State 174>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53285) [707]  (0 ns)
-	'getelementptr' operation ('activation_2_output_6', ../C-Code-Original/face_classifier_c.c:53288) [716]  (0 ns)
-	'load' operation ('activation_2_output_7', ../C-Code-Original/face_classifier_c.c:53288) on array 'activation_2_output_1' [717]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53285) [708]  (0 ns)
+	'getelementptr' operation ('activation_2_output_6', ../C-Code-Original/face_classifier_c.c:53288) [717]  (0 ns)
+	'load' operation ('activation_2_output_7', ../C-Code-Original/face_classifier_c.c:53288) on array 'activation_2_output_1' [718]  (1.77 ns)
 
  <State 175>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('activation_2_output_7', ../C-Code-Original/face_classifier_c.c:53288) on array 'activation_2_output_1' [717]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53288) of variable 'activation_2_output_7', ../C-Code-Original/face_classifier_c.c:53288 on array 'dropout_3_output_arr' [719]  (1.77 ns)
+	'load' operation ('activation_2_output_7', ../C-Code-Original/face_classifier_c.c:53288) on array 'activation_2_output_1' [718]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53288) of variable 'activation_2_output_7', ../C-Code-Original/face_classifier_c.c:53288 on array 'dropout_3_output_arr' [720]  (1.77 ns)
 
  <State 176>: 0ns
 The critical path consists of the following:
@@ -2620,156 +2618,156 @@ The critical path consists of the following:
 
  <State 178>: 1.77ns
 The critical path consists of the following:
-	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53295) on array 'dense_2_output_array' [724]  (1.77 ns)
+	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53295) on array 'dense_2_output_array' [725]  (1.77 ns)
 
  <State 179>: 1.77ns
 The critical path consists of the following:
-	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53295) on array 'dense_2_output_array' [724]  (1.77 ns)
+	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53295) on array 'dense_2_output_array' [725]  (1.77 ns)
 
  <State 180>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53297) [727]  (0 ns)
-	'getelementptr' operation ('dense_2_output_array_4', ../C-Code-Original/face_classifier_c.c:53298) [734]  (0 ns)
-	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53298) on array 'dense_2_output_array' [735]  (1.77 ns)
+	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53297) [728]  (0 ns)
+	'getelementptr' operation ('dense_2_output_array_4', ../C-Code-Original/face_classifier_c.c:53298) [735]  (0 ns)
+	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53298) on array 'dense_2_output_array' [736]  (1.77 ns)
 
  <State 181>: 5.93ns
 The critical path consists of the following:
-	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53298) on array 'dense_2_output_array' [735]  (1.77 ns)
-	'fcmp' operation ('tmp_13', ../C-Code-Original/face_classifier_c.c:53298) [749]  (3.53 ns)
-	'and' operation ('tmp_14', ../C-Code-Original/face_classifier_c.c:53298) [750]  (0.135 ns)
-	'select' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53298) [751]  (0.496 ns)
+	'load' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53298) on array 'dense_2_output_array' [736]  (1.77 ns)
+	'fcmp' operation ('tmp_13', ../C-Code-Original/face_classifier_c.c:53298) [750]  (3.53 ns)
+	'and' operation ('tmp_14', ../C-Code-Original/face_classifier_c.c:53298) [751]  (0.135 ns)
+	'select' operation ('xmax', ../C-Code-Original/face_classifier_c.c:53298) [752]  (0.496 ns)
 
  <State 182>: 8.73ns
 The critical path consists of the following:
-	'phi' operation ('sum') with incoming values : ('sum', ../C-Code-Original/face_classifier_c.c:53305) [758]  (0 ns)
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'phi' operation ('sum') with incoming values : ('sum', ../C-Code-Original/face_classifier_c.c:53305) [759]  (0 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 183>: 8.54ns
 The critical path consists of the following:
-	'load' operation ('dense_2_output_array_6', ../C-Code-Original/face_classifier_c.c:53304) on array 'dense_2_output_array' [766]  (1.77 ns)
-	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [767]  (6.77 ns)
+	'load' operation ('dense_2_output_array_6', ../C-Code-Original/face_classifier_c.c:53304) on array 'dense_2_output_array' [767]  (1.77 ns)
+	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [768]  (6.77 ns)
 
  <State 184>: 6.77ns
 The critical path consists of the following:
-	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [767]  (6.77 ns)
+	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [768]  (6.77 ns)
 
  <State 185>: 6.77ns
 The critical path consists of the following:
-	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [767]  (6.77 ns)
+	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [768]  (6.77 ns)
 
  <State 186>: 6.77ns
 The critical path consists of the following:
-	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [767]  (6.77 ns)
+	'fsub' operation ('tmp_98', ../C-Code-Original/face_classifier_c.c:53304) [768]  (6.77 ns)
 
  <State 187>: 7.8ns
 The critical path consists of the following:
-	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [768]  (7.8 ns)
+	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [769]  (7.8 ns)
 
  <State 188>: 7.8ns
 The critical path consists of the following:
-	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [768]  (7.8 ns)
+	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [769]  (7.8 ns)
 
  <State 189>: 7.8ns
 The critical path consists of the following:
-	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [768]  (7.8 ns)
+	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [769]  (7.8 ns)
 
  <State 190>: 7.8ns
 The critical path consists of the following:
-	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [768]  (7.8 ns)
+	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [769]  (7.8 ns)
 
  <State 191>: 7.8ns
 The critical path consists of the following:
-	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [768]  (7.8 ns)
+	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [769]  (7.8 ns)
 
  <State 192>: 7.8ns
 The critical path consists of the following:
-	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [768]  (7.8 ns)
+	'fexp' operation ('tmp_99', ../C-Code-Original/face_classifier_c.c:53304) [769]  (7.8 ns)
 
  <State 193>: 6.77ns
 The critical path consists of the following:
-	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [770]  (6.77 ns)
+	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [771]  (6.77 ns)
 
  <State 194>: 6.77ns
 The critical path consists of the following:
-	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [770]  (6.77 ns)
+	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [771]  (6.77 ns)
 
  <State 195>: 6.77ns
 The critical path consists of the following:
-	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [770]  (6.77 ns)
+	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [771]  (6.77 ns)
 
  <State 196>: 6.77ns
 The critical path consists of the following:
-	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [770]  (6.77 ns)
+	'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53305) [771]  (6.77 ns)
 
  <State 197>: 8.73ns
 The critical path consists of the following:
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 198>: 8.73ns
 The critical path consists of the following:
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 199>: 8.73ns
 The critical path consists of the following:
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 200>: 8.73ns
 The critical path consists of the following:
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 201>: 8.73ns
 The critical path consists of the following:
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 202>: 8.73ns
 The critical path consists of the following:
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 203>: 8.73ns
 The critical path consists of the following:
-	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [773]  (8.73 ns)
+	'fdiv' operation ('sum', ../C-Code-Original/face_classifier_c.c:53312) [774]  (8.73 ns)
 
  <State 204>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53313) [776]  (0 ns)
-	'getelementptr' operation ('dense_2_output_array_7', ../C-Code-Original/face_classifier_c.c:53314) [783]  (0 ns)
-	'load' operation ('dense_2_output_array_8', ../C-Code-Original/face_classifier_c.c:53314) on array 'dense_2_output_array' [784]  (1.77 ns)
+	'phi' operation ('i') with incoming values : ('i', ../C-Code-Original/face_classifier_c.c:53313) [777]  (0 ns)
+	'getelementptr' operation ('dense_2_output_array_7', ../C-Code-Original/face_classifier_c.c:53314) [784]  (0 ns)
+	'load' operation ('dense_2_output_array_8', ../C-Code-Original/face_classifier_c.c:53314) on array 'dense_2_output_array' [785]  (1.77 ns)
 
  <State 205>: 1.77ns
 The critical path consists of the following:
-	'load' operation ('dense_2_output_array_8', ../C-Code-Original/face_classifier_c.c:53314) on array 'dense_2_output_array' [784]  (1.77 ns)
+	'load' operation ('dense_2_output_array_8', ../C-Code-Original/face_classifier_c.c:53314) on array 'dense_2_output_array' [785]  (1.77 ns)
 
  <State 206>: 8.46ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_101', ../C-Code-Original/face_classifier_c.c:53314) [785]  (8.46 ns)
+	'fmul' operation ('tmp_101', ../C-Code-Original/face_classifier_c.c:53314) [786]  (8.46 ns)
 
  <State 207>: 8.46ns
 The critical path consists of the following:
-	'fmul' operation ('tmp_101', ../C-Code-Original/face_classifier_c.c:53314) [785]  (8.46 ns)
+	'fmul' operation ('tmp_101', ../C-Code-Original/face_classifier_c.c:53314) [786]  (8.46 ns)
 
  <State 208>: 1.77ns
 The critical path consists of the following:
-	'store' operation (../C-Code-Original/face_classifier_c.c:53314) of variable 'tmp_101', ../C-Code-Original/face_classifier_c.c:53314 on array 'dense_2_output_array' [786]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53314) of variable 'tmp_101', ../C-Code-Original/face_classifier_c.c:53314 on array 'dense_2_output_array' [787]  (1.77 ns)
 
  <State 209>: 0.952ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53328) [812]  (0.952 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53328) [813]  (0.952 ns)
 
  <State 210>: 1.41ns
 The critical path consists of the following:
-	'load' operation ('dense_2_output_shape_2', ../C-Code-Original/face_classifier_c.c:53324) on array 'dense_2_output_shape' [804]  (0.706 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53324) of variable 'extLd5', ../C-Code-Original/face_classifier_c.c:53324 on array 'activation_3_output_shape' [807]  (0.706 ns)
+	'load' operation ('dense_2_output_shape_2', ../C-Code-Original/face_classifier_c.c:53324) on array 'dense_2_output_shape' [805]  (0.706 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53324) of variable 'extLd5', ../C-Code-Original/face_classifier_c.c:53324 on array 'activation_3_output_shape' [808]  (0.706 ns)
 
  <State 211>: 1.77ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53328) [812]  (0 ns)
-	'getelementptr' operation ('dense_2_output_array_9', ../C-Code-Original/face_classifier_c.c:53330) [818]  (0 ns)
-	'load' operation ('dense_2_output_array_10', ../C-Code-Original/face_classifier_c.c:53330) on array 'dense_2_output_array' [819]  (1.77 ns)
+	'phi' operation ('j') with incoming values : ('j', ../C-Code-Original/face_classifier_c.c:53328) [813]  (0 ns)
+	'getelementptr' operation ('dense_2_output_array_9', ../C-Code-Original/face_classifier_c.c:53330) [819]  (0 ns)
+	'load' operation ('dense_2_output_array_10', ../C-Code-Original/face_classifier_c.c:53330) on array 'dense_2_output_array' [820]  (1.77 ns)
 
  <State 212>: 3.54ns
 The critical path consists of the following:
-	'load' operation ('dense_2_output_array_10', ../C-Code-Original/face_classifier_c.c:53330) on array 'dense_2_output_array' [819]  (1.77 ns)
-	'store' operation (../C-Code-Original/face_classifier_c.c:53330) of variable 'dense_2_output_array_10', ../C-Code-Original/face_classifier_c.c:53330 on array 'activation_3_output_array' [821]  (1.77 ns)
+	'load' operation ('dense_2_output_array_10', ../C-Code-Original/face_classifier_c.c:53330) on array 'dense_2_output_array' [820]  (1.77 ns)
+	'store' operation (../C-Code-Original/face_classifier_c.c:53330) of variable 'dense_2_output_array_10', ../C-Code-Original/face_classifier_c.c:53330 on array 'activation_3_output_array' [822]  (1.77 ns)
 
 
 ============================================================

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'k2c_batch_norm'
 ================================================================
-* Date:           Wed Apr 17 23:19:38 2024
+* Date:           Sat Apr 20 22:09:11 2024
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        FaceClassifier
@@ -77,11 +77,11 @@
     +--------------------------+----------------------+---------+-------+------+------+
     |         Instance         |        Module        | BRAM_18K| DSP48E|  FF  |  LUT |
     +--------------------------+----------------------+---------+-------+------+------+
-    |face_classifier_cdEe_U53  |face_classifier_cdEe  |        0|      2|   227|   214|
-    |face_classifier_ceOg_U54  |face_classifier_ceOg  |        0|      3|   128|   135|
-    |face_classifier_cjbC_U52  |face_classifier_cjbC  |        0|      2|   227|   214|
-    |face_classifier_ckbM_U55  |face_classifier_ckbM  |        0|      0|   359|   802|
-    |face_classifier_clbW_U56  |face_classifier_clbW  |        0|      0|  8651|  6607|
+    |face_classifier_cdEe_U54  |face_classifier_cdEe  |        0|      2|   227|   214|
+    |face_classifier_ceOg_U55  |face_classifier_ceOg  |        0|      3|   128|   135|
+    |face_classifier_cjbC_U53  |face_classifier_cjbC  |        0|      2|   227|   214|
+    |face_classifier_ckbM_U56  |face_classifier_ckbM  |        0|      0|   359|   802|
+    |face_classifier_clbW_U57  |face_classifier_clbW  |        0|      0|  8651|  6607|
     +--------------------------+----------------------+---------+-------+------+------+
     |Total                     |                      |        0|      7|  9592|  7972|
     +--------------------------+----------------------+---------+-------+------+------+

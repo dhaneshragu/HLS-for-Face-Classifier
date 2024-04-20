@@ -216,6 +216,25 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 52 \
+    name axesA \
+    reset_level 1 \
+    sync_rst true \
+    dir IO \
+    corename axesA \
+    op interface \
+    ports { axesA_address0 { O 1 vector } axesA_ce0 { O 1 bit } axesA_we0 { O 1 bit } axesA_d0 { O 64 vector } axesA_q0 { I 64 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'axesA'"
+}
+}
+
+
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \

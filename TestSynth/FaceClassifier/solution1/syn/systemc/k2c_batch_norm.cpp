@@ -31,41 +31,41 @@ const sc_lv<12> k2c_batch_norm::ap_const_lv12_1 = "1";
 const sc_lv<32> k2c_batch_norm::ap_const_lv32_3 = "11";
 
 k2c_batch_norm::k2c_batch_norm(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    face_classifier_cjbC_U52 = new face_classifier_cjbC<1,4,32,32,32>("face_classifier_cjbC_U52");
-    face_classifier_cjbC_U52->clk(ap_clk);
-    face_classifier_cjbC_U52->reset(ap_rst);
-    face_classifier_cjbC_U52->din0(inputs_array_q0);
-    face_classifier_cjbC_U52->din1(mean_array_q0);
-    face_classifier_cjbC_U52->ce(ap_var_for_const0);
-    face_classifier_cjbC_U52->dout(grp_fu_155_p2);
-    face_classifier_cdEe_U53 = new face_classifier_cdEe<1,4,32,32,32>("face_classifier_cdEe_U53");
-    face_classifier_cdEe_U53->clk(ap_clk);
-    face_classifier_cdEe_U53->reset(ap_rst);
-    face_classifier_cdEe_U53->din0(tmp_s_reg_293);
-    face_classifier_cdEe_U53->din1(beta_array_load_reg_288_pp0_iter29_reg);
-    face_classifier_cdEe_U53->ce(ap_var_for_const0);
-    face_classifier_cdEe_U53->dout(grp_fu_161_p2);
-    face_classifier_ceOg_U54 = new face_classifier_ceOg<1,2,32,32,32>("face_classifier_ceOg_U54");
-    face_classifier_ceOg_U54->clk(ap_clk);
-    face_classifier_ceOg_U54->reset(ap_rst);
-    face_classifier_ceOg_U54->din0(temp_reg_278);
-    face_classifier_ceOg_U54->din1(gamma_array_load_reg_283);
-    face_classifier_ceOg_U54->ce(ap_var_for_const0);
-    face_classifier_ceOg_U54->dout(grp_fu_166_p2);
-    face_classifier_ckbM_U55 = new face_classifier_ckbM<1,8,32,32,32>("face_classifier_ckbM_U55");
-    face_classifier_ckbM_U55->clk(ap_clk);
-    face_classifier_ckbM_U55->reset(ap_rst);
-    face_classifier_ckbM_U55->din0(tmp_reg_258);
-    face_classifier_ckbM_U55->din1(stdev_array_load_reg_263);
-    face_classifier_ckbM_U55->ce(ap_var_for_const0);
-    face_classifier_ckbM_U55->dout(grp_fu_170_p2);
-    face_classifier_clbW_U56 = new face_classifier_clbW<1,16,12,64,64>("face_classifier_clbW_U56");
-    face_classifier_clbW_U56->clk(ap_clk);
-    face_classifier_clbW_U56->reset(ap_rst);
-    face_classifier_clbW_U56->din0(grp_fu_189_p0);
-    face_classifier_clbW_U56->din1(step_reg_205);
-    face_classifier_clbW_U56->ce(ap_var_for_const0);
-    face_classifier_clbW_U56->dout(grp_fu_189_p2);
+    face_classifier_cjbC_U53 = new face_classifier_cjbC<1,4,32,32,32>("face_classifier_cjbC_U53");
+    face_classifier_cjbC_U53->clk(ap_clk);
+    face_classifier_cjbC_U53->reset(ap_rst);
+    face_classifier_cjbC_U53->din0(inputs_array_q0);
+    face_classifier_cjbC_U53->din1(mean_array_q0);
+    face_classifier_cjbC_U53->ce(ap_var_for_const0);
+    face_classifier_cjbC_U53->dout(grp_fu_155_p2);
+    face_classifier_cdEe_U54 = new face_classifier_cdEe<1,4,32,32,32>("face_classifier_cdEe_U54");
+    face_classifier_cdEe_U54->clk(ap_clk);
+    face_classifier_cdEe_U54->reset(ap_rst);
+    face_classifier_cdEe_U54->din0(tmp_s_reg_293);
+    face_classifier_cdEe_U54->din1(beta_array_load_reg_288_pp0_iter29_reg);
+    face_classifier_cdEe_U54->ce(ap_var_for_const0);
+    face_classifier_cdEe_U54->dout(grp_fu_161_p2);
+    face_classifier_ceOg_U55 = new face_classifier_ceOg<1,2,32,32,32>("face_classifier_ceOg_U55");
+    face_classifier_ceOg_U55->clk(ap_clk);
+    face_classifier_ceOg_U55->reset(ap_rst);
+    face_classifier_ceOg_U55->din0(temp_reg_278);
+    face_classifier_ceOg_U55->din1(gamma_array_load_reg_283);
+    face_classifier_ceOg_U55->ce(ap_var_for_const0);
+    face_classifier_ceOg_U55->dout(grp_fu_166_p2);
+    face_classifier_ckbM_U56 = new face_classifier_ckbM<1,8,32,32,32>("face_classifier_ckbM_U56");
+    face_classifier_ckbM_U56->clk(ap_clk);
+    face_classifier_ckbM_U56->reset(ap_rst);
+    face_classifier_ckbM_U56->din0(tmp_reg_258);
+    face_classifier_ckbM_U56->din1(stdev_array_load_reg_263);
+    face_classifier_ckbM_U56->ce(ap_var_for_const0);
+    face_classifier_ckbM_U56->dout(grp_fu_170_p2);
+    face_classifier_clbW_U57 = new face_classifier_clbW<1,16,12,64,64>("face_classifier_clbW_U57");
+    face_classifier_clbW_U57->clk(ap_clk);
+    face_classifier_clbW_U57->reset(ap_rst);
+    face_classifier_clbW_U57->din0(grp_fu_189_p0);
+    face_classifier_clbW_U57->din1(step_reg_205);
+    face_classifier_clbW_U57->ce(ap_var_for_const0);
+    face_classifier_clbW_U57->dout(grp_fu_189_p2);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
@@ -573,11 +573,11 @@ k2c_batch_norm::~k2c_batch_norm() {
     if (mVcdFile) 
         sc_close_vcd_trace_file(mVcdFile);
 
-    delete face_classifier_cjbC_U52;
-    delete face_classifier_cdEe_U53;
-    delete face_classifier_ceOg_U54;
-    delete face_classifier_ckbM_U55;
-    delete face_classifier_clbW_U56;
+    delete face_classifier_cjbC_U53;
+    delete face_classifier_cdEe_U54;
+    delete face_classifier_ceOg_U55;
+    delete face_classifier_ckbM_U56;
+    delete face_classifier_clbW_U57;
 }
 
 void k2c_batch_norm::thread_ap_var_for_const0() {

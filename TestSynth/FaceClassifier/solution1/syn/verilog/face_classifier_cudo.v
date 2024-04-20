@@ -10,7 +10,7 @@
 
 module face_classifier_cudo
 #(parameter
-    ID         = 83,
+    ID         = 84,
     NUM_STAGE  = 4,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

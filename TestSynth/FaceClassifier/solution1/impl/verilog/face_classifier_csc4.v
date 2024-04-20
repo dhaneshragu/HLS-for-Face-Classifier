@@ -10,7 +10,7 @@
 
 module face_classifier_csc4
 #(parameter
-    ID         = 81,
+    ID         = 82,
     NUM_STAGE  = 1,
     din0_WIDTH = 32,
     dout_WIDTH = 64

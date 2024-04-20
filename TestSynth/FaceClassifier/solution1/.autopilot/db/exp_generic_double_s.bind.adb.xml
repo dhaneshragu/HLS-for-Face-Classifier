@@ -1723,7 +1723,7 @@ _ifconv:107  %p_Val2_13 = mul i100 %OP1_V_2, %OP2_V
 
 <Node id="6" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-_ifconv:1  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str156) nounwind
+_ifconv:1  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str161) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -3040,7 +3040,7 @@ _ifconv:160  ret double %p_1
 </dataflow>
 <dataflow id="504" from="StgValue_503" to="StgValue_118" fromId="503" toId="118">
 </dataflow>
-<dataflow id="506" from="p_str156" to="StgValue_118" fromId="505" toId="118">
+<dataflow id="506" from="p_str161" to="StgValue_118" fromId="505" toId="118">
 </dataflow>
 <dataflow id="507" from="p_Result_s" to="not_Result_i4" fromId="10" toId="119">
 </dataflow>

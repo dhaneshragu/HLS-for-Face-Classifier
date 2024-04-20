@@ -1839,7 +1839,7 @@
                 </item>
               </inlineStackInfo>
               <originalName>__Val2__</originalName>
-              <rtlName>face_classifier_cpcA_U68</rtlName>
+              <rtlName>face_classifier_cpcA_U69</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>31</bitwidth>
@@ -1977,7 +1977,7 @@
                 </item>
               </inlineStackInfo>
               <originalName>r.V</originalName>
-              <rtlName>face_classifier_cpcA_U68</rtlName>
+              <rtlName>face_classifier_cpcA_U69</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>31</bitwidth>
@@ -15382,7 +15382,7 @@
         <count>1</count>
         <item_version>0</item_version>
         <item>
-          <first>face_classifier_cpcA_U68</first>
+          <first>face_classifier_cpcA_U69</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
