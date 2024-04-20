@@ -1,0 +1,26 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <config>
+        <config_array_partition maximum_size="409666"/>
+        <config_compile name_max_length="80"/>
+        <schedule model="myproject"/>
+    </config>
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="myproject_prj"/>
+    </project>
+    <targetInfo>
+        <TargetInfo value="xcvu190:-flgb2104:-1-i"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/aartix7/aartix7" name="DefaultPlatform"/>
+        <library value="xilinx/aartix7/aartix7_fpv6" name="DefaultPlatform"/>
+        <library value="xilinx/virtexu/virtexu" name="DefaultPlatform"/>
+        <library value="xilinx/virtexu/virtexu_fpv7" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock default="false" name="default" uncertainty="12.5%" period="10"/>
+    </clockList>
+</AutoPilot:solution>
+
