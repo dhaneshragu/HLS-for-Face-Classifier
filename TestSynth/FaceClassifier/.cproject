@@ -62,14 +62,14 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.c.link.option.libs.1227174546" name="Libraries (-l)" superClass="gnu.c.link.option.libs"/>
-								<option id="gnu.c.link.option.ldflags.451995545" name="Linker flags" superClass="gnu.c.link.option.ldflags" value="-Wl,--stack,16777216" valueType="string"/>
+								<option id="gnu.c.link.option.ldflags.451995545" name="Linker flags" superClass="gnu.c.link.option.ldflags"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1665785256" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.paths.1439030645" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.880906056" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
-								<option id="gnu.cpp.link.option.flags.1423227256" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,--stack,16777216" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.1423227256" name="Linker flags" superClass="gnu.cpp.link.option.flags"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.825405455" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -80,10 +80,10 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1148621263" name="face_classifier_c_test_suite.c" rcbsApplicability="disable" resourcePath="testbench/face_classifier_c_test_suite.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.220975144">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.220975144" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1892870063" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.794862804" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1204244556" name="face_classifier_c_test_suite.c" rcbsApplicability="disable" resourcePath="testbench/face_classifier_c_test_suite.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.18154636">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.18154636" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.815346657" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.1447990231" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -91,14 +91,14 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.1340807240" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1142498606" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.2113892456" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.424796781" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1402988137" name="face_classifier_c.c" rcbsApplicability="disable" resourcePath="source/face_classifier_c.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1337607687">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1337607687" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1067704987" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.969701290" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1904459683" name="face_classifier_c.c" rcbsApplicability="disable" resourcePath="source/face_classifier_c.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1248607005">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1248607005" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1520811296" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.631970130" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -106,14 +106,14 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.1156255562" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.292274071" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.836462411" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.882757612" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1991987107" name="k2c_helper_functions.c" rcbsApplicability="disable" resourcePath="source/k2c_helper_functions.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1577551388">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1577551388" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1979011291" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.1788119584" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.247777117" name="k2c_helper_functions.c" rcbsApplicability="disable" resourcePath="source/k2c_helper_functions.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.136729194">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.136729194" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.154696103" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.568971289" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -121,14 +121,14 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.1132210495" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1979030781" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.1311244834" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.869609649" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1546699475" name="k2c_activations.c" rcbsApplicability="disable" resourcePath="source/k2c_activations.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1070816860">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1070816860" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1486879046" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.1391244576" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.516664159" name="k2c_activations.c" rcbsApplicability="disable" resourcePath="source/k2c_activations.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1839781116">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311.1839781116" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.772553311">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1248281843" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.1446813199" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -136,12 +136,12 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.598602693" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1784951994" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.1511388010" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2075456752" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.2107820444" name="k2c_tensor_include.h" rcbsApplicability="disable" resourcePath="source/k2c_tensor_include.h" toolsToInvoke=""/>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.460423949" name="face_classifier_c.h" rcbsApplicability="disable" resourcePath="source/face_classifier_c.h" toolsToInvoke=""/>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1619361752" name="k2c_tensor_include.h" rcbsApplicability="disable" resourcePath="source/k2c_tensor_include.h" toolsToInvoke=""/>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.315814227.1732865923" name="face_classifier_c.h" rcbsApplicability="disable" resourcePath="source/face_classifier_c.h" toolsToInvoke=""/>
 					<sourceEntries>
 						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
@@ -200,14 +200,14 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.c.link.option.libs.1350147046" name="Libraries (-l)" superClass="gnu.c.link.option.libs"/>
-								<option id="gnu.c.link.option.ldflags.344260150" name="Linker flags" superClass="gnu.c.link.option.ldflags" value="-Wl,--stack,16777216" valueType="string"/>
+								<option id="gnu.c.link.option.ldflags.344260150" name="Linker flags" superClass="gnu.c.link.option.ldflags"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.491879089" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
 								<option id="gnu.cpp.link.option.paths.1214963787" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.869193547" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
-								<option id="gnu.cpp.link.option.flags.983907558" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,--stack,16777216" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.983907558" name="Linker flags" superClass="gnu.cpp.link.option.flags"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.2059104677" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -218,10 +218,10 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1954381615" name="face_classifier_c_test_suite.c" rcbsApplicability="disable" resourcePath="testbench/face_classifier_c_test_suite.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1860211019">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1860211019" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1104253710" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.339186065" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1686684667" name="face_classifier_c_test_suite.c" rcbsApplicability="disable" resourcePath="testbench/face_classifier_c_test_suite.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.7610713">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.7610713" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.701240315" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.1018032455" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -229,14 +229,14 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.1351060462" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1626768103" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.1176792645" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1211878186" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.627029662" name="face_classifier_c.c" rcbsApplicability="disable" resourcePath="source/face_classifier_c.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1604652872">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1604652872" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.2025975536" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.1951350674" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.84421817" name="face_classifier_c.c" rcbsApplicability="disable" resourcePath="source/face_classifier_c.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1513387259">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1513387259" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1664850310" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.1463392171" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -244,14 +244,14 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.1469053659" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2090802372" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.30047013" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2081438207" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1162361338" name="k2c_helper_functions.c" rcbsApplicability="disable" resourcePath="source/k2c_helper_functions.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1636145361">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1636145361" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1187063004" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.968093993" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1535632874" name="k2c_helper_functions.c" rcbsApplicability="disable" resourcePath="source/k2c_helper_functions.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1708746774">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1708746774" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1240729148" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.459948640" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -259,14 +259,14 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.1292930327" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.703539190" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.1775619278" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.980714745" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1320884565" name="k2c_activations.c" rcbsApplicability="disable" resourcePath="source/k2c_activations.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.646482980">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.646482980" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.660605111" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
-							<option id="gnu.c.compiler.option.include.paths.684356275" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1736582473" name="k2c_activations.c" rcbsApplicability="disable" resourcePath="source/k2c_activations.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1713348613">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169.1713348613" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release.2059264169">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1539073919" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols"/>
+							<option id="gnu.c.compiler.option.include.paths.264989145" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/include/etc"/>
@@ -274,12 +274,12 @@
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
-							<option id="gnu.c.compiler.option.misc.other.383840294" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1921884039" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							<option id="gnu.c.compiler.option.misc.other.1469272584" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-Wuninitialized -Wall -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1998598744" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1752058933" name="k2c_tensor_include.h" rcbsApplicability="disable" resourcePath="source/k2c_tensor_include.h" toolsToInvoke=""/>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.1088609157" name="face_classifier_c.h" rcbsApplicability="disable" resourcePath="source/face_classifier_c.h" toolsToInvoke=""/>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.777690611" name="k2c_tensor_include.h" rcbsApplicability="disable" resourcePath="source/k2c_tensor_include.h" toolsToInvoke=""/>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.349006132.882703027" name="face_classifier_c.h" rcbsApplicability="disable" resourcePath="source/face_classifier_c.h" toolsToInvoke=""/>
 					<sourceEntries>
 						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
@@ -307,5 +307,4 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
 </cproject>

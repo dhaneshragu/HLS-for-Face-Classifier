@@ -841,7 +841,8 @@ __extension__ long long llrintl (long double);
    extern long double _chgsignl (long double);
 # 898 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3
 #pragma pack(pop)
-# 10 "../C-Code-Original/include/k2c_core_layers.c" 2
+# 9 "../C-Code-Original/include/k2c_core_layers.c" 2
+
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 1 3
 
 
@@ -1201,7 +1202,8 @@ __extension__ long long llrintl (long double);
 
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw_print_pop.h" 1 3
 # 511 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
-# 11 "../C-Code-Original/include/k2c_core_layers.c" 2
+# 10 "../C-Code-Original/include/k2c_core_layers.c" 2
+
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
 
 
@@ -1359,7 +1361,8 @@ __extension__ long long llrintl (long double);
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
 # 9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 2 3
 # 175 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3
-# 12 "../C-Code-Original/include/k2c_core_layers.c" 2
+# 11 "../C-Code-Original/include/k2c_core_layers.c" 2
+
 # 1 "../C-Code-Original/include/k2c_include.h" 1
 # 11 "../C-Code-Original/include/k2c_include.h"
 # 1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 1 3
@@ -1980,7 +1983,7 @@ void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
 void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
                     const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis);
-# 13 "../C-Code-Original/include/k2c_core_layers.c" 2
+# 12 "../C-Code-Original/include/k2c_core_layers.c" 2
 # 24 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* kernel,
                const k2c_tensor2* bias, float * fwork) {
@@ -2061,12 +2064,15 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
 
         size_t i;
         for ( i = 0 ; i < outrows; ++i) {
-        const size_t outrowidx = i*outcols;
+_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+ const size_t outrowidx = i*outcols;
         const size_t inneridx = i*innerdim;
         for (size_t j = 0; j < outcols; ++j) {
-            output->array[outrowidx+j] = bias->array[j];
+_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+ output->array[outrowidx+j] = bias->array[j];
             for (size_t k = 0; k < innerdim; ++k) {
-                output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
+_ssdm_op_SpecLoopTripCount(0, 0, 0, "");
+ output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
             }
         }
         }
@@ -2075,11 +2081,11 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
     else {
         const size_t axesA[1] = {input->ndim-1};
 _ssdm_SpecConstant(axesA);
-# 103 "../C-Code-Original/include/k2c_core_layers.c"
+# 106 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t axesB[1] = {0};
 _ssdm_SpecConstant(axesB);
-# 104 "../C-Code-Original/include/k2c_core_layers.c"
+# 107 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t naxes = 1;
         const int normalize = 0;
@@ -2089,7 +2095,7 @@ _ssdm_SpecConstant(axesB);
         k2c_linear_func(output->array, output->numel);
     }
 }
-# 123 "../C-Code-Original/include/k2c_core_layers.c"
+# 126 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
 
     memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
@@ -2100,7 +2106,7 @@ void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
     output->numel = input->numel;
     output->ndim = 1;
 }
-# 143 "../C-Code-Original/include/k2c_core_layers.c"
+# 146 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * newshp,
                  const size_t newndim) {
 
@@ -2111,7 +2117,7 @@ void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * new
     output->ndim = newndim;
     output->numel = input->numel;
 }
-# 163 "../C-Code-Original/include/k2c_core_layers.c"
+# 166 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
                       const size_t * permute) {
 
@@ -2138,7 +2144,7 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
         output->array[bidx] = input->array[i];
     }
 }
-# 199 "../C-Code-Original/include/k2c_core_layers.c"
+# 202 "../C-Code-Original/include/k2c_core_layers.c"
 void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n) {
 
     const size_t in_width = input->shape[0];
