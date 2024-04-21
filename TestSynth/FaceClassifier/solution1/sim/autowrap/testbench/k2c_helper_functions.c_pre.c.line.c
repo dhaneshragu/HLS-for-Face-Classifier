@@ -1729,439 +1729,509 @@ void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_t
                     const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis);
 #pragma line 13 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c" 2
-#pragma line 56 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
-void k2c_affine_matmul(float C[100000], const float A[100000], const float B[100000], const float d[100000], const size_t outrows,const size_t outcols, const size_t innerdim) {
+#pragma line 54 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+void k2c_affine_matmul(float C[100000], const float A[100000],
+  const float B[100000], const float d[100000], const size_t outrows,
+  const size_t outcols, const size_t innerdim) {
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
  size_t i;
-    for ( i = 0 ; i < outrows; ++i) {
-        const size_t outrowidx = i*outcols;
-        const size_t inneridx = i*innerdim;
-        for (size_t j = 0; j < outcols; ++j) {
-            C[outrowidx+j] = 0;
-            for (size_t k = 0; k < innerdim; ++k) {
-                C[outrowidx+j] += A[inneridx+k] * B[k*outcols+j];
-            }
-            C[outrowidx+j] += d[j];
-        }
-    }
+ for (i = 0; i < outrows; ++i) {
+  const size_t outrowidx = i * outcols;
+  const size_t inneridx = i * innerdim;
+  for (size_t j = 0; j < outcols; ++j) {
+   C[outrowidx + j] = 0;
+   for (size_t k = 0; k < innerdim; ++k) {
+    C[outrowidx + j] += A[inneridx + k] * B[k * outcols + j];
+   }
+   C[outrowidx + j] += d[j];
+  }
+ }
 }
-#pragma line 83 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+#pragma line 82 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
 size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) {
 #pragma empty_line
-    size_t idx = 0;
-    size_t temp = 0;
+ size_t idx = 0;
+ size_t temp = 0;
 #pragma HLS pipeline
- for (size_t i=0; i<ndim; ++i)
-    {
-        temp = sub[i];
+ for (size_t i = 0; i < ndim; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+ temp = sub[i];
 #pragma HLS pipeline
- for (size_t j=ndim-1; j>i; --j)
-        {
-            temp *= shape[j];
-        }
-        idx += temp;
-    }
-    return idx;
+ for (size_t j = ndim - 1; j > i; --j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+ temp *= shape[j];
+  }
+  idx += temp;
+ }
+ return idx;
 }
-#pragma line 110 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
-void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape, const size_t ndim) {
+#pragma line 108 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape,
+  const size_t ndim) {
 #pragma empty_line
-    size_t idx2 = idx;
+ size_t idx2 = idx;
 #pragma HLS pipeline
- for (int i=ndim-1; i>=0; --i)
-    {
-        sub[i] = idx2%shape[i];
-        idx2 /= shape[i];
-    }
+ for (int i = ndim - 1; i >= 0; --i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+ sub[i] = idx2 % shape[i];
+  idx2 /= shape[i];
+ }
 }
-#pragma line 279 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
-void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B, const size_t * axesA,
-             const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
+#pragma line 276 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
+  const size_t * axesA, const size_t * axesB, const size_t naxes,
+  const int normalize, float * fwork) {
 #pragma empty_line
-    size_t permA[5];
-    size_t permB[5];
-    size_t prod_axesA = 1;
-    size_t prod_axesB = 1;
-    size_t free_axesA, free_axesB;
-    size_t freeA[5];
-    size_t freeB[5];
-    size_t count;
-    int isin;
-    size_t newshpA[5];
-    size_t newshpB[5];
-    const size_t ndimA = Ar->ndim;
-    const size_t ndimB = B->ndim;
-    float *reshapeA = &fwork[0];
-    float *reshapeB = &fwork[Ar->numel];
-    size_t Asub[5];
-    size_t Bsub[5];
+ size_t permA[5];
+ size_t permB[5];
+ size_t prod_axesA = 1;
+ size_t prod_axesB = 1;
+ size_t free_axesA, free_axesB;
+ size_t freeA[5];
+ size_t freeB[5];
+ size_t count;
+ int isin;
+ size_t newshpA[5];
+ size_t newshpB[5];
+ const size_t ndimA = Ar->ndim;
+ const size_t ndimB = B->ndim;
+ float *reshapeA = &fwork[0];
+ float *reshapeB = &fwork[Ar->numel];
+ size_t Asub[5];
+ size_t Bsub[5];
+ size_t i, j;
 #pragma empty_line
-    count=0;
-    size_t i,j;
 #pragma empty_line
-    for ( i=0; i<ndimA; ++i) {
-        isin = 0;
-        for (size_t j=0; j<naxes; ++j) {
+ count = 0;
+ for (i = 0; i < ndimA; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+ isin = 0;
+  for (j = 0; j < naxes; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS unroll
- if (i==axesA[j]) {
-                isin=1;
-            }
-        }
-        if (!isin) {
-            freeA[count] = i;
-            ++count;
-        }
-    }
-    count=0;
-    for ( i=0; i<ndimB; ++i) {
-        isin = 0;
-        for (size_t j=0; j<naxes; ++j) {
+ if (i == axesA[j]) {
+    isin = 1;
+   }
+  }
+  if (!isin) {
+   freeA[count] = i;
+   ++count;
+  }
+ }
+#pragma empty_line
+#pragma empty_line
+ count = 0;
+ for (i = 0; i < ndimB; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+ isin = 0;
+  for (j = 0; j < naxes; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS unroll
- if (i==axesB[j]) {
-                isin=1;
-            }
-        }
-        if (!isin) {
-            freeB[count] = i;
-            ++count;
-        }
-    }
+ if (i == axesB[j]) {
+    isin = 1;
+   }
+  }
+  if (!isin) {
+   freeB[count] = i;
+   ++count;
+  }
+ }
 #pragma empty_line
 #pragma empty_line
-    for ( i=0; i < naxes; ++i) {
+ for (i = 0; i < naxes; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS unroll
  prod_axesA *= Ar->shape[axesA[i]];
-    }
-    for (i=0; i < naxes; ++i) {
+ }
+ for (i = 0; i < naxes; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS unroll
  prod_axesB *= B->shape[axesB[i]];
-    }
+ }
 #pragma empty_line
-    free_axesA = Ar->numel/prod_axesA;
-    free_axesB = B->numel/prod_axesB;
 #pragma empty_line
-    for ( i=0; i<ndimA-naxes; ++i) {
+ free_axesA = Ar->numel / prod_axesA;
+ free_axesB = B->numel / prod_axesB;
 #pragma empty_line
+#pragma empty_line
+ for (i = 0; i < ndimA - naxes; ++i) {
+#pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS PIPELINE
  permA[i] = freeA[i];
-    }
-    for ( i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
+ }
+ for (i = ndimA - naxes, j = 0; i < ndimA; ++i, ++j) {
 #pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS PIPELINE
  permA[i] = axesA[j];
-    }
-    for ( i=0; i<naxes; ++i) {
+ }
 #pragma empty_line
+#pragma empty_line
+ for (i = 0; i < naxes; ++i) {
+#pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS PIPELINE
  permB[i] = axesB[i];
-    }
-    for (i=naxes, j=0; i<ndimB; ++i, ++j) {
+ }
+ for (i = naxes, j = 0; i < ndimB; ++i, ++j) {
 #pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS PIPELINE
  permB[i] = freeB[j];
-    }
+ }
 #pragma empty_line
+ for (i = 0; i < ndimA; ++i) {
 #pragma empty_line
-#pragma empty_line
-    for ( i=0; i<ndimA; ++i) {
-#pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
 #pragma HLS PIPELINE
  newshpA[i] = Ar->shape[permA[i]];
-    }
-    for ( i=0; i<ndimB; ++i) {
+ }
+ for (i = 0; i < ndimB; ++i) {
 #pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
 #pragma HLS PIPELINE
  newshpB[i] = B->shape[permB[i]];
-    }
+ }
 #pragma empty_line
 #pragma empty_line
-    for ( i=0; i<Ar->numel; ++i) {
+ for (i = 0; i < Ar->numel; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+ k2c_idx2sub(i, Asub, Ar->shape, ndimA);
+  for (j = 0; j < ndimA; ++j) {
 #pragma empty_line
-        k2c_idx2sub(i,Asub,Ar->shape,ndimA);
-        for (size_t j=0; j<ndimA; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=ndimA
 #pragma HLS PIPELINE
-#pragma empty_line
  Bsub[j] = Asub[permA[j]];
-        }
-        size_t bidx = k2c_sub2idx(Bsub,newshpA,ndimA);
-        reshapeA[bidx] = Ar->array[i];
-    }
+  }
+  size_t bidx = k2c_sub2idx(Bsub, newshpA, ndimA);
+  reshapeA[bidx] = Ar->array[i];
+ }
 #pragma empty_line
-    for ( i=0; i<B->numel; ++i) {
+ for (i = 0; i < B->numel; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ k2c_idx2sub(i, Bsub, B->shape, ndimB);
+  for (j = 0; j < ndimB; ++j) {
 #pragma empty_line
-        k2c_idx2sub(i,Bsub,B->shape,ndimB);
-        for (size_t j=0; j<ndimB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5
 #pragma HLS PIPELINE
-#pragma empty_line
  Asub[j] = Bsub[permB[j]];
-        }
-        size_t bidx = k2c_sub2idx(Asub,newshpB,ndimB);
-        reshapeB[bidx] = B->array[i];
-    }
+  }
+  size_t bidx = k2c_sub2idx(Asub, newshpB, ndimB);
+  reshapeB[bidx] = B->array[i];
+ }
 #pragma empty_line
+ if (normalize) {
+  float sum;
+  float inorm;
+  for (i = 0; i < free_axesA; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ sum = 0;
+   for (j = 0; j < prod_axesA; ++j) {
 #pragma empty_line
-    if (normalize) {
-#pragma empty_line
-        float sum;
-        float inorm;
-        size_t i;
-        for ( i=0; i<free_axesA; ++i) {
-#pragma empty_line
-            sum = 0;
-            size_t j;
-            for ( j=0; j<prod_axesA; ++j) {
-#pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 #pragma HLS PIPELINE
- sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
-            }
-            inorm = 1.0f/sqrtf(sum);
-            for ( j=0; j<prod_axesA; ++j) {
+ sum += reshapeA[i * prod_axesA + j]
+      * reshapeA[i * prod_axesA + j];
+   }
+   inorm = 1.0f / sqrtf(sum);
+   for (j = 0; j < prod_axesA; ++j) {
+#pragma empty_line
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 #pragma HLS PIPELINE
+ reshapeA[i * prod_axesA + j] *= inorm;
+   }
+  }
+  for (i = 0; i < free_axesB; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ sum = 0;
+   for (j = 0; j < prod_axesB; ++j) {
 #pragma empty_line
- reshapeA[i*prod_axesA + j] *= inorm;
-            }
-        }
-        for ( i=0; i<free_axesB; ++i) {
-#pragma empty_line
-            sum = 0;
-            size_t j;
-            for ( j=0; j<prod_axesB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
 #pragma HLS PIPELINE
+ sum += reshapeB[i + free_axesB * j]
+      * reshapeB[i + free_axesB * j];
+   }
+   inorm = 1.0f / sqrtf(sum);
+   for (j = 0; j < prod_axesB; ++j) {
 #pragma empty_line
- sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
-            }
-            inorm = 1.0f/sqrtf(sum);
-            for ( j=0; j<prod_axesB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
 #pragma HLS PIPELINE
-#pragma empty_line
- reshapeB[i + free_axesB*j] *= inorm;
-            }
-        }
-    }
-#pragma empty_line
+ reshapeB[i + free_axesB * j] *= inorm;
+   }
+  }
+ }
 #pragma empty_line
 #pragma empty_line
-        for (i = 0 ; i < free_axesA; ++i) {
+ for (i = 0; i < free_axesA; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+ for (j = 0; j < free_axesB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+ C->array[i * free_axesB + j] = 0;
+   for (size_t k = 0; k < prod_axesA; ++k) {
 #pragma empty_line
-            for (size_t j = 0; j < free_axesB; ++j) {
-                C->array[i*free_axesB + j] = 0;
-                for (size_t k = 0; k < prod_axesA; ++k) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
 #pragma HLS PIPELINE
-#pragma empty_line
- C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
-                }
-            }
-        }
+ C->array[i * free_axesB + j] += reshapeA[i * prod_axesA + k]
+      * reshapeB[k * free_axesB + j];
+   }
+  }
+ }
 }
+#pragma line 620 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
+  const size_t * axesA, const size_t * axesB, const size_t naxes,
+  const int normalize, float * fwork) {
 #pragma empty_line
-void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B, const size_t * axesA,
-             const size_t * axesB, const size_t naxes, const int normalize, float * fwork) {
+ size_t permA[5];
+ size_t permB[5];
+ size_t prod_axesA = 1;
+ size_t prod_axesB = 1;
+ size_t free_axesA, free_axesB;
+ size_t freeA[5];
+ size_t freeB[5];
+ size_t count;
+ int isin;
+ size_t newshpA[5];
+ size_t newshpB[5];
+ const size_t ndimA = Ar->ndim;
+ const size_t ndimB = B->ndim;
+ float *reshapeA = &fwork[0];
+ float *reshapeB = &fwork[Ar->numel];
+ size_t Asub[5];
+ size_t Bsub[5];
 #pragma empty_line
-    size_t permA[5];
-    size_t permB[5];
-    size_t prod_axesA = 1;
-    size_t prod_axesB = 1;
-    size_t free_axesA, free_axesB;
-    size_t freeA[5];
-    size_t freeB[5];
-    size_t count;
-    int isin;
-    size_t newshpA[5];
-    size_t newshpB[5];
-    const size_t ndimA = Ar->ndim;
-    const size_t ndimB = B->ndim;
-    float *reshapeA = &fwork[0];
-    float *reshapeB = &fwork[Ar->numel];
-    size_t Asub[5];
-    size_t Bsub[5];
-#pragma empty_line
-    count=0;
-    size_t i,j;
-    for ( i=0; i<ndimA; ++i) {
-        isin = 0;
-        for (size_t j=0; j<naxes; ++j) {
-            if (i==axesA[j]) {
-                isin=1;
-            }
-        }
-        if (!isin) {
-            freeA[count] = i;
-            ++count;
-        }
-    }
-    count=0;
-    for ( i=0; i<ndimB; ++i) {
-        isin = 0;
-        for (size_t j=0; j<naxes; ++j) {
-            if (i==axesB[j]) {
-                isin=1;
-            }
-        }
-        if (!isin) {
-            freeB[count] = i;
-            ++count;
-        }
-    }
-#pragma empty_line
-#pragma empty_line
-    for ( i=0; i < naxes; ++i) {
-        prod_axesA *= Ar->shape[axesA[i]];
-    }
-    for (i=0; i < naxes; ++i) {
-        prod_axesB *= B->shape[axesB[i]];
-    }
-#pragma empty_line
-    free_axesA = Ar->numel/prod_axesA;
-    free_axesB = B->numel/prod_axesB;
-#pragma empty_line
-    for ( i=0; i<ndimA-naxes; ++i) {
-        permA[i] = freeA[i];
-    }
-    for ( i=ndimA-naxes, j=0; i<ndimA; ++i, ++j) {
-        permA[i] = axesA[j];
-    }
-    for ( i=0; i<naxes; ++i) {
-        permB[i] = axesB[i];
-    }
-    for (i=naxes, j=0; i<ndimB; ++i, ++j) {
-        permB[i] = freeB[j];
-    }
+ count = 0;
+ size_t i, j;
+ for (i = 0; i < ndimA; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+ isin = 0;
+  for (size_t j = 0; j < naxes; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS unroll
+ if (i == axesA[j]) {
+    isin = 1;
+   }
+  }
+  if (!isin) {
+   freeA[count] = i;
+   ++count;
+  }
+ }
+ count = 0;
+ for (i = 0; i < ndimB; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+ isin = 0;
+  for (size_t j = 0; j < naxes; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS unroll
+ if (i == axesB[j]) {
+    isin = 1;
+   }
+  }
+  if (!isin) {
+   freeB[count] = i;
+   ++count;
+  }
+ }
 #pragma empty_line
 #pragma empty_line
+ for (i = 0; i < naxes; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS unroll
+ prod_axesA *= Ar->shape[axesA[i]];
+ }
+ for (i = 0; i < naxes; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS unroll
+ prod_axesB *= B->shape[axesB[i]];
+ }
 #pragma empty_line
-    for ( i=0; i<ndimA; ++i) {
-        newshpA[i] = Ar->shape[permA[i]];
-    }
-    for ( i=0; i<ndimB; ++i) {
-        newshpB[i] = B->shape[permB[i]];
-    }
+ free_axesA = Ar->numel / prod_axesA;
+ free_axesB = B->numel / prod_axesB;
 #pragma empty_line
+ for (i = 0; i < ndimA - naxes; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS PIPELINE
+ permA[i] = freeA[i];
+ }
+ for (i = ndimA - naxes, j = 0; i < ndimA; ++i, ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS PIPELINE
+ permA[i] = axesA[j];
+ }
+ for (i = 0; i < naxes; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS PIPELINE
+ permB[i] = axesB[i];
+ }
+ for (i = naxes, j = 0; i < ndimB; ++i, ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS PIPELINE
+ permB[i] = freeB[j];
+ }
 #pragma empty_line
-    for ( i=0; i<Ar->numel; ++i) {
-        k2c_idx2sub(i,Asub,Ar->shape,ndimA);
-        for (size_t j=0; j<ndimA; ++j) {
-            Bsub[j] = Asub[permA[j]];
-        }
-        size_t bidx = k2c_sub2idx(Bsub,newshpA,ndimA);
-        reshapeA[bidx] = Ar->array[i];
-    }
-#pragma empty_line
-    for ( i=0; i<B->numel; ++i) {
-        k2c_idx2sub(i,Bsub,B->shape,ndimB);
-        for (size_t j=0; j<ndimB; ++j) {
-            Asub[j] = Bsub[permB[j]];
-        }
-        size_t bidx = k2c_sub2idx(Asub,newshpB,ndimB);
-        reshapeB[bidx] = B->array[i];
-    }
-#pragma empty_line
-#pragma empty_line
-    if (normalize) {
-#pragma empty_line
-        float sum;
-        float inorm;
-        size_t i;
-        for ( i=0; i<free_axesA; ++i) {
-            sum = 0;
-            size_t j;
-            for ( j=0; j<prod_axesA; ++j) {
-                sum += reshapeA[i*prod_axesA + j]*reshapeA[i*prod_axesA + j];
-            }
-            inorm = 1.0f/sqrtf(sum);
-            for ( j=0; j<prod_axesA; ++j) {
-                reshapeA[i*prod_axesA + j] *= inorm;
-            }
-        }
-        for ( i=0; i<free_axesB; ++i) {
-            sum = 0;
-            size_t j;
-            for ( j=0; j<prod_axesB; ++j) {
-                sum += reshapeB[i + free_axesB*j]*reshapeB[i + free_axesB*j];
-            }
-            inorm = 1.0f/sqrtf(sum);
-            for ( j=0; j<prod_axesB; ++j) {
-                reshapeB[i + free_axesB*j] *= inorm;
-            }
-        }
-    }
+ for (i = 0; i < ndimA; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+#pragma HLS PIPELINE
+ newshpA[i] = Ar->shape[permA[i]];
+ }
+ for (i = 0; i < ndimB; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+#pragma HLS PIPELINE
+ newshpB[i] = B->shape[permB[i]];
+ }
 #pragma empty_line
 #pragma empty_line
+ for (i = 0; i < Ar->numel; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ k2c_idx2sub(i, Asub, Ar->shape, ndimA);
+  for (size_t j = 0; j < ndimA; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS PIPELINE
+ Bsub[j] = Asub[permA[j]];
+  }
+  size_t bidx = k2c_sub2idx(Bsub, newshpA, ndimA);
+  reshapeA[bidx] = Ar->array[i];
+ }
 #pragma empty_line
-        for (i = 0 ; i < free_axesA; ++i) {
-            for (size_t j = 0; j < free_axesB; ++j) {
-                C->array[i*free_axesB + j] = 0;
-                for (size_t k = 0; k < prod_axesA; ++k) {
-                    C->array[i*free_axesB + j] += reshapeA[i*prod_axesA + k] * reshapeB[k*free_axesB + j];
-                }
-            }
-        }
+ for (i = 0; i < B->numel; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ k2c_idx2sub(i, Bsub, B->shape, ndimB);
+  for (size_t j = 0; j < ndimB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS PIPELINE
+ Asub[j] = Bsub[permB[j]];
+  }
+  size_t bidx = k2c_sub2idx(Asub, newshpB, ndimB);
+  reshapeB[bidx] = B->array[i];
+ }
+#pragma empty_line
+ if (normalize) {
+#pragma empty_line
+  float sum;
+  float inorm;
+  size_t i;
+  for (i = 0; i < free_axesA; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ sum = 0;
+   size_t j;
+   for (j = 0; j < prod_axesA; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+#pragma HLS PIPELINE
+ sum += reshapeA[i * prod_axesA + j]
+      * reshapeA[i * prod_axesA + j];
+   }
+   inorm = 1.0f / sqrtf(sum);
+   for (j = 0; j < prod_axesA; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+#pragma HLS PIPELINE
+ reshapeA[i * prod_axesA + j] *= inorm;
+   }
+  }
+  for (i = 0; i < free_axesB; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ sum = 0;
+   size_t j;
+   for (j = 0; j < prod_axesB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+#pragma HLS PIPELINE
+ sum += reshapeB[i + free_axesB * j]
+      * reshapeB[i + free_axesB * j];
+   }
+   inorm = 1.0f / sqrtf(sum);
+   for (j = 0; j < prod_axesB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+#pragma HLS PIPELINE
+ reshapeB[i + free_axesB * j] *= inorm;
+   }
+  }
+ }
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+ for (i = 0; i < free_axesA; ++i) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+#pragma empty_line
+ for (size_t j = 0; j < free_axesB; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+#pragma empty_line
+ C->array[i * free_axesB + j] = 0;
+   for (size_t k = 0; k < prod_axesA; ++k) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+#pragma empty_line
+#pragma HLS PIPELINE
+ C->array[i * free_axesB + j] += reshapeA[i * prod_axesA + k]
+      * reshapeB[k * free_axesB + j];
+   }
+  }
+ }
 }
-#pragma line 609 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+#pragma line 816 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
 void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b) {
 #pragma empty_line
 #pragma HLS pipeline
- for (size_t i=0; i<A->numel; i+=b->numel)
-    {
+ for (size_t i = 0; i < A->numel; i += b->numel) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
 #pragma HLS pipeline
- for (size_t j=0; j<b->numel; ++j)
-        {
-            A->array[i+j] += b->array[j];
-        }
-    }
+ for (size_t j = 0; j < b->numel; ++j) {
+#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+ A->array[i + j] += b->array[j];
+  }
+ }
 }
-#pragma line 631 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+#pragma line 837 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
 void k2c_flip(k2c_tensor *A, const size_t axis) {
-    const size_t ndim = A->ndim;
-    const size_t * shape = A->shape;
-    const size_t numel = A->numel;
-    size_t sub[5] = {0};
-    const size_t step = 1;
-    size_t k = 0;
-    size_t idx = 0;
-    float temp;
+ const size_t ndim = A->ndim;
+ const size_t * shape = A->shape;
+ const size_t numel = A->numel;
+ size_t sub[5] = { 0 };
+ const size_t step = 1;
+ size_t k = 0;
+ size_t idx = 0;
+ float temp;
 #pragma empty_line
-    size_t reduced_size = 1;
-    for (size_t i=axis; i<ndim; ++i) {
-        reduced_size *= shape[i];
-    }
-    const size_t threshold = reduced_size/2;
-    const size_t jump = reduced_size;
+ size_t reduced_size = 1;
+ for (size_t i = axis; i < ndim; ++i) {
+  reduced_size *= shape[i];
+ }
+ const size_t threshold = reduced_size / 2;
+ const size_t jump = reduced_size;
 #pragma empty_line
-    while (k<numel) {
-        k2c_idx2sub(k, sub, shape, ndim);
-        sub[axis] = shape[axis]-sub[axis]-1;
-        idx = k2c_sub2idx(sub, shape, ndim);
-        temp = A->array[k];
-        A->array[k] = A->array[idx];
-        A->array[idx] = temp;
-        if ((k+step) % jump >= threshold) {
-            k = (k + step -threshold + jump);
-        }
-        else {
-            k += step;
-        }
-    }
+ while (k < numel) {
+  k2c_idx2sub(k, sub, shape, ndim);
+  sub[axis] = shape[axis] - sub[axis] - 1;
+  idx = k2c_sub2idx(sub, shape, ndim);
+  temp = A->array[k];
+  A->array[k] = A->array[idx];
+  A->array[idx] = temp;
+  if ((k + step) % jump >= threshold) {
+   k = (k + step - threshold + jump);
+  } else {
+   k += step;
+  }
+ }
 }
-#pragma line 673 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
+#pragma line 876 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c"
 float* k2c_read_array(const char* filename, const size_t array_size) {
-    float* ptr = (float*) malloc(array_size * sizeof(float));
-    if (!ptr) {
-        printf("cannot allocate memory %s \n", filename);
-        exit(-1);
-    }
-    size_t ctr = 0;
-    FILE *finp;
-    int foo;
-    finp = fopen(filename, "r");
-    if(((void *)0) == finp) {
-        printf("Unable to open file %s \n",filename);
-        exit(-1);
-    }
-    while((!feof(finp)) && (ctr < array_size)) {
-        foo = fscanf(finp, "%f,", &ptr[ctr++]);
-    }
-    fclose(finp);
-    return ptr;
+ float* ptr = (float*) malloc(array_size * sizeof(float));
+ if (!ptr) {
+  printf("cannot allocate memory %s \n", filename);
+  exit(-1);
+ }
+ size_t ctr = 0;
+ FILE *finp;
+ int foo;
+ finp = fopen(filename, "r");
+ if (((void *)0) == finp) {
+  printf("Unable to open file %s \n", filename);
+  exit(-1);
+ }
+ while ((!feof(finp)) && (ctr < array_size)) {
+  foo = fscanf(finp, "%f,", &ptr[ctr++]);
+ }
+ fclose(finp);
+ return ptr;
 }

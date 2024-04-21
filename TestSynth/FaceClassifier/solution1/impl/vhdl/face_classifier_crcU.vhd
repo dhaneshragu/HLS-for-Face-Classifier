@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 
 entity face_classifier_crcU is
     generic (
-        ID         : integer := 81;
+        ID         : integer := 80;
         NUM_STAGE  : integer := 1;
         din0_WIDTH : integer := 64;
         dout_WIDTH : integer := 32

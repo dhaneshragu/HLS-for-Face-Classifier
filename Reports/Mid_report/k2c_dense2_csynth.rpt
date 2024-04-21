@@ -1,0 +1,245 @@
+
+
+================================================================
+== Vivado HLS Report for 'k2c_dense2'
+================================================================
+* Date:           Sun Apr 21 02:42:48 2024
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        FaceClassifier
+* Solution:       solution1
+* Product family: virtexu
+* Target device:  xcvu160-flgc2104-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.539|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-------------+-----+-------------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    | min |     max     | min |     max     |   Type  |
+    +-----+-------------+-----+-------------+---------+
+    |    3|  72181630629|    3|  72181630629|   none  |
+    +-----+-------------+-----+-------------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+--------------+-----+-------------+-----+-------------+---------+
+        |                         |              |      Latency      |      Interval     | Pipeline|
+        |         Instance        |    Module    | min |     max     | min |     max     |   Type  |
+        +-------------------------+--------------+-----+-------------+-----+-------------+---------+
+        |grp_k2c_dot2_fu_181      |k2c_dot2      |  213|  72147250961|  213|  72147250961|   none  |
+        |grp_k2c_bias_add_fu_206  |k2c_bias_add  |    8|     34379665|    8|     34379665|   none  |
+        +-------------------------+--------------+-----+-------------+-----+-------------+---------+
+
+        * Loop: 
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                 |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1         |    0|    0|         2|          -|          -|     0|    no    |
+        | + Loop 1.1      |    0|    0|         3|          -|          -|     0|    no    |
+        |  ++ Loop 1.1.1  |    0|    0|         8|          -|          -|     0|    no    |
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+--------+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT  |
++---------------------+---------+-------+---------+--------+
+|DSP                  |        -|      3|        -|       -|
+|Expression           |        -|      -|        0|     535|
+|FIFO                 |        -|      -|        -|       -|
+|Instance             |        0|     34|    23662|   18906|
+|Memory               |        -|      -|        -|       -|
+|Multiplexer          |        -|      -|        -|     361|
+|Register             |        -|      -|      865|       -|
++---------------------+---------+-------+---------+--------+
+|Total                |        0|     37|    24527|   19802|
++---------------------+---------+-------+---------+--------+
+|Available SLR        |     2184|    520|   617600|  308800|
++---------------------+---------+-------+---------+--------+
+|Utilization SLR (%)  |        0|      7|        3|       6|
++---------------------+---------+-------+---------+--------+
+|Available            |     6552|   1560|  1852800|  926400|
++---------------------+---------+-------+---------+--------+
+|Utilization (%)      |        0|      2|        1|       2|
++---------------------+---------+-------+---------+--------+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+----------------------+---------+-------+-------+-------+
+    |          Instance         |        Module        | BRAM_18K| DSP48E|   FF  |  LUT  |
+    +---------------------------+----------------------+---------+-------+-------+-------+
+    |face_classifier_cdEe_U148  |face_classifier_cdEe  |        0|      2|    227|    214|
+    |face_classifier_ceOg_U149  |face_classifier_ceOg  |        0|      3|    128|    135|
+    |grp_k2c_bias_add_fu_206    |k2c_bias_add          |        0|      2|    451|    508|
+    |grp_k2c_dot2_fu_181        |k2c_dot2              |        0|     27|  22856|  18049|
+    +---------------------------+----------------------+---------+-------+-------+-------+
+    |Total                      |                      |        0|     34|  23662|  18906|
+    +---------------------------+----------------------+---------+-------+-------+-------+
+
+    * DSP48: 
+    +---------------------------+----------------------+--------------+
+    |          Instance         |        Module        |  Expression  |
+    +---------------------------+----------------------+--------------+
+    |face_classifier_chbi_U152  |face_classifier_chbi  | i0 * i1 + i2 |
+    |face_classifier_cibs_U150  |face_classifier_cibs  |    i0 * i1   |
+    |face_classifier_cibs_U151  |face_classifier_cibs  |    i0 * i1   |
+    +---------------------------+----------------------+--------------+
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |i_37_fu_293_p2                   |     +    |      0|  0|  71|           1|          64|
+    |j_10_fu_308_p2                   |     +    |      0|  0|  71|           1|          64|
+    |k_3_fu_333_p2                    |     +    |      0|  0|  71|           1|          64|
+    |tmp_33_fu_236_p2                 |     +    |      0|  0|  71|          64|           2|
+    |tmp_34_fu_314_p2                 |     +    |      0|  0|  20|          13|          13|
+    |tmp_36_fu_339_p2                 |     +    |      0|  0|  20|          13|          13|
+    |ap_block_state4_on_subcall_done  |    and   |      0|  0|   2|           1|           1|
+    |exitcond1_fu_303_p2              |   icmp   |      0|  0|  29|          64|          64|
+    |exitcond2_fu_288_p2              |   icmp   |      0|  0|  29|          64|          64|
+    |exitcond_fu_328_p2               |   icmp   |      0|  0|  29|          64|          64|
+    |icmp_fu_253_p2                   |   icmp   |      0|  0|  29|          63|           1|
+    |tmp_fu_230_p2                    |   icmp   |      0|  0|  29|          64|           2|
+    |outrows_s_fu_269_p3              |  select  |      0|  0|  64|           1|          64|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |Total                            |          |      0|  0| 535|         414|         480|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                        |  85|         17|    1|         17|
+    |dense_2_bias_array_address0      |  15|          3|   12|         36|
+    |dense_2_bias_array_ce0           |  15|          3|    1|          3|
+    |dense_2_kernel_array_2_address0  |  15|          3|   12|         36|
+    |dense_2_kernel_array_2_ce0       |  15|          3|    1|          3|
+    |dense_2_kernel_shape_address0    |  15|          3|    3|          9|
+    |dense_2_kernel_shape_ce0         |  15|          3|    1|          3|
+    |dense_2_output_array_address0    |  21|          4|   12|         48|
+    |dense_2_output_array_ce0         |  21|          4|    1|          4|
+    |dense_2_output_array_d0          |  27|          5|   32|        160|
+    |dense_2_output_array_we0         |  21|          4|    1|          4|
+    |dropout_3_output_arr_address0    |  15|          3|   12|         36|
+    |dropout_3_output_arr_ce0         |  15|          3|    1|          3|
+    |dropout_3_output_sha_address0    |  15|          3|    3|          9|
+    |dropout_3_output_sha_ce0         |  15|          3|    1|          3|
+    |i_reg_137                        |   9|          2|   64|        128|
+    |j_reg_148                        |   9|          2|   64|        128|
+    |k_reg_170                        |   9|          2|   64|        128|
+    |tmp_35_reg_160                   |   9|          2|   32|         64|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            | 361|         72|  318|        822|
+    +---------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------+----+----+-----+-----------+
+    |                 Name                 | FF | LUT| Bits| Const Bits|
+    +--------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                             |  16|   0|   16|          0|
+    |dense_2_kernel_array_4_reg_489        |  32|   0|   32|          0|
+    |dense_2_output_array_2_reg_456        |  12|   0|   12|          0|
+    |dropout_3_output_arr_4_reg_484        |  32|   0|   32|          0|
+    |grp_k2c_bias_add_fu_206_ap_start_reg  |   1|   0|    1|          0|
+    |grp_k2c_dot2_fu_181_ap_start_reg      |   1|   0|    1|          0|
+    |i_37_reg_423                          |  64|   0|   64|          0|
+    |i_reg_137                             |  64|   0|   64|          0|
+    |icmp_reg_379                          |   1|   0|    1|          0|
+    |innerdim_reg_410                      |  64|   0|   64|          0|
+    |inneridx_reg_433                      |  13|   0|   13|          0|
+    |j_10_reg_446                          |  64|   0|   64|          0|
+    |j_reg_148                             |  64|   0|   64|          0|
+    |k_3_reg_469                           |  64|   0|   64|          0|
+    |k_reg_170                             |  64|   0|   64|          0|
+    |outcols_reg_399                       |  64|   0|   64|          0|
+    |outrowidx_reg_428                     |  13|   0|   13|          0|
+    |outrows_s_reg_394                     |  64|   0|   64|          0|
+    |tmp_33_reg_374                        |  64|   0|   64|          0|
+    |tmp_35_reg_160                        |  32|   0|   32|          0|
+    |tmp_39_reg_494                        |  32|   0|   32|          0|
+    |tmp_64_reg_404                        |  13|   0|   13|          0|
+    |tmp_65_reg_415                        |  13|   0|   13|          0|
+    |tmp_67_reg_438                        |  13|   0|   13|          0|
+    |tmp_reg_370                           |   1|   0|    1|          0|
+    +--------------------------------------+----+----+-----+-----------+
+    |Total                                 | 865|   0|  865|          0|
+    +--------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------------+-----+-----+------------+------------------------+--------------+
+|            RTL Ports            | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++---------------------------------+-----+-----+------------+------------------------+--------------+
+|ap_clk                           |  in |    1| ap_ctrl_hs |       k2c_dense2       | return value |
+|ap_rst                           |  in |    1| ap_ctrl_hs |       k2c_dense2       | return value |
+|ap_start                         |  in |    1| ap_ctrl_hs |       k2c_dense2       | return value |
+|ap_done                          | out |    1| ap_ctrl_hs |       k2c_dense2       | return value |
+|ap_idle                          | out |    1| ap_ctrl_hs |       k2c_dense2       | return value |
+|ap_ready                         | out |    1| ap_ctrl_hs |       k2c_dense2       | return value |
+|fwork_address0                   | out |    7|  ap_memory |          fwork         |     array    |
+|fwork_ce0                        | out |    1|  ap_memory |          fwork         |     array    |
+|fwork_we0                        | out |    1|  ap_memory |          fwork         |     array    |
+|fwork_d0                         | out |   32|  ap_memory |          fwork         |     array    |
+|fwork_q0                         |  in |   32|  ap_memory |          fwork         |     array    |
+|fwork_address1                   | out |    7|  ap_memory |          fwork         |     array    |
+|fwork_ce1                        | out |    1|  ap_memory |          fwork         |     array    |
+|fwork_q1                         |  in |   32|  ap_memory |          fwork         |     array    |
+|dropout_3_output_ndi             |  in |   64|   ap_none  |  dropout_3_output_ndi  |    pointer   |
+|dense_2_bias_array_address0      | out |   12|  ap_memory |   dense_2_bias_array   |     array    |
+|dense_2_bias_array_ce0           | out |    1|  ap_memory |   dense_2_bias_array   |     array    |
+|dense_2_bias_array_q0            |  in |   32|  ap_memory |   dense_2_bias_array   |     array    |
+|dense_2_output_array_address0    | out |   12|  ap_memory |  dense_2_output_array  |     array    |
+|dense_2_output_array_ce0         | out |    1|  ap_memory |  dense_2_output_array  |     array    |
+|dense_2_output_array_we0         | out |    1|  ap_memory |  dense_2_output_array  |     array    |
+|dense_2_output_array_d0          | out |   32|  ap_memory |  dense_2_output_array  |     array    |
+|dense_2_output_array_q0          |  in |   32|  ap_memory |  dense_2_output_array  |     array    |
+|dropout_3_output_arr_address0    | out |   12|  ap_memory |  dropout_3_output_arr  |     array    |
+|dropout_3_output_arr_ce0         | out |    1|  ap_memory |  dropout_3_output_arr  |     array    |
+|dropout_3_output_arr_q0          |  in |   32|  ap_memory |  dropout_3_output_arr  |     array    |
+|dense_2_kernel_array_2_address0  | out |   12|  ap_memory | dense_2_kernel_array_2 |     array    |
+|dense_2_kernel_array_2_ce0       | out |    1|  ap_memory | dense_2_kernel_array_2 |     array    |
+|dense_2_kernel_array_2_q0        |  in |   32|  ap_memory | dense_2_kernel_array_2 |     array    |
+|dense_2_kernel_ndim              |  in |   64|   ap_none  |   dense_2_kernel_ndim  |    pointer   |
+|dropout_3_output_num             |  in |    5|   ap_none  |  dropout_3_output_num  |    pointer   |
+|dropout_3_output_sha_address0    | out |    3|  ap_memory |  dropout_3_output_sha  |     array    |
+|dropout_3_output_sha_ce0         | out |    1|  ap_memory |  dropout_3_output_sha  |     array    |
+|dropout_3_output_sha_q0          |  in |   64|  ap_memory |  dropout_3_output_sha  |     array    |
+|dense_2_kernel_numel             |  in |    7|   ap_none  |  dense_2_kernel_numel  |    pointer   |
+|dense_2_kernel_shape_address0    | out |    3|  ap_memory |  dense_2_kernel_shape  |     array    |
+|dense_2_kernel_shape_ce0         | out |    1|  ap_memory |  dense_2_kernel_shape  |     array    |
+|dense_2_kernel_shape_q0          |  in |   64|  ap_memory |  dense_2_kernel_shape  |     array    |
+|dense_2_kernel_shape_address1    | out |    3|  ap_memory |  dense_2_kernel_shape  |     array    |
+|dense_2_kernel_shape_ce1         | out |    1|  ap_memory |  dense_2_kernel_shape  |     array    |
+|dense_2_kernel_shape_q1          |  in |   64|  ap_memory |  dense_2_kernel_shape  |     array    |
+|dense_2_output_numel             |  in |   64|   ap_none  |  dense_2_output_numel  |    pointer   |
+|dense_2_bias_numel               |  in |   64|   ap_none  |   dense_2_bias_numel   |    pointer   |
++---------------------------------+-----+-----+------------+------------------------+--------------+
+

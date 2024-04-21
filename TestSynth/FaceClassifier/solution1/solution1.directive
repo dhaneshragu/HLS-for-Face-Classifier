@@ -1,17 +1,2 @@
-<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
-    <sourceFile name="">
-        <directive functionName="k2c_dense" label="" functionLabel="">
-            <pragma name="ARRAY_MAP">
-                <option name="variable" value="axesA" positionalBoolean="4"/>
-                <option name="horizontal" value="" positionalBoolean="mode"/>
-            </pragma>
-        </directive>
-        <directive functionName="k2c_dense" label="" functionLabel="">
-            <pragma name="ARRAY_MAP">
-                <option name="variable" value="axesB" positionalBoolean="4"/>
-                <option name="horizontal" value="" positionalBoolean="mode"/>
-            </pragma>
-        </directive>
-    </sourceFile>
-</AutoPilot:ProjectResources>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView"/>
 

@@ -133,13 +133,13 @@ wire   [0:0] icmp_fu_291_p2;
 reg   [0:0] icmp_reg_466;
 reg   [63:0] outcols_reg_486;
 wire    ap_CS_fsm_state5;
-wire  signed [19:0] tmp_67_fu_304_p1;
-reg  signed [19:0] tmp_67_reg_491;
-wire  signed [12:0] tmp_68_fu_308_p1;
-reg  signed [12:0] tmp_68_reg_496;
+wire  signed [19:0] tmp_80_fu_304_p1;
+reg  signed [19:0] tmp_80_reg_491;
+wire  signed [12:0] tmp_81_fu_308_p1;
+reg  signed [12:0] tmp_81_reg_496;
 reg   [63:0] innerdim_reg_501;
-wire  signed [12:0] tmp_69_fu_312_p1;
-reg  signed [12:0] tmp_69_reg_506;
+wire  signed [12:0] tmp_82_fu_312_p1;
+reg  signed [12:0] tmp_82_reg_506;
 wire   [127:0] bound_fu_324_p2;
 reg   [127:0] bound_reg_511;
 wire   [127:0] indvar_flatten_next_fu_335_p2;
@@ -152,8 +152,8 @@ wire   [63:0] outrowidx_mid2_v_v_fu_361_p3;
 reg   [63:0] outrowidx_mid2_v_v_reg_529;
 wire  signed [12:0] inneridx_mid2_fu_442_p2;
 reg  signed [12:0] inneridx_mid2_reg_534;
-wire   [19:0] tmp_71_fu_373_p1;
-reg   [19:0] tmp_71_reg_539;
+wire   [19:0] tmp_84_fu_373_p1;
+reg   [19:0] tmp_84_reg_539;
 reg   [11:0] output_array_addr_reg_549;
 wire    ap_CS_fsm_state7;
 wire   [0:0] exitcond_fu_385_p2;
@@ -180,7 +180,7 @@ wire    ap_block_state15_pp0_stage3_iter1;
 wire    ap_block_pp0_stage3_11001;
 wire   [31:0] grp_fu_258_p2;
 reg    ap_enable_reg_pp0_iter1;
-wire   [63:0] j_13_fu_429_p2;
+wire   [63:0] j_12_fu_429_p2;
 wire    ap_CS_fsm_state16;
 wire    ap_block_pp0_stage0_subdone;
 reg    ap_condition_pp0_exit_iter0_state8;
@@ -233,19 +233,19 @@ wire   [63:0] tmp_48_cast_fu_424_p1;
 wire    ap_block_pp0_stage3;
 wire    ap_CS_fsm_pp0_stage2;
 wire    ap_block_pp0_stage2;
-wire   [62:0] tmp_66_fu_281_p4;
+wire   [62:0] tmp_79_fu_281_p4;
 wire   [63:0] outrows2_fu_297_p3;
 wire   [63:0] bound_fu_324_p0;
 wire   [63:0] bound_fu_324_p1;
 wire   [0:0] exitcond14_fu_341_p2;
 wire   [63:0] i_s_fu_355_p2;
 wire  signed [12:0] grp_fu_434_p3;
-wire   [12:0] tmp_74_fu_400_p1;
+wire   [12:0] tmp_87_fu_400_p1;
 (* use_dsp48 = "no" *) wire   [12:0] tmp_46_fu_404_p2;
-wire  signed [19:0] tmp_73_fu_396_p1;
+wire  signed [19:0] tmp_86_fu_396_p1;
 wire   [19:0] tmp_47_fu_414_p2;
 wire   [19:0] tmp_48_fu_419_p2;
-wire  signed [12:0] tmp_70_fu_369_p1;
+wire  signed [12:0] tmp_83_fu_369_p1;
 wire   [12:0] grp_fu_434_p2;
 reg    ap_block_state4_on_subcall_done;
 reg   [11:0] ap_NS_fsm;
@@ -360,8 +360,8 @@ face_classifier_chbi #(
     .din2_WIDTH( 13 ),
     .dout_WIDTH( 13 ))
 face_classifier_chbi_U40(
-    .din0(tmp_68_reg_496),
-    .din1(tmp_70_fu_369_p1),
+    .din0(tmp_81_reg_496),
+    .din1(tmp_83_fu_369_p1),
     .din2(grp_fu_434_p2),
     .dout(grp_fu_434_p3)
 );
@@ -373,8 +373,8 @@ face_classifier_cibs #(
     .din1_WIDTH( 13 ),
     .dout_WIDTH( 13 ))
 face_classifier_cibs_U41(
-    .din0(tmp_69_reg_506),
-    .din1(tmp_70_fu_369_p1),
+    .din0(tmp_82_reg_506),
+    .din1(tmp_83_fu_369_p1),
     .dout(inneridx_mid2_fu_442_p2)
 );
 
@@ -454,7 +454,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state16)) begin
-        j_reg_193 <= j_13_fu_429_p2;
+        j_reg_193 <= j_12_fu_429_p2;
     end else if ((1'b1 == ap_CS_fsm_state5)) begin
         j_reg_193 <= 64'd0;
     end
@@ -481,9 +481,9 @@ always @ (posedge ap_clk) begin
         bound_reg_511 <= bound_fu_324_p2;
         innerdim_reg_501 <= kernel_shape_q1;
         outcols_reg_486 <= kernel_shape_q0;
-        tmp_67_reg_491 <= tmp_67_fu_304_p1;
-        tmp_68_reg_496 <= tmp_68_fu_308_p1;
-        tmp_69_reg_506 <= tmp_69_fu_312_p1;
+        tmp_80_reg_491 <= tmp_80_fu_304_p1;
+        tmp_81_reg_496 <= tmp_81_fu_308_p1;
+        tmp_82_reg_506 <= tmp_82_fu_312_p1;
     end
 end
 
@@ -512,7 +512,7 @@ always @ (posedge ap_clk) begin
         j_mid2_reg_524 <= j_mid2_fu_346_p3;
         output_array_addr_reg_549 <= tmp_44_cast_fu_381_p1;
         outrowidx_mid2_v_v_reg_529 <= outrowidx_mid2_v_v_fu_361_p3;
-        tmp_71_reg_539 <= tmp_71_fu_373_p1;
+        tmp_84_reg_539 <= tmp_84_fu_373_p1;
     end
 end
 
@@ -937,11 +937,11 @@ assign grp_k2c_dot_1_fu_225_ap_start = grp_k2c_dot_1_fu_225_ap_start_reg;
 
 assign i_s_fu_355_p2 = (64'd1 + i_reg_182);
 
-assign icmp_fu_291_p2 = ((tmp_66_fu_281_p4 != 63'd0) ? 1'b1 : 1'b0);
+assign icmp_fu_291_p2 = ((tmp_79_fu_281_p4 != 63'd0) ? 1'b1 : 1'b0);
 
 assign indvar_flatten_next_fu_335_p2 = (indvar_flatten_reg_171 + 128'd1);
 
-assign j_13_fu_429_p2 = (j_mid2_reg_524 + 64'd1);
+assign j_12_fu_429_p2 = (j_mid2_reg_524 + 64'd1);
 
 assign j_mid2_fu_346_p3 = ((exitcond14_fu_341_p2[0:0] === 1'b1) ? 64'd0 : j_reg_193);
 
@@ -959,29 +959,29 @@ assign tmp_44_cast_fu_381_p1 = $unsigned(grp_fu_434_p3);
 
 assign tmp_46_cast_fu_409_p1 = tmp_46_fu_404_p2;
 
-assign tmp_46_fu_404_p2 = ($signed(tmp_74_fu_400_p1) + $signed(inneridx_mid2_reg_534));
+assign tmp_46_fu_404_p2 = ($signed(tmp_87_fu_400_p1) + $signed(inneridx_mid2_reg_534));
 
-assign tmp_47_fu_414_p2 = ($signed(tmp_67_reg_491) * $signed(tmp_73_fu_396_p1));
+assign tmp_47_fu_414_p2 = ($signed(tmp_80_reg_491) * $signed(tmp_86_fu_396_p1));
 
 assign tmp_48_cast_fu_424_p1 = tmp_48_fu_419_p2;
 
-assign tmp_48_fu_419_p2 = (tmp_47_fu_414_p2 + tmp_71_reg_539);
+assign tmp_48_fu_419_p2 = (tmp_47_fu_414_p2 + tmp_84_reg_539);
 
-assign tmp_66_fu_281_p4 = {{input_ndim_read[63:1]}};
+assign tmp_79_fu_281_p4 = {{input_ndim_read[63:1]}};
 
-assign tmp_67_fu_304_p1 = kernel_shape_q0[19:0];
+assign tmp_80_fu_304_p1 = kernel_shape_q0[19:0];
 
-assign tmp_68_fu_308_p1 = kernel_shape_q0[12:0];
+assign tmp_81_fu_308_p1 = kernel_shape_q0[12:0];
 
-assign tmp_69_fu_312_p1 = kernel_shape_q1[12:0];
+assign tmp_82_fu_312_p1 = kernel_shape_q1[12:0];
 
-assign tmp_70_fu_369_p1 = outrowidx_mid2_v_v_fu_361_p3[12:0];
+assign tmp_83_fu_369_p1 = outrowidx_mid2_v_v_fu_361_p3[12:0];
 
-assign tmp_71_fu_373_p1 = j_mid2_fu_346_p3[19:0];
+assign tmp_84_fu_373_p1 = j_mid2_fu_346_p3[19:0];
 
-assign tmp_73_fu_396_p1 = ap_phi_mux_k_phi_fu_218_p4[19:0];
+assign tmp_86_fu_396_p1 = ap_phi_mux_k_phi_fu_218_p4[19:0];
 
-assign tmp_74_fu_400_p1 = ap_phi_mux_k_phi_fu_218_p4[12:0];
+assign tmp_87_fu_400_p1 = ap_phi_mux_k_phi_fu_218_p4[12:0];
 
 assign tmp_fu_268_p2 = ((input_ndim_read < 64'd3) ? 1'b1 : 1'b0);
 

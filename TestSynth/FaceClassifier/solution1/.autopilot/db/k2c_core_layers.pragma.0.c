@@ -1896,14 +1896,8 @@ void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* 
 _ssdm_SpecConstant(axesA);
 # 60 "../C-Code-Original/include/k2c_core_layers.c"
 
-#pragma HLS ARRAY_MAP variable=&axesA horizontal
-# 60 "../C-Code-Original/include/k2c_core_layers.c"
-
         const size_t axesB[1] = {0};
 _ssdm_SpecConstant(axesB);
-# 61 "../C-Code-Original/include/k2c_core_layers.c"
-
-#pragma HLS ARRAY_MAP variable=&axesB horizontal
 # 61 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t naxes = 1;

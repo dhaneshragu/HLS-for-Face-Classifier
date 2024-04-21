@@ -57,19 +57,9 @@
 			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_activations.c</location>
 		</link>
 		<link>
-			<name>source/k2c_convolution_layers.c</name>
-			<type>1</type>
-			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_convolution_layers.c</location>
-		</link>
-		<link>
 			<name>source/k2c_core_layers.c</name>
 			<type>1</type>
 			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c</location>
-		</link>
-		<link>
-			<name>source/k2c_embedding_layers.c</name>
-			<type>1</type>
-			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_embedding_layers.c</location>
 		</link>
 		<link>
 			<name>source/k2c_helper_functions.c</name>
@@ -82,24 +72,9 @@
 			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h</location>
 		</link>
 		<link>
-			<name>source/k2c_merge_layers.c</name>
-			<type>1</type>
-			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_merge_layers.c</location>
-		</link>
-		<link>
 			<name>source/k2c_normalization_layers.c</name>
 			<type>1</type>
 			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c</location>
-		</link>
-		<link>
-			<name>source/k2c_pooling_layers.c</name>
-			<type>1</type>
-			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_pooling_layers.c</location>
-		</link>
-		<link>
-			<name>source/k2c_recurrent_layers.c</name>
-			<type>1</type>
-			<location>C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_recurrent_layers.c</location>
 		</link>
 		<link>
 			<name>source/k2c_tensor_include.h</name>

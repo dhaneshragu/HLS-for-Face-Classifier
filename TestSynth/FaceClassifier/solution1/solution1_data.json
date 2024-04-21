@@ -12,16 +12,15 @@
     "Package": "-flgc2104",
     "Speed": "-2-e"
   },
-  "HlsSolution": {"Directives": [
-      "array_map k2c_dense {{map positionBooleanCmd} {variable positionBooleanTextRequiredaxesA} {horizontal positionBoolean0mode}} {}",
-      "array_map k2c_dense {{map positionBooleanCmd} {variable positionBooleanTextRequiredaxesB} {horizontal positionBoolean0mode}} {}"
-    ]},
+  "HlsSolution": {
+    
+  },
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "undef",
+    "Latency": "1055095",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -39,14 +38,9 @@
     "CSource": [
       "..\/..\/..\/C-Code-Original\/face_classifier_c.c",
       "..\/..\/..\/C-Code-Original\/include\/k2c_activations.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_convolution_layers.c",
       "..\/..\/..\/C-Code-Original\/include\/k2c_core_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_embedding_layers.c",
       "..\/..\/..\/C-Code-Original\/include\/k2c_helper_functions.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_merge_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_normalization_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_pooling_layers.c",
-      "..\/..\/..\/C-Code-Original\/include\/k2c_recurrent_layers.c"
+      "..\/..\/..\/C-Code-Original\/include\/k2c_normalization_layers.c"
     ],
     "Vhdl": [
       "impl\/vhdl\/exp_generic_double_s.vhd",
@@ -61,17 +55,16 @@
       "impl\/vhdl\/face_classifier_cAem.vhd",
       "impl\/vhdl\/face_classifier_cbak.vhd",
       "impl\/vhdl\/face_classifier_cbbk.vhd",
-      "impl\/vhdl\/face_classifier_cbck.vhd",
-      "impl\/vhdl\/face_classifier_cbek.vhd",
+      "impl\/vhdl\/face_classifier_cbdk.vhd",
       "impl\/vhdl\/face_classifier_cBew.vhd",
+      "impl\/vhdl\/face_classifier_cbhl.vhd",
       "impl\/vhdl\/face_classifier_cbil.vhd",
-      "impl\/vhdl\/face_classifier_cbjl.vhd",
       "impl\/vhdl\/face_classifier_cbkb.vhd",
+      "impl\/vhdl\/face_classifier_cbnm.vhd",
       "impl\/vhdl\/face_classifier_cbom.vhd",
       "impl\/vhdl\/face_classifier_cbpm.vhd",
       "impl\/vhdl\/face_classifier_cbqm.vhd",
       "impl\/vhdl\/face_classifier_cbrm.vhd",
-      "impl\/vhdl\/face_classifier_cbsm.vhd",
       "impl\/vhdl\/face_classifier_cCeG.vhd",
       "impl\/vhdl\/face_classifier_ccud.vhd",
       "impl\/vhdl\/face_classifier_cdEe.vhd",
@@ -144,23 +137,21 @@
       "impl\/verilog\/face_classifier_cbak_ram.dat",
       "impl\/verilog\/face_classifier_cbbk.v",
       "impl\/verilog\/face_classifier_cbbk_ram.dat",
-      "impl\/verilog\/face_classifier_cbck.v",
-      "impl\/verilog\/face_classifier_cbck_ram.dat",
-      "impl\/verilog\/face_classifier_cbek.v",
-      "impl\/verilog\/face_classifier_cbek_ram.dat",
+      "impl\/verilog\/face_classifier_cbdk.v",
+      "impl\/verilog\/face_classifier_cbdk_ram.dat",
       "impl\/verilog\/face_classifier_cBew.v",
       "impl\/verilog\/face_classifier_cBew_ram.dat",
+      "impl\/verilog\/face_classifier_cbhl.v",
+      "impl\/verilog\/face_classifier_cbhl_ram.dat",
       "impl\/verilog\/face_classifier_cbil.v",
       "impl\/verilog\/face_classifier_cbil_ram.dat",
-      "impl\/verilog\/face_classifier_cbjl.v",
-      "impl\/verilog\/face_classifier_cbjl_ram.dat",
       "impl\/verilog\/face_classifier_cbkb.v",
+      "impl\/verilog\/face_classifier_cbnm.v",
+      "impl\/verilog\/face_classifier_cbnm_ram.dat",
       "impl\/verilog\/face_classifier_cbom.v",
-      "impl\/verilog\/face_classifier_cbom_ram.dat",
       "impl\/verilog\/face_classifier_cbpm.v",
       "impl\/verilog\/face_classifier_cbqm.v",
       "impl\/verilog\/face_classifier_cbrm.v",
-      "impl\/verilog\/face_classifier_cbsm.v",
       "impl\/verilog\/face_classifier_cCeG.v",
       "impl\/verilog\/face_classifier_cCeG_rom.dat",
       "impl\/verilog\/face_classifier_ccud.v",
@@ -338,7 +329,25 @@
           "Width": "3"
         }}
     },
+    "activation_3_output_shape_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "3",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "3"
+        }}
+    },
     "activation_3_output_shape_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "64",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "64"
+        }}
+    },
+    "activation_3_output_shape_d1": {
       "type": "data",
       "dir": "out",
       "width": "64",
@@ -526,6 +535,22 @@
     "activation_3_output_shape_d0": {
       "dir": "out",
       "width": "64"
+    },
+    "activation_3_output_shape_address1": {
+      "dir": "out",
+      "width": "3"
+    },
+    "activation_3_output_shape_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "activation_3_output_shape_we1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "activation_3_output_shape_d1": {
+      "dir": "out",
+      "width": "64"
     }
   },
   "CPorts": {
@@ -574,17 +599,25 @@
       "dir": "out",
       "dataWidth": "64",
       "handshakeRef": "ap_vld",
-      "firstOutLatency": "98"
+      "firstOutLatency": "138"
     },
     "activation_3_output_numel": {
       "interfaceRef": "activation_3_output_numel",
       "dir": "out",
       "dataWidth": "64",
       "handshakeRef": "ap_vld",
-      "firstOutLatency": "98"
+      "firstOutLatency": "138"
     },
     "activation_3_output_shape_d0": {
       "interfaceRef": "activation_3_output_shape_d0",
+      "dir": "out",
+      "dataWidth": "64",
+      "busTypeRef": "ap_memory",
+      "arraySize": "5",
+      "handshakeRef": "ap_none"
+    },
+    "activation_3_output_shape_d1": {
+      "interfaceRef": "activation_3_output_shape_d1",
       "dir": "out",
       "dataWidth": "64",
       "busTypeRef": "ap_memory",
@@ -598,83 +631,83 @@
       "Instances": [
         {
           "ModuleName": "k2c_dense_1",
-          "InstanceName": "grp_k2c_dense_1_fu_1848",
+          "InstanceName": "grp_k2c_dense_1_fu_1830",
           "Instances": [
             {
               "ModuleName": "k2c_dot",
-              "InstanceName": "grp_k2c_dot_fu_265",
+              "InstanceName": "grp_k2c_dot_fu_255",
               "Instances": [
                 {
                   "ModuleName": "k2c_idx2sub",
-                  "InstanceName": "grp_k2c_idx2sub_fu_676"
+                  "InstanceName": "grp_k2c_idx2sub_fu_669"
                 },
                 {
                   "ModuleName": "k2c_sub2idx",
-                  "InstanceName": "grp_k2c_sub2idx_fu_687"
+                  "InstanceName": "grp_k2c_sub2idx_fu_680"
                 }
               ]
             },
             {
               "ModuleName": "k2c_bias_add",
-              "InstanceName": "grp_k2c_bias_add_fu_287"
-            }
-          ]
-        },
-        {
-          "ModuleName": "k2c_dense",
-          "InstanceName": "grp_k2c_dense_fu_1873",
-          "Instances": [
-            {
-              "ModuleName": "k2c_dot_1",
-              "InstanceName": "grp_k2c_dot_1_fu_235",
-              "Instances": [
-                {
-                  "ModuleName": "k2c_idx2sub",
-                  "InstanceName": "grp_k2c_idx2sub_fu_673"
-                },
-                {
-                  "ModuleName": "k2c_sub2idx",
-                  "InstanceName": "grp_k2c_sub2idx_fu_685"
-                }
-              ]
-            },
-            {
-              "ModuleName": "k2c_bias_add",
-              "InstanceName": "grp_k2c_bias_add_fu_255"
+              "InstanceName": "grp_k2c_bias_add_fu_279"
             }
           ]
         },
         {
           "ModuleName": "k2c_dense2",
-          "InstanceName": "grp_k2c_dense2_fu_1894",
+          "InstanceName": "grp_k2c_dense2_fu_1853",
           "Instances": [
             {
               "ModuleName": "k2c_dot2",
-              "InstanceName": "grp_k2c_dot2_fu_165",
+              "InstanceName": "grp_k2c_dot2_fu_181",
               "Instances": [
                 {
                   "ModuleName": "k2c_idx2sub",
-                  "InstanceName": "grp_k2c_idx2sub_fu_569"
+                  "InstanceName": "grp_k2c_idx2sub_fu_633"
                 },
                 {
                   "ModuleName": "k2c_sub2idx",
-                  "InstanceName": "grp_k2c_sub2idx_fu_581"
+                  "InstanceName": "grp_k2c_sub2idx_fu_645"
                 }
               ]
             },
             {
               "ModuleName": "k2c_bias_add",
-              "InstanceName": "grp_k2c_bias_add_fu_190"
+              "InstanceName": "grp_k2c_bias_add_fu_206"
+            }
+          ]
+        },
+        {
+          "ModuleName": "k2c_dense",
+          "InstanceName": "grp_k2c_dense_fu_1882",
+          "Instances": [
+            {
+              "ModuleName": "k2c_dot_1",
+              "InstanceName": "grp_k2c_dot_1_fu_225",
+              "Instances": [
+                {
+                  "ModuleName": "k2c_idx2sub",
+                  "InstanceName": "grp_k2c_idx2sub_fu_658"
+                },
+                {
+                  "ModuleName": "k2c_sub2idx",
+                  "InstanceName": "grp_k2c_sub2idx_fu_670"
+                }
+              ]
+            },
+            {
+              "ModuleName": "k2c_bias_add",
+              "InstanceName": "grp_k2c_bias_add_fu_246"
             }
           ]
         },
         {
           "ModuleName": "k2c_batch_norm",
-          "InstanceName": "grp_k2c_batch_norm_fu_1923"
+          "InstanceName": "grp_k2c_batch_norm_fu_1901"
         },
         {
           "ModuleName": "generic_tanh_float_s",
-          "InstanceName": "grp_generic_tanh_float_s_fu_1949",
+          "InstanceName": "grp_generic_tanh_float_s_fu_1927",
           "Instances": [{
               "ModuleName": "exp_generic_double_s",
               "InstanceName": "grp_exp_generic_double_s_fu_89"
@@ -685,10 +718,12 @@
     "Metrics": {
       "k2c_idx2sub": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "70",
+          "LatencyAvg": "346",
+          "LatencyWorst": "346",
+          "PipelineIIMin": "70",
+          "PipelineIIMax": "346",
+          "PipelineII": "70 ~ 346",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -700,7 +735,9 @@
         "Loops": [{
             "Name": "Loop 1",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "69",
+            "LatencyMax": "345",
+            "Latency": "69 ~ 345",
             "PipelineII": "",
             "PipelineDepth": "69"
           }],
@@ -713,10 +750,12 @@
       },
       "k2c_sub2idx": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "6",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineIIMin": "6",
+          "PipelineIIMax": "66",
+          "PipelineII": "6 ~ 66",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -728,13 +767,19 @@
         "Loops": [{
             "Name": "Loop 1",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "5",
+            "LatencyMax": "65",
+            "Latency": "5 ~ 65",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "5",
+            "PipelineDepthMax": "13",
+            "PipelineDepth": "5 ~ 13",
             "Loops": [{
                 "Name": "Loop 1.1",
                 "TripCount": "",
-                "Latency": "",
+                "LatencyMin": "2",
+                "LatencyMax": "10",
+                "Latency": "2 ~ 10",
                 "PipelineII": "",
                 "PipelineDepth": "2"
               }]
@@ -748,10 +793,12 @@
       },
       "k2c_dot_1": {
         "Latency": {
-          "LatencyBest": "",
+          "LatencyBest": "21238387",
           "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyWorst": "72274882106",
+          "PipelineIIMin": "21238387",
+          "PipelineIIMax": "72274882106",
+          "PipelineII": "21238387 ~ 72274882106",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -764,7 +811,9 @@
           {
             "Name": "Loop 1",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "2",
+            "Latency": "1 ~ 2",
             "PipelineII": "",
             "PipelineDepth": "1"
           },
@@ -778,16 +827,20 @@
           {
             "Name": "Loop 3",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "Loop 4",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
             "PipelineII": "1",
-            "PipelineDepth": "2"
+            "PipelineDepth": "1"
           },
           {
             "Name": "Loop 5",
@@ -799,7 +852,9 @@
           {
             "Name": "Loop 6",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "2",
+            "LatencyMax": "3",
+            "Latency": "2 ~ 3",
             "PipelineII": "1",
             "PipelineDepth": "3"
           },
@@ -813,13 +868,19 @@
           {
             "Name": "Loop 8",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "83",
+            "LatencyMax": "1109106",
+            "Latency": "83 ~ 1109106",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "83",
+            "PipelineDepthMax": "423",
+            "PipelineDepth": "83 ~ 423",
             "Loops": [{
                 "Name": "Loop 8.1",
                 "TripCount": "",
-                "Latency": "",
+                "LatencyMin": "2",
+                "LatencyMax": "6",
+                "Latency": "2 ~ 6",
                 "PipelineII": "1",
                 "PipelineDepth": "3"
               }]
@@ -827,27 +888,41 @@
           {
             "Name": "Loop 9",
             "TripCount": "262200",
-            "Latency": "",
+            "LatencyMin": "21238200",
+            "LatencyMax": "128740200",
+            "Latency": "21238200 ~ 128740200",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "81",
+            "PipelineDepthMax": "491",
+            "PipelineDepth": "81 ~ 491",
             "Loops": [{
                 "Name": "Loop 9.1",
                 "TripCount": "2",
-                "Latency": "",
+                "LatencyMin": "8",
+                "LatencyMax": "142",
+                "Latency": "8 ~ 142",
                 "PipelineII": "",
-                "PipelineDepth": ""
+                "PipelineDepthMin": "4",
+                "PipelineDepthMax": "71",
+                "PipelineDepth": "4 ~ 71"
               }]
           },
           {
             "Name": "Loop 10",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "10",
+            "LatencyMax": "72145032696",
+            "Latency": "10 ~ 72145032696",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "10",
+            "PipelineDepthMax": "10494",
+            "PipelineDepth": "10 ~ 10494",
             "Loops": [{
                 "Name": "Loop 10.1",
                 "TripCount": "",
-                "Latency": "",
+                "LatencyMin": "7",
+                "LatencyMax": "10491",
+                "Latency": "7 ~ 10491",
                 "PipelineII": "4",
                 "PipelineDepth": "8"
               }]
@@ -856,16 +931,18 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "28",
-          "FF": "22543",
-          "LUT": "18145"
+          "FF": "22408",
+          "LUT": "18027"
         }
       },
       "k2c_bias_add": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "8",
+          "LatencyAvg": "17192455",
+          "LatencyWorst": "34379665",
+          "PipelineIIMin": "8",
+          "PipelineIIMax": "34379665",
+          "PipelineII": "8 ~ 34379665",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -877,13 +954,19 @@
         "Loops": [{
             "Name": "Loop 1",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "7",
+            "LatencyMax": "34379664",
+            "Latency": "7 ~ 34379664",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "7",
+            "PipelineDepthMax": "13112",
+            "PipelineDepth": "7 ~ 13112",
             "Loops": [{
                 "Name": "Loop 1.1",
                 "TripCount": "",
-                "Latency": "",
+                "LatencyMin": "5",
+                "LatencyMax": "13110",
+                "Latency": "5 ~ 13110",
                 "PipelineII": "",
                 "PipelineDepth": "5"
               }]
@@ -897,10 +980,12 @@
       },
       "k2c_dense": {
         "Latency": {
-          "LatencyBest": "",
+          "LatencyBest": "3",
           "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyWorst": "72309261774",
+          "PipelineIIMin": "3",
+          "PipelineIIMax": "72309261774",
+          "PipelineII": "3 ~ 72309261774",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -926,8 +1011,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "48",
-          "FF": "24485",
-          "LUT": "20285"
+          "FF": "24413",
+          "LUT": "20134"
         }
       },
       "k2c_batch_norm": {
@@ -1006,10 +1091,12 @@
       },
       "k2c_dot": {
         "Latency": {
-          "LatencyBest": "",
+          "LatencyBest": "268",
           "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyWorst": "72147251016",
+          "PipelineIIMin": "268",
+          "PipelineIIMax": "72147251016",
+          "PipelineII": "268 ~ 72147251016",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1022,62 +1109,82 @@
           {
             "Name": "Loop 1",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "2",
+            "Latency": "1 ~ 2",
             "PipelineII": "",
             "PipelineDepth": "1"
           },
           {
             "Name": "Loop 2",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "2",
+            "Latency": "1 ~ 2",
             "PipelineII": "",
             "PipelineDepth": "1"
           },
           {
             "Name": "Loop 3",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "Loop 4",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
             "PipelineII": "1",
-            "PipelineDepth": "2"
+            "PipelineDepth": "1"
           },
           {
             "Name": "Loop 5",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "Loop 6",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "2",
+            "LatencyMax": "3",
+            "Latency": "2 ~ 3",
             "PipelineII": "1",
             "PipelineDepth": "3"
           },
           {
             "Name": "Loop 7",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "2",
+            "LatencyMax": "3",
+            "Latency": "2 ~ 3",
             "PipelineII": "1",
             "PipelineDepth": "3"
           },
           {
             "Name": "Loop 8",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "83",
+            "LatencyMax": "1109106",
+            "Latency": "83 ~ 1109106",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "83",
+            "PipelineDepthMax": "423",
+            "PipelineDepth": "83 ~ 423",
             "Loops": [{
                 "Name": "Loop 8.1",
                 "TripCount": "",
-                "Latency": "",
+                "LatencyMin": "2",
+                "LatencyMax": "6",
+                "Latency": "2 ~ 6",
                 "PipelineII": "1",
                 "PipelineDepth": "3"
               }]
@@ -1085,13 +1192,19 @@
           {
             "Name": "Loop 9",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "83",
+            "LatencyMax": "1109106",
+            "Latency": "83 ~ 1109106",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "83",
+            "PipelineDepthMax": "423",
+            "PipelineDepth": "83 ~ 423",
             "Loops": [{
                 "Name": "Loop 9.1",
                 "TripCount": "",
-                "Latency": "",
+                "LatencyMin": "2",
+                "LatencyMax": "6",
+                "Latency": "2 ~ 6",
                 "PipelineII": "1",
                 "PipelineDepth": "3"
               }]
@@ -1099,13 +1212,19 @@
           {
             "Name": "Loop 10",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "10",
+            "LatencyMax": "72145032696",
+            "Latency": "10 ~ 72145032696",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "10",
+            "PipelineDepthMax": "10494",
+            "PipelineDepth": "10 ~ 10494",
             "Loops": [{
                 "Name": "Loop 10.1",
                 "TripCount": "",
-                "Latency": "",
+                "LatencyMin": "7",
+                "LatencyMax": "10491",
+                "Latency": "7 ~ 10491",
                 "PipelineII": "4",
                 "PipelineDepth": "8"
               }]
@@ -1114,16 +1233,18 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "28",
-          "FF": "22846",
-          "LUT": "18314"
+          "FF": "22711",
+          "LUT": "18196"
         }
       },
       "k2c_dense_1": {
         "Latency": {
-          "LatencyBest": "",
+          "LatencyBest": "3",
           "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyWorst": "72181630684",
+          "PipelineIIMin": "3",
+          "PipelineIIMax": "72181630684",
+          "PipelineII": "3 ~ 72181630684",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1149,137 +1270,166 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "48",
-          "FF": "24800",
-          "LUT": "20454"
+          "FF": "24728",
+          "LUT": "20303"
         }
       },
       "k2c_dot2": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "213",
+          "LatencyAvg": "72146141855",
+          "LatencyWorst": "72147250961",
+          "PipelineIIMin": "213",
+          "PipelineIIMax": "72147250961",
+          "PipelineII": "213 ~ 72147250961",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.465"
+          "Estimate": "8.539"
         },
         "Loops": [
           {
             "Name": "Loop 1",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "2",
+            "Latency": "1 ~ 2",
             "PipelineII": "",
             "PipelineDepth": "1"
           },
           {
             "Name": "Loop 2",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "1",
+            "LatencyMax": "2",
+            "Latency": "1 ~ 2",
             "PipelineII": "",
             "PipelineDepth": "1"
           },
           {
             "Name": "Loop 3",
             "TripCount": "",
-            "Latency": "",
-            "PipelineII": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
+            "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "Loop 4",
             "TripCount": "",
-            "Latency": "",
-            "PipelineII": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
+            "PipelineII": "1",
             "PipelineDepth": "1"
           },
           {
             "Name": "Loop 5",
             "TripCount": "",
-            "Latency": "",
-            "PipelineII": "",
+            "LatencyMin": "1",
+            "LatencyMax": "5",
+            "Latency": "1 ~ 5",
+            "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "Loop 6",
             "TripCount": "",
-            "Latency": "",
-            "PipelineII": "",
+            "LatencyMin": "2",
+            "LatencyMax": "3",
+            "Latency": "2 ~ 3",
+            "PipelineII": "1",
             "PipelineDepth": "3"
           },
           {
             "Name": "Loop 7",
             "TripCount": "",
-            "Latency": "",
-            "PipelineII": "",
+            "LatencyMin": "2",
+            "LatencyMax": "3",
+            "Latency": "2 ~ 3",
+            "PipelineII": "1",
             "PipelineDepth": "3"
           },
           {
             "Name": "Loop 8",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "83",
+            "LatencyMax": "1109106",
+            "Latency": "83 ~ 1109106",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "83",
+            "PipelineDepthMax": "423",
+            "PipelineDepth": "83 ~ 423",
             "Loops": [{
                 "Name": "Loop 8.1",
                 "TripCount": "",
-                "Latency": "",
-                "PipelineII": "",
+                "LatencyMin": "2",
+                "LatencyMax": "6",
+                "Latency": "2 ~ 6",
+                "PipelineII": "1",
                 "PipelineDepth": "3"
               }]
           },
           {
             "Name": "Loop 9",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "83",
+            "LatencyMax": "1109106",
+            "Latency": "83 ~ 1109106",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "83",
+            "PipelineDepthMax": "423",
+            "PipelineDepth": "83 ~ 423",
             "Loops": [{
                 "Name": "Loop 9.1",
                 "TripCount": "",
-                "Latency": "",
-                "PipelineII": "",
+                "LatencyMin": "2",
+                "LatencyMax": "6",
+                "Latency": "2 ~ 6",
+                "PipelineII": "1",
                 "PipelineDepth": "3"
               }]
           },
           {
             "Name": "Loop 10",
             "TripCount": "",
-            "Latency": "",
+            "LatencyMin": "10",
+            "LatencyMax": "72145032696",
+            "Latency": "10 ~ 72145032696",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepthMin": "10",
+            "PipelineDepthMax": "10494",
+            "PipelineDepth": "10 ~ 10494",
             "Loops": [{
                 "Name": "Loop 10.1",
                 "TripCount": "",
-                "Latency": "",
-                "PipelineII": "",
-                "PipelineDepth": "",
-                "Loops": [{
-                    "Name": "Loop 10.1.1",
-                    "TripCount": "",
-                    "Latency": "",
-                    "PipelineII": "",
-                    "PipelineDepth": "8"
-                  }]
+                "LatencyMin": "7",
+                "LatencyMax": "10491",
+                "Latency": "7 ~ 10491",
+                "PipelineII": "4",
+                "PipelineDepth": "8"
               }]
           }
         ],
         "Area": {
           "BRAM_18K": "0",
-          "DSP48E": "17",
-          "FF": "22532",
-          "LUT": "17575"
+          "DSP48E": "27",
+          "FF": "22856",
+          "LUT": "18049"
         }
       },
       "k2c_dense2": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "3",
+          "LatencyAvg": "36081667158",
+          "LatencyWorst": "72181630629",
+          "PipelineIIMin": "3",
+          "PipelineIIMax": "72181630629",
+          "PipelineII": "3 ~ 72181630629",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1290,20 +1440,20 @@
         },
         "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "",
-            "Latency": "",
+            "TripCount": "0",
+            "Latency": "0",
             "PipelineII": "",
-            "PipelineDepth": "",
+            "PipelineDepth": "2",
             "Loops": [{
                 "Name": "Loop 1.1",
-                "TripCount": "",
-                "Latency": "",
+                "TripCount": "0",
+                "Latency": "0",
                 "PipelineII": "",
-                "PipelineDepth": "",
+                "PipelineDepth": "3",
                 "Loops": [{
                     "Name": "Loop 1.1.1",
-                    "TripCount": "",
-                    "Latency": "",
+                    "TripCount": "0",
+                    "Latency": "0",
                     "PipelineII": "",
                     "PipelineDepth": "8"
                   }]
@@ -1311,24 +1461,26 @@
           }],
         "Area": {
           "BRAM_18K": "0",
-          "DSP48E": "27",
-          "FF": "24203",
-          "LUT": "19322"
+          "DSP48E": "37",
+          "FF": "24527",
+          "LUT": "19802"
         }
       },
       "face_classifier_c": {
         "Latency": {
-          "LatencyBest": "",
+          "LatencyBest": "1055095",
           "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyWorst": "216673578353",
+          "PipelineIIMin": "1055096",
+          "PipelineIIMax": "216673578354",
+          "PipelineII": "1055096 ~ 216673578354",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.750"
+          "Estimate": "9.254"
         },
         "Loops": [
           {
@@ -1494,8 +1646,8 @@
           },
           {
             "Name": "Loop 24",
-            "TripCount": "",
-            "Latency": "",
+            "TripCount": "100",
+            "Latency": "133",
             "PipelineII": "1",
             "PipelineDepth": "35"
           },
@@ -1508,10 +1660,8 @@
           },
           {
             "Name": "Loop 26",
-            "TripCount": "",
-            "LatencyMin": "0",
-            "LatencyMax": "4095",
-            "Latency": "0 ~ 4095",
+            "TripCount": "100",
+            "Latency": "100",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
@@ -1524,10 +1674,8 @@
           },
           {
             "Name": "Loop 28",
-            "TripCount": "",
-            "LatencyMin": "0",
-            "LatencyMax": "4095",
-            "Latency": "0 ~ 4095",
+            "TripCount": "100",
+            "Latency": "100",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
@@ -1568,45 +1716,17 @@
           },
           {
             "Name": "Loop 34",
-            "TripCount": "5",
-            "Latency": "10",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 35",
             "TripCount": "6",
-            "Latency": "90",
-            "PipelineII": "",
-            "PipelineDepth": "15"
-          },
-          {
-            "Name": "Loop 36",
-            "TripCount": "6",
-            "Latency": "30",
-            "PipelineII": "",
-            "PipelineDepth": "5"
-          },
-          {
-            "Name": "Loop 37",
-            "TripCount": "5",
-            "Latency": "10",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 38",
-            "TripCount": "",
-            "Latency": "",
+            "Latency": "12",
             "PipelineII": "",
             "PipelineDepth": "2"
           }
         ],
         "Area": {
           "BRAM_18K": "2066",
-          "DSP48E": "190",
-          "FF": "92898",
-          "LUT": "81531"
+          "DSP48E": "225",
+          "FF": "95420",
+          "LUT": "84140"
         }
       }
     }
@@ -1618,7 +1738,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2024-04-20 22:09:45 +0530",
+    "Time": "2024-04-21 02:43:23 +0530",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

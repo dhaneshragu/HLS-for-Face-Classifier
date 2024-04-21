@@ -1896,14 +1896,8 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 _ssdm_SpecConstant(axesA);
 # 60 "../C-Code-Original/include/k2c_core_layers.c"
 
-_ssdm_SpecArrayMap( axesA, "&axesA", -1, "HORIZONTAL", "");
-# 60 "../C-Code-Original/include/k2c_core_layers.c"
-
         const size_t axesB[1] = {0};
 _ssdm_SpecConstant(axesB);
-# 61 "../C-Code-Original/include/k2c_core_layers.c"
-
-_ssdm_SpecArrayMap( axesB, "&axesB", -1, "HORIZONTAL", "");
 # 61 "../C-Code-Original/include/k2c_core_layers.c"
 
         const size_t naxes = 1;
