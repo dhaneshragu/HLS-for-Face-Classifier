@@ -183,10 +183,10 @@ float test2_dense_input_input_array[2622] = { 0x1.8fbccap-1, -0x1.5edbc4p0, 0x1.
 l_struct_OC_k2c_tensor2 test2_dense_input_input __ATTRIBUTE_WEAK__;
 float keras_activation_3_test2_array[6] = { 0x1.c65434p-3, 0x1.7d7a3ep-5, 0x1.a05032p-6, 0x1.2d338p-4, 0x1.38972ep-1, 0x1.6a65dep-6 };
 float c_activation_3_test2_array[6];
-float errors[10] __ATTRIBUTE_WEAK__;
 l_struct_OC_k2c_tensor2 test1_dense_input_input __ATTRIBUTE_WEAK__;
 l_struct_OC_k2c_tensor keras_activation_3_test1 __ATTRIBUTE_WEAK__;
 l_struct_OC_k2c_tensor2 c_activation_3_test1 __ATTRIBUTE_WEAK__;
+float errors[10] __ATTRIBUTE_WEAK__;
 static  char aesl_internal__OC_str1[37] = "Max absolute error for 2 tests: %e \n";
 l_struct_OC_k2c_tensor keras_activation_3_test2 __ATTRIBUTE_WEAK__;
 l_struct_OC_k2c_tensor2 c_activation_3_test2 __ATTRIBUTE_WEAK__;

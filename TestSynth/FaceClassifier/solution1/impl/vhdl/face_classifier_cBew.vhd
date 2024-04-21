@@ -5,111 +5,73 @@
 -- 
 -- ==============================================================
 
---
-library ieee; 
-use ieee.std_logic_1164.all; 
-use ieee.std_logic_unsigned.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
-entity face_classifier_cBew_ram is 
-    generic(
-            MEM_TYPE    : string := "block"; 
-            DWIDTH     : integer := 32; 
-            AWIDTH     : integer := 12; 
-            MEM_SIZE    : integer := 2622
-    ); 
-    port (
-          addr0     : in std_logic_vector(AWIDTH-1 downto 0); 
-          ce0       : in std_logic; 
-          d0        : in std_logic_vector(DWIDTH-1 downto 0); 
-          we0       : in std_logic; 
-          q0        : out std_logic_vector(DWIDTH-1 downto 0);
-          clk        : in std_logic 
-    ); 
-end entity; 
+entity face_classifier_cBew_DSP48_6 is
+port (
+    in0:  in  std_logic_vector(13 - 1 downto 0);
+    in1:  in  std_logic_vector(13 - 1 downto 0);
+    in2:  in  std_logic_vector(13 - 1 downto 0);
+    dout: out std_logic_vector(13 - 1 downto 0));
 
+end entity;
 
-architecture rtl of face_classifier_cBew_ram is 
-
-signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
-type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
-shared variable ram : mem_array := (others=>(others=>'0'));
-
-attribute syn_ramstyle : string; 
-attribute syn_ramstyle of ram : variable is "block_ram";
-attribute ram_style : string;
-attribute ram_style of ram : variable is MEM_TYPE;
-
-begin 
-
-
-memory_access_guard_0: process (addr0) 
+architecture behav of face_classifier_cBew_DSP48_6 is
+    signal a       : signed(27-1 downto 0);
+    signal b       : signed(18-1 downto 0);
+    signal c       : signed(48-1 downto 0);
+    signal m       : signed(45-1 downto 0);
+    signal p       : signed(48-1 downto 0);
 begin
-      addr0_tmp <= addr0;
---synthesis translate_off
-      if (CONV_INTEGER(addr0) > mem_size-1) then
-           addr0_tmp <= (others => '0');
-      else 
-           addr0_tmp <= addr0;
-      end if;
---synthesis translate_on
-end process;
+a  <= signed(resize(signed(in0), 27));
+b  <= signed(resize(signed(in1), 18));
+c  <= signed(resize(unsigned(in2), 48));
 
-p_memory_access_0: process (clk)  
-begin 
-    if (clk'event and clk = '1') then
-        if (ce0 = '1') then 
-            if (we0 = '1') then 
-                ram(CONV_INTEGER(addr0_tmp)) := d0; 
-            end if;
-            q0 <= ram(CONV_INTEGER(addr0_tmp)); 
-        end if;
-    end if;
-end process;
+m  <= a * b;
+p  <= m + c;
 
+dout <= std_logic_vector(resize(unsigned(p), 13));
 
-end rtl;
-
+end architecture;
 
 Library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity face_classifier_cBew is
     generic (
-        DataWidth : INTEGER := 32;
-        AddressRange : INTEGER := 2622;
-        AddressWidth : INTEGER := 12);
+        ID : INTEGER;
+        NUM_STAGE : INTEGER;
+        din0_WIDTH : INTEGER;
+        din1_WIDTH : INTEGER;
+        din2_WIDTH : INTEGER;
+        dout_WIDTH : INTEGER);
     port (
-        reset : IN STD_LOGIC;
-        clk : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce0 : IN STD_LOGIC;
-        we0 : IN STD_LOGIC;
-        d0 : IN STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
+        din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
+        din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
+        din2 : IN STD_LOGIC_VECTOR(din2_WIDTH - 1 DOWNTO 0);
+        dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
 architecture arch of face_classifier_cBew is
-    component face_classifier_cBew_ram is
+    component face_classifier_cBew_DSP48_6 is
         port (
-            clk : IN STD_LOGIC;
-            addr0 : IN STD_LOGIC_VECTOR;
-            ce0 : IN STD_LOGIC;
-            we0 : IN STD_LOGIC;
-            d0 : IN STD_LOGIC_VECTOR;
-            q0 : OUT STD_LOGIC_VECTOR);
+            in0 : IN STD_LOGIC_VECTOR;
+            in1 : IN STD_LOGIC_VECTOR;
+            in2 : IN STD_LOGIC_VECTOR;
+            dout : OUT STD_LOGIC_VECTOR);
     end component;
 
 
 
 begin
-    face_classifier_cBew_ram_U :  component face_classifier_cBew_ram
+    face_classifier_cBew_DSP48_6_U :  component face_classifier_cBew_DSP48_6
     port map (
-        clk => clk,
-        addr0 => address0,
-        ce0 => ce0,
-        we0 => we0,
-        d0 => d0,
-        q0 => q0);
+        in0 => din0,
+        in1 => din1,
+        in2 => din2,
+        dout => dout);
 
 end architecture;
 

@@ -8,9 +8,9 @@
 `timescale 1 ns / 1 ps
 
 module face_classifier_chbi_DSP48_0(
-    input  [13 - 1:0] in0,
+    input  [8 - 1:0] in0,
     input  [13 - 1:0] in1,
-    input  [13 - 1:0] in2,
+    input  [7 - 1:0] in2,
     output [13 - 1:0]  dout);
 
 wire signed [27 - 1:0]     a;
@@ -19,7 +19,7 @@ wire signed [48 - 1:0]     c;
 wire signed [45 - 1:0]     m;
 wire signed [48 - 1:0]     p;
 
-assign a  = $signed(in0);
+assign a  = $unsigned(in0);
 assign b  = $signed(in1);
 assign c  = $unsigned(in2);
 

@@ -5,111 +5,66 @@
 // 
 // ==============================================================
 
-`timescale 1 ns / 1 ps
-module face_classifier_c8jQ_ram (addr0, ce0, d0, we0, q0, addr1, ce1, d1, we1, q1,  clk);
 
-parameter DWIDTH = 64;
-parameter AWIDTH = 3;
-parameter MEM_SIZE = 5;
+`timescale 1ns/1ps
 
-input[AWIDTH-1:0] addr0;
-input ce0;
-input[DWIDTH-1:0] d0;
-input we0;
-output reg[DWIDTH-1:0] q0;
-input[AWIDTH-1:0] addr1;
-input ce1;
-input[DWIDTH-1:0] d1;
-input we1;
-output reg[DWIDTH-1:0] q1;
-input clk;
+module face_classifier_c8jQ
+#(parameter
+    ID         = 156,
+    NUM_STAGE  = 8,
+    din0_WIDTH = 32,
+    din1_WIDTH = 32,
+    dout_WIDTH = 32
+)(
+    input  wire                  clk,
+    input  wire                  reset,
+    input  wire                  ce,
+    input  wire [din0_WIDTH-1:0] din0,
+    input  wire [din1_WIDTH-1:0] din1,
+    output wire [dout_WIDTH-1:0] dout
+);
+//------------------------Local signal-------------------
+wire                  aclk;
+wire                  aclken;
+wire                  a_tvalid;
+wire [31:0]           a_tdata;
+wire                  r_tvalid;
+wire [31:0]           r_tdata;
+reg  [din1_WIDTH-1:0] din1_buf1;
+reg                   ce_r;
+wire [dout_WIDTH-1:0] dout_i;
+reg  [dout_WIDTH-1:0] dout_r;
+//------------------------Instantiation------------------
+face_classifier_c_ap_fexp_6_full_dsp_32 face_classifier_c_ap_fexp_6_full_dsp_32_u (
+    .aclk                 ( aclk ),
+    .aclken               ( aclken ),
+    .s_axis_a_tvalid      ( a_tvalid ),
+    .s_axis_a_tdata       ( a_tdata ),
+    .m_axis_result_tvalid ( r_tvalid ),
+    .m_axis_result_tdata  ( r_tdata )
+);
+//------------------------Body---------------------------
+assign aclk     = clk;
+assign aclken   = ce_r;
+assign a_tvalid = 1'b1;
+assign a_tdata  = din1_buf1;
+assign dout_i   = r_tdata;
 
-(* ram_style = "block" *)reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
-
-initial begin
-    $readmemh("./face_classifier_c8jQ_ram.dat", ram);
-end
-
-
-
-always @(posedge clk)  
-begin 
-    if (ce0) 
-    begin
-        if (we0) 
-        begin 
-            ram[addr0] <= d0; 
-            q0 <= d0;
-        end 
-        else 
-            q0 <= ram[addr0];
+always @(posedge clk) begin
+    if (ce) begin
+        din1_buf1 <= din1;
     end
 end
 
+always @ (posedge clk) begin
+    ce_r <= ce;
+end
 
-always @(posedge clk)  
-begin 
-    if (ce1) 
-    begin
-        if (we1) 
-        begin 
-            ram[addr1] <= d1; 
-            q1 <= d1;
-        end 
-        else 
-            q1 <= ram[addr1];
+always @ (posedge clk) begin
+    if (ce_r) begin
+        dout_r <= dout_i;
     end
 end
 
-
+assign dout = ce_r?dout_i:dout_r;
 endmodule
-
-
-`timescale 1 ns / 1 ps
-module face_classifier_c8jQ(
-    reset,
-    clk,
-    address0,
-    ce0,
-    we0,
-    d0,
-    q0,
-    address1,
-    ce1,
-    we1,
-    d1,
-    q1);
-
-parameter DataWidth = 32'd64;
-parameter AddressRange = 32'd5;
-parameter AddressWidth = 32'd3;
-input reset;
-input clk;
-input[AddressWidth - 1:0] address0;
-input ce0;
-input we0;
-input[DataWidth - 1:0] d0;
-output[DataWidth - 1:0] q0;
-input[AddressWidth - 1:0] address1;
-input ce1;
-input we1;
-input[DataWidth - 1:0] d1;
-output[DataWidth - 1:0] q1;
-
-
-
-face_classifier_c8jQ_ram face_classifier_c8jQ_ram_U(
-    .clk( clk ),
-    .addr0( address0 ),
-    .ce0( ce0 ),
-    .we0( we0 ),
-    .d0( d0 ),
-    .q0( q0 ),
-    .addr1( address1 ),
-    .ce1( ce1 ),
-    .we1( we1 ),
-    .d1( d1 ),
-    .q1( q1 ));
-
-endmodule
-

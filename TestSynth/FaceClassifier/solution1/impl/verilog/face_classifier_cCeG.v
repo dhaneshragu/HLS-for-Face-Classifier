@@ -6,63 +6,55 @@
 // ==============================================================
 
 `timescale 1 ns / 1 ps
-module face_classifier_cCeG_rom (
-addr0, ce0, q0, clk);
 
-parameter DWIDTH = 32;
-parameter AWIDTH = 19;
-parameter MEM_SIZE = 262200;
+(* use_dsp48 = "yes" *) module face_classifier_cCeG_DSP48_7(
+    input  [8 - 1:0] in0,
+    input  [8 - 1:0] in1,
+    input  [8 - 1:0] in2,
+    output [8 - 1:0]  dout);
 
-input[AWIDTH-1:0] addr0;
-input ce0;
-output reg[DWIDTH-1:0] q0;
-input clk;
+wire signed [27 - 1:0]     a;
+wire signed [18 - 1:0]     b;
+wire signed [48 - 1:0]     c;
+wire signed [45 - 1:0]     m;
+wire signed [48 - 1:0]     p;
 
-reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
+assign a  = $signed(in0);
+assign b  = $signed(in1);
+assign c  = $unsigned(in2);
 
-initial begin
-    $readmemh("./face_classifier_cCeG_rom.dat", ram);
-end
+assign m  = a * b;
+assign p  = m + c;
 
-
-
-always @(posedge clk)  
-begin 
-    if (ce0) 
-    begin
-        q0 <= ram[addr0];
-    end
-end
-
-
+assign dout = p;
 
 endmodule
 
-
 `timescale 1 ns / 1 ps
 module face_classifier_cCeG(
-    reset,
-    clk,
-    address0,
-    ce0,
-    q0);
+    din0,
+    din1,
+    din2,
+    dout);
 
-parameter DataWidth = 32'd32;
-parameter AddressRange = 32'd262200;
-parameter AddressWidth = 32'd19;
-input reset;
-input clk;
-input[AddressWidth - 1:0] address0;
-input ce0;
-output[DataWidth - 1:0] q0;
+parameter ID = 32'd1;
+parameter NUM_STAGE = 32'd1;
+parameter din0_WIDTH = 32'd1;
+parameter din1_WIDTH = 32'd1;
+parameter din2_WIDTH = 32'd1;
+parameter dout_WIDTH = 32'd1;
+input[din0_WIDTH - 1:0] din0;
+input[din1_WIDTH - 1:0] din1;
+input[din2_WIDTH - 1:0] din2;
+output[dout_WIDTH - 1:0] dout;
 
 
 
-face_classifier_cCeG_rom face_classifier_cCeG_rom_U(
-    .clk( clk ),
-    .addr0( address0 ),
-    .ce0( ce0 ),
-    .q0( q0 ));
+face_classifier_cCeG_DSP48_7 face_classifier_cCeG_DSP48_7_U(
+    .in0( din0 ),
+    .in1( din1 ),
+    .in2( din2 ),
+    .dout( dout ));
 
 endmodule
 

@@ -10,10 +10,10 @@ use ieee.std_logic_1164.all;
 
 entity face_classifier_csc4 is
     generic (
-        ID         : integer := 81;
+        ID         : integer := 74;
         NUM_STAGE  : integer := 1;
-        din0_WIDTH : integer := 32;
-        dout_WIDTH : integer := 64
+        din0_WIDTH : integer := 64;
+        dout_WIDTH : integer := 32
     );
     port (
         din0 : in  std_logic_vector(din0_WIDTH-1 downto 0);
@@ -23,22 +23,22 @@ end entity;
 
 architecture arch of face_classifier_csc4 is
     --------------------- Component ---------------------
-    component face_classifier_c_ap_fpext_0_no_dsp_32 is
+    component face_classifier_c_ap_fptrunc_0_no_dsp_64 is
         port (
             s_axis_a_tvalid      : in  std_logic;
-            s_axis_a_tdata       : in  std_logic_vector(31 downto 0);
+            s_axis_a_tdata       : in  std_logic_vector(63 downto 0);
             m_axis_result_tvalid : out std_logic;
-            m_axis_result_tdata  : out std_logic_vector(63 downto 0)
+            m_axis_result_tdata  : out std_logic_vector(31 downto 0)
         );
     end component;
     --------------------- Local signal ------------------
     signal a_tvalid : std_logic;
-    signal a_tdata  : std_logic_vector(31 downto 0);
+    signal a_tdata  : std_logic_vector(63 downto 0);
     signal r_tvalid : std_logic;
-    signal r_tdata  : std_logic_vector(63 downto 0);
+    signal r_tdata  : std_logic_vector(31 downto 0);
 begin
     --------------------- Instantiation -----------------
-    face_classifier_c_ap_fpext_0_no_dsp_32_u : component face_classifier_c_ap_fpext_0_no_dsp_32
+    face_classifier_c_ap_fptrunc_0_no_dsp_64_u : component face_classifier_c_ap_fptrunc_0_no_dsp_64
     port map (
         s_axis_a_tvalid      => a_tvalid,
         s_axis_a_tdata       => a_tdata,

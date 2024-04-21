@@ -2,7 +2,7 @@
    Compiling apatb_face_classifier_c.cpp
    Compiling (apcc) face_classifier_c_test_suite.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 02:46:15 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:32 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -10,7 +10,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_core_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 02:46:20 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:37 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -23,7 +23,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_activations.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 02:46:23 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:41 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -31,15 +31,23 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_normalization_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 02:46:27 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:44 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+In file included from C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c:1:
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c:32:12: warning: unused variable 'offset' [-Wunused-variable]
+    size_t offset = 1;
+           ^
+C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c:39:18: warning: unused variable 'step' [-Wunused-variable]
+    const size_t step = inputs->shape[axis];
+                 ^
+2 warnings generated.
 INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) face_classifier_c.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 02:46:30 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:48 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -47,7 +55,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_helper_functions.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 02:46:38 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:56 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'

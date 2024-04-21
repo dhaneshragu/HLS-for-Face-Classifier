@@ -5,83 +5,56 @@
 // 
 // ==============================================================
 
+`timescale 1 ns / 1 ps
 
-`timescale 1ns/1ps
+module face_classifier_cqcK_DSP48_3(
+    input  [16 - 1:0] in0,
+    input  [16 - 1:0] in1,
+    input  [19 - 1:0] in2,
+    output [31 - 1:0]  dout);
 
-module face_classifier_cqcK
-#(parameter
-    ID         = 74,
-    NUM_STAGE  = 4,
-    din0_WIDTH = 32,
-    din1_WIDTH = 32,
-    dout_WIDTH = 32
-)(
-    input  wire                  clk,
-    input  wire                  reset,
-    input  wire                  ce,
-    input  wire [din0_WIDTH-1:0] din0,
-    input  wire [din1_WIDTH-1:0] din1,
-    input  wire [1:0]            opcode,
-    output wire [dout_WIDTH-1:0] dout
-);
-//------------------------Local signal-------------------
-wire                  aclk;
-wire                  aclken;
-wire                  a_tvalid;
-wire [31:0]           a_tdata;
-wire                  b_tvalid;
-wire [31:0]           b_tdata;
-wire                  op_tvalid;
-wire [7:0]            op_tdata;
-wire                  r_tvalid;
-wire [31:0]           r_tdata;
-reg  [din0_WIDTH-1:0] din0_buf1;
-reg  [din1_WIDTH-1:0] din1_buf1;
-reg  [1:0]            opcode_buf1;
-reg                   ce_r;
-wire [dout_WIDTH-1:0] dout_i;
-reg  [dout_WIDTH-1:0] dout_r;
-//------------------------Instantiation------------------
-face_classifier_c_ap_faddfsub_2_full_dsp_32 face_classifier_c_ap_faddfsub_2_full_dsp_32_u (
-    .aclk                    ( aclk ),
-    .aclken                  ( aclken ),
-    .s_axis_a_tvalid         ( a_tvalid ),
-    .s_axis_a_tdata          ( a_tdata ),
-    .s_axis_b_tvalid         ( b_tvalid ),
-    .s_axis_b_tdata          ( b_tdata ),
-    .s_axis_operation_tvalid ( op_tvalid ),
-    .s_axis_operation_tdata  ( op_tdata ),
-    .m_axis_result_tvalid    ( r_tvalid ),
-    .m_axis_result_tdata     ( r_tdata )
-);
-//------------------------Body---------------------------
-assign aclk      = clk;
-assign aclken    = ce_r;
-assign a_tvalid  = 1'b1;
-assign a_tdata   = din0_buf1;
-assign b_tvalid  = 1'b1;
-assign b_tdata   = din1_buf1;
-assign op_tvalid = 1'b1;
-assign op_tdata  = {6'b0, opcode_buf1};
-assign dout_i    = r_tdata;
+wire signed [27 - 1:0]     a;
+wire signed [18 - 1:0]     b;
+wire signed [48 - 1:0]     c;
+wire signed [45 - 1:0]     m;
+wire signed [48 - 1:0]     p;
 
-always @(posedge clk) begin
-    if (ce) begin
-        din0_buf1   <= din0;
-        din1_buf1   <= din1;
-        opcode_buf1 <= opcode;
-    end
-end
+assign a  = $unsigned(in0);
+assign b  = $signed(in1);
+assign c  = $signed(in2);
 
-always @ (posedge clk) begin
-    ce_r <= ce;
-end
+assign m  = a * b;
+assign p  = m + c;
 
-always @ (posedge clk) begin
-    if (ce_r) begin
-        dout_r <= dout_i;
-    end
-end
+assign dout = p;
 
-assign dout = ce_r?dout_i:dout_r;
 endmodule
+
+`timescale 1 ns / 1 ps
+module face_classifier_cqcK(
+    din0,
+    din1,
+    din2,
+    dout);
+
+parameter ID = 32'd1;
+parameter NUM_STAGE = 32'd1;
+parameter din0_WIDTH = 32'd1;
+parameter din1_WIDTH = 32'd1;
+parameter din2_WIDTH = 32'd1;
+parameter dout_WIDTH = 32'd1;
+input[din0_WIDTH - 1:0] din0;
+input[din1_WIDTH - 1:0] din1;
+input[din2_WIDTH - 1:0] din2;
+output[dout_WIDTH - 1:0] dout;
+
+
+
+face_classifier_cqcK_DSP48_3 face_classifier_cqcK_DSP48_3_U(
+    .in0( din0 ),
+    .in1( din1 ),
+    .in2( din2 ),
+    .dout( dout ));
+
+endmodule
+
