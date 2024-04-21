@@ -10,8 +10,8 @@ use ieee.std_logic_1164.all;
 
 entity face_classifier_ceOg is
     generic (
-        ID         : integer := 13;
-        NUM_STAGE  : integer := 2;
+        ID         : integer := 12;
+        NUM_STAGE  : integer := 4;
         din0_WIDTH : integer := 32;
         din1_WIDTH : integer := 32;
         dout_WIDTH : integer := 32
@@ -28,8 +28,10 @@ end entity;
 
 architecture arch of face_classifier_ceOg is
     --------------------- Component ---------------------
-    component face_classifier_c_ap_fmul_0_max_dsp_32 is
+    component face_classifier_c_ap_fadd_2_full_dsp_32 is
         port (
+            aclk                 : in  std_logic;
+            aclken               : in  std_logic;
             s_axis_a_tvalid      : in  std_logic;
             s_axis_a_tdata       : in  std_logic_vector(31 downto 0);
             s_axis_b_tvalid      : in  std_logic;
@@ -39,6 +41,8 @@ architecture arch of face_classifier_ceOg is
         );
     end component;
     --------------------- Local signal ------------------
+    signal aclk      : std_logic;
+    signal aclken    : std_logic;
     signal a_tvalid  : std_logic;
     signal a_tdata   : std_logic_vector(31 downto 0);
     signal b_tvalid  : std_logic;
@@ -52,8 +56,10 @@ architecture arch of face_classifier_ceOg is
     signal dout_r    : std_logic_vector(dout_WIDTH-1 downto 0);
 begin
     --------------------- Instantiation -----------------
-    face_classifier_c_ap_fmul_0_max_dsp_32_u : component face_classifier_c_ap_fmul_0_max_dsp_32
+    face_classifier_c_ap_fadd_2_full_dsp_32_u : component face_classifier_c_ap_fadd_2_full_dsp_32
     port map (
+        aclk                 => aclk,
+        aclken               => aclken,
         s_axis_a_tvalid      => a_tvalid,
         s_axis_a_tdata       => a_tdata,
         s_axis_b_tvalid      => b_tvalid,
@@ -63,6 +69,8 @@ begin
     );
 
     --------------------- Assignment --------------------
+    aclk     <= clk;
+    aclken   <= ce_r;
     a_tvalid <= '1';
     a_tdata  <= din0_buf1;
     b_tvalid <= '1';

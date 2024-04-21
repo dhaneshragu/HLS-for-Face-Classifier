@@ -11,9 +11,9 @@ use IEEE.numeric_std.all;
 
 entity face_classifier_chbi_DSP48_0 is
 port (
-    in0:  in  std_logic_vector(13 - 1 downto 0);
+    in0:  in  std_logic_vector(8 - 1 downto 0);
     in1:  in  std_logic_vector(13 - 1 downto 0);
-    in2:  in  std_logic_vector(13 - 1 downto 0);
+    in2:  in  std_logic_vector(7 - 1 downto 0);
     dout: out std_logic_vector(13 - 1 downto 0));
 
 end entity;
@@ -25,7 +25,7 @@ architecture behav of face_classifier_chbi_DSP48_0 is
     signal m       : signed(45-1 downto 0);
     signal p       : signed(48-1 downto 0);
 begin
-a  <= signed(resize(signed(in0), 27));
+a  <= signed(resize(unsigned(in0), 27));
 b  <= signed(resize(signed(in1), 18));
 c  <= signed(resize(unsigned(in2), 48));
 

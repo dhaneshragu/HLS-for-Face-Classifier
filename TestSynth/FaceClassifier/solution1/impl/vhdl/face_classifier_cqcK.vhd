@@ -5,112 +5,74 @@
 -- 
 -- ==============================================================
 
-Library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity face_classifier_cqcK_DSP48_3 is
+port (
+    in0:  in  std_logic_vector(16 - 1 downto 0);
+    in1:  in  std_logic_vector(16 - 1 downto 0);
+    in2:  in  std_logic_vector(19 - 1 downto 0);
+    dout: out std_logic_vector(31 - 1 downto 0));
+
+end entity;
+
+architecture behav of face_classifier_cqcK_DSP48_3 is
+    signal a       : signed(27-1 downto 0);
+    signal b       : signed(18-1 downto 0);
+    signal c       : signed(48-1 downto 0);
+    signal m       : signed(45-1 downto 0);
+    signal p       : signed(48-1 downto 0);
+begin
+a  <= signed(resize(unsigned(in0), 27));
+b  <= signed(resize(signed(in1), 18));
+c  <= signed(resize(signed(in2), 48));
+
+m  <= a * b;
+p  <= m + c;
+
+dout <= std_logic_vector(resize(unsigned(p), 31));
+
+end architecture;
+
+Library IEEE;
+use IEEE.std_logic_1164.all;
 
 entity face_classifier_cqcK is
     generic (
-        ID         : integer := 74;
-        NUM_STAGE  : integer := 4;
-        din0_WIDTH : integer := 32;
-        din1_WIDTH : integer := 32;
-        dout_WIDTH : integer := 32
-    );
+        ID : INTEGER;
+        NUM_STAGE : INTEGER;
+        din0_WIDTH : INTEGER;
+        din1_WIDTH : INTEGER;
+        din2_WIDTH : INTEGER;
+        dout_WIDTH : INTEGER);
     port (
-        clk    : in  std_logic;
-        reset  : in  std_logic;
-        ce     : in  std_logic;
-        din0   : in  std_logic_vector(din0_WIDTH-1 downto 0);
-        din1   : in  std_logic_vector(din1_WIDTH-1 downto 0);
-        opcode : in  std_logic_vector(1 downto 0);
-        dout   : out std_logic_vector(dout_WIDTH-1 downto 0)
-    );
+        din0 : IN STD_LOGIC_VECTOR(din0_WIDTH - 1 DOWNTO 0);
+        din1 : IN STD_LOGIC_VECTOR(din1_WIDTH - 1 DOWNTO 0);
+        din2 : IN STD_LOGIC_VECTOR(din2_WIDTH - 1 DOWNTO 0);
+        dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
 architecture arch of face_classifier_cqcK is
-    --------------------- Component ---------------------
-    component face_classifier_c_ap_faddfsub_2_full_dsp_32 is
+    component face_classifier_cqcK_DSP48_3 is
         port (
-            aclk                    : in  std_logic;
-            aclken                  : in  std_logic;
-            s_axis_a_tvalid         : in  std_logic;
-            s_axis_a_tdata          : in  std_logic_vector(31 downto 0);
-            s_axis_b_tvalid         : in  std_logic;
-            s_axis_b_tdata          : in  std_logic_vector(31 downto 0);
-            s_axis_operation_tvalid : in  std_logic;
-            s_axis_operation_tdata  : in  std_logic_vector(7 downto 0);
-            m_axis_result_tvalid    : out std_logic;
-            m_axis_result_tdata     : out std_logic_vector(31 downto 0)
-        );
+            in0 : IN STD_LOGIC_VECTOR;
+            in1 : IN STD_LOGIC_VECTOR;
+            in2 : IN STD_LOGIC_VECTOR;
+            dout : OUT STD_LOGIC_VECTOR);
     end component;
-    --------------------- Local signal ------------------
-    signal aclk        : std_logic;
-    signal aclken      : std_logic;
-    signal a_tvalid    : std_logic;
-    signal a_tdata     : std_logic_vector(31 downto 0);
-    signal b_tvalid    : std_logic;
-    signal b_tdata     : std_logic_vector(31 downto 0);
-    signal op_tvalid   : std_logic;
-    signal op_tdata    : std_logic_vector(7 downto 0);
-    signal r_tvalid    : std_logic;
-    signal r_tdata     : std_logic_vector(31 downto 0);
-    signal din0_buf1   : std_logic_vector(din0_WIDTH-1 downto 0);
-    signal din1_buf1   : std_logic_vector(din1_WIDTH-1 downto 0);
-    signal opcode_buf1 : std_logic_vector(1 downto 0);
-    signal ce_r      : std_logic;
-    signal dout_i    : std_logic_vector(dout_WIDTH-1 downto 0);
-    signal dout_r    : std_logic_vector(dout_WIDTH-1 downto 0);
+
+
+
 begin
-    --------------------- Instantiation -----------------
-    face_classifier_c_ap_faddfsub_2_full_dsp_32_u : component face_classifier_c_ap_faddfsub_2_full_dsp_32
+    face_classifier_cqcK_DSP48_3_U :  component face_classifier_cqcK_DSP48_3
     port map (
-        aclk                    => aclk,
-        aclken                  => aclken,
-        s_axis_a_tvalid         => a_tvalid,
-        s_axis_a_tdata          => a_tdata,
-        s_axis_b_tvalid         => b_tvalid,
-        s_axis_b_tdata          => b_tdata,
-        s_axis_operation_tvalid => op_tvalid,
-        s_axis_operation_tdata  => op_tdata,
-        m_axis_result_tvalid    => r_tvalid,
-        m_axis_result_tdata     => r_tdata
-    );
+        in0 => din0,
+        in1 => din1,
+        in2 => din2,
+        dout => dout);
 
-    --------------------- Assignment --------------------
-    aclk      <= clk;
-    aclken    <= ce_r;
-    a_tvalid  <= '1';
-    a_tdata   <= din0_buf1;
-    b_tvalid  <= '1';
-    b_tdata   <= din1_buf1;
-    op_tvalid <= '1';
-    op_tdata  <= ( "000000" & opcode_buf1);
-    dout_i    <= r_tdata;
-
-    --------------------- Input buffer ------------------
-    process (clk) begin
-        if clk'event and clk = '1' then
-            if ce = '1' then
-                din0_buf1   <= din0;
-                din1_buf1   <= din1;
-                opcode_buf1 <= opcode;
-            end if;
-        end if;
-    end process;
-
-    process (clk) begin
-        if clk'event and clk = '1' then
-            ce_r <= ce;
-        end if;
-    end process;
-
-    process (clk) begin
-        if clk'event and clk = '1' then
-            if ce_r = '1' then
-                dout_r <= dout_i;
-            end if;
-        end if;
-    end process;
-
-    dout <= dout_i when ce_r = '1' else dout_r;
 end architecture;
+
+

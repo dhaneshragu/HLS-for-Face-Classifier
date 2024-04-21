@@ -15,7 +15,7 @@ add_files ../C-Code-Original/include/k2c_normalization_layers.c
 add_files ../C-Code-Original/include/k2c_tensor_include.h -cflags "-Wuninitialized -Wall"
 add_files -tb ../C-Code-Original/face_classifier_c_test_suite.c -cflags "-Wno-unknown-pragmas"
 open_solution "solution1"
-set_part {xcvu160-flgc2104-2-e}
+set_part {xcvu190-flgb2104-1-i}
 create_clock -period 10 -name default
 #source "./FaceClassifier/solution1/directives.tcl"
 csim_design -ldflags {-Wl,--stack,16777216} -clean

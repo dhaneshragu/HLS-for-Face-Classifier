@@ -6,75 +6,55 @@
 // ==============================================================
 
 `timescale 1 ns / 1 ps
-module face_classifier_cBew_ram (addr0, ce0, d0, we0, q0,  clk);
 
-parameter DWIDTH = 32;
-parameter AWIDTH = 12;
-parameter MEM_SIZE = 2622;
+module face_classifier_cBew_DSP48_6(
+    input  [13 - 1:0] in0,
+    input  [13 - 1:0] in1,
+    input  [13 - 1:0] in2,
+    output [13 - 1:0]  dout);
 
-input[AWIDTH-1:0] addr0;
-input ce0;
-input[DWIDTH-1:0] d0;
-input we0;
-output reg[DWIDTH-1:0] q0;
-input clk;
+wire signed [27 - 1:0]     a;
+wire signed [18 - 1:0]     b;
+wire signed [48 - 1:0]     c;
+wire signed [45 - 1:0]     m;
+wire signed [48 - 1:0]     p;
 
-(* ram_style = "block" *)reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
+assign a  = $signed(in0);
+assign b  = $signed(in1);
+assign c  = $unsigned(in2);
 
-initial begin
-    $readmemh("./face_classifier_cBew_ram.dat", ram);
-end
+assign m  = a * b;
+assign p  = m + c;
 
-
-
-always @(posedge clk)  
-begin 
-    if (ce0) 
-    begin
-        if (we0) 
-        begin 
-            ram[addr0] <= d0; 
-            q0 <= d0;
-        end 
-        else 
-            q0 <= ram[addr0];
-    end
-end
-
+assign dout = p;
 
 endmodule
 
-
 `timescale 1 ns / 1 ps
 module face_classifier_cBew(
-    reset,
-    clk,
-    address0,
-    ce0,
-    we0,
-    d0,
-    q0);
+    din0,
+    din1,
+    din2,
+    dout);
 
-parameter DataWidth = 32'd32;
-parameter AddressRange = 32'd2622;
-parameter AddressWidth = 32'd12;
-input reset;
-input clk;
-input[AddressWidth - 1:0] address0;
-input ce0;
-input we0;
-input[DataWidth - 1:0] d0;
-output[DataWidth - 1:0] q0;
+parameter ID = 32'd1;
+parameter NUM_STAGE = 32'd1;
+parameter din0_WIDTH = 32'd1;
+parameter din1_WIDTH = 32'd1;
+parameter din2_WIDTH = 32'd1;
+parameter dout_WIDTH = 32'd1;
+input[din0_WIDTH - 1:0] din0;
+input[din1_WIDTH - 1:0] din1;
+input[din2_WIDTH - 1:0] din2;
+output[dout_WIDTH - 1:0] dout;
 
 
 
-face_classifier_cBew_ram face_classifier_cBew_ram_U(
-    .clk( clk ),
-    .addr0( address0 ),
-    .ce0( ce0 ),
-    .we0( we0 ),
-    .d0( d0 ),
-    .q0( q0 ));
+face_classifier_cBew_DSP48_6 face_classifier_cBew_DSP48_6_U(
+    .in0( din0 ),
+    .in1( din1 ),
+    .in2( din2 ),
+    .dout( dout ));
 
 endmodule
 

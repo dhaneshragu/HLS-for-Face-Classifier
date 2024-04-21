@@ -24,11 +24,12 @@ module k2c_sub2idx (
         ap_return
 );
 
-parameter    ap_ST_fsm_state1 = 5'd1;
-parameter    ap_ST_fsm_state2 = 5'd2;
-parameter    ap_ST_fsm_state3 = 5'd4;
-parameter    ap_ST_fsm_state4 = 5'd8;
-parameter    ap_ST_fsm_state5 = 5'd16;
+parameter    ap_ST_fsm_state1 = 6'd1;
+parameter    ap_ST_fsm_state2 = 6'd2;
+parameter    ap_ST_fsm_state3 = 6'd4;
+parameter    ap_ST_fsm_state4 = 6'd8;
+parameter    ap_ST_fsm_state5 = 6'd16;
+parameter    ap_ST_fsm_state6 = 6'd32;
 
 input   ap_clk;
 input   ap_rst;
@@ -52,36 +53,37 @@ reg sub_ce0;
 reg shape_ce0;
 reg[63:0] ap_return;
 
-(* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [5:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 wire   [3:0] tmp_3_fu_112_p1;
-reg   [3:0] tmp_3_reg_165;
+reg   [3:0] tmp_3_reg_164;
 wire   [2:0] i_1_fu_125_p2;
-reg   [2:0] i_1_reg_173;
+reg   [2:0] i_1_reg_172;
 wire    ap_CS_fsm_state2;
 wire   [63:0] i_cast1_fu_131_p1;
-reg   [63:0] i_cast1_reg_178;
+reg   [63:0] i_cast1_reg_177;
 wire   [0:0] exitcond_fu_120_p2;
 wire    ap_CS_fsm_state3;
 wire   [63:0] j_fu_136_p2;
-reg   [63:0] j_reg_193;
+reg   [63:0] j_reg_192;
 wire    ap_CS_fsm_state4;
 wire   [0:0] tmp_fu_143_p2;
 wire   [63:0] idx_1_fu_148_p2;
-wire   [63:0] temp_1_fu_154_p2;
+reg  signed [63:0] shape_load_reg_210;
 wire    ap_CS_fsm_state5;
+wire   [63:0] temp_1_fu_154_p2;
+wire    ap_CS_fsm_state6;
 reg   [63:0] idx_reg_70;
 reg   [2:0] i_reg_82;
 reg  signed [63:0] temp1_reg_93;
 reg   [63:0] j_0_in_reg_103;
 wire   [3:0] i_cast_fu_116_p1;
-wire  signed [63:0] temp_1_fu_154_p0;
 reg   [63:0] ap_return_preg;
-reg   [4:0] ap_NS_fsm;
+reg   [5:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 5'd1;
+#0 ap_CS_fsm = 6'd1;
 #0 ap_return_preg = 64'd0;
 end
 
@@ -107,7 +109,7 @@ always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
         i_reg_82 <= 3'd0;
     end else if (((tmp_fu_143_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state4))) begin
-        i_reg_82 <= i_1_reg_173;
+        i_reg_82 <= i_1_reg_172;
     end
 end
 
@@ -120,15 +122,15 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        j_0_in_reg_103 <= j_reg_193;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        j_0_in_reg_103 <= j_reg_192;
     end else if ((1'b1 == ap_CS_fsm_state3)) begin
         j_0_in_reg_103 <= ndim;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
+    if ((1'b1 == ap_CS_fsm_state6)) begin
         temp1_reg_93 <= temp_1_fu_154_p2;
     end else if ((1'b1 == ap_CS_fsm_state3)) begin
         temp1_reg_93 <= sub_q0;
@@ -137,25 +139,31 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        i_1_reg_173 <= i_1_fu_125_p2;
+        i_1_reg_172 <= i_1_fu_125_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((exitcond_fu_120_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        i_cast1_reg_178[2 : 0] <= i_cast1_fu_131_p1[2 : 0];
+        i_cast1_reg_177[2 : 0] <= i_cast1_fu_131_p1[2 : 0];
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        j_reg_193 <= j_fu_136_p2;
+        j_reg_192 <= j_fu_136_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        shape_load_reg_210 <= shape_q0;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-        tmp_3_reg_165 <= tmp_3_fu_112_p1;
+        tmp_3_reg_164 <= tmp_3_fu_112_p1;
     end
 end
 
@@ -234,6 +242,9 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state5 : begin
+            ap_NS_fsm = ap_ST_fsm_state6;
+        end
+        ap_ST_fsm_state6 : begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         default : begin
@@ -252,7 +263,9 @@ assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
 assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign exitcond_fu_120_p2 = ((i_cast_fu_116_p1 == tmp_3_reg_165) ? 1'b1 : 1'b0);
+assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
+
+assign exitcond_fu_120_p2 = ((i_cast_fu_116_p1 == tmp_3_reg_164) ? 1'b1 : 1'b0);
 
 assign i_1_fu_125_p2 = (i_reg_82 + 3'd1);
 
@@ -268,16 +281,14 @@ assign shape_address0 = j_fu_136_p2;
 
 assign sub_address0 = i_cast1_fu_131_p1;
 
-assign temp_1_fu_154_p0 = shape_q0;
-
-assign temp_1_fu_154_p2 = ($signed(temp_1_fu_154_p0) * $signed(temp1_reg_93));
+assign temp_1_fu_154_p2 = ($signed(shape_load_reg_210) * $signed(temp1_reg_93));
 
 assign tmp_3_fu_112_p1 = ndim[3:0];
 
-assign tmp_fu_143_p2 = ((j_fu_136_p2 > i_cast1_reg_178) ? 1'b1 : 1'b0);
+assign tmp_fu_143_p2 = ((j_fu_136_p2 > i_cast1_reg_177) ? 1'b1 : 1'b0);
 
 always @ (posedge ap_clk) begin
-    i_cast1_reg_178[63:3] <= 61'b0000000000000000000000000000000000000000000000000000000000000;
+    i_cast1_reg_177[63:3] <= 61'b0000000000000000000000000000000000000000000000000000000000000;
 end
 
 endmodule //k2c_sub2idx

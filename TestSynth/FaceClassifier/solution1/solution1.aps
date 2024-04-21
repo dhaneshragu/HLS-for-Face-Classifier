@@ -14,7 +14,6 @@
     <UIConfigurations>
         <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
             <Platform>xilinx/virtexu/virtexu</Platform>
-            <Platform>xilinx/virtexu/virtexu_fpv7</Platform>
             <customLibs/>
         </UIAutosynConf>
         <UIIPPackagerConf AskAgain="true" DescriptionButton="false" LibraryButton="false" RTLLanguage="verilog" UseNetList="none" VendorButton="false" VersionButton="false" evaluateRTL="false" setup="false">
@@ -64,11 +63,11 @@
         <value string="FaceClassifier"/>
     </project>
     <targetInfo>
-        <TargetInfo value="xcvu160:-flgc2104:-2-e"/>
+        <TargetInfo value="xcvu190:-flgb2104:-1-i"/>
     </targetInfo>
     <libraryList>
         <library name="DefaultPlatform" value="xilinx/virtexu/virtexu"/>
-        <library name="DefaultPlatform" value="xilinx/virtexu/virtexu_fpv7"/>
+        <library value="xilinx/virtexu/virtexu_fpv7" name="DefaultPlatform"/>
     </libraryList>
 </solution>
 

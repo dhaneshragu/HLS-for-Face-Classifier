@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="k2c_tensor_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_tensor_include.h"/>
-    <originFiles name="k2c_normalization_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_normalization_layers.c"/>
-    <originFiles name="k2c_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_include.h"/>
-    <originFiles name="k2c_helper_functions.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_helper_functions.c"/>
-    <originFiles name="k2c_core_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_core_layers.c"/>
-    <originFiles name="k2c_activations.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_activations.c"/>
-    <originFiles name="face_classifier_c.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c.h"/>
     <originFiles name="face_classifier_c.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c.c"/>
+    <originFiles name="face_classifier_c.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c.h"/>
+    <originFiles name="k2c_activations.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_activations.c"/>
+    <originFiles name="k2c_core_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_core_layers.c"/>
+    <originFiles name="k2c_helper_functions.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_helper_functions.c"/>
+    <originFiles name="k2c_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_include.h"/>
+    <originFiles name="k2c_normalization_layers.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_normalization_layers.c"/>
+    <originFiles name="k2c_tensor_include.h" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\include\k2c_tensor_include.h"/>
   </source>
   <testbench>
     <originFiles name="face_classifier_c_test_suite.c" path="C:\Users\ketan\Desktop\college\CS-577-Course-Project\C-Code-Original\face_classifier_c_test_suite.c"/>
