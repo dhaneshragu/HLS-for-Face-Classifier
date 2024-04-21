@@ -1,7 +1,7 @@
-Running: xsim.dir/face_classifier_c/xsimk.exe -simmode gui -wdb face_classifier_c.wdb -simrunnum 0 -socket 50393
+Running: xsim.dir/face_classifier_c/xsimk.exe -simmode gui -wdb face_classifier_c.wdb -simrunnum 0 -socket 56041
 Design successfully loaded
-Design Loading Memory Usage: 50188 KB (Peak: 50188 KB)
-Design Loading CPU Usage: 78 ms
+Design Loading Memory Usage: 49816 KB (Peak: 49816 KB)
+Design Loading CPU Usage: 46 ms
 Simulation completed
-Simulation Memory Usage: 59024 KB (Peak: 59024 KB)
-Simulation CPU Usage: 1175280 ms
+Simulation Memory Usage: 58948 KB (Peak: 58948 KB)
+Simulation CPU Usage: 1268342 ms

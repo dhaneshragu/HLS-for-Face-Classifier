@@ -156,11 +156,11 @@ wire   [63:0] p_Val2_s_fu_259_p1;
 wire   [10:0] loc_V_fu_271_p4;
 wire   [51:0] loc_V_3_fu_281_p1;
 wire   [0:0] tmp_i_fu_285_p2;
-wire   [0:0] tmp_i_104_fu_291_p2;
+wire   [0:0] tmp_i_105_fu_291_p2;
 wire   [0:0] tmp_i1_fu_303_p2;
 wire   [11:0] tmp_i2_cast_fu_315_p1;
 wire   [53:0] p_Result_18_fu_325_p3;
-wire   [53:0] p_Val2_s_105_fu_333_p2;
+wire   [53:0] p_Val2_s_106_fu_333_p2;
 wire   [53:0] p_Val2_1_fu_339_p3;
 wire  signed [60:0] p_Val2_2_fu_347_p3;
 wire   [11:0] m_exp_fu_319_p2;
@@ -339,7 +339,7 @@ face_classifier_cpcA #(
     .din1_WIDTH( 16 ),
     .din2_WIDTH( 19 ),
     .dout_WIDTH( 31 ))
-face_classifier_cpcA_U69(
+face_classifier_cpcA_U68(
     .din0(grp_fu_1173_p0),
     .din1(tmp_136_fu_447_p4),
     .din2(tmp_137_fu_469_p3),
@@ -638,7 +638,7 @@ assign m_exp_fu_319_p2 = ($signed(12'd3073) + $signed(tmp_i2_cast_fu_315_p1));
 
 assign not_Result_i4_fu_848_p2 = (p_Result_s_reg_1183_pp0_iter5_reg ^ 1'd1);
 
-assign not_demorgan_fu_297_p2 = (tmp_i_fu_285_p2 & tmp_i_104_fu_291_p2);
+assign not_demorgan_fu_297_p2 = (tmp_i_fu_285_p2 & tmp_i_105_fu_291_p2);
 
 assign or_cond_fu_919_p2 = (tmp_150_reg_1237_pp0_iter5_reg | icmp_fu_913_p2);
 
@@ -680,7 +680,7 @@ assign p_Val2_18_fu_694_p10 = tmp_130_i_fu_677_p4;
 
 assign p_Val2_18_fu_694_p2 = (p_Val2_18_fu_694_p0 * p_Val2_18_fu_694_p1);
 
-assign p_Val2_1_fu_339_p3 = ((p_Result_s_fu_263_p3[0:0] === 1'b1) ? p_Val2_s_105_fu_333_p2 : p_Result_18_fu_325_p3);
+assign p_Val2_1_fu_339_p3 = ((p_Result_s_fu_263_p3[0:0] === 1'b1) ? p_Val2_s_106_fu_333_p2 : p_Result_18_fu_325_p3);
 
 assign p_Val2_20_fu_733_p2 = (tmp_132_i_fu_718_p1 + tmp_cast_fu_729_p1);
 
@@ -708,7 +708,7 @@ assign p_Val2_9_fu_564_p1 = r_exp_V_3_fu_553_p3;
 
 assign p_Val2_9_fu_564_p2 = ($signed({{1'b0}, {84'd1636647506585939924452}}) * $signed(p_Val2_9_fu_564_p1));
 
-assign p_Val2_s_105_fu_333_p2 = (54'd0 - p_Result_18_fu_325_p3);
+assign p_Val2_s_106_fu_333_p2 = (54'd0 - p_Result_18_fu_325_p3);
 
 assign p_Val2_s_fu_259_p1 = x;
 
@@ -910,7 +910,7 @@ assign tmp_i1_fu_303_p2 = ((loc_V_3_fu_281_p1 == 52'd0) ? 1'b1 : 1'b0);
 
 assign tmp_i2_cast_fu_315_p1 = loc_V_fu_271_p4;
 
-assign tmp_i_104_fu_291_p2 = ((loc_V_3_fu_281_p1 != 52'd0) ? 1'b1 : 1'b0);
+assign tmp_i_105_fu_291_p2 = ((loc_V_3_fu_281_p1 != 52'd0) ? 1'b1 : 1'b0);
 
 assign tmp_i_fu_285_p2 = ((loc_V_fu_271_p4 == 11'd2047) ? 1'b1 : 1'b0);
 

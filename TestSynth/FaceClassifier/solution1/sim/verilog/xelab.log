@@ -53,25 +53,25 @@ INFO: [VRFC 10-311] analyzing module face_classifier_cbak
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbbk.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cbbk_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbbk
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbck.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbck_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_cbck
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbek.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbek_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_cbek
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbdk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbdk_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cbdk
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cBew.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cBew_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cBew
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbhl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbhl_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cbhl
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbil.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cbil_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbil
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbjl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbjl_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_cbjl
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbkb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cbkb_div_u
 INFO: [VRFC 10-311] analyzing module face_classifier_cbkb_div
 INFO: [VRFC 10-311] analyzing module face_classifier_cbkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbnm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module face_classifier_cbnm_ram
+INFO: [VRFC 10-311] analyzing module face_classifier_cbnm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbom.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cbom_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbom
@@ -82,10 +82,7 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/colleg
 INFO: [VRFC 10-311] analyzing module face_classifier_cbqm_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbqm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbrm.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbrm_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_cbrm
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cbsm.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_cbsm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_cCeG.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_cCeG_rom
 INFO: [VRFC 10-311] analyzing module face_classifier_cCeG
@@ -254,7 +251,7 @@ WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fadd_2_full_dsp_32.vhd:195]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_fadd_2_full_dsp_32.vhd:195]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
@@ -279,7 +276,7 @@ WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018
 WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_fdiv_6_no_dsp_32.vhd:195]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:13629]
-WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/ip/xil_defaultlib/face_classifier_c_ap_faddfsub_2_full_dsp_32.vhd:200]
+WARNING: [VRFC 10-982] library name floating_point_v7_1_6 of instantiated unit conflicts with visible identifier [ip/xil_defaultlib/face_classifier_c_ap_faddfsub_2_full_dsp_32.vhd:200]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:90362]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
 WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.2/continuous/2018_06_14_2258646/packages/customer/vivado/data/ip/xilinx/floating_point_v7_1/hdl/floating_point_v7_1_vh_rfs.vhd:12604]
@@ -398,25 +395,23 @@ Compiling module xil_defaultlib.face_classifier_c8jQ(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_c9j0_ram
 Compiling module xil_defaultlib.face_classifier_c9j0(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_cbak_ram
-Compiling module xil_defaultlib.face_classifier_cbak(DataWidth=6...
+Compiling module xil_defaultlib.face_classifier_cbak(DataWidth=9...
 Compiling module xil_defaultlib.face_classifier_cbbk_ram
 Compiling module xil_defaultlib.face_classifier_cbbk(DataWidth=9...
-Compiling module xil_defaultlib.face_classifier_cbck_ram
-Compiling module xil_defaultlib.face_classifier_cbck(DataWidth=9...
-Compiling module xil_defaultlib.face_classifier_cbek_ram
-Compiling module xil_defaultlib.face_classifier_cbek(DataWidth=6...
+Compiling module xil_defaultlib.face_classifier_cbdk_ram
+Compiling module xil_defaultlib.face_classifier_cbdk(DataWidth=6...
+Compiling module xil_defaultlib.face_classifier_cbhl_ram
+Compiling module xil_defaultlib.face_classifier_cbhl(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_cbil_ram
 Compiling module xil_defaultlib.face_classifier_cbil(DataWidth=6...
-Compiling module xil_defaultlib.face_classifier_cbjl_ram
-Compiling module xil_defaultlib.face_classifier_cbjl(DataWidth=6...
+Compiling module xil_defaultlib.face_classifier_cbnm_ram
+Compiling module xil_defaultlib.face_classifier_cbnm(DataWidth=5...
 Compiling module xil_defaultlib.face_classifier_cbom_ram
-Compiling module xil_defaultlib.face_classifier_cbom(DataWidth=5...
+Compiling module xil_defaultlib.face_classifier_cbom(DataWidth=3...
 Compiling module xil_defaultlib.face_classifier_cbpm_ram
 Compiling module xil_defaultlib.face_classifier_cbpm(DataWidth=3...
 Compiling module xil_defaultlib.face_classifier_cbqm_ram
 Compiling module xil_defaultlib.face_classifier_cbqm(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_cbrm_ram
-Compiling module xil_defaultlib.face_classifier_cbrm(DataWidth=3...
 Compiling module xil_defaultlib.k2c_dot_1_permA_ram
 Compiling module xil_defaultlib.k2c_dot_1_permA(DataWidth=64,Add...
 Compiling module xil_defaultlib.face_classifier_cbkb_div_u(in0_W...
@@ -572,13 +567,6 @@ Compiling module xil_defaultlib.k2c_bias_add
 Compiling module xil_defaultlib.face_classifier_cibs_DSP48_1
 Compiling module xil_defaultlib.face_classifier_cibs(ID=1,NUM_ST...
 Compiling module xil_defaultlib.k2c_dense_1
-Compiling module xil_defaultlib.k2c_dot_1_permB_ram
-Compiling module xil_defaultlib.k2c_dot_1_permB(DataWidth=2,Addr...
-Compiling module xil_defaultlib.face_classifier_cg8j_div_u(in0_W...
-Compiling module xil_defaultlib.face_classifier_cg8j_div(in0_WID...
-Compiling module xil_defaultlib.face_classifier_cg8j(ID=1,NUM_ST...
-Compiling module xil_defaultlib.k2c_dot_1
-Compiling module xil_defaultlib.k2c_dense
 Compiling module xil_defaultlib.face_classifier_cyd2_div_u(in0_W...
 Compiling module xil_defaultlib.face_classifier_cyd2_div(in0_WID...
 Compiling module xil_defaultlib.face_classifier_cyd2(ID=1,NUM_ST...
@@ -589,6 +577,13 @@ Compiling module xil_defaultlib.face_classifier_cAem_DSP48_5
 Compiling module xil_defaultlib.face_classifier_cAem(ID=1,NUM_ST...
 Compiling module xil_defaultlib.k2c_dot2
 Compiling module xil_defaultlib.k2c_dense2
+Compiling module xil_defaultlib.k2c_dot_1_permB_ram
+Compiling module xil_defaultlib.k2c_dot_1_permB(DataWidth=2,Addr...
+Compiling module xil_defaultlib.face_classifier_cg8j_div_u(in0_W...
+Compiling module xil_defaultlib.face_classifier_cg8j_div(in0_WID...
+Compiling module xil_defaultlib.face_classifier_cg8j(ID=1,NUM_ST...
+Compiling module xil_defaultlib.k2c_dot_1
+Compiling module xil_defaultlib.k2c_dense
 Compiling architecture rtl of entity floating_point_v7_1_6.flt_add [\flt_add(c_xdevicefamily="virtex...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
@@ -829,7 +824,7 @@ Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\x
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6_viv [\floating_point_v7_1_6_viv(c_xde...]
 Compiling architecture xilinx of entity floating_point_v7_1_6.floating_point_v7_1_6 [\floating_point_v7_1_6(c_xdevice...]
 Compiling architecture face_classifier_c_ap_fexp_4_full_dsp_32_arch of entity xil_defaultlib.face_classifier_c_ap_fexp_4_full_dsp_32 [face_classifier_c_ap_fexp_4_full...]
-Compiling module xil_defaultlib.face_classifier_cbsm(ID=1)
+Compiling module xil_defaultlib.face_classifier_cbrm(ID=1)
 Compiling module xil_defaultlib.face_classifier_c
 Compiling module xil_defaultlib.AESL_automem_dense_input_input_a...
 Compiling module xil_defaultlib.AESL_automem_dense_input_input_s...

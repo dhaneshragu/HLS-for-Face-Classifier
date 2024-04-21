@@ -2,8 +2,8 @@
 # xsim v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun Apr 21 00:01:42 2024
-# Process ID: 33532
+# Start of session at: Sun Apr 21 02:47:57 2024
+# Process ID: 40264
 # Current directory: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog
 # Command line: xsim.exe -mode tcl -source {xsim.dir/face_classifier_c/xsim_script.tcl}
 # Log file: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/xsim.log
@@ -56,10 +56,10 @@ Time: 0 ps  Iteration: 0
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 1 [n/a] @ "125000"
-// RTL Simulation : 1 / 1 [n/a] @ "21092695000"
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [100.00%] @ "21092695000"
 ////////////////////////////////////////////////////////////////////////////////////
 $finish called at time : 21092735 ns : File "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.autotb.v" Line 625
-run: Time (s): cpu = 00:00:00 ; elapsed = 00:25:58 . Memory (MB): peak = 212.016 ; gain = 0.000
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:24:05 . Memory (MB): peak = 212.207 ; gain = 0.000
 ## quit
-INFO: [Common 17-206] Exiting xsim at Sun Apr 21 00:27:48 2024...
+INFO: [Common 17-206] Exiting xsim at Sun Apr 21 03:12:07 2024...

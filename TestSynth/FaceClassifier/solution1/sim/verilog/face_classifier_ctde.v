@@ -10,7 +10,7 @@
 
 module face_classifier_ctde
 #(parameter
-    ID         = 83,
+    ID         = 82,
     NUM_STAGE  = 1,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

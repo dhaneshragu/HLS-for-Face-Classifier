@@ -5,6 +5,9 @@
     <downStreamTool>
         <DownStreamTool name=""/>
     </downStreamTool>
+    <clockList>
+        <clock default="false" name="default" period="10"/>
+    </clockList>
     <config>
         <schedule model="face_classifier_c"/>
     </config>
@@ -67,8 +70,5 @@
         <library name="DefaultPlatform" value="xilinx/virtexu/virtexu"/>
         <library name="DefaultPlatform" value="xilinx/virtexu/virtexu_fpv7"/>
     </libraryList>
-    <clockList>
-        <clock default="false" name="default" period="10"/>
-    </clockList>
 </solution>
 
