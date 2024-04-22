@@ -202,7 +202,7 @@ architecture behav of generic_tanh_float_s is
     signal ap_CS_fsm_state6 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
     signal tmp_i_fu_271_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_i_68_fu_277_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_i_66_fu_277_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_phi_mux_resultf_4_phi_fu_76_p10 : STD_LOGIC_VECTOR (31 downto 0);
     signal resultf_4_reg_72 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_CS_fsm_state61 : STD_LOGIC;
@@ -526,7 +526,7 @@ begin
     expx_reg_58_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state6) and (tmp_i_68_fu_277_p2 = ap_const_lv1_1) and (tmp_i_fu_271_p2 = ap_const_lv1_0))) then 
+            if (((ap_const_logic_1 = ap_CS_fsm_state6) and (tmp_i_66_fu_277_p2 = ap_const_lv1_1) and (tmp_i_fu_271_p2 = ap_const_lv1_0))) then 
                 expx_reg_58 <= x_2_reg_367;
             elsif (((ap_const_logic_1 = ap_CS_fsm_state6) and (tmp_i_fu_271_p2 = ap_const_lv1_1))) then 
                 expx_reg_58 <= ap_const_lv32_0;
@@ -653,7 +653,7 @@ begin
     end process;
     abst_in_reg_324(31) <= '0';
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, tmp_s_fu_203_p2, tmp_56_fu_209_p2, or_cond_fu_221_p2, tmp_27_fu_124_p2, tmp_60_reg_347, ap_CS_fsm_state6, tmp_i_fu_271_p2, tmp_i_68_fu_277_p2, ap_CS_fsm_state23)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, tmp_s_fu_203_p2, tmp_56_fu_209_p2, or_cond_fu_221_p2, tmp_27_fu_124_p2, tmp_60_reg_347, ap_CS_fsm_state6, tmp_i_fu_271_p2, tmp_i_66_fu_277_p2, ap_CS_fsm_state23)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -675,7 +675,7 @@ begin
             when ap_ST_fsm_state5 => 
                 ap_NS_fsm <= ap_ST_fsm_state6;
             when ap_ST_fsm_state6 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state6) and (tmp_i_68_fu_277_p2 = ap_const_lv1_0) and (tmp_i_fu_271_p2 = ap_const_lv1_0))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state6) and (tmp_i_66_fu_277_p2 = ap_const_lv1_0) and (tmp_i_fu_271_p2 = ap_const_lv1_0))) then
                     ap_NS_fsm <= ap_ST_fsm_state7;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state23;
@@ -972,7 +972,7 @@ begin
     tmp_62_fu_314_p1 <= tmp_135_neg_fu_308_p2;
     tmp_66_fu_293_p1 <= tmp_139_neg_fu_287_p2;
     tmp_fu_185_p1 <= p_Val2_s_fu_157_p1(31 - 1 downto 0);
-    tmp_i_68_fu_277_p2 <= "1" when (unsigned(loc_V_2_fu_261_p4) < unsigned(ap_const_lv8_60)) else "0";
+    tmp_i_66_fu_277_p2 <= "1" when (unsigned(loc_V_2_fu_261_p4) < unsigned(ap_const_lv8_60)) else "0";
     tmp_i_fu_271_p2 <= "1" when (loc_V_2_fu_261_p4 = ap_const_lv8_0) else "0";
     tmp_s_fu_203_p2 <= "1" when (loc_V_fu_169_p4 = ap_const_lv8_FF) else "0";
     x_2_fu_251_p3 <= 

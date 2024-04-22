@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:13 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 18:06:59 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth'
 INFO: [HLS 200-10] Opening project 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier'.
 INFO: [HLS 200-10] Opening solution 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1'.
@@ -11,7 +11,7 @@ INFO: [COSIM 212-14] Instrumenting C test bench ...
    Compiling apatb_face_classifier_c.cpp
    Compiling (apcc) face_classifier_c_test_suite.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:32 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 18:07:14 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -19,7 +19,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_core_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:37 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 18:07:18 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -32,7 +32,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_activations.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:41 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 18:07:22 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -40,7 +40,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_normalization_layers.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:44 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 18:07:26 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -56,7 +56,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) face_classifier_c.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:48 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 18:07:29 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -64,7 +64,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) k2c_helper_functions.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 15:06:56 +0530 2024
+INFO: [HLS 200-10] For user 'ketan' on host 'laptop-0aqmlcn3' (Windows NT_amd64 version 6.2) on Sun Apr 21 18:07:36 +0530 2024
 INFO: [HLS 200-10] In directory 'C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -72,7 +72,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Generating cosim.tv.exe
 INFO: [COSIM 212-302] Starting C TB testing ... 
-Average time over 2 tests: 3.200000e-003 s 
+Average time over 2 tests: 3.100000e-003 s 
 Max absolute error for 2 tests: 3.725290e-008 
 INFO: [COSIM 212-333] Generating C post check test bench ...
 INFO: [COSIM 212-12] Generating RTL test bench ...
@@ -113,9 +113,6 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/colleg
 INFO: [VRFC 10-311] analyzing module apatb_face_classifier_c_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_c
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c0iy.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_c0iy_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_c0iy
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c2iS.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_c2iS_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_c2iS
@@ -425,8 +422,6 @@ Compiling module xil_defaultlib.face_classifier_cOgC_ram
 Compiling module xil_defaultlib.face_classifier_cOgC(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_cXh4_ram
 Compiling module xil_defaultlib.face_classifier_cXh4(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_c0iy_ram
-Compiling module xil_defaultlib.face_classifier_c0iy(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_c2iS_ram
 Compiling module xil_defaultlib.face_classifier_c2iS(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_c4jc_ram
@@ -879,7 +874,7 @@ Built simulation snapshot face_classifier_c
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
 source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/xsim.dir/face_classifier_c/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Sun Apr 21 15:08:12 2024...
+INFO: [Common 17-206] Exiting Webtalk at Sun Apr 21 18:08:36 2024...
 
 ****** xsim v2018.2 (64-bit)
   **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
@@ -934,14 +929,14 @@ Time: 0 ps  Iteration: 0
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
 // RTL Simulation : 0 / 1 [0.00%] @ "125000"
-// RTL Simulation : 1 / 1 [100.00%] @ "18550465000"
+// RTL Simulation : 1 / 1 [100.00%] @ "18497785000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 18550505 ns : File "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.autotb.v" Line 625
-run: Time (s): cpu = 00:00:00 ; elapsed = 00:20:23 . Memory (MB): peak = 211.980 ; gain = 0.000
+$finish called at time : 18497825 ns : File "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.autotb.v" Line 625
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:18:35 . Memory (MB): peak = 212.125 ; gain = 0.000
 ## quit
-INFO: [Common 17-206] Exiting xsim at Sun Apr 21 15:28:42 2024...
+INFO: [Common 17-206] Exiting xsim at Sun Apr 21 18:27:17 2024...
 INFO: [COSIM 212-316] Starting C post checking ...
-Average time over 2 tests: 1.000000e-003 s 
+Average time over 2 tests: 9.000000e-004 s 
 Max absolute error for 2 tests: 2.980232e-008 
 INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
 INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

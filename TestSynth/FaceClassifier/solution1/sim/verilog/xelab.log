@@ -29,9 +29,6 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/colleg
 INFO: [VRFC 10-311] analyzing module apatb_face_classifier_c_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_c
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c0iy.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module face_classifier_c0iy_ram
-INFO: [VRFC 10-311] analyzing module face_classifier_c0iy
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/sim/verilog/face_classifier_c2iS.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module face_classifier_c2iS_ram
 INFO: [VRFC 10-311] analyzing module face_classifier_c2iS
@@ -341,8 +338,6 @@ Compiling module xil_defaultlib.face_classifier_cOgC_ram
 Compiling module xil_defaultlib.face_classifier_cOgC(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_cXh4_ram
 Compiling module xil_defaultlib.face_classifier_cXh4(DataWidth=3...
-Compiling module xil_defaultlib.face_classifier_c0iy_ram
-Compiling module xil_defaultlib.face_classifier_c0iy(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_c2iS_ram
 Compiling module xil_defaultlib.face_classifier_c2iS(DataWidth=6...
 Compiling module xil_defaultlib.face_classifier_c4jc_ram

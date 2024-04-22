@@ -137,7 +137,7 @@ architecture behav of k2c_batch_norm is
     signal exitcond_reg_185_pp0_iter20_reg : STD_LOGIC_VECTOR (0 downto 0);
     signal exitcond_reg_185_pp0_iter21_reg : STD_LOGIC_VECTOR (0 downto 0);
     signal exitcond_reg_185_pp0_iter22_reg : STD_LOGIC_VECTOR (0 downto 0);
-    signal i_37_fu_166_p2 : STD_LOGIC_VECTOR (11 downto 0);
+    signal i_35_fu_166_p2 : STD_LOGIC_VECTOR (11 downto 0);
     signal ap_enable_reg_pp0_iter0 : STD_LOGIC := '0';
     signal inputs_array_load_reg_204 : STD_LOGIC_VECTOR (31 downto 0);
     signal mean_array_load_reg_209 : STD_LOGIC_VECTOR (31 downto 0);
@@ -678,7 +678,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (exitcond_fu_161_p2 = ap_const_lv1_0))) then 
-                i_reg_128 <= i_37_fu_166_p2;
+                i_reg_128 <= i_35_fu_166_p2;
             elsif (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
                 i_reg_128 <= ap_const_lv12_0;
             end if; 
@@ -939,7 +939,7 @@ begin
         end if; 
     end process;
 
-    i_37_fu_166_p2 <= std_logic_vector(unsigned(i_reg_128) + unsigned(ap_const_lv12_1));
+    i_35_fu_166_p2 <= std_logic_vector(unsigned(i_reg_128) + unsigned(ap_const_lv12_1));
     i_cast_fu_155_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_reg_128),64));
     inputs_array_address0 <= i_cast_fu_155_p1(12 - 1 downto 0);
 

@@ -95,6 +95,7 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
 			#pragma HLS LOOP_TRIPCOUNT
             output->array[outrowidx+j] = bias->array[j];
             for (size_t k = 0; k < innerdim; ++k) {
+#pragma HLS PIPELINE
 				#pragma HLS LOOP_TRIPCOUNT
                 output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
             }

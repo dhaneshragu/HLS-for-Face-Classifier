@@ -1,4 +1,4 @@
-INFO-FLOW: Workspace C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1 opened at Sun Apr 21 15:03:42 +0530 2024
+INFO-FLOW: Workspace C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1 opened at Sun Apr 21 15:43:49 +0530 2024
 Execute     config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 Execute     open_platform DefaultPlatform 
@@ -47,10 +47,24 @@ Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
-Command         ap_source done; 0.129 sec.
+Command         ap_source done; 0.126 sec.
 Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
-Command       ap_source done; 0.133 sec.
-Command     ap_source done; 0.133 sec.
+Command       ap_source done; 0.129 sec.
+Command     ap_source done; 0.129 sec.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_hp.hlp 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
 Execute     set_part xcvu190-flgb2104-1-i 
 Execute       add_library xilinx/virtexu/virtexu:xcvu190:-flgb2104:-1-i 
 Execute         get_default_platform 
@@ -77,11 +91,10 @@ Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO: [HLS 200-10] Setting target device to 'xcvu190-flgb2104-1-i'
 Execute       get_default_platform 
-Command     set_part done; 0.107 sec.
 Execute     get_default_platform 
 Execute     config_chip_info -quiet -resource  {SLICE 134280} {LUT 1074240}   {FF 2148480}  {DSP48E 1800}  {BRAM 7560} {SLR 3}  
 Execute     config_chip_info -quiet -speed slow 
-Command   open_solution done; 0.314 sec.
+Command   open_solution done; 0.311 sec.
 Execute   set_part xcvu190-flgb2104-1-i 
 Execute     add_library xilinx/virtexu/virtexu:xcvu190:-flgb2104:-1-i 
 Execute       get_default_platform 
@@ -131,25 +144,26 @@ Execute       is_encrypted ../C-Code-Original/include/k2c_normalization_layers.c
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "../C-Code-Original/include/k2c_normalization_layers.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E ../C-Code-Original/include/k2c_normalization_layers.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c
-Command       clang done; 0.971 sec.
+Command       clang done; 1.167 sec.
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c"  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc
-Command       clang done; 0.921 sec.
-INFO-FLOW: GCC PP time: 1 seconds per iteration
+Command       clang done; 0.909 sec.
+INFO-FLOW: GCC PP time: 2 seconds per iteration
 Execute       list_core -type functional_unit 
 Execute       tidy_31 xilinx-systemc-detector C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.153 sec.
 INFO-FLOW: CDT Preprocessing with tidy-3.1...
 Execute       tidy_31 xilinx-directive2pragma C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.json 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.json -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
 Execute       get_config_dataflow -strict_mode 
 Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/xilinx-dataflow-lawyer.k2c_normalization_layers.pp.0.c.diag.yml C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c -- -std=gnu99 -fhls -ferror-limit=0 -fstrict-dataflow > C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/xilinx-dataflow-lawyer.k2c_normalization_layers.pp.0.c.out.log 2> C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/xilinx-dataflow-lawyer.k2c_normalization_layers.pp.0.c.err.log 
-Command       ap_eval done; 0.607 sec.
+Command       ap_eval done; 0.108 sec.
 Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 0.178 sec.
+Command       tidy_31 done; 0.155 sec.
 INFO-FLOW: tidy-3.1 time 0 seconds per iteration
 INFO-FLOW: Pragma Handling...
 Execute       tidy_31 xilinx-ssdm-intrinsics-arguments C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.1.c std=gnu89 
@@ -157,12 +171,12 @@ INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.1.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.2.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.1.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.2.c
-Command       clang done; 0.859 sec.
+Command       clang done; 0.924 sec.
 Execute       get_default_platform 
 INFO-FLOW: Processing labels
 Execute       clang -src C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.2.c"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.bc" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.pragma.2.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.bc
-Command       clang done; 0.906 sec.
+Command       clang done; 0.939 sec.
 INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_helper_functions.c' ... 
 INFO-FLOW: Compiling one TU...
 Execute       is_m_axi_addr64 
@@ -172,15 +186,16 @@ Execute       is_encrypted ../C-Code-Original/include/k2c_helper_functions.c
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "../C-Code-Original/include/k2c_helper_functions.c"   -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E ../C-Code-Original/include/k2c_helper_functions.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c
-Command       clang done; 0.866 sec.
+Command       clang done; 0.893 sec.
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c"  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc
-Command       clang done; 0.9 sec.
+Command       clang done; 0.917 sec.
 INFO-FLOW: GCC PP time: 1 seconds per iteration
 Execute       list_core -type functional_unit 
 Execute       tidy_31 xilinx-systemc-detector C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.14 sec.
 INFO-FLOW: CDT Preprocessing with tidy-3.1...
 Execute       tidy_31 xilinx-directive2pragma C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.json 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.json -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
@@ -189,7 +204,7 @@ Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.2/win64/tools/cla
 Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 0.17 sec.
+Command       tidy_31 done; 0.277 sec.
 INFO-FLOW: tidy-3.1 time 0 seconds per iteration
 INFO-FLOW: Pragma Handling...
 Execute       tidy_31 xilinx-ssdm-intrinsics-arguments C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.1.c std=gnu89 
@@ -197,12 +212,12 @@ INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.1.c"   -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.2.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.1.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.2.c
-Command       clang done; 0.834 sec.
+Command       clang done; 0.888 sec.
 Execute       get_default_platform 
 INFO-FLOW: Processing labels
 Execute       clang -src C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.2.c"  -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.bc" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.pragma.2.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.bc
-Command       clang done; 0.908 sec.
+Command       clang done; 0.945 sec.
 INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_core_layers.c' ... 
 INFO-FLOW: Compiling one TU...
 Execute       is_m_axi_addr64 
@@ -212,11 +227,11 @@ Execute       is_encrypted ../C-Code-Original/include/k2c_core_layers.c
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "../C-Code-Original/include/k2c_core_layers.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E ../C-Code-Original/include/k2c_core_layers.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c
-Command       clang done; 0.84 sec.
+Command       clang done; 0.859 sec.
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c"  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc
-Command       clang done; 0.926 sec.
+Command       clang done; 0.865 sec.
 INFO-FLOW: GCC PP time: 1 seconds per iteration
 Execute       list_core -type functional_unit 
 Execute       tidy_31 xilinx-systemc-detector C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag 
@@ -229,7 +244,7 @@ Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.2/win64/tools/cla
 Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 0.171 sec.
+Command       tidy_31 done; 0.158 sec.
 INFO-FLOW: tidy-3.1 time 0 seconds per iteration
 INFO-FLOW: Pragma Handling...
 Execute       tidy_31 xilinx-ssdm-intrinsics-arguments C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.1.c std=gnu89 
@@ -237,12 +252,12 @@ INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.1.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.2.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.1.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.2.c
-Command       clang done; 0.845 sec.
+Command       clang done; 1.419 sec.
 Execute       get_default_platform 
 INFO-FLOW: Processing labels
 Execute       clang -src C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.2.c"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.bc" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.pragma.2.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.bc
-Command       clang done; 0.871 sec.
+Command       clang done; 0.944 sec.
 INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/include/k2c_activations.c' ... 
 INFO-FLOW: Compiling one TU...
 Execute       is_m_axi_addr64 
@@ -252,11 +267,11 @@ Execute       is_encrypted ../C-Code-Original/include/k2c_activations.c
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "../C-Code-Original/include/k2c_activations.c"   -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E ../C-Code-Original/include/k2c_activations.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c
-Command       clang done; 0.876 sec.
+Command       clang done; 1.02 sec.
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c"  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc
-Command       clang done; 0.844 sec.
+Command       clang done; 0.886 sec.
 INFO-FLOW: GCC PP time: 1 seconds per iteration
 Execute       list_core -type functional_unit 
 Execute       tidy_31 xilinx-systemc-detector C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag 
@@ -269,7 +284,7 @@ Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.2/win64/tools/cla
 Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 0.153 sec.
+Command       tidy_31 done; 0.118 sec.
 INFO-FLOW: tidy-3.1 time 0 seconds per iteration
 INFO-FLOW: Pragma Handling...
 Execute       tidy_31 xilinx-ssdm-intrinsics-arguments C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.1.c std=gnu89 
@@ -277,12 +292,12 @@ INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.1.c"   -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.2.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.1.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.2.c
-Command       clang done; 0.82 sec.
+Command       clang done; 0.847 sec.
 Execute       get_default_platform 
 INFO-FLOW: Processing labels
 Execute       clang -src C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.2.c"  -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.bc" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.pragma.2.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.bc
-Command       clang done; 0.826 sec.
+Command       clang done; 0.891 sec.
 INFO: [HLS 200-10] Analyzing design file '../C-Code-Original/face_classifier_c.c' ... 
 INFO-FLOW: Compiling one TU...
 Execute       is_m_axi_addr64 
@@ -292,54 +307,54 @@ Execute       is_encrypted ../C-Code-Original/face_classifier_c.c
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "../C-Code-Original/face_classifier_c.c"   -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E ../C-Code-Original/face_classifier_c.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c
-Command       clang done; 0.869 sec.
+Command       clang done; 0.945 sec.
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c"  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/useless.bc
-Command       clang done; 1.365 sec.
+Command       clang done; 1.592 sec.
 INFO-FLOW: GCC PP time: 2 seconds per iteration
 Execute       list_core -type functional_unit 
 Execute       tidy_31 xilinx-systemc-detector C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 0.569 sec.
+Command       tidy_31 done; 0.674 sec.
 INFO-FLOW: CDT Preprocessing with tidy-3.1...
 Execute       tidy_31 xilinx-directive2pragma C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c std=gnu89 -directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.json 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/solution1.json -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 0.562 sec.
+Command       tidy_31 done; 0.67 sec.
 Execute       get_config_dataflow -strict_mode 
 Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/xilinx-dataflow-lawyer.face_classifier_c.pp.0.c.diag.yml C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c -- -std=gnu99 -fhls -ferror-limit=0 -fstrict-dataflow > C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/xilinx-dataflow-lawyer.face_classifier_c.pp.0.c.out.log 2> C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/xilinx-dataflow-lawyer.face_classifier_c.pp.0.c.err.log 
-Command       ap_eval done; 0.467 sec.
+Command       ap_eval done; 0.541 sec.
 Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 1.307 sec.
+Command       tidy_31 done; 1.531 sec.
 INFO-FLOW: tidy-3.1 time 2 seconds per iteration
 INFO-FLOW: Pragma Handling...
 Execute       tidy_31 xilinx-ssdm-intrinsics-arguments C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.1.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.1.c -- -std=gnu89 -fhls -ferror-limit=0
-Command       tidy_31 done; 2.631 sec.
+Command       tidy_31 done; 3.075 sec.
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.1.c"   -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl=  -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.2.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.1.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -D__cdecl= -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.2.c
-Command       clang done; 0.863 sec.
+Command       clang done; 0.897 sec.
 Execute       get_default_platform 
 INFO-FLOW: Processing labels
 Execute       clang -src C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.2.c"  -Wuninitialized -Wall  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o "C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.bc" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.pragma.2.c -Wuninitialized -Wall -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.bc
-Command       clang done; 1.481 sec.
+Command       clang done; 1.525 sec.
 INFO-FLOW: Linking Debug ...
 Execute       llvm-ld C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_normalization_layers.g.bc C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_helper_functions.g.bc C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_core_layers.g.bc C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_activations.g.bc C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.g.bc -hls-opt -except-internalize face_classifier_c -LC:/Xilinx/Vivado/2018.2/win64/lib -lhlsm -lhlsmc++ -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g 
-Command       llvm-ld done; 7.432 sec.
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:36 . Memory (MB): peak = 102.793 ; gain = 46.742
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:36 . Memory (MB): peak = 102.793 ; gain = 46.742
+Command       llvm-ld done; 5.579 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:38 . Memory (MB): peak = 102.727 ; gain = 46.715
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:38 . Memory (MB): peak = 102.727 ; gain = 46.715
 Execute       ::config_rtl 
 Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 Execute         cleanup_all_models 
 INFO: [HLS 200-10] Starting code transformations ...
 Execute         transform -promote-dbg-pointer C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.pp.bc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.pp.0.bc -f 
-Command         transform done; 0.8 sec.
+Command         transform done; 1.022 sec.
 Execute         llvm-ld C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.pp.0.bc -disable-opt -LC:/Xilinx/Vivado/2018.2/win64/lib -lfloatconversion -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.0 
-Command         llvm-ld done; 2.516 sec.
+Command         llvm-ld done; 2.441 sec.
 INFO-FLOW: Running Standard Transforms...
 Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top face_classifier_c -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.0.bc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
 INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<71, 12, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator<<' into 'exp_reduce_::exp_generic<double>' (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:255).
@@ -350,8 +365,8 @@ INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<73, 14, true, (ap_q_mode)
 INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<73, 14, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_double' into 'exp_reduce_::exp_generic<double>' (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:273).
 INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<59, 0, false, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'exp_reduce_::exp_traits<double>::exp_Z1P_m_1' (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:140).
 INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<58, 1, false, (ap_q_mode)5, (ap_o_mode)3, 0>::operator<<' into 'exp_reduce_::exp_generic<double>' (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:322).
-Command         transform done; 8.717 sec.
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:08 ; elapsed = 00:00:48 . Memory (MB): peak = 473.273 ; gain = 417.223
+Command         transform done; 9.546 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:08 ; elapsed = 00:00:51 . Memory (MB): peak = 473.516 ; gain = 417.504
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO-FLOW: Checking Synthesizability 1/2..
 Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.1.bc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.2.prechk.bc -f 
@@ -371,16 +386,16 @@ INFO: [XFORM 203-602] Inlining function 'exp_reduce_::exp_traits<double>::exp_Z1
 INFO: [XFORM 203-602] Inlining function 'generic_fabs<float>' into 'explog_based::generic_tanh<float>' (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:57) automatically.
 INFO: [XFORM 203-602] Inlining function 'generic_nan<float>' into 'explog_based::generic_tanh<float>' (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:63) automatically.
 INFO: [XFORM 203-602] Inlining function 'exp_reduce_::expm1' into 'explog_based::generic_tanh<float>' (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:85) automatically.
-INFO: [XFORM 203-602] Inlining function 'k2c_linear_func' into 'k2c_dense2' (../C-Code-Original/include/k2c_core_layers.c:103) automatically.
-INFO: [XFORM 203-602] Inlining function 'k2c_linear_func' into 'k2c_dense2.1' (../C-Code-Original/include/k2c_core_layers.c:103) automatically.
+INFO: [XFORM 203-602] Inlining function 'k2c_linear_func' into 'k2c_dense2' (../C-Code-Original/include/k2c_core_layers.c:104) automatically.
+INFO: [XFORM 203-602] Inlining function 'k2c_linear_func' into 'k2c_dense2.1' (../C-Code-Original/include/k2c_core_layers.c:104) automatically.
 INFO: [XFORM 203-602] Inlining function 'tanhf' into 'face_classifier_c' (../C-Code-Original/face_classifier_c.c:53259) automatically.
-Command         transform done; 11.658 sec.
+Command         transform done; 11.753 sec.
 INFO-FLOW: Checking Synthesizability 2/2..
 Execute         transform -syn-check C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.2.prechk.bc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
 WARNING: [SYNCHK 200-23] r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:273: variable-indexed range selection may cause suboptimal QoR.
 INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
-Command         transform done; 0.662 sec.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:17 ; elapsed = 00:01:01 . Memory (MB): peak = 1032.145 ; gain = 976.094
+Command         transform done; 0.548 sec.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:17 ; elapsed = 00:01:03 . Memory (MB): peak = 1032.789 ; gain = 976.777
 INFO-FLOW: Compiler optimizing ...
 INFO-FLOW: Share syncheck's 1.bc for syn flow: copy C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.g.1.bc to C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.o.1.bc
 INFO-FLOW: Presyn 1...
@@ -496,15 +511,15 @@ WARNING: [XFORM 203-561] Updating loop upper bound from 5 to 2 for loop 'Loop-8-
 WARNING: [XFORM 203-561] Updating loop lower bound from 1 to 2 for loop 'Loop-8-0' (../C-Code-Original/include/k2c_helper_functions.c:411:1) in function 'k2c_dot'.
 WARNING: [XFORM 203-561] Updating loop upper bound from 2622 to 262200 for loop 'Loop-8' (../C-Code-Original/include/k2c_helper_functions.c:407:1) in function 'k2c_dot'.
 WARNING: [XFORM 203-561] Updating loop lower bound from 1 to 262200 for loop 'Loop-8' (../C-Code-Original/include/k2c_helper_functions.c:407:1) in function 'k2c_dot'.
-WARNING: [XFORM 203-561] Updating loop upper bound from 0 to 100 for loop 'Loop-0-0-0' (../C-Code-Original/include/k2c_core_layers.c:98:1) in function 'k2c_dense2.1'.
-WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 100 for loop 'Loop-0-0-0' (../C-Code-Original/include/k2c_core_layers.c:98:1) in function 'k2c_dense2.1'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 0 to 100 for loop 'Loop-0-0-0' (../C-Code-Original/include/k2c_core_layers.c:99:1) in function 'k2c_dense2.1'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 100 for loop 'Loop-0-0-0' (../C-Code-Original/include/k2c_core_layers.c:99:1) in function 'k2c_dense2.1'.
 WARNING: [XFORM 203-561] Updating loop upper bound from 0 to 10 for loop 'Loop-0-0' (../C-Code-Original/include/k2c_core_layers.c:95:1) in function 'k2c_dense2.1'.
 WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 10 for loop 'Loop-0-0' (../C-Code-Original/include/k2c_core_layers.c:95:1) in function 'k2c_dense2.1'.
 WARNING: [XFORM 203-561] Updating loop upper bound from 0 to 2622 for loop 'k2c_dense_label0' (../C-Code-Original/include/k2c_core_layers.c:51:1) in function 'k2c_dense'.
 WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 2622 for loop 'k2c_dense_label0' (../C-Code-Original/include/k2c_core_layers.c:51:1) in function 'k2c_dense'.
 WARNING: [XFORM 203-561] Updating loop upper bound from 0 to 100 for loop 'Loop-0-0' (../C-Code-Original/include/k2c_core_layers.c:48:1) in function 'k2c_dense'.
 WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 100 for loop 'Loop-0-0' (../C-Code-Original/include/k2c_core_layers.c:48:1) in function 'k2c_dense'.
-Command         transform done; 15.399 sec.
+Command         transform done; 16.88 sec.
 INFO-FLOW: Presyn 2...
 Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.o.1.tmp.bc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
 WARNING: [XFORM 203-561] Loop trip count (avg) is not constant. Use default instead!  (../C-Code-Original/include/k2c_helper_functions.c:398:1)
@@ -515,8 +530,8 @@ INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../C-Code-Ori
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:103:8) to (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:109:3) in function 'explog_based::generic_tanh<float>'... converting 3 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_tanh.h:78:21) to (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_exp_float.cpp:8:10) in function 'explog_based::generic_tanh<float>'... converting 4 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:178:19) to (r:/builds/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_exp_.h:357:3) in function 'exp_reduce_::exp_generic<double>'... converting 20 basic blocks.
-Command         transform done; 1.758 sec.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:28 ; elapsed = 00:01:18 . Memory (MB): peak = 1167.254 ; gain = 1111.203
+Command         transform done; 3.415 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:28 ; elapsed = 00:01:24 . Memory (MB): peak = 1164.516 ; gain = 1108.504
 INFO-FLOW: Building ssdm...
 Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -bitwidth -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -dead-allocation-elimination -cdfg-build C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.o.2.bc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
 WARNING: [XFORM 203-561] Updating loop upper bound from 2622 to 10 for loop 'Loop-9-0' (../C-Code-Original/include/k2c_helper_functions.c:795:1) in function 'k2c_dot2'.
@@ -559,6 +574,14 @@ WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-10.1' (../C-Code-Origi
 
 the outer loop is not a perfect loop.
 INFO: [XFORM 203-541] Flattening a loop nest 'Loop-10' (../C-Code-Original/include/k2c_helper_functions.c:461:7) in function 'k2c_dot'.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1.1' (../C-Code-Original/include/k2c_core_layers.c:94:26) in function 'k2c_dense2.1' : 
+
+the outer loop is not a perfect loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (../C-Code-Original/include/k2c_core_layers.c:90:15) in function 'k2c_dense2.1'.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1.1' (../C-Code-Original/include/k2c_core_layers.c:94:26) in function 'k2c_dense2' : 
+
+the outer loop is not a perfect loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (../C-Code-Original/include/k2c_core_layers.c:90:15) in function 'k2c_dense2'.
 WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1.1' (../C-Code-Original/include/k2c_core_layers.c:47:26) in function 'k2c_dense' : 
 
 the outer loop is not a perfect loop.
@@ -575,11 +598,11 @@ WARNING: [XFORM 203-561] Loop trip count (avg) is not constant. Use default inst
 WARNING: [XFORM 203-561] Loop trip count (avg) is not constant. Use default instead!  (../C-Code-Original/include/k2c_helper_functions.c:398:1)
 WARNING: [XFORM 203-561] Loop trip count (avg) is not constant. Use default instead!  (../C-Code-Original/include/k2c_helper_functions.c:398:1)
 WARNING: [XFORM 203-561] Loop trip count (avg) is not constant. Use default instead!  (../C-Code-Original/include/k2c_helper_functions.c:398:1)
-Command         transform done; 3.403 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:30 ; elapsed = 00:01:21 . Memory (MB): peak = 1167.254 ; gain = 1111.203
+Command         transform done; 3.805 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:30 ; elapsed = 00:01:28 . Memory (MB): peak = 1164.516 ; gain = 1108.504
 INFO-FLOW: Finish building internal data model.
-Command       opt_and_import_c done; 44.987 sec.
-Command     elaborate done; 80.287 sec.
+Command       opt_and_import_c done; 50.266 sec.
+Command     elaborate done; 86.12 sec.
 Execute     autosyn -from_csynth_design=1 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO-FLOW: Synthesizing C/C++ design ...
@@ -706,8 +729,8 @@ Execute       schedule -model k2c_idx2sub
 INFO: [SCHED 204-11] Starting scheduling ...
 WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Function contains subloop(s) not being unrolled.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.211 sec.
-INFO: [HLS 200-111]  Elapsed time: 81.827 seconds; current allocated memory: 757.045 MB.
+Command       schedule done; 0.111 sec.
+INFO: [HLS 200-111]  Elapsed time: 88.537 seconds; current allocated memory: 757.073 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_idx2sub.verbose.sched.rpt -verbose -f 
 INFO: [HLS 200-434] Only 0 loops out of a total 1 loops have been pipelined in this design.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_idx2sub.sched.adb -f 
@@ -722,7 +745,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.249 seconds; current allocated memory: 757.359 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.281 seconds; current allocated memory: 757.386 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_idx2sub.verbose.bind.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_idx2sub.bind.adb -f 
 INFO-FLOW: Finish binding k2c_idx2sub.
@@ -734,8 +757,9 @@ Execute       schedule -model k2c_sub2idx
 INFO: [SCHED 204-11] Starting scheduling ...
 WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Function contains subloop(s) not being unrolled.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.274 seconds; current allocated memory: 757.629 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.303 seconds; current allocated memory: 757.641 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_sub2idx.verbose.sched.rpt -verbose -f 
+Command       report done; 0.328 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_sub2idx.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_sub2idx.
 Execute       set_default_model k2c_sub2idx 
@@ -748,9 +772,12 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.179 seconds; current allocated memory: 757.742 MB.
+Command       bind done; 0.169 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.677 seconds; current allocated memory: 757.754 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_sub2idx.verbose.bind.rpt -verbose -f 
+Command       report done; 0.234 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_sub2idx.bind.adb -f 
+Command       db_write done; 0.142 sec.
 INFO-FLOW: Finish binding k2c_sub2idx.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'k2c_dot' 
@@ -780,12 +807,13 @@ WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
    between 'fadd' operation ('tmp_28', ../C-Code-Original/include/k2c_helper_functions.c:470) and 'fadd' operation ('tmp_28', ../C-Code-Original/include/k2c_helper_functions.c:470).
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 10.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 1.426 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.588 seconds; current allocated memory: 759.120 MB.
+Command       schedule done; 1.017 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.557 seconds; current allocated memory: 759.147 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot.verbose.sched.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.178 sec.
+Command       report done; 0.317 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot.sched.adb -f 
+Command       db_write done; 0.27 sec.
 INFO-FLOW: Finish scheduling k2c_dot.
 Execute       set_default_model k2c_dot 
 Execute       bind -model k2c_dot 
@@ -797,12 +825,13 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.116 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.467 seconds; current allocated memory: 760.149 MB.
+Command       bind done; 0.121 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.881 seconds; current allocated memory: 760.161 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot.verbose.bind.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.176 sec.
+Command       report done; 0.398 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot.bind.adb -f 
+Command       db_write done; 0.186 sec.
 INFO-FLOW: Finish binding k2c_dot.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'k2c_bias_add' 
@@ -812,7 +841,7 @@ Execute       schedule -model k2c_bias_add
 INFO: [SCHED 204-11] Starting scheduling ...
 WARNING: [SCHED 204-65] Unable to satisfy pipeline directive: Function contains subloop(s) not being unrolled.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.428 seconds; current allocated memory: 760.411 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.809 seconds; current allocated memory: 760.439 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.verbose.sched.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_bias_add.
@@ -826,7 +855,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.191 seconds; current allocated memory: 760.526 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.266 seconds; current allocated memory: 760.553 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.verbose.bind.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.bind.adb -f 
 INFO-FLOW: Finish binding k2c_bias_add.
@@ -845,8 +874,8 @@ WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
    between 'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:53) and 'fadd' operation ('tmp_50', ../C-Code-Original/include/k2c_core_layers.c:53).
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 10.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.137 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.31 seconds; current allocated memory: 760.807 MB.
+Command       schedule done; 0.143 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.338 seconds; current allocated memory: 760.835 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense.verbose.sched.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_dense.
@@ -860,10 +889,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.12 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.295 seconds; current allocated memory: 761.171 MB.
+Command       bind done; 0.121 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.293 seconds; current allocated memory: 761.198 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense.verbose.bind.rpt -verbose -f 
-Command       report done; 0.108 sec.
+Command       report done; 0.107 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense.bind.adb -f 
 INFO-FLOW: Finish binding k2c_dense.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -875,7 +904,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 24.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.329 seconds; current allocated memory: 761.451 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.342 seconds; current allocated memory: 761.479 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_batch_norm.verbose.sched.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_batch_norm.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_batch_norm.
@@ -889,7 +918,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.192 seconds; current allocated memory: 761.677 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.218 seconds; current allocated memory: 761.704 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_batch_norm.verbose.bind.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_batch_norm.bind.adb -f 
 INFO-FLOW: Finish binding k2c_batch_norm.
@@ -902,8 +931,8 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'exp_generic<double>'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 10.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.119 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.302 seconds; current allocated memory: 762.218 MB.
+Command       schedule done; 0.13 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.338 seconds; current allocated memory: 762.230 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/exp_generic_double_s.verbose.sched.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/exp_generic_double_s.sched.adb -f 
 INFO-FLOW: Finish scheduling exp_generic<double>.
@@ -917,11 +946,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.252 seconds; current allocated memory: 762.759 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.329 seconds; current allocated memory: 762.771 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/exp_generic_double_s.verbose.bind.rpt -verbose -f 
-Command       report done; 0.309 sec.
+Command       report done; 0.153 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/exp_generic_double_s.bind.adb -f 
-Command       db_write done; 0.334 sec.
 INFO-FLOW: Finish binding exp_generic<double>.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'generic_tanh_float_s' 
@@ -930,11 +958,9 @@ Execute       set_default_model generic_tanh<float>
 Execute       schedule -model generic_tanh<float> 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.834 seconds; current allocated memory: 763.387 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.472 seconds; current allocated memory: 763.398 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/generic_tanh_float_s.verbose.sched.rpt -verbose -f 
-Command       report done; 0.218 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/generic_tanh_float_s.sched.adb -f 
-Command       db_write done; 0.654 sec.
 INFO-FLOW: Finish scheduling generic_tanh<float>.
 Execute       set_default_model generic_tanh<float> 
 Execute       bind -model generic_tanh<float> 
@@ -946,10 +972,9 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.134 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.12 seconds; current allocated memory: 763.694 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.313 seconds; current allocated memory: 763.721 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/generic_tanh_float_s.verbose.bind.rpt -verbose -f 
-Command       report done; 0.118 sec.
+Command       report done; 0.134 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/generic_tanh_float_s.bind.adb -f 
 INFO-FLOW: Finish binding generic_tanh<float>.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -980,11 +1005,11 @@ WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
    between 'fadd' operation ('tmp_16', ../C-Code-Original/include/k2c_helper_functions.c:802) and 'fadd' operation ('tmp_16', ../C-Code-Original/include/k2c_helper_functions.c:802).
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 10.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.371 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.654 seconds; current allocated memory: 764.803 MB.
+Command       schedule done; 0.476 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.796 seconds; current allocated memory: 764.831 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2.verbose.sched.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.128 sec.
+Command       report done; 0.129 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_dot2.
 Execute       set_default_model k2c_dot2 
@@ -997,10 +1022,11 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 765.678 MB.
+Command       bind done; 0.117 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.44 seconds; current allocated memory: 765.706 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2.verbose.bind.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.157 sec.
+Command       report done; 0.162 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2.bind.adb -f 
 INFO-FLOW: Finish binding k2c_dot2.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1009,8 +1035,17 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute       set_default_model k2c_dense2.1 
 Execute       schedule -model k2c_dense2.1 
 INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)
+   between 'fadd' operation ('tmp_36', ../C-Code-Original/include/k2c_core_layers.c:100) and 'fadd' operation ('tmp_36', ../C-Code-Original/include/k2c_core_layers.c:100).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 2)
+   between 'fadd' operation ('tmp_36', ../C-Code-Original/include/k2c_core_layers.c:100) and 'fadd' operation ('tmp_36', ../C-Code-Original/include/k2c_core_layers.c:100).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
+   between 'fadd' operation ('tmp_36', ../C-Code-Original/include/k2c_core_layers.c:100) and 'fadd' operation ('tmp_36', ../C-Code-Original/include/k2c_core_layers.c:100).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 10.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.427 seconds; current allocated memory: 766.042 MB.
+Command       schedule done; 0.139 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.536 seconds; current allocated memory: 766.094 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2_1.verbose.sched.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2_1.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_dense2.1.
@@ -1024,10 +1059,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.125 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.293 seconds; current allocated memory: 766.338 MB.
+Command       bind done; 0.139 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.322 seconds; current allocated memory: 766.455 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2_1.verbose.bind.rpt -verbose -f 
-Command       report done; 0.132 sec.
+Command       report done; 0.111 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2_1.bind.adb -f 
 INFO-FLOW: Finish binding k2c_dense2.1.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1059,11 +1094,11 @@ WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
    between 'fadd' operation ('tmp_15', ../C-Code-Original/include/k2c_helper_functions.c:802) and 'fadd' operation ('tmp_15', ../C-Code-Original/include/k2c_helper_functions.c:802).
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 10.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.419 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.718 seconds; current allocated memory: 767.590 MB.
+Command       schedule done; 0.481 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.785 seconds; current allocated memory: 767.723 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2_1.verbose.sched.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.182 sec.
+Command       report done; 0.194 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2_1.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_dot2.1.
 Execute       set_default_model k2c_dot2.1 
@@ -1076,11 +1111,11 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.138 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.502 seconds; current allocated memory: 768.696 MB.
+Command       bind done; 0.163 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.556 seconds; current allocated memory: 768.793 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2_1.verbose.bind.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.172 sec.
+Command       report done; 0.18 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2_1.bind.adb -f 
 INFO-FLOW: Finish binding k2c_dot2.1.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1089,9 +1124,17 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute       set_default_model k2c_dense2 
 Execute       schedule -model k2c_dense2 
 INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1.1'.
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)
+   between 'fadd' operation ('tmp_42', ../C-Code-Original/include/k2c_core_layers.c:100) and 'fadd' operation ('tmp_42', ../C-Code-Original/include/k2c_core_layers.c:100).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 2)
+   between 'fadd' operation ('tmp_42', ../C-Code-Original/include/k2c_core_layers.c:100) and 'fadd' operation ('tmp_42', ../C-Code-Original/include/k2c_core_layers.c:100).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
+   between 'fadd' operation ('tmp_42', ../C-Code-Original/include/k2c_core_layers.c:100) and 'fadd' operation ('tmp_42', ../C-Code-Original/include/k2c_core_layers.c:100).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 10.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.149 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.579 seconds; current allocated memory: 769.065 MB.
+Command       schedule done; 0.145 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.567 seconds; current allocated memory: 769.216 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.verbose.sched.rpt -verbose -f 
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.sched.adb -f 
 INFO-FLOW: Finish scheduling k2c_dense2.
@@ -1105,10 +1148,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.119 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.298 seconds; current allocated memory: 769.371 MB.
+Command       bind done; 0.138 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.324 seconds; current allocated memory: 769.597 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.verbose.bind.rpt -verbose -f 
-Command       report done; 0.117 sec.
+Command       report done; 0.103 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.bind.adb -f 
 INFO-FLOW: Finish binding k2c_dense2.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1128,12 +1171,12 @@ WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
    between 'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53367) and 'fadd' operation ('sum', ../C-Code-Original/face_classifier_c.c:53367).
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 19.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 0.76 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.056 seconds; current allocated memory: 771.965 MB.
+Command       schedule done; 0.802 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.107 seconds; current allocated memory: 772.175 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.verbose.sched.rpt -verbose -f 
-Command       report done; 0.431 sec.
+Command       report done; 0.433 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.sched.adb -f 
-Command       db_write done; 0.143 sec.
+Command       db_write done; 0.146 sec.
 INFO-FLOW: Finish scheduling face_classifier_c.
 Execute       set_default_model face_classifier_c 
 Execute       bind -model face_classifier_c 
@@ -1145,12 +1188,12 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.836 sec.
-INFO: [HLS 200-111]  Elapsed time: 1.523 seconds; current allocated memory: 774.641 MB.
+Command       bind done; 0.879 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.589 seconds; current allocated memory: 774.882 MB.
 Execute       report -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.verbose.bind.rpt -verbose -f 
-Command       report done; 0.699 sec.
+Command       report done; 0.707 sec.
 Execute       db_write -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.bind.adb -f 
-Command       db_write done; 0.16 sec.
+Command       db_write done; 0.184 sec.
 INFO-FLOW: Finish binding face_classifier_c.
 Execute       get_model_list face_classifier_c -filter all-wo-channel 
 INFO-FLOW: Preprocessing for RTLGen ...
@@ -1179,7 +1222,7 @@ INFO: [SYN 201-210] Renamed object name 'face_classifier_c_udiv_64ns_64ns_64_68_
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cbkb': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_ccud': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_idx2sub'.
-INFO: [HLS 200-111]  Elapsed time: 1.095 seconds; current allocated memory: 775.685 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.152 seconds; current allocated memory: 775.926 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_idx2sub -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_idx2sub -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_idx2sub -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_idx2sub 
@@ -1196,7 +1239,7 @@ Execute       get_config_rtl -prefix
 Execute       get_config_rtl -auto_prefix 
 Execute       create_rtl_model k2c_sub2idx -vendor xilinx -mg_file C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_sub2idx.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_sub2idx'.
-INFO: [HLS 200-111]  Elapsed time: 0.316 seconds; current allocated memory: 776.094 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.332 seconds; current allocated memory: 776.366 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_sub2idx -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_sub2idx -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_sub2idx -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_sub2idx 
@@ -1224,24 +1267,21 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_cg8j': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_chbi': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cibs': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_dot'.
-Command       create_rtl_model done; 0.347 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.693 seconds; current allocated memory: 778.421 MB.
+Command       create_rtl_model done; 0.337 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.622 seconds; current allocated memory: 778.709 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_dot -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_dot -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
-Command       gen_rtl done; 0.244 sec.
 Execute       gen_rtl k2c_dot -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_dot 
 Execute       gen_rtl k2c_dot -style xilinx -f -lang vlog -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/verilog/k2c_dot 
-Command       gen_rtl done; 0.358 sec.
 Execute       gen_tb_info k2c_dot -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot -p C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db 
-Command       gen_tb_info done; 0.446 sec.
 Execute       report -model k2c_dot -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dot_csynth.rpt -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
 Execute       report -model k2c_dot -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dot_csynth.xml -f -x 
 Execute       report -model k2c_dot -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot.verbose.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.209 sec.
+Command       report done; 0.248 sec.
 Execute       db_write -model k2c_dot -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot.adb -f 
-Command       db_write done; 0.116 sec.
+Command       db_write done; 0.151 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'k2c_bias_add' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1250,15 +1290,19 @@ Execute       get_config_rtl -auto_prefix
 Execute       create_rtl_model k2c_bias_add -vendor xilinx -mg_file C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.compgen.tcl 
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_ceOg': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_bias_add'.
-INFO: [HLS 200-111]  Elapsed time: 2.11 seconds; current allocated memory: 778.884 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.106 seconds; current allocated memory: 779.188 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_bias_add -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_bias_add -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_bias_add -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_bias_add 
+Command       gen_rtl done; 0.208 sec.
 Execute       gen_rtl k2c_bias_add -style xilinx -f -lang vlog -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/verilog/k2c_bias_add 
+Command       gen_rtl done; 0.154 sec.
 Execute       gen_tb_info k2c_bias_add -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add -p C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db 
 Execute       report -model k2c_bias_add -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_bias_add_csynth.rpt -f 
+Command       report done; 0.123 sec.
 Execute       report -model k2c_bias_add -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_bias_add_csynth.xml -f -x 
 Execute       report -model k2c_bias_add -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.verbose.rpt -verbose -f 
+Command       report done; 0.114 sec.
 Execute       db_write -model k2c_bias_add -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.adb -f 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'k2c_dense' 
@@ -1273,8 +1317,8 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_cfYi': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_chbi': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_ckbM': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_dense'.
-Command       create_rtl_model done; 0.114 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.389 seconds; current allocated memory: 780.003 MB.
+Command       create_rtl_model done; 0.164 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.318 seconds; current allocated memory: 780.229 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_dense -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_dense -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_dense -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_dense 
@@ -1283,7 +1327,7 @@ Execute       gen_tb_info k2c_dense -o C:/Users/ketan/Desktop/college/CS-577-Cou
 Execute       report -model k2c_dense -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dense_csynth.rpt -f 
 Execute       report -model k2c_dense -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dense_csynth.xml -f -x 
 Execute       report -model k2c_dense -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense.verbose.rpt -verbose -f 
-Command       report done; 0.12 sec.
+Command       report done; 0.125 sec.
 Execute       db_write -model k2c_dense -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense.adb -f 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'k2c_batch_norm' 
@@ -1298,8 +1342,8 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_cfYi': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_clbW': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cmb6': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_batch_norm'.
-Command       create_rtl_model done; 0.116 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.619 seconds; current allocated memory: 780.664 MB.
+Command       create_rtl_model done; 0.118 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.61 seconds; current allocated memory: 780.890 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_batch_norm -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_batch_norm -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_batch_norm -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_batch_norm 
@@ -1321,8 +1365,8 @@ INFO: [SYN 201-210] Renamed object name 'exp_generic_double_s_table_f_Z2_array_V
 INFO: [SYN 201-210] Renamed object name 'face_classifier_c_mac_muladd_16ns_16s_19s_31_1_1' to 'face_classifier_cqcK' due to the length limit 20
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cqcK': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'exp_generic_double_s'.
-Command       create_rtl_model done; 0.103 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.417 seconds; current allocated memory: 782.019 MB.
+Command       create_rtl_model done; 0.116 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.435 seconds; current allocated memory: 782.209 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl exp_generic<double> -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/exp_generic_double_s -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl exp_generic<double> -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/exp_generic_double_s 
@@ -1331,9 +1375,9 @@ Execute       gen_tb_info exp_generic<double> -o C:/Users/ketan/Desktop/college/
 Execute       report -model exp_generic<double> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/exp_generic_double_s_csynth.rpt -f 
 Execute       report -model exp_generic<double> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/exp_generic_double_s_csynth.xml -f -x 
 Execute       report -model exp_generic<double> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/exp_generic_double_s.verbose.rpt -verbose -f 
-Command       report done; 0.128 sec.
+Command       report done; 0.13 sec.
 Execute       db_write -model exp_generic<double> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/exp_generic_double_s.adb -f 
-Command       db_write done; 0.104 sec.
+Command       db_write done; 0.11 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'generic_tanh_float_s' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1353,8 +1397,8 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_ctde': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cudo': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cvdy': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'generic_tanh_float_s'.
-Command       create_rtl_model done; 0.186 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.71 seconds; current allocated memory: 783.157 MB.
+Command       create_rtl_model done; 0.204 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.731 seconds; current allocated memory: 783.347 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl generic_tanh<float> -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/generic_tanh_float_s -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl generic_tanh<float> -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/generic_tanh_float_s 
@@ -1363,8 +1407,9 @@ Execute       gen_tb_info generic_tanh<float> -o C:/Users/ketan/Desktop/college/
 Execute       report -model generic_tanh<float> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/generic_tanh_float_s_csynth.rpt -f 
 Execute       report -model generic_tanh<float> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/generic_tanh_float_s_csynth.xml -f -x 
 Execute       report -model generic_tanh<float> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/generic_tanh_float_s.verbose.rpt -verbose -f 
-Command       report done; 0.13 sec.
+Command       report done; 0.139 sec.
 Execute       db_write -model generic_tanh<float> -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/generic_tanh_float_s.adb -f 
+Command       db_write done; 0.112 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'k2c_dot2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1379,8 +1424,8 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_cfYi': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cxdS': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cyd2': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_dot2'.
-Command       create_rtl_model done; 0.233 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.715 seconds; current allocated memory: 785.204 MB.
+Command       create_rtl_model done; 0.303 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.851 seconds; current allocated memory: 785.430 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_dot2 -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_dot2 -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_dot2 -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_dot2 
@@ -1391,9 +1436,9 @@ WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to
 Execute       report -model k2c_dot2 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dot2_csynth.xml -f -x 
 Execute       report -model k2c_dot2 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2.verbose.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.188 sec.
+Command       report done; 0.18 sec.
 Execute       db_write -model k2c_dot2 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2.adb -f 
-Command       db_write done; 0.142 sec.
+Command       db_write done; 0.158 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'k2c_dense2_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1406,7 +1451,8 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_cAem': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_ceOg': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cfYi': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_dense2_1'.
-INFO: [HLS 200-111]  Elapsed time: 1.075 seconds; current allocated memory: 786.224 MB.
+Command       create_rtl_model done; 0.124 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.122 seconds; current allocated memory: 786.535 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_dense2.1 -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_dense2_1 -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_dense2.1 -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_dense2_1 
@@ -1415,7 +1461,7 @@ Execute       gen_tb_info k2c_dense2.1 -o C:/Users/ketan/Desktop/college/CS-577-
 Execute       report -model k2c_dense2.1 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dense2_1_csynth.rpt -f 
 Execute       report -model k2c_dense2.1 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dense2_1_csynth.xml -f -x 
 Execute       report -model k2c_dense2.1 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2_1.verbose.rpt -verbose -f 
-Command       report done; 0.108 sec.
+Command       report done; 0.131 sec.
 Execute       db_write -model k2c_dense2.1 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2_1.adb -f 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'k2c_dot2_1' 
@@ -1432,8 +1478,8 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_cfYi': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cg8j': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cxdS': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_dot2_1'.
-Command       create_rtl_model done; 0.275 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.748 seconds; current allocated memory: 788.889 MB.
+Command       create_rtl_model done; 0.31 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.874 seconds; current allocated memory: 789.274 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_dot2.1 -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_dot2_1 -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_dot2.1 -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_dot2_1 
@@ -1444,9 +1490,9 @@ WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to
 Execute       report -model k2c_dot2.1 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dot2_1_csynth.xml -f -x 
 Execute       report -model k2c_dot2.1 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2_1.verbose.rpt -verbose -f 
 WARNING: [HLS 200-433] Loop - Loop 4 has an initiation interval that is equal to the pipeline depth (1) - this results in an unpipelined loop.
-Command       report done; 0.197 sec.
+Command       report done; 0.198 sec.
 Execute       db_write -model k2c_dot2.1 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2_1.adb -f 
-Command       db_write done; 0.164 sec.
+Command       db_write done; 0.197 sec.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'k2c_dense2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1454,12 +1500,13 @@ Execute       get_config_rtl -prefix
 Execute       get_config_rtl -auto_prefix 
 Execute       create_rtl_model k2c_dense2 -vendor xilinx -mg_file C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.compgen.tcl 
 INFO: [SYN 201-210] Renamed object name 'face_classifier_c_mul_mul_13s_13s_13_1_1' to 'face_classifier_cDeQ' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'face_classifier_cBew': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'face_classifier_cDeQ': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'face_classifier_cBew': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'face_classifier_cDeQ': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_ceOg': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cfYi': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'k2c_dense2'.
-INFO: [HLS 200-111]  Elapsed time: 1.014 seconds; current allocated memory: 789.902 MB.
+Command       create_rtl_model done; 0.134 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.158 seconds; current allocated memory: 790.363 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl k2c_dense2 -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/k2c_dense2 -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl k2c_dense2 -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/k2c_dense2 
@@ -1468,7 +1515,7 @@ Execute       gen_tb_info k2c_dense2 -o C:/Users/ketan/Desktop/college/CS-577-Co
 Execute       report -model k2c_dense2 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dense2_csynth.rpt -f 
 Execute       report -model k2c_dense2 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/k2c_dense2_csynth.xml -f -x 
 Execute       report -model k2c_dense2 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.verbose.rpt -verbose -f 
-Command       report done; 0.12 sec.
+Command       report done; 0.121 sec.
 Execute       db_write -model k2c_dense2 -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.adb -f 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'face_classifier_c' 
@@ -1565,8 +1612,8 @@ INFO: [RTGEN 206-100] Generating core module 'face_classifier_cmb6': 1 instance(
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_crcU': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'face_classifier_cudo': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'face_classifier_c'.
-Command       create_rtl_model done; 2.149 sec.
-INFO: [HLS 200-111]  Elapsed time: 2.648 seconds; current allocated memory: 818.591 MB.
+Command       create_rtl_model done; 2.387 sec.
+INFO: [HLS 200-111]  Elapsed time: 2.926 seconds; current allocated memory: 819.108 MB.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute       gen_rtl face_classifier_c -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/systemc/face_classifier_c -synmodules k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c 
 Execute       gen_rtl face_classifier_c -istop -style xilinx -f -lang vhdl -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/vhdl/face_classifier_c 
@@ -1574,16 +1621,16 @@ Command       gen_rtl done; 0.104 sec.
 Execute       gen_rtl face_classifier_c -istop -style xilinx -f -lang vlog -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/verilog/face_classifier_c 
 Execute       export_constraint_db -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.constraint.tcl -f -tool general 
 Execute       report -model face_classifier_c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.design.xml -verbose -f -dv 
-Command       report done; 0.391 sec.
+Command       report done; 0.385 sec.
 Execute       report -model face_classifier_c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.sdaccel.xml -verbose -f -sdaccel 
-Command       report done; 0.186 sec.
+Command       report done; 0.175 sec.
 Execute       gen_tb_info face_classifier_c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c -p C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db 
 Execute       report -model face_classifier_c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/face_classifier_c_csynth.rpt -f 
 Execute       report -model face_classifier_c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/syn/report/face_classifier_c_csynth.xml -f -x 
 Execute       report -model face_classifier_c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.verbose.rpt -verbose -f 
-Command       report done; 0.763 sec.
+Command       report done; 0.809 sec.
 Execute       db_write -model face_classifier_c -o C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.adb -f 
-Command       db_write done; 0.273 sec.
+Command       db_write done; 0.299 sec.
 Execute       sc_get_clocks face_classifier_c 
 Execute       sc_get_portdomain face_classifier_c 
 INFO-FLOW: Model list for RTL component generation: k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic<double> generic_tanh<float> k2c_dot2 k2c_dense2.1 k2c_dot2.1 k2c_dense2 face_classifier_c
@@ -1695,8 +1742,6 @@ INFO-FLOW: Found component face_classifier_cOgC.
 INFO-FLOW: Append model face_classifier_cOgC
 INFO-FLOW: Found component face_classifier_cXh4.
 INFO-FLOW: Append model face_classifier_cXh4
-INFO-FLOW: Found component face_classifier_c0iy.
-INFO-FLOW: Append model face_classifier_c0iy
 INFO-FLOW: Found component face_classifier_c2iS.
 INFO-FLOW: Append model face_classifier_c2iS
 INFO-FLOW: Found component face_classifier_c4jc.
@@ -1721,7 +1766,7 @@ INFO-FLOW: Append model k2c_dot2_1
 INFO-FLOW: Append model k2c_dense2
 INFO-FLOW: Append model face_classifier_c
 INFO-FLOW: Generating RTL model list ...
-INFO-FLOW: All models in this session: face_classifier_cbkb face_classifier_ccud face_classifier_ceOg face_classifier_cfYi face_classifier_cg8j face_classifier_chbi face_classifier_cibs k2c_dot_dense_kerdEe k2c_dot_permA k2c_dot_permB face_classifier_ckbM k2c_dense_dense_bjbC face_classifier_clbW face_classifier_cmb6 face_classifier_cqcK exp_generic_doublncg exp_generic_doublocq exp_generic_doublpcA face_classifier_crcU face_classifier_csc4 face_classifier_ctde face_classifier_cudo face_classifier_cvdy face_classifier_cxdS face_classifier_cyd2 k2c_dot2_dense_1_wdI face_classifier_cAem k2c_dense2_1_denszec face_classifier_cBew face_classifier_cCeG face_classifier_cDeQ face_classifier_c8jQ face_classifier_cEe0 face_classifier_cFfa face_classifier_cHfu face_classifier_cIfE face_classifier_cJfO face_classifier_cKfY face_classifier_cLf8 face_classifier_cOgC face_classifier_cXh4 face_classifier_c0iy face_classifier_c2iS face_classifier_c4jc face_classifier_c5jm face_classifier_c6jw face_classifier_c7jG k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic_double_s generic_tanh_float_s k2c_dot2 k2c_dense2_1 k2c_dot2_1 k2c_dense2 face_classifier_c
+INFO-FLOW: All models in this session: face_classifier_cbkb face_classifier_ccud face_classifier_ceOg face_classifier_cfYi face_classifier_cg8j face_classifier_chbi face_classifier_cibs k2c_dot_dense_kerdEe k2c_dot_permA k2c_dot_permB face_classifier_ckbM k2c_dense_dense_bjbC face_classifier_clbW face_classifier_cmb6 face_classifier_cqcK exp_generic_doublncg exp_generic_doublocq exp_generic_doublpcA face_classifier_crcU face_classifier_csc4 face_classifier_ctde face_classifier_cudo face_classifier_cvdy face_classifier_cxdS face_classifier_cyd2 k2c_dot2_dense_1_wdI face_classifier_cAem k2c_dense2_1_denszec face_classifier_cBew face_classifier_cCeG face_classifier_cDeQ face_classifier_c8jQ face_classifier_cEe0 face_classifier_cFfa face_classifier_cHfu face_classifier_cIfE face_classifier_cJfO face_classifier_cKfY face_classifier_cLf8 face_classifier_cOgC face_classifier_cXh4 face_classifier_c2iS face_classifier_c4jc face_classifier_c5jm face_classifier_c6jw face_classifier_c7jG k2c_idx2sub k2c_sub2idx k2c_dot k2c_bias_add k2c_dense k2c_batch_norm exp_generic_double_s generic_tanh_float_s k2c_dot2 k2c_dense2_1 k2c_dot2_1 k2c_dense2 face_classifier_c
 INFO-FLOW: To file: write model face_classifier_cbkb
 INFO-FLOW: To file: write model face_classifier_ccud
 INFO-FLOW: To file: write model face_classifier_ceOg
@@ -1763,7 +1808,6 @@ INFO-FLOW: To file: write model face_classifier_cKfY
 INFO-FLOW: To file: write model face_classifier_cLf8
 INFO-FLOW: To file: write model face_classifier_cOgC
 INFO-FLOW: To file: write model face_classifier_cXh4
-INFO-FLOW: To file: write model face_classifier_c0iy
 INFO-FLOW: To file: write model face_classifier_c2iS
 INFO-FLOW: To file: write model face_classifier_c4jc
 INFO-FLOW: To file: write model face_classifier_c5jm
@@ -1810,11 +1854,12 @@ Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/inte
 Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
 Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
 Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.107 sec.
 Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
-Command           ap_source done; 0.174 sec.
+Command           ap_source done; 0.182 sec.
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source done; 0.18 sec.
-Command       ap_source done; 0.181 sec.
+Command         ap_source done; 0.19 sec.
+Command       ap_source done; 0.19 sec.
 Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7.gen 
 Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
@@ -1823,32 +1868,34 @@ Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSy
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_idx2sub.compgen.tcl 
 INFO: [RTMG 210-282] Generating pipelined core: 'face_classifier_cbkb_div'
 INFO: [RTMG 210-282] Generating pipelined core: 'face_classifier_ccud_div'
-Command       ap_source done; 0.172 sec.
+Command       ap_source done; 0.116 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_sub2idx.compgen.tcl 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot.compgen.tcl 
 INFO: [RTMG 210-282] Generating pipelined core: 'face_classifier_cg8j_div'
 INFO: [RTMG 210-279] Implementing memory 'k2c_dot_dense_kerdEe_rom' using distributed ROMs.
 INFO: [RTMG 210-278] Implementing memory 'k2c_dot_permA_ram (RAM)' using distributed RAMs.
 INFO: [RTMG 210-278] Implementing memory 'k2c_dot_permB_ram (RAM)' using distributed RAMs.
-Command       ap_source done; 0.323 sec.
+Command       ap_source done; 0.322 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_bias_add.compgen.tcl 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense.compgen.tcl 
 INFO: [RTMG 210-279] Implementing memory 'k2c_dense_dense_bjbC_rom' using auto ROMs.
-Command       ap_source done; 0.131 sec.
+Command       ap_source done; 0.147 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_batch_norm.compgen.tcl 
+Command       ap_source done; 0.106 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/exp_generic_double_s.compgen.tcl 
 INFO: [RTMG 210-279] Implementing memory 'exp_generic_doublncg_rom' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'exp_generic_doublocq_rom' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'exp_generic_doublpcA_rom' using auto ROMs.
-Command       ap_source done; 0.188 sec.
+Command       ap_source done; 0.165 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/generic_tanh_float_s.compgen.tcl 
-Command       ap_source done; 0.216 sec.
+Command       ap_source done; 0.242 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2.compgen.tcl 
 INFO: [RTMG 210-282] Generating pipelined core: 'face_classifier_cxdS_div'
 INFO: [RTMG 210-279] Implementing memory 'k2c_dot2_dense_1_wdI_rom' using distributed ROMs.
+Command       ap_source done; 0.11 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2_1.compgen.tcl 
 INFO: [RTMG 210-279] Implementing memory 'k2c_dense2_1_denszec_rom' using auto ROMs.
-Command       ap_source done; 0.187 sec.
+Command       ap_source done; 0.153 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dot2_1.compgen.tcl 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_dense2.compgen.tcl 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.compgen.tcl 
@@ -1865,13 +1912,12 @@ INFO: [RTMG 210-279] Implementing memory 'face_classifier_cKfY_rom' using block 
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_cLf8_ram (RAM)' using block RAMs with power-on initialization.
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_cOgC_ram (RAM)' using block RAMs with power-on initialization.
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_cXh4_ram (RAM)' using block RAMs with power-on initialization.
-INFO: [RTMG 210-278] Implementing memory 'face_classifier_c0iy_ram (RAM)' using block RAMs with power-on initialization.
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_c2iS_ram (RAM)' using distributed RAMs with power-on initialization.
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_c4jc_ram (RAM)' using block RAMs.
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_c5jm_ram (RAM)' using block RAMs.
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_c6jw_ram (RAM)' using block RAMs.
 INFO: [RTMG 210-278] Implementing memory 'face_classifier_c7jG_ram (RAM)' using block RAMs.
-Command       ap_source done; 15.593 sec.
+Command       ap_source done; 15.639 sec.
 Execute       get_config_sdx -target 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
 Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
@@ -1895,7 +1941,10 @@ Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/d
 Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
 Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
 Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.101 sec.
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.103 sec.
+Command       ap_source done; 0.103 sec.
 Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7.gen 
 Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
@@ -1935,7 +1984,7 @@ Execute         source C:/Users/ketan/Desktop/college/CS-577-Course-Project/Test
 Execute         source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
 Execute         source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
 Execute         source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
-Command       ap_source done; 0.112 sec.
+Command       ap_source done; 0.115 sec.
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_idx2sub.compgen.tcl 
 Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/k2c_sub2idx.compgen.tcl 
@@ -1979,15 +2028,15 @@ Execute       source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSy
 Execute       get_config_sdx -target 
 Execute       get_config_sdx -profile 
 Execute       ::config_rtl 
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:53 ; elapsed = 00:02:19 . Memory (MB): peak = 1167.254 ; gain = 1111.203
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:52 ; elapsed = 00:02:24 . Memory (MB): peak = 1164.516 ; gain = 1108.504
 INFO: [SYSC 207-301] Generating SystemC RTL for face_classifier_c.
 INFO: [VHDL 208-304] Generating VHDL RTL for face_classifier_c.
 INFO: [VLOG 209-307] Generating Verilog RTL for face_classifier_c.
-Command     autosyn done; 57.445 sec.
-Command   csynth_design done; 137.745 sec.
-Command ap_source done; 138.197 sec.
+Command     autosyn done; 56.422 sec.
+Command   csynth_design done; 142.555 sec.
+Command ap_source done; 142.998 sec.
 Execute cleanup_all 
-INFO-FLOW: Workspace C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1 opened at Sun Apr 21 15:06:13 +0530 2024
+INFO-FLOW: Workspace C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1 opened at Sun Apr 21 15:49:44 +0530 2024
 Execute     config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 Execute     open_platform DefaultPlatform 
@@ -2036,10 +2085,10 @@ Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
 Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
-Command         ap_source done; 0.105 sec.
+Command         ap_source done; 0.107 sec.
 Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
-Command       ap_source done; 0.107 sec.
-Command     ap_source done; 0.108 sec.
+Command       ap_source done; 0.11 sec.
+Command     ap_source done; 0.11 sec.
 Execute     set_part xcvu190-flgb2104-1-i 
 Execute       add_library xilinx/virtexu/virtexu:xcvu190:-flgb2104:-1-i 
 Execute         get_default_platform 
@@ -2069,7 +2118,7 @@ Execute       get_default_platform
 Execute     get_default_platform 
 Execute     config_chip_info -quiet -resource  {SLICE 134280} {LUT 1074240}   {FF 2148480}  {DSP48E 1800}  {BRAM 7560} {SLR 3}  
 Execute     config_chip_info -quiet -speed slow 
-Command   open_solution done; 0.239 sec.
+Command   open_solution done; 0.245 sec.
 Execute   cosim_design -ldflags -Wl,--stack,16777216 
 Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
 Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
@@ -2161,7 +2210,440 @@ Execute     get_default_platform
 Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
 Execute     source .run_sim.tcl 
 INFO: [COSIM 212-302] Starting C TB testing ... 
-Command     ap_source done; 1.065 sec.
+Command     ap_source done; 0.912 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute     get_default_platform 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+INFO: [COSIM 212-12] Generating RTL test bench ...
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+INFO-FLOW: Workspace C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1 opened at Sun Apr 21 16:18:48 +0530 2024
+Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/dsp48e2.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 55714}  {LUT 445712}    {FF 891424}   {DSP48E 672}   {BRAM 2842}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.139 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.215 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.223 sec.
+Command     ap_source done; 0.223 sec.
+Execute     set_part xcvu190-flgb2104-1-i 
+Execute       add_library xilinx/virtexu/virtexu:xcvu190:-flgb2104:-1-i 
+Execute         get_default_platform 
+Execute         license_isbetapart xcvu190 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 134280} {LUT 1074240}   {FF 2148480}  {DSP48E 1800}  {BRAM 7560} {SLR 3}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/virtexu/virtexu_fpv7 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_hp.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-10] Setting target device to 'xcvu190-flgb2104-1-i'
+Execute       get_default_platform 
+Command     set_part done; 0.125 sec.
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 134280} {LUT 1074240}   {FF 2148480}  {DSP48E 1800}  {BRAM 7560} {SLR 3}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 0.453 sec.
+Execute   cosim_design -ldflags -Wl,--stack,16777216 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.102 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.17 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.175 sec.
+Command     ap_source done; 0.176 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c_test_suite.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_tensor_include.h 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_activations.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.h 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c_test_suite.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c.tb.c.line ./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_helper_functions.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_helper_functions.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_helper_functions.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_helper_functions.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_helper_functions.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_core_layers.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_core_layers.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_core_layers.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_core_layers.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_core_layers.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_activations.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_activations.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_activations.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_activations.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_activations.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_activations.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/face_classifier_c.c_pre.c.tb.c.line ./sim/autowrap/testbench/face_classifier_c.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/tb.status.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     get_default_platform 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command     ap_source done; 1.527 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute     get_default_platform 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+INFO: [COSIM 212-12] Generating RTL test bench ...
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+INFO-FLOW: Workspace C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1 opened at Sun Apr 21 18:06:59 +0530 2024
+Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/dsp48e2.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 55714}  {LUT 445712}    {FF 891424}   {DSP48E 672}   {BRAM 2842}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.121 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.124 sec.
+Command     ap_source done; 0.125 sec.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_hp.hlp 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     set_part xcvu190-flgb2104-1-i 
+Execute       add_library xilinx/virtexu/virtexu:xcvu190:-flgb2104:-1-i 
+Execute         get_default_platform 
+Execute         license_isbetapart xcvu190 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 134280} {LUT 1074240}   {FF 2148480}  {DSP48E 1800}  {BRAM 7560} {SLR 3}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/virtexu/virtexu_fpv7 
+Execute         get_default_platform 
+INFO: [HLS 200-10] Setting target device to 'xcvu190-flgb2104-1-i'
+Execute       get_default_platform 
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 134280} {LUT 1074240}   {FF 2148480}  {DSP48E 1800}  {BRAM 7560} {SLR 3}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 0.259 sec.
+Execute   cosim_design -ldflags -Wl,--stack,16777216 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.101 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.103 sec.
+Command     ap_source done; 0.103 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/virtexu/virtexu_fpv7.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c_test_suite.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_tensor_include.h 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_activations.c 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.h 
+Execute     is_encrypted C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c_test_suite.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c.tb.c.line ./sim/autowrap/testbench/face_classifier_c_test_suite.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_normalization_layers.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_normalization_layers.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_helper_functions.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_helper_functions.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_helper_functions.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_helper_functions.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_helper_functions.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_helper_functions.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_core_layers.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_core_layers.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_core_layers.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_core_layers.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_core_layers.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_activations.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_activations.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_activations.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/k2c_activations.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/k2c_activations.c_pre.c.tb.c.line ./sim/autowrap/testbench/k2c_activations.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/face_classifier_c.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c.c_pre.c C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/face_classifier_c.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/face_classifier_c.c_pre.c.tb.c.line ./sim/autowrap/testbench/face_classifier_c.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/./sim/autowrap/testbench/tb.status.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.tbgen.tcl 
+Execute     get_default_platform 
+Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
+Execute     source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command     ap_source done; 0.628 sec.
 INFO: [COSIM 212-333] Generating C post check test bench ...
 Execute     get_default_platform 
 Execute     source C:/Users/ketan/Desktop/college/CS-577-Course-Project/TestSynth/FaceClassifier/solution1/.autopilot/db/face_classifier_c.rtl_wrap.cfg.tcl 
@@ -2205,9 +2687,9 @@ Execute       source .sim.status.tcl
 INFO: [COSIM 212-323] Starting verilog simulation. 
 INFO: [COSIM 212-15] Starting XSIM ...
 INFO: [COSIM 212-316] Starting C post checking ...
-Command     ap_source done; 1271.46 sec.
+Command     ap_source done; 1156.6 sec.
 INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
 INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
-Command   cosim_design done; 1349.64 sec.
-Command ap_source done; 1349.89 sec.
+Command   cosim_design done; 1218.89 sec.
+Command ap_source done; 1219.17 sec.
 Execute cleanup_all 

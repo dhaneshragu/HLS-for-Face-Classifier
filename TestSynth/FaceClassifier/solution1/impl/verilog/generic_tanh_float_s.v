@@ -148,7 +148,7 @@ wire    grp_exp_generic_double_s_fu_89_ap_ready;
 reg   [31:0] expx_reg_58;
 wire    ap_CS_fsm_state6;
 wire   [0:0] tmp_i_fu_271_p2;
-wire   [0:0] tmp_i_68_fu_277_p2;
+wire   [0:0] tmp_i_66_fu_277_p2;
 reg   [31:0] ap_phi_mux_resultf_4_phi_fu_76_p10;
 reg   [31:0] resultf_4_reg_72;
 wire    ap_CS_fsm_state61;
@@ -330,7 +330,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state6) & (tmp_i_68_fu_277_p2 == 1'd1) & (tmp_i_fu_271_p2 == 1'd0))) begin
+    if (((1'b1 == ap_CS_fsm_state6) & (tmp_i_66_fu_277_p2 == 1'd1) & (tmp_i_fu_271_p2 == 1'd0))) begin
         expx_reg_58 <= x_2_reg_367;
     end else if (((1'b1 == ap_CS_fsm_state6) & (tmp_i_fu_271_p2 == 1'd1))) begin
         expx_reg_58 <= 32'd0;
@@ -554,7 +554,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state6;
         end
         ap_ST_fsm_state6 : begin
-            if (((1'b1 == ap_CS_fsm_state6) & (tmp_i_68_fu_277_p2 == 1'd0) & (tmp_i_fu_271_p2 == 1'd0))) begin
+            if (((1'b1 == ap_CS_fsm_state6) & (tmp_i_66_fu_277_p2 == 1'd0) & (tmp_i_fu_271_p2 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state7;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state23;
@@ -835,7 +835,7 @@ assign tmp_66_fu_293_p1 = tmp_139_neg_fu_287_p2;
 
 assign tmp_fu_185_p1 = p_Val2_s_fu_157_p1[30:0];
 
-assign tmp_i_68_fu_277_p2 = ((loc_V_2_fu_261_p4 < 8'd96) ? 1'b1 : 1'b0);
+assign tmp_i_66_fu_277_p2 = ((loc_V_2_fu_261_p4 < 8'd96) ? 1'b1 : 1'b0);
 
 assign tmp_i_fu_271_p2 = ((loc_V_2_fu_261_p4 == 8'd0) ? 1'b1 : 1'b0);
 

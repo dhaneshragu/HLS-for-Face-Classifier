@@ -155,7 +155,7 @@ reg   [0:0] exitcond_reg_185_pp0_iter19_reg;
 reg   [0:0] exitcond_reg_185_pp0_iter20_reg;
 reg   [0:0] exitcond_reg_185_pp0_iter21_reg;
 reg   [0:0] exitcond_reg_185_pp0_iter22_reg;
-wire   [11:0] i_37_fu_166_p2;
+wire   [11:0] i_35_fu_166_p2;
 reg    ap_enable_reg_pp0_iter0;
 reg   [31:0] inputs_array_load_reg_204;
 reg   [31:0] mean_array_load_reg_209;
@@ -548,7 +548,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_enable_reg_pp0_iter0 == 1'b1) & (exitcond_fu_161_p2 == 1'd0))) begin
-        i_reg_128 <= i_37_fu_166_p2;
+        i_reg_128 <= i_35_fu_166_p2;
     end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
         i_reg_128 <= 12'd0;
     end
@@ -835,7 +835,7 @@ assign exitcond_fu_161_p2 = ((i_cast_fu_155_p1 == inputs_numel_read) ? 1'b1 : 1'
 
 assign gamma_array_address0 = i_cast_reg_177_pp0_iter13_reg;
 
-assign i_37_fu_166_p2 = (i_reg_128 + 12'd1);
+assign i_35_fu_166_p2 = (i_reg_128 + 12'd1);
 
 assign i_cast_fu_155_p1 = i_reg_128;
 

@@ -588,8 +588,7 @@ __extension__ long long __cdecl llrintl (long double);
    extern long double __cdecl _chgsignl (long double);
 #898 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 3
 #pragma pack(pop)
-#9 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
-
+#10 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
 #1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 1 3
 
 
@@ -948,8 +947,7 @@ __extension__ long long __cdecl llrintl (long double);
 
 #1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw_print_pop.h" 1 3
 #511 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
-#10 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
-
+#11 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
 #1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
 
 
@@ -1114,8 +1112,7 @@ __extension__ long long __cdecl llrintl (long double);
 #1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
 #9 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 2 3
 #175 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3
-#11 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
-
+#12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
 #1 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h" 1
 #11 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_include.h"
 #1 "C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdlib.h" 1 3
@@ -1735,7 +1732,7 @@ void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b);
 void k2c_batch_norm(k2c_tensor2* outputs, const k2c_tensor2* inputs, const k2c_tensor2* mean,
                     const k2c_tensor2* stdev, const k2c_tensor2* gamma, const k2c_tensor2* beta,
                     const size_t axis);
-#12 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
+#13 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c" 2
 #24 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_dense(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor* kernel,
                const k2c_tensor2* bias, float * fwork) {
@@ -1811,6 +1808,7 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
 #pragma HLS LOOP_TRIPCOUNT
  output->array[outrowidx+j] = bias->array[j];
             for (size_t k = 0; k < innerdim; ++k) {
+#pragma HLS PIPELINE
 #pragma HLS LOOP_TRIPCOUNT
  output->array[outrowidx+j] += input->array[inneridx+k] * kernel->array[k*outcols+j];
             }
@@ -1829,7 +1827,7 @@ void k2c_dense2(k2c_tensor2* output, const k2c_tensor2* input, const k2c_tensor2
         k2c_linear_func(output->array, output->numel);
     }
 }
-#126 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#127 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
 
     memcpy(output->array, input->array, input->numel*sizeof(input->array[0]));
@@ -1840,7 +1838,7 @@ void k2c_flatten(k2c_tensor *output, const k2c_tensor* input) {
     output->numel = input->numel;
     output->ndim = 1;
 }
-#146 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#147 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * newshp,
                  const size_t newndim) {
 
@@ -1851,7 +1849,7 @@ void k2c_reshape(k2c_tensor *output, const k2c_tensor* input, const size_t * new
     output->ndim = newndim;
     output->numel = input->numel;
 }
-#166 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#167 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
                       const size_t * permute) {
 
@@ -1878,7 +1876,7 @@ void k2c_permute_dims(k2c_tensor* output, const k2c_tensor* input,
         output->array[bidx] = input->array[i];
     }
 }
-#202 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
+#203 "C:/Users/ketan/Desktop/college/CS-577-Course-Project/C-Code-Original/include/k2c_core_layers.c"
 void k2c_repeat_vector(k2c_tensor* output, const k2c_tensor* input, const size_t n) {
 
     const size_t in_width = input->shape[0];

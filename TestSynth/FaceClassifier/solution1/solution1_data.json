@@ -47,7 +47,6 @@
       "impl\/vhdl\/exp_generic_doublncg.vhd",
       "impl\/vhdl\/exp_generic_doublocq.vhd",
       "impl\/vhdl\/exp_generic_doublpcA.vhd",
-      "impl\/vhdl\/face_classifier_c0iy.vhd",
       "impl\/vhdl\/face_classifier_c2iS.vhd",
       "impl\/vhdl\/face_classifier_c4jc.vhd",
       "impl\/vhdl\/face_classifier_c5jm.vhd",
@@ -112,8 +111,6 @@
       "impl\/verilog\/exp_generic_doublocq_rom.dat",
       "impl\/verilog\/exp_generic_doublpcA.v",
       "impl\/verilog\/exp_generic_doublpcA_rom.dat",
-      "impl\/verilog\/face_classifier_c0iy.v",
-      "impl\/verilog\/face_classifier_c0iy_ram.dat",
       "impl\/verilog\/face_classifier_c2iS.v",
       "impl\/verilog\/face_classifier_c2iS_ram.dat",
       "impl\/verilog\/face_classifier_c4jc.v",
@@ -606,7 +603,7 @@
           "Instances": [
             {
               "ModuleName": "k2c_dot2_1",
-              "InstanceName": "grp_k2c_dot2_1_fu_237",
+              "InstanceName": "grp_k2c_dot2_1_fu_247",
               "Instances": [
                 {
                   "ModuleName": "k2c_idx2sub",
@@ -620,7 +617,7 @@
             },
             {
               "ModuleName": "k2c_bias_add",
-              "InstanceName": "grp_k2c_bias_add_fu_261"
+              "InstanceName": "grp_k2c_bias_add_fu_271"
             }
           ]
         },
@@ -654,7 +651,7 @@
           "Instances": [
             {
               "ModuleName": "k2c_dot2",
-              "InstanceName": "grp_k2c_dot2_fu_221",
+              "InstanceName": "grp_k2c_dot2_fu_240",
               "Instances": [
                 {
                   "ModuleName": "k2c_idx2sub",
@@ -668,7 +665,7 @@
             },
             {
               "ModuleName": "k2c_bias_add",
-              "InstanceName": "grp_k2c_bias_add_fu_241"
+              "InstanceName": "grp_k2c_bias_add_fu_260"
             }
           ]
         },
@@ -1227,27 +1224,20 @@
             "TripCount": "0",
             "Latency": "0",
             "PipelineII": "",
-            "PipelineDepth": "9032",
+            "PipelineDepth": "409",
             "Loops": [{
                 "Name": "Loop 1.1",
-                "TripCount": "10",
-                "Latency": "9030",
-                "PipelineII": "",
-                "PipelineDepth": "903",
-                "Loops": [{
-                    "Name": "Loop 1.1.1",
-                    "TripCount": "100",
-                    "Latency": "900",
-                    "PipelineII": "",
-                    "PipelineDepth": "9"
-                  }]
+                "TripCount": "100",
+                "Latency": "405",
+                "PipelineII": "4",
+                "PipelineDepth": "10"
               }]
           }],
         "Area": {
           "BRAM_18K": "7",
-          "DSP48E": "34",
-          "FF": "22694",
-          "LUT": "18763"
+          "DSP48E": "44",
+          "FF": "22983",
+          "LUT": "19029"
         }
       },
       "k2c_dot2_1": {
@@ -1419,27 +1409,20 @@
             "TripCount": "0",
             "Latency": "0",
             "PipelineII": "",
-            "PipelineDepth": "2",
+            "PipelineDepth": "4",
             "Loops": [{
                 "Name": "Loop 1.1",
                 "TripCount": "0",
                 "Latency": "0",
-                "PipelineII": "",
-                "PipelineDepth": "3",
-                "Loops": [{
-                    "Name": "Loop 1.1.1",
-                    "TripCount": "0",
-                    "Latency": "0",
-                    "PipelineII": "",
-                    "PipelineDepth": "10"
-                  }]
+                "PipelineII": "4",
+                "PipelineDepth": "10"
               }]
           }],
         "Area": {
           "BRAM_18K": "0",
-          "DSP48E": "37",
-          "FF": "24679",
-          "LUT": "20025"
+          "DSP48E": "47",
+          "FF": "25112",
+          "LUT": "20387"
         }
       },
       "face_classifier_c": {
@@ -1561,9 +1544,9 @@
         ],
         "Area": {
           "BRAM_18K": "1584",
-          "DSP48E": "182",
-          "FF": "78583",
-          "LUT": "73076"
+          "DSP48E": "202",
+          "FF": "79305",
+          "LUT": "73683"
         }
       }
     }
@@ -1575,7 +1558,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2024-04-21 15:06:00 +0530",
+    "Time": "2024-04-21 15:46:12 +0530",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

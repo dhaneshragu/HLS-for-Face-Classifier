@@ -5,15 +5,15 @@
 ############################################################
 open_project FaceClassifier
 set_top face_classifier_c
-add_files ../C-Code-Original/face_classifier_c.c -cflags "-Wuninitialized -Wall"
-add_files ../C-Code-Original/face_classifier_c.h -cflags "-Wuninitialized -Wall"
-add_files ../C-Code-Original/include/k2c_activations.c -cflags "-Wuninitialized -Wall"
-add_files ../C-Code-Original/include/k2c_core_layers.c
-add_files ../C-Code-Original/include/k2c_helper_functions.c -cflags "-Wuninitialized -Wall"
-add_files ../C-Code-Original/include/k2c_include.h
-add_files ../C-Code-Original/include/k2c_normalization_layers.c
 add_files ../C-Code-Original/include/k2c_tensor_include.h -cflags "-Wuninitialized -Wall"
-add_files -tb ../C-Code-Original/face_classifier_c_test_suite.c -cflags "-Wno-unknown-pragmas"
+add_files ../C-Code-Original/include/k2c_normalization_layers.c
+add_files ../C-Code-Original/include/k2c_include.h
+add_files ../C-Code-Original/include/k2c_helper_functions.c -cflags "-Wuninitialized -Wall"
+add_files ../C-Code-Original/include/k2c_core_layers.c
+add_files ../C-Code-Original/include/k2c_activations.c -cflags "-Wuninitialized -Wall"
+add_files ../C-Code-Original/face_classifier_c.h -cflags "-Wuninitialized -Wall"
+add_files ../C-Code-Original/face_classifier_c.c -cflags "-Wuninitialized -Wall"
+add_files -tb ../C-Code-Original/face_classifier_c_test_suite.c -cflags "-Wno-unknown-pragmas -Wno-unknown-pragmas"
 open_solution "solution1"
 set_part {xcvu190-flgb2104-1-i}
 create_clock -period 10 -name default
