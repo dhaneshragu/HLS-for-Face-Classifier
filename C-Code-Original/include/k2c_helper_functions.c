@@ -842,7 +842,7 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
  * :param b: bias tensor.
  */
 void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b) {
-#pragma HLS ARRAY_PARTITION variable=A->array cyclic factor=5 dim=1
+//#pragma HLS ARRAY_PARTITION variable=A->array cyclic factor=5 dim=1
 
 	for (size_t i = 0; i < A->numel; i += b->numel)
 	{
