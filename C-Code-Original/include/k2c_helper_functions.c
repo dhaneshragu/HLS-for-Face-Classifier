@@ -297,48 +297,69 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
 	size_t i, j;
 
 	// Find which axes are free (i.e., not being summed over) in array Ar
-	count = 0;
-	for (i = 0; i < ndimA; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
-	#pragma HLS PIPELINE
-		isin = 0;
-		for (j = 0; j < naxes; ++j) {
-			#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-			if (i == axesA[j]) {
-				isin = 1;
+//	count = 0;
+//	for (i = 0; i < ndimA; ++i) {
+//	#pragma HLS LOOP_TRIPCOUNT min=1 max=2
+//	#pragma HLS PIPELINE
+//		isin = 0;
+//		for (j = 0; j < naxes; ++j) {
+//			#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//			if (i == axesA[j]) {
+//				isin = 1;
+//			}
+//		}
+//		if (!isin) {
+//			freeA[count] = i;
+//			++count;
+//		}
+//	}
+
+			count = 0;
+			for (i = 0; i < ndimA; ++i) {
+				#pragma HLS LOOP_TRIPCOUNT min=1 max=2
+				#pragma HLS PIPELINE
+				isin = 0;
+				if (i != axesA[0]) {
+					freeA[count] = i;
+					++count;
+				}
 			}
-		}
-		if (!isin) {
-			freeA[count] = i;
-			++count;
-		}
-	}
 
 	// Find which axes are free (i.e., not being summed over) in array B
-	count = 0;
-	for (i = 0; i < ndimB; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
-	#pragma HLS PIPELINE
-		isin = 0;
-		for (j = 0; j < naxes; ++j) {
-			#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-			if (i == axesB[j]) {
-				isin = 1;
-			}
-		}
-		if (!isin) {
-			freeB[count] = i;
-			++count;
-		}
-	}
+//	count = 0;
+//	for (i = 0; i < ndimB; ++i) {
+//	#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+//	#pragma HLS PIPELINE
+//		isin = 0;
+//		for (j = 0; j < naxes; ++j) {
+//			#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//			if (i == axesB[j]) {
+//				isin = 1;
+//			}
+//		}
+//		if (!isin) {
+//			freeB[count] = i;
+//			++count;
+//		}
+//	}
+				count = 0;
+				for (i = 0; i < 2; ++i) {
+					#pragma HLS LOOP_TRIPCOUNT min=1 max=2
+					#pragma HLS PIPELINE
+					isin = 0;
+					if (i != axesA[0]) {
+						freeB[count] = i;
+						++count;
+					}
+				}
 
 	// Calculate the number of elements in the inner dimension for arrays Ar and B
-	for (i = 0; i < naxes; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-	#pragma HLS unroll
-		prod_axesA *= Ar->shape[axesA[i]];
-		prod_axesB *= B->shape[axesB[i]];
-	}
+//			for (i = 0; i < naxes; ++i) {
+//			#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//			#pragma HLS unroll
+				prod_axesA *= Ar->shape[axesA[0]];
+				prod_axesB *= B->shape[axesB[0]];
+//			}
 // 	for (i = 0; i < naxes; ++i) {
 // #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 // #pragma HLS unroll
@@ -352,67 +373,70 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
 	// Find permutation of axes to get into matmul shape for array Ar
 	for (i = 0; i < ndimA - naxes; ++i) {
 //		#pragma HLS unroll
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=5
 	#pragma HLS PIPELINE
 		permA[i] = freeA[i];
 	}
 	for (i = ndimA - naxes, j = 0; i < ndimA; ++i, ++j) {
 //		#pragma HLS unroll
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=5
 	#pragma HLS PIPELINE
 		permA[i] = axesA[j];
 	}
 
 	// Find permutation of axes to get into matmul shape for array B
-	for (i = 0; i < naxes; ++i) {
-//		#pragma HLS unroll
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-	#pragma HLS PIPELINE
-		permB[i] = axesB[i];
-	}
-	for (i = naxes, j = 0; i < ndimB; ++i, ++j) {
-//		#pragma HLS unroll
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-	#pragma HLS PIPELINE
-		permB[i] = freeB[j];
-	}
+//	for (i = 0; i < naxes; ++i) {
+////		#pragma HLS unroll
+//	#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//	#pragma HLS PIPELINE
+		permB[0] = axesB[0];
+//	}
+//	for (i = naxes, j = 0; i < ndimB; ++i, ++j) {
+////		#pragma HLS unroll
+//	#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//	#pragma HLS PIPELINE
+		permB[naxes] = freeB[0];
+//	}
 
 	for (i = 0; i < ndimA; ++i) {
 //		#pragma HLS unroll
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=2
 	#pragma HLS PIPELINE
 		newshpA[i] = Ar->shape[permA[i]];
 	}
-	for (i = 0; i < ndimB; ++i) {
-//		#pragma HLS unroll
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
-	#pragma HLS PIPELINE
+	for (i = 0; i < 2; ++i) {
+		#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+		#pragma HLS unroll
+//	#pragma HLS PIPELINE
 		newshpB[i] = B->shape[permB[i]];
 	}
 
 	// Reshape arrays
 	for (i = 0; i < Ar->numel; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 		k2c_idx2sub(i, Asub, Ar->shape, ndimA);
-		for (j = 0; j < ndimA; ++j) {
-//			#pragma HLS unroll
-		#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=ndimA
-		#pragma HLS PIPELINE
-			Bsub[j] = Asub[permA[j]];
-		}
+//		for (j = 0; j < ndimA; ++j) {
+////			#pragma HLS unroll
+//		#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//		#pragma HLS PIPELINE
+			Bsub[0] = Asub[permA[0]];
+//		}
 		size_t bidx = k2c_sub2idx(Bsub, newshpA, ndimA);
 		reshapeA[bidx] = Ar->array[i];
 	}
 
-	for (i = 0; i < B->numel; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+	for (i = 0; i < 2622000; ++i) {
+	#pragma HLS LOOP_TRIPCOUNT min=262200 max=262200
+	#pragma HLS LOOP_TRIPCOUNT min=2 max=2
 		k2c_idx2sub(i, Bsub, B->shape, ndimB);
-		for (j = 0; j < ndimB; ++j) {
-//			#pragma HLS unroll
-		#pragma HLS LOOP_TRIPCOUNT min=1 max=5
-		#pragma HLS PIPELINE
-			Asub[j] = Bsub[permB[j]];
-		}
+//		for (j = 0; j < ndimB; ++j) {
+////			#pragma HLS unroll
+//		#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+//		#pragma HLS PIPELINE
+//			Asub[j] = Bsub[permB[j]];
+//		}
+		Asub[0] = Bsub[permB[0]];
+		Asub[1] = Bsub[permB[1]];
 		size_t bidx = k2c_sub2idx(Asub, newshpB, ndimB);
 		reshapeB[bidx] = B->array[i];
 	}
@@ -443,7 +467,7 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
 			sum = 0;
 			for (j = 0; j < prod_axesB; ++j) {
 //				#pragma HLS unroll
-			#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+			#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 			#pragma HLS PIPELINE
 				sum += reshapeB[i + free_axesB * j]
 						* reshapeB[i + free_axesB * j];
@@ -451,7 +475,7 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
 			inorm = 1.0f / sqrtf(sum);
 			for (j = 0; j < prod_axesB; ++j) {
 //				#pragma HLS unroll
-			#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+			#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 			#pragma HLS PIPELINE
 				reshapeB[i + free_axesB * j] *= inorm;
 			}
@@ -460,13 +484,13 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
 
 	// Perform matrix multiplication
 	for (i = 0; i < free_axesA; ++i) {
-		#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+		#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 		for (j = 0; j < free_axesB; ++j) {
-			#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+			#pragma HLS LOOP_TRIPCOUNT min=100 max=100
 			C->array[i * free_axesB + j] = 0;
 			for (size_t k = 0; k < prod_axesA; ++k) {
 //				#pragma HLS unroll
-				#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+				#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 				#pragma HLS PIPELINE
 				C->array[i * free_axesB + j] += reshapeA[i * prod_axesA + k]
 						* reshapeB[k * free_axesB + j];
@@ -643,44 +667,45 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
 	count = 0;
 	size_t i, j;
 	for (i = 0; i < ndimA; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=2
 	#pragma HLS PIPELINE
-		isin = 0;
-		for (size_t j = 0; j < naxes; ++j) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-			if (i == axesA[j]) {
-				isin = 1;
+			if (i != axesA[0]) {
+				freeA[count] = i;
+							++count;
 			}
-		}
-		if (!isin) {
-			freeA[count] = i;
-			++count;
-		}
 	}
-	count = 0;
-	for (i = 0; i < ndimB; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
-	#pragma HLS PIPELINE
-		isin = 0;
-		for (size_t j = 0; j < naxes; ++j) {
-		#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-			if (i == axesB[j]) {
-				isin = 1;
-			}
+//	count = 0;
+//	for (i = 0; i < ndimB; ++i) {
+//	#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+//	#pragma HLS PIPELINE
+//		isin = 0;
+//		for (size_t j = 0; j < naxes; ++j) {
+//		#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//			if (i == axesB[j]) {
+//				isin = 1;
+//			}
+//		}
+//		if (!isin) {
+//			freeB[count] = i;
+//			++count;
+//		}
+//	}
+	for (i = 0; i < 2; ++i) {
+		#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+		#pragma HLS PIPELINE
+				if (i != axesB[0]) {
+					freeB[count] = i;
+					++count;
+				}
 		}
-		if (!isin) {
-			freeB[count] = i;
-			++count;
-		}
-	}
 
 	// number of elements in inner dimension
-	for (i = 0; i < naxes; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-	#pragma HLS PIPELINE
-		prod_axesA *= Ar->shape[axesA[i]];
-		prod_axesB *= B->shape[axesB[i]];
-	}
+//	for (i = 0; i < naxes; ++i) {
+//	#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//	#pragma HLS PIPELINE
+		prod_axesA *= Ar->shape[axesA[0]];
+		prod_axesB *= B->shape[axesB[0]];
+//	}
 // 	for (i = 0; i < naxes; ++i) {
 // #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 // #pragma HLS unroll
@@ -691,34 +716,34 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
 	free_axesB = B->numel / prod_axesB;
 	// find permutation of axes to get into matmul shape
 	for (i = 0; i < ndimA - naxes; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=5
 	#pragma HLS PIPELINE
 		permA[i] = freeA[i];
 	}
 	for (i = ndimA - naxes, j = 0; i < ndimA; ++i, ++j) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=5
 	#pragma HLS PIPELINE
 		permA[i] = axesA[j];
 	}
-	for (i = 0; i < naxes; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-	#pragma HLS PIPELINE
-		permB[i] = axesB[i];
-	}
-	for (i = naxes, j = 0; i < ndimB; ++i, ++j) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-	#pragma HLS PIPELINE
-		permB[i] = freeB[j];
-	}
-
+//	for (i = 0; i < naxes; ++i) {
+//	#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//	#pragma HLS PIPELINE
+		permB[0] = axesB[0];
+//	}
+//	for (i = naxes, j = 0; i < ndimB; ++i, ++j) {
+//	#pragma HLS LOOP_TRIPCOUNT min=1 max=1
+//	#pragma HLS PIPELINE
+		permB[0] = freeB[0];
+//	}
+//
 	for (i = 0; i < ndimA; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
+	#pragma HLS LOOP_TRIPCOUNT min=1 max=2
 	#pragma HLS PIPELINE
 		newshpA[i] = Ar->shape[permA[i]];
 	}
-	for (i = 0; i < ndimB; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=2 avg=2
-	#pragma HLS PIPELINE
+	for (i = 0; i < 2; ++i) {
+	#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+	#pragma HLS unroll
 		newshpB[i] = B->shape[permB[i]];
 	}
 
@@ -727,7 +752,7 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
 	#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 		k2c_idx2sub(i, Asub, Ar->shape, ndimA);
 		for (size_t j = 0; j < ndimA; ++j) {
-		#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+		#pragma HLS LOOP_TRIPCOUNT min=1 max=5
 		#pragma HLS PIPELINE
 			Bsub[j] = Asub[permA[j]];
 		}
@@ -735,14 +760,16 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
 		reshapeA[bidx] = Ar->array[i];
 	}
 
-	for (i = 0; i < B->numel; ++i) {
-		#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+	for (i = 0; i < 1000; ++i) {
+		#pragma HLS LOOP_TRIPCOUNT min=1000 max=1000
 		k2c_idx2sub(i, Bsub, B->shape, ndimB);
-		for (size_t j = 0; j < ndimB; ++j) {
-			#pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
-			#pragma HLS PIPELINE
-			Asub[j] = Bsub[permB[j]];
-		}
+//		for (size_t j = 0; j < ndimB; ++j) {
+//			#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+//			#pragma HLS PIPELINE
+//			Asub[j] = Bsub[permB[j]];
+//		}
+		Asub[0] = Bsub[permB[0]];
+		Asub[1] = Bsub[permB[1]];
 		size_t bidx = k2c_sub2idx(Asub, newshpB, ndimB);
 		reshapeB[bidx] = B->array[i];
 	}
@@ -791,15 +818,15 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
 	//k2c_matmul(C->array, reshapeA, reshapeB, free_axesA,free_axesB, prod_axesA);
 
 	for (i = 0; i < free_axesA; ++i) {
-		#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+		#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 
 		for (size_t j = 0; j < free_axesB; ++j) {
-			#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
+			#pragma HLS LOOP_TRIPCOUNT min=10 max=10
 
 			C->array[i * free_axesB + j] = 0;
 			for (size_t k = 0; k < prod_axesA; ++k) {
-				#pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
-				#pragma HLS PIPELINE
+				#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+//				#pragma HLS PIPELINE
 				C->array[i * free_axesB + j] += reshapeA[i * prod_axesA + k]
 						* reshapeB[k * free_axesB + j];
 			}
