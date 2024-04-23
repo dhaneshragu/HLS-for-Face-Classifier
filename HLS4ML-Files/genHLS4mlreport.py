@@ -10,6 +10,14 @@ import math
 import hls4ml
 
 
+## Steps taken to install hls4ml
+# - Xilinx Vivado 2018.2 in Ubuntu 22.04 LTS
+# Packages required:
+# - Python 3.10.12
+# - Tensorflow version 2.11.1
+# - hls4ml
+# - Then run this python script. Then you should change some stuff in build prj.tcl as mentioned in report
+
 os.environ['PATH']='/opt/Xilinx/Vivado/2018.2/bin:' + os.environ['PATH']
 keras_model = keras.models.load_model("face_classifier_model.h5")
 
