@@ -87,8 +87,8 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
 #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 		temp = sub[i];
 		for (size_t j = ndim - 1; j > i; --j) {
-#pragma HLS pipeline
 #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS pipeline
 			temp *= shape[j];
 		}
 		idx += temp;
@@ -108,7 +108,6 @@ void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape,
 		const size_t ndim) {
 
 	size_t idx2 = idx;
-
 	for (int i = ndim - 1; i >= 0; --i) {
 #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 #pragma HLS pipeline
@@ -426,8 +425,7 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
 	}
 
 	for (i = 0; i < 2622000; ++i) {
-	#pragma HLS LOOP_TRIPCOUNT min=262200 max=262200
-	#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+	#pragma HLS LOOP_TRIPCOUNT min=2622000 max=2622000
 		k2c_idx2sub(i, Bsub, B->shape, ndimB);
 //		for (j = 0; j < ndimB; ++j) {
 ////			#pragma HLS unroll
@@ -485,7 +483,7 @@ void k2c_dot(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor* B,
 	// Perform matrix multiplication
 	for (i = 0; i < free_axesA; ++i) {
 		#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
-		for (j = 0; j < free_axesB; ++j) {
+		for (j = 0; j < 100; ++j) {
 			#pragma HLS LOOP_TRIPCOUNT min=100 max=100
 			C->array[i * free_axesB + j] = 0;
 			for (size_t k = 0; k < prod_axesA; ++k) {
@@ -820,13 +818,14 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
 	for (i = 0; i < free_axesA; ++i) {
 		#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 
-		for (size_t j = 0; j < free_axesB; ++j) {
+		for (size_t j = 0; j < 10; ++j) {
 			#pragma HLS LOOP_TRIPCOUNT min=10 max=10
 
 			C->array[i * free_axesB + j] = 0;
 			for (size_t k = 0; k < prod_axesA; ++k) {
 				#pragma HLS LOOP_TRIPCOUNT min=1 max=2622
-//				#pragma HLS PIPELINE
+				#pragma HLS PIPELINE
+
 				C->array[i * free_axesB + j] += reshapeA[i * prod_axesA + k]
 						* reshapeB[k * free_axesB + j];
 			}
@@ -842,13 +841,11 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
  * :param b: bias tensor.
  */
 void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b) {
-//#pragma HLS ARRAY_PARTITION variable=A->array cyclic factor=5 dim=1
 
-	for (size_t i = 0; i < A->numel; i += b->numel)
-	{
+//#pragma HLS ARRAY_PARTITION variable=A->array cyclic factor =5 dim =1
+	for (size_t i = 0; i < A->numel; i += b->numel) {
 #pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
-		for (size_t j = 0; j < b->numel; ++j)
-		{
+		for (size_t j = 0; j < b->numel; ++j) {
 #pragma HLS LOOP_TRIPCOUNT min=1 max=2622
 #pragma HLS pipeline
 			A->array[i + j] += b->array[j];
