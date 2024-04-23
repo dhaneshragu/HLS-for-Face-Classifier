@@ -83,12 +83,11 @@ size_t k2c_sub2idx(const size_t * sub, const size_t * shape, const size_t ndim) 
 
 	size_t idx = 0;
 	size_t temp = 0;
-#pragma HLS pipeline
 	for (size_t i = 0; i < ndim; ++i) {
 #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 		temp = sub[i];
-#pragma HLS pipeline
 		for (size_t j = ndim - 1; j > i; --j) {
+#pragma HLS pipeline
 #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
 			temp *= shape[j];
 		}
@@ -109,9 +108,10 @@ void k2c_idx2sub(const size_t idx, size_t * sub, const size_t * shape,
 		const size_t ndim) {
 
 	size_t idx2 = idx;
-#pragma HLS pipeline
+
 	for (int i = ndim - 1; i >= 0; --i) {
 #pragma HLS LOOP_TRIPCOUNT min=1 max=5 avg=5
+#pragma HLS pipeline
 		sub[i] = idx2 % shape[i];
 		idx2 /= shape[i];
 	}
@@ -815,13 +815,15 @@ void k2c_dot2(k2c_tensor2* C, const k2c_tensor2* Ar, const k2c_tensor2* B,
  * :param b: bias tensor.
  */
 void k2c_bias_add(k2c_tensor2* A, const k2c_tensor2* b) {
+#pragma HLS ARRAY_PARTITION variable=A->array cyclic factor=5 dim=1
 
-#pragma HLS pipeline
-	for (size_t i = 0; i < A->numel; i += b->numel) {
+	for (size_t i = 0; i < A->numel; i += b->numel)
+	{
 #pragma HLS LOOP_TRIPCOUNT min=1 max=2622 avg=2622
-#pragma HLS pipeline
-		for (size_t j = 0; j < b->numel; ++j) {
+		for (size_t j = 0; j < b->numel; ++j)
+		{
 #pragma HLS LOOP_TRIPCOUNT min=1 max=2622
+#pragma HLS pipeline
 			A->array[i + j] += b->array[j];
 		}
 	}
